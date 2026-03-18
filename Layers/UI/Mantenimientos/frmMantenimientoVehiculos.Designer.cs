@@ -1,0 +1,615 @@
+﻿namespace UTN.WinForms.ApCars.Layers.UI
+{
+    partial class frmMantenimientoVehiculos
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMantenimientoVehiculos));
+            this.tspPrincipal = new System.Windows.Forms.ToolStrip();
+            this.sttInferior = new System.Windows.Forms.StatusStrip();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.dgvDatos = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.mskCodigo = new System.Windows.Forms.MaskedTextBox();
+            this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnEditar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnBorrar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbMarca = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.cmbEstilo = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtAño = new System.Windows.Forms.TextBox();
+            this.nudCantidadPasajeros = new System.Windows.Forms.NumericUpDown();
+            this.lblTipoCombustible = new System.Windows.Forms.Label();
+            this.cmbCombustible = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtColor = new System.Windows.Forms.TextBox();
+            this.lblTransmision = new System.Windows.Forms.Label();
+            this.cmbTransmision = new System.Windows.Forms.ComboBox();
+            this.pbImagen = new System.Windows.Forms.PictureBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pbDocumentacion = new System.Windows.Forms.PictureBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.mskPrecio = new System.Windows.Forms.MaskedTextBox();
+            this.txtExtras = new System.Windows.Forms.TextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.tspPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadPasajeros)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDocumentacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // tspPrincipal
+            // 
+            this.tspPrincipal.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.tspPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripBtnNuevo,
+            this.toolStripBtnEditar,
+            this.toolStripBtnBorrar,
+            this.toolStripBtnSalir});
+            this.tspPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.tspPrincipal.Name = "tspPrincipal";
+            this.tspPrincipal.Size = new System.Drawing.Size(1485, 55);
+            this.tspPrincipal.TabIndex = 3;
+            // 
+            // sttInferior
+            // 
+            this.sttInferior.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.sttInferior.Location = new System.Drawing.Point(0, 813);
+            this.sttInferior.Name = "sttInferior";
+            this.sttInferior.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.sttInferior.Size = new System.Drawing.Size(1485, 22);
+            this.sttInferior.TabIndex = 4;
+            this.sttInferior.Text = "statusStrip1";
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 55);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.dataGridView2);
+            this.splitContainer1.Panel1.Controls.Add(this.dataGridView1);
+            this.splitContainer1.Panel1.Controls.Add(this.dgvDatos);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
+            this.splitContainer1.Size = new System.Drawing.Size(1485, 758);
+            this.splitContainer1.SplitterDistance = 671;
+            this.splitContainer1.SplitterWidth = 5;
+            this.splitContainer1.TabIndex = 5;
+            // 
+            // dgvDatos
+            // 
+            this.dgvDatos.AllowUserToAddRows = false;
+            this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDatos.Location = new System.Drawing.Point(0, 0);
+            this.dgvDatos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvDatos.Name = "dgvDatos";
+            this.dgvDatos.ReadOnly = true;
+            this.dgvDatos.RowHeadersWidth = 51;
+            this.dgvDatos.Size = new System.Drawing.Size(671, 758);
+            this.dgvDatos.TabIndex = 1;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.15678F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.84322F));
+            this.tableLayoutPanel1.Controls.Add(this.txtExtras, 1, 10);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 9);
+            this.tableLayoutPanel1.Controls.Add(this.cmbTransmision, 1, 8);
+            this.tableLayoutPanel1.Controls.Add(this.lblTransmision, 0, 8);
+            this.tableLayoutPanel1.Controls.Add(this.txtColor, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.label11, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.cmbCombustible, 1, 6);
+            this.tableLayoutPanel1.Controls.Add(this.lblTipoCombustible, 0, 6);
+            this.tableLayoutPanel1.Controls.Add(this.txtAño, 1, 4);
+            this.tableLayoutPanel1.Controls.Add(this.label12, 0, 5);
+            this.tableLayoutPanel1.Controls.Add(this.label8, 0, 4);
+            this.tableLayoutPanel1.Controls.Add(this.cmbEstilo, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label10, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.cmbMarca, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 10);
+            this.tableLayoutPanel1.Controls.Add(this.mskCodigo, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.txtDescripcion, 1, 3);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 12);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 13);
+            this.tableLayoutPanel1.Controls.Add(this.pbImagen, 1, 12);
+            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 1, 14);
+            this.tableLayoutPanel1.Controls.Add(this.pbDocumentacion, 1, 13);
+            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 0, 14);
+            this.tableLayoutPanel1.Controls.Add(this.nudCantidadPasajeros, 1, 5);
+            this.tableLayoutPanel1.Controls.Add(this.mskPrecio, 1, 9);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 15;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(759, 691);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(4, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(441, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "VIN";
+            // 
+            // mskCodigo
+            // 
+            this.mskCodigo.Location = new System.Drawing.Point(453, 4);
+            this.mskCodigo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.mskCodigo.Name = "mskCodigo";
+            this.mskCodigo.Size = new System.Drawing.Size(207, 22);
+            this.mskCodigo.TabIndex = 1;
+            // 
+            // toolStripBtnNuevo
+            // 
+            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.user_group_properties;
+            this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
+            this.toolStripBtnNuevo.Size = new System.Drawing.Size(104, 52);
+            this.toolStripBtnNuevo.Text = "&Nuevo";
+            // 
+            // toolStripBtnEditar
+            // 
+            this.toolStripBtnEditar.Image = global::UTN.WinForms.ApCars.Properties.Resources.document_edit;
+            this.toolStripBtnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnEditar.Name = "toolStripBtnEditar";
+            this.toolStripBtnEditar.Size = new System.Drawing.Size(100, 52);
+            this.toolStripBtnEditar.Text = "&Editar";
+            // 
+            // toolStripBtnBorrar
+            // 
+            this.toolStripBtnBorrar.Image = global::UTN.WinForms.ApCars.Properties.Resources.trash_empty_3;
+            this.toolStripBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnBorrar.Name = "toolStripBtnBorrar";
+            this.toolStripBtnBorrar.Size = new System.Drawing.Size(102, 52);
+            this.toolStripBtnBorrar.Text = "&Borrar";
+            // 
+            // toolStripBtnSalir
+            // 
+            this.toolStripBtnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.window_close_2;
+            this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnSalir.Name = "toolStripBtnSalir";
+            this.toolStripBtnSalir.Size = new System.Drawing.Size(90, 52);
+            this.toolStripBtnSalir.Text = "&Salir";
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.Location = new System.Drawing.Point(453, 98);
+            this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(207, 22);
+            this.txtDescripcion.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(4, 101);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(441, 16);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Descripción";
+            // 
+            // label9
+            // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(4, 38);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(441, 16);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Marca";
+            // 
+            // cmbMarca
+            // 
+            this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMarca.FormattingEnabled = true;
+            this.cmbMarca.Location = new System.Drawing.Point(453, 34);
+            this.cmbMarca.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbMarca.Name = "cmbMarca";
+            this.cmbMarca.Size = new System.Drawing.Size(207, 24);
+            this.cmbMarca.TabIndex = 18;
+            // 
+            // label10
+            // 
+            this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(4, 70);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(441, 16);
+            this.label10.TabIndex = 19;
+            this.label10.Text = "Estilo";
+            // 
+            // cmbEstilo
+            // 
+            this.cmbEstilo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbEstilo.FormattingEnabled = true;
+            this.cmbEstilo.Location = new System.Drawing.Point(453, 66);
+            this.cmbEstilo.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbEstilo.Name = "cmbEstilo";
+            this.cmbEstilo.Size = new System.Drawing.Size(207, 24);
+            this.cmbEstilo.TabIndex = 20;
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(4, 131);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(441, 16);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Año";
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(4, 160);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(441, 16);
+            this.label12.TabIndex = 23;
+            this.label12.Text = "Cantidad Pasajeros";
+            // 
+            // txtAño
+            // 
+            this.txtAño.Location = new System.Drawing.Point(453, 128);
+            this.txtAño.Margin = new System.Windows.Forms.Padding(4);
+            this.txtAño.Name = "txtAño";
+            this.txtAño.Size = new System.Drawing.Size(207, 22);
+            this.txtAño.TabIndex = 24;
+            // 
+            // nudCantidadPasajeros
+            // 
+            this.nudCantidadPasajeros.Location = new System.Drawing.Point(452, 157);
+            this.nudCantidadPasajeros.Name = "nudCantidadPasajeros";
+            this.nudCantidadPasajeros.Size = new System.Drawing.Size(209, 22);
+            this.nudCantidadPasajeros.TabIndex = 25;
+            // 
+            // lblTipoCombustible
+            // 
+            this.lblTipoCombustible.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTipoCombustible.AutoSize = true;
+            this.lblTipoCombustible.Location = new System.Drawing.Point(4, 190);
+            this.lblTipoCombustible.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTipoCombustible.Name = "lblTipoCombustible";
+            this.lblTipoCombustible.Size = new System.Drawing.Size(441, 16);
+            this.lblTipoCombustible.TabIndex = 26;
+            this.lblTipoCombustible.Text = "Tipo Combustible";
+            // 
+            // cmbCombustible
+            // 
+            this.cmbCombustible.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCombustible.FormattingEnabled = true;
+            this.cmbCombustible.Location = new System.Drawing.Point(453, 186);
+            this.cmbCombustible.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbCombustible.Name = "cmbCombustible";
+            this.cmbCombustible.Size = new System.Drawing.Size(207, 24);
+            this.cmbCombustible.TabIndex = 27;
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(4, 221);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(441, 16);
+            this.label11.TabIndex = 28;
+            this.label11.Text = "Color";
+            // 
+            // txtColor
+            // 
+            this.txtColor.Location = new System.Drawing.Point(453, 218);
+            this.txtColor.Margin = new System.Windows.Forms.Padding(4);
+            this.txtColor.Name = "txtColor";
+            this.txtColor.Size = new System.Drawing.Size(207, 22);
+            this.txtColor.TabIndex = 29;
+            // 
+            // lblTransmision
+            // 
+            this.lblTransmision.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTransmision.AutoSize = true;
+            this.lblTransmision.Location = new System.Drawing.Point(4, 252);
+            this.lblTransmision.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTransmision.Name = "lblTransmision";
+            this.lblTransmision.Size = new System.Drawing.Size(441, 16);
+            this.lblTransmision.TabIndex = 30;
+            this.lblTransmision.Text = "Transmision";
+            // 
+            // cmbTransmision
+            // 
+            this.cmbTransmision.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTransmision.FormattingEnabled = true;
+            this.cmbTransmision.Location = new System.Drawing.Point(453, 248);
+            this.cmbTransmision.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbTransmision.Name = "cmbTransmision";
+            this.cmbTransmision.Size = new System.Drawing.Size(207, 24);
+            this.cmbTransmision.TabIndex = 31;
+            // 
+            // pbImagen
+            // 
+            this.pbImagen.Location = new System.Drawing.Point(453, 340);
+            this.pbImagen.Margin = new System.Windows.Forms.Padding(4);
+            this.pbImagen.Name = "pbImagen";
+            this.pbImagen.Size = new System.Drawing.Size(208, 106);
+            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbImagen.TabIndex = 10;
+            this.pbImagen.TabStop = false;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(4, 385);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(441, 16);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Imagen";
+            // 
+            // label3
+            // 
+            this.label3.AccessibleName = "Ext";
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(4, 313);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(441, 16);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Extras";
+            // 
+            // pbDocumentacion
+            // 
+            this.pbDocumentacion.Image = ((System.Drawing.Image)(resources.GetObject("pbDocumentacion.Image")));
+            this.pbDocumentacion.Location = new System.Drawing.Point(453, 454);
+            this.pbDocumentacion.Margin = new System.Windows.Forms.Padding(4);
+            this.pbDocumentacion.Name = "pbDocumentacion";
+            this.pbDocumentacion.Size = new System.Drawing.Size(208, 96);
+            this.pbDocumentacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbDocumentacion.TabIndex = 11;
+            this.pbDocumentacion.TabStop = false;
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(4, 494);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(441, 16);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Documentación";
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Location = new System.Drawing.Point(4, 558);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(246, 105);
+            this.btnAceptar.TabIndex = 5;
+            this.btnAceptar.Text = "&Aceptar";
+            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(453, 558);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(221, 105);
+            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.Text = "&Cancelar";
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(4, 283);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(441, 16);
+            this.label4.TabIndex = 32;
+            this.label4.Text = "Precio";
+            // 
+            // mskPrecio
+            // 
+            this.mskPrecio.Location = new System.Drawing.Point(453, 280);
+            this.mskPrecio.Margin = new System.Windows.Forms.Padding(4);
+            this.mskPrecio.Name = "mskPrecio";
+            this.mskPrecio.Size = new System.Drawing.Size(207, 22);
+            this.mskPrecio.TabIndex = 3;
+            // 
+            // txtExtras
+            // 
+            this.txtExtras.ImeMode = System.Windows.Forms.ImeMode.Disable;
+            this.txtExtras.Location = new System.Drawing.Point(453, 310);
+            this.txtExtras.Margin = new System.Windows.Forms.Padding(4);
+            this.txtExtras.Name = "txtExtras";
+            this.txtExtras.Size = new System.Drawing.Size(207, 22);
+            this.txtExtras.TabIndex = 33;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(671, 758);
+            this.dataGridView1.TabIndex = 2;
+            // 
+            // dataGridView2
+            // 
+            this.dataGridView2.AllowUserToAddRows = false;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
+            this.dataGridView2.RowHeadersWidth = 51;
+            this.dataGridView2.Size = new System.Drawing.Size(671, 758);
+            this.dataGridView2.TabIndex = 3;
+            // 
+            // frmMantenimientoVehiculos
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1485, 835);
+            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.sttInferior);
+            this.Controls.Add(this.tspPrincipal);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Name = "frmMantenimientoVehiculos";
+            this.Text = "Vehiculos";
+            this.tspPrincipal.ResumeLayout(false);
+            this.tspPrincipal.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadPasajeros)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDocumentacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.ToolStrip tspPrincipal;
+        private System.Windows.Forms.ToolStripButton toolStripBtnNuevo;
+        private System.Windows.Forms.ToolStripButton toolStripBtnEditar;
+        private System.Windows.Forms.ToolStripButton toolStripBtnBorrar;
+        private System.Windows.Forms.ToolStripButton toolStripBtnSalir;
+        private System.Windows.Forms.StatusStrip sttInferior;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.DataGridView dgvDatos;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MaskedTextBox mskCodigo;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtDescripcion;
+        private System.Windows.Forms.ComboBox cmbEstilo;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox cmbMarca;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox txtAño;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.NumericUpDown nudCantidadPasajeros;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox cmbCombustible;
+        private System.Windows.Forms.Label lblTipoCombustible;
+        private System.Windows.Forms.ComboBox cmbTransmision;
+        private System.Windows.Forms.Label lblTransmision;
+        private System.Windows.Forms.TextBox txtColor;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pbImagen;
+        private System.Windows.Forms.TextBox txtExtras;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.PictureBox pbDocumentacion;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.MaskedTextBox mskPrecio;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGridView1;
+    }
+}
