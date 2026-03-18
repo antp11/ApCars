@@ -100,7 +100,7 @@
             this.toolStripBtnSalir});
             this.tspBarraSuperior.Location = new System.Drawing.Point(0, 0);
             this.tspBarraSuperior.Name = "tspBarraSuperior";
-            this.tspBarraSuperior.Size = new System.Drawing.Size(1400, 27);
+            this.tspBarraSuperior.Size = new System.Drawing.Size(1400, 31);
             this.tspBarraSuperior.TabIndex = 2;
             this.tspBarraSuperior.Text = "toolStrip1";
             // 
@@ -150,7 +150,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 27);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 31);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -160,7 +160,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.grbDetalle);
-            this.splitContainer1.Size = new System.Drawing.Size(1400, 678);
+            this.splitContainer1.Size = new System.Drawing.Size(1400, 674);
             this.splitContainer1.SplitterDistance = 676;
             this.splitContainer1.TabIndex = 4;
             // 
