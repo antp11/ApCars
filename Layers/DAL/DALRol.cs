@@ -39,7 +39,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                     {
                         Rol oRol = new Rol();
                         oRol.IdRol = int.Parse(reader["IdRol"].ToString());
-                        oRol.DescripcionRol = reader["DescripcionRol"].ToString();
+                        oRol.DescripcionRol = reader["DesscripcionRol"].ToString();
                         lista.Add(oRol);
                     }
                 }

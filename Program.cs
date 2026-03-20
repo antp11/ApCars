@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UTN.WinForms.ApCars.Layers.UI;
 
 namespace apCars
 {
@@ -16,7 +17,14 @@ namespace apCars
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmPrincipal());
+
+
+            frmLogin ofrmLogin = new frmLogin();
+
+            ofrmLogin.ShowDialog();
+
+            if (ofrmLogin.DialogResult == DialogResult.OK)
+                Application.Run(new frmPrincipal());
         }
     }
 }

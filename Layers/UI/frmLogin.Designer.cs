@@ -28,16 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tlpPanel = new System.Windows.Forms.TableLayoutPanel();
             this.lblUsuario = new System.Windows.Forms.Label();
             this.lblContrasenna = new System.Windows.Forms.Label();
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.pcbLogin = new System.Windows.Forms.PictureBox();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnAceptar = new System.Windows.Forms.Button();
+            this.pcbLogin = new System.Windows.Forms.PictureBox();
+            this.epError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.sttBarraInferior = new System.Windows.Forms.StatusStrip();
+            this.toolStripPbBarra = new System.Windows.Forms.ToolStripProgressBar();
             this.tlpPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLogin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
+            this.sttBarraInferior.SuspendLayout();
             this.SuspendLayout();
             // 
             // tlpPanel
@@ -102,17 +108,7 @@
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(260, 30);
             this.txtPassword.TabIndex = 3;
-            this.txtPassword.Text = "123456";
-            // 
-            // pcbLogin
-            // 
-            this.pcbLogin.Location = new System.Drawing.Point(220, 25);
-            this.pcbLogin.Margin = new System.Windows.Forms.Padding(4);
-            this.pcbLogin.Name = "pcbLogin";
-            this.pcbLogin.Size = new System.Drawing.Size(150, 148);
-            this.pcbLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbLogin.TabIndex = 5;
-            this.pcbLogin.TabStop = false;
+            this.txtPassword.Text = "1234567";
             // 
             // btnSalir
             // 
@@ -126,6 +122,7 @@
             this.btnSalir.Text = "&Salir";
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnAceptar
             // 
@@ -138,12 +135,47 @@
             this.btnAceptar.Text = "&Aceptar";
             this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // pcbLogin
+            // 
+            this.pcbLogin.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_registrarse_100;
+            this.pcbLogin.Location = new System.Drawing.Point(236, 25);
+            this.pcbLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.pcbLogin.Name = "pcbLogin";
+            this.pcbLogin.Size = new System.Drawing.Size(150, 148);
+            this.pcbLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbLogin.TabIndex = 5;
+            this.pcbLogin.TabStop = false;
+            // 
+            // epError
+            // 
+            this.epError.ContainerControl = this;
+            // 
+            // sttBarraInferior
+            // 
+            this.sttBarraInferior.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.sttBarraInferior.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripPbBarra});
+            this.sttBarraInferior.Location = new System.Drawing.Point(0, 428);
+            this.sttBarraInferior.Name = "sttBarraInferior";
+            this.sttBarraInferior.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.sttBarraInferior.Size = new System.Drawing.Size(617, 22);
+            this.sttBarraInferior.TabIndex = 8;
+            this.sttBarraInferior.Text = "statusStrip1";
+            // 
+            // toolStripPbBarra
+            // 
+            this.toolStripPbBarra.Name = "toolStripPbBarra";
+            this.toolStripPbBarra.Size = new System.Drawing.Size(133, 17);
+            this.toolStripPbBarra.Visible = false;
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(617, 450);
+            this.Controls.Add(this.sttBarraInferior);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.pcbLogin);
@@ -153,7 +185,11 @@
             this.tlpPanel.ResumeLayout(false);
             this.tlpPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLogin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
+            this.sttBarraInferior.ResumeLayout(false);
+            this.sttBarraInferior.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -167,5 +203,8 @@
         private System.Windows.Forms.PictureBox pcbLogin;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.ErrorProvider epError;
+        private System.Windows.Forms.StatusStrip sttBarraInferior;
+        private System.Windows.Forms.ToolStripProgressBar toolStripPbBarra;
     }
 }

@@ -35,6 +35,9 @@
             this.sttBarraInferior = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLblDolar = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.pnlFirma = new System.Windows.Forms.Panel();
+            this.btnLimpiarFirma = new System.Windows.Forms.Button();
+            this.picFirma = new System.Windows.Forms.PictureBox();
             this.grbFacturacion = new System.Windows.Forms.GroupBox();
             this.tlpProducto = new System.Windows.Forms.TableLayoutPanel();
             this.txtMarca = new System.Windows.Forms.TextBox();
@@ -83,6 +86,8 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.pnlFirma.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFirma)).BeginInit();
             this.grbFacturacion.SuspendLayout();
             this.tlpProducto.SuspendLayout();
             this.tlpAgrupamiento.SuspendLayout();
@@ -100,32 +105,35 @@
             this.toolStripBtnSalir});
             this.tspBarraSuperior.Location = new System.Drawing.Point(0, 0);
             this.tspBarraSuperior.Name = "tspBarraSuperior";
-            this.tspBarraSuperior.Size = new System.Drawing.Size(1400, 31);
+            this.tspBarraSuperior.Size = new System.Drawing.Size(1400, 55);
             this.tspBarraSuperior.TabIndex = 2;
             this.tspBarraSuperior.Text = "toolStrip1";
             // 
             // toolStripBtnNuevo
             // 
+            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_agregar_48;
             this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
-            this.toolStripBtnNuevo.Size = new System.Drawing.Size(56, 24);
+            this.toolStripBtnNuevo.Size = new System.Drawing.Size(104, 52);
             this.toolStripBtnNuevo.Text = "Nuevo";
             // 
             // toolStripBtnFacturar
             // 
+            this.toolStripBtnFacturar.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_factura_48;
             this.toolStripBtnFacturar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnFacturar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnFacturar.Name = "toolStripBtnFacturar";
-            this.toolStripBtnFacturar.Size = new System.Drawing.Size(65, 24);
+            this.toolStripBtnFacturar.Size = new System.Drawing.Size(113, 52);
             this.toolStripBtnFacturar.Text = "Facturar";
             // 
             // toolStripBtnSalir
             // 
+            this.toolStripBtnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_cerrar_ventana_48;
             this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnSalir.Name = "toolStripBtnSalir";
-            this.toolStripBtnSalir.Size = new System.Drawing.Size(42, 24);
+            this.toolStripBtnSalir.Size = new System.Drawing.Size(90, 52);
             this.toolStripBtnSalir.Text = "Salir";
             // 
             // sttBarraInferior
@@ -133,7 +141,7 @@
             this.sttBarraInferior.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.sttBarraInferior.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLblDolar});
-            this.sttBarraInferior.Location = new System.Drawing.Point(0, 705);
+            this.sttBarraInferior.Location = new System.Drawing.Point(0, 757);
             this.sttBarraInferior.Name = "sttBarraInferior";
             this.sttBarraInferior.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
             this.sttBarraInferior.Size = new System.Drawing.Size(1400, 34);
@@ -150,19 +158,52 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 31);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 55);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.pnlFirma);
             this.splitContainer1.Panel1.Controls.Add(this.grbFacturacion);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.grbDetalle);
-            this.splitContainer1.Size = new System.Drawing.Size(1400, 674);
+            this.splitContainer1.Size = new System.Drawing.Size(1400, 702);
             this.splitContainer1.SplitterDistance = 676;
             this.splitContainer1.TabIndex = 4;
+            // 
+            // pnlFirma
+            // 
+            this.pnlFirma.Controls.Add(this.btnLimpiarFirma);
+            this.pnlFirma.Controls.Add(this.picFirma);
+            this.pnlFirma.Location = new System.Drawing.Point(13, 561);
+            this.pnlFirma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pnlFirma.Name = "pnlFirma";
+            this.pnlFirma.Size = new System.Drawing.Size(644, 117);
+            this.pnlFirma.TabIndex = 8;
+            // 
+            // btnLimpiarFirma
+            // 
+            this.btnLimpiarFirma.Location = new System.Drawing.Point(77, 34);
+            this.btnLimpiarFirma.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLimpiarFirma.Name = "btnLimpiarFirma";
+            this.btnLimpiarFirma.Size = new System.Drawing.Size(101, 47);
+            this.btnLimpiarFirma.TabIndex = 66;
+            this.btnLimpiarFirma.Text = "Limpiar Firma";
+            this.btnLimpiarFirma.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLimpiarFirma.UseVisualStyleBackColor = true;
+            // 
+            // picFirma
+            // 
+            this.picFirma.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.picFirma.Location = new System.Drawing.Point(251, 15);
+            this.picFirma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.picFirma.Name = "picFirma";
+            this.picFirma.Size = new System.Drawing.Size(351, 90);
+            this.picFirma.TabIndex = 67;
+            this.picFirma.TabStop = false;
             // 
             // grbFacturacion
             // 
@@ -170,10 +211,10 @@
             this.grbFacturacion.Controls.Add(this.tlpAgrupamiento);
             this.grbFacturacion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.grbFacturacion.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbFacturacion.Location = new System.Drawing.Point(4, 24);
-            this.grbFacturacion.Margin = new System.Windows.Forms.Padding(4);
+            this.grbFacturacion.Location = new System.Drawing.Point(4, 25);
+            this.grbFacturacion.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grbFacturacion.Name = "grbFacturacion";
-            this.grbFacturacion.Padding = new System.Windows.Forms.Padding(4);
+            this.grbFacturacion.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grbFacturacion.Size = new System.Drawing.Size(653, 530);
             this.grbFacturacion.TabIndex = 7;
             this.grbFacturacion.TabStop = false;
@@ -201,7 +242,7 @@
             this.tlpProducto.Controls.Add(this.txtExistencia, 1, 3);
             this.tlpProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tlpProducto.Location = new System.Drawing.Point(9, 298);
-            this.tlpProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.tlpProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tlpProducto.Name = "tlpProducto";
             this.tlpProducto.RowCount = 6;
             this.tlpProducto.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -216,7 +257,7 @@
             // txtMarca
             // 
             this.txtMarca.Location = new System.Drawing.Point(96, 34);
-            this.txtMarca.Margin = new System.Windows.Forms.Padding(4);
+            this.txtMarca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.ReadOnly = true;
             this.txtMarca.Size = new System.Drawing.Size(241, 22);
@@ -257,7 +298,7 @@
             // txtPrecio
             // 
             this.txtPrecio.Location = new System.Drawing.Point(96, 154);
-            this.txtPrecio.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPrecio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.ReadOnly = true;
             this.txtPrecio.Size = new System.Drawing.Size(241, 22);
@@ -266,11 +307,12 @@
             // 
             // btnBuscarVehiculo
             // 
+            this.btnBuscarVehiculo.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_buscar_48;
             this.btnBuscarVehiculo.Location = new System.Drawing.Point(467, 4);
-            this.btnBuscarVehiculo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarVehiculo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBuscarVehiculo.Name = "btnBuscarVehiculo";
             this.tlpProducto.SetRowSpan(this.btnBuscarVehiculo, 3);
-            this.btnBuscarVehiculo.Size = new System.Drawing.Size(159, 82);
+            this.btnBuscarVehiculo.Size = new System.Drawing.Size(145, 53);
             this.btnBuscarVehiculo.TabIndex = 6;
             this.btnBuscarVehiculo.Text = "Buscar Vehiculo";
             this.btnBuscarVehiculo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -279,7 +321,7 @@
             // mskCantidad
             // 
             this.mskCantidad.Location = new System.Drawing.Point(96, 124);
-            this.mskCantidad.Margin = new System.Windows.Forms.Padding(4);
+            this.mskCantidad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mskCantidad.Mask = "999999999999";
             this.mskCantidad.Name = "mskCantidad";
             this.mskCantidad.Size = new System.Drawing.Size(241, 22);
@@ -288,7 +330,7 @@
             // mskCodigoVehiculo
             // 
             this.mskCodigoVehiculo.Location = new System.Drawing.Point(96, 4);
-            this.mskCodigoVehiculo.Margin = new System.Windows.Forms.Padding(4);
+            this.mskCodigoVehiculo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.mskCodigoVehiculo.Mask = "99999999999";
             this.mskCodigoVehiculo.Name = "mskCodigoVehiculo";
             this.mskCodigoVehiculo.Size = new System.Drawing.Size(241, 22);
@@ -296,11 +338,12 @@
             // 
             // btnAgregar
             // 
+            this.btnAgregar.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_añadir_48;
             this.btnAgregar.Location = new System.Drawing.Point(467, 124);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAgregar.Name = "btnAgregar";
             this.tlpProducto.SetRowSpan(this.btnAgregar, 2);
-            this.btnAgregar.Size = new System.Drawing.Size(147, 70);
+            this.btnAgregar.Size = new System.Drawing.Size(159, 70);
             this.btnAgregar.TabIndex = 8;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -330,7 +373,7 @@
             // txtDescripcionVehiculo
             // 
             this.txtDescripcionVehiculo.Location = new System.Drawing.Point(96, 64);
-            this.txtDescripcionVehiculo.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDescripcionVehiculo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDescripcionVehiculo.Name = "txtDescripcionVehiculo";
             this.txtDescripcionVehiculo.ReadOnly = true;
             this.txtDescripcionVehiculo.Size = new System.Drawing.Size(241, 22);
@@ -351,7 +394,7 @@
             // txtExistencia
             // 
             this.txtExistencia.Location = new System.Drawing.Point(96, 94);
-            this.txtExistencia.Margin = new System.Windows.Forms.Padding(4);
+            this.txtExistencia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtExistencia.Name = "txtExistencia";
             this.txtExistencia.ReadOnly = true;
             this.txtExistencia.Size = new System.Drawing.Size(241, 22);
@@ -379,8 +422,8 @@
             this.tlpAgrupamiento.Controls.Add(this.txtNombreCliente, 1, 5);
             this.tlpAgrupamiento.Controls.Add(this.label12, 0, 5);
             this.tlpAgrupamiento.Controls.Add(this.rdbCredito, 2, 1);
-            this.tlpAgrupamiento.Location = new System.Drawing.Point(21, 29);
-            this.tlpAgrupamiento.Margin = new System.Windows.Forms.Padding(4);
+            this.tlpAgrupamiento.Location = new System.Drawing.Point(21, 30);
+            this.tlpAgrupamiento.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tlpAgrupamiento.Name = "tlpAgrupamiento";
             this.tlpAgrupamiento.RowCount = 6;
             this.tlpAgrupamiento.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -427,7 +470,7 @@
             // txtNumeroTarjeta
             // 
             this.txtNumeroTarjeta.Location = new System.Drawing.Point(176, 94);
-            this.txtNumeroTarjeta.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumeroTarjeta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNumeroTarjeta.Name = "txtNumeroTarjeta";
             this.txtNumeroTarjeta.Size = new System.Drawing.Size(239, 22);
             this.txtNumeroTarjeta.TabIndex = 2;
@@ -435,7 +478,7 @@
             // txtClienteId
             // 
             this.txtClienteId.Location = new System.Drawing.Point(176, 124);
-            this.txtClienteId.Margin = new System.Windows.Forms.Padding(4);
+            this.txtClienteId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtClienteId.Name = "txtClienteId";
             this.txtClienteId.Size = new System.Drawing.Size(239, 22);
             this.txtClienteId.TabIndex = 3;
@@ -444,7 +487,7 @@
             // 
             this.rdbTransferencia.AutoSize = true;
             this.rdbTransferencia.Location = new System.Drawing.Point(176, 34);
-            this.rdbTransferencia.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbTransferencia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdbTransferencia.Name = "rdbTransferencia";
             this.rdbTransferencia.Size = new System.Drawing.Size(111, 20);
             this.rdbTransferencia.TabIndex = 0;
@@ -455,18 +498,19 @@
             // 
             this.cmbTarjeta.FormattingEnabled = true;
             this.cmbTarjeta.Location = new System.Drawing.Point(176, 62);
-            this.cmbTarjeta.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbTarjeta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbTarjeta.Name = "cmbTarjeta";
             this.cmbTarjeta.Size = new System.Drawing.Size(239, 24);
             this.cmbTarjeta.TabIndex = 1;
             // 
             // btnBuscarCliente
             // 
+            this.btnBuscarCliente.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_buscar_48;
             this.btnBuscarCliente.Location = new System.Drawing.Point(453, 94);
-            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.tlpAgrupamiento.SetRowSpan(this.btnBuscarCliente, 2);
-            this.btnBuscarCliente.Size = new System.Drawing.Size(147, 69);
+            this.btnBuscarCliente.Size = new System.Drawing.Size(147, 55);
             this.btnBuscarCliente.TabIndex = 4;
             this.btnBuscarCliente.Text = "Buscar Cliente";
             this.btnBuscarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -497,7 +541,7 @@
             // txtNumeroFactura
             // 
             this.txtNumeroFactura.Location = new System.Drawing.Point(176, 4);
-            this.txtNumeroFactura.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumeroFactura.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNumeroFactura.Name = "txtNumeroFactura";
             this.txtNumeroFactura.ReadOnly = true;
             this.txtNumeroFactura.Size = new System.Drawing.Size(265, 22);
@@ -507,8 +551,8 @@
             // txtNombreCliente
             // 
             this.tlpAgrupamiento.SetColumnSpan(this.txtNombreCliente, 2);
-            this.txtNombreCliente.Location = new System.Drawing.Point(176, 171);
-            this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNombreCliente.Location = new System.Drawing.Point(176, 157);
+            this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.ReadOnly = true;
             this.txtNombreCliente.Size = new System.Drawing.Size(424, 22);
@@ -518,7 +562,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(4, 167);
+            this.label12.Location = new System.Drawing.Point(4, 153);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(100, 16);
@@ -530,7 +574,7 @@
             this.rdbCredito.AutoSize = true;
             this.rdbCredito.Checked = true;
             this.rdbCredito.Location = new System.Drawing.Point(453, 34);
-            this.rdbCredito.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbCredito.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.rdbCredito.Name = "rdbCredito";
             this.tlpAgrupamiento.SetRowSpan(this.rdbCredito, 2);
             this.rdbCredito.Size = new System.Drawing.Size(71, 20);
@@ -544,10 +588,10 @@
             this.grbDetalle.Controls.Add(this.tlbPanelTotalPagar);
             this.grbDetalle.Controls.Add(this.dgvDetalleFactura);
             this.grbDetalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grbDetalle.Location = new System.Drawing.Point(18, 24);
-            this.grbDetalle.Margin = new System.Windows.Forms.Padding(4);
+            this.grbDetalle.Location = new System.Drawing.Point(19, 25);
+            this.grbDetalle.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grbDetalle.Name = "grbDetalle";
-            this.grbDetalle.Padding = new System.Windows.Forms.Padding(4);
+            this.grbDetalle.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.grbDetalle.Size = new System.Drawing.Size(676, 570);
             this.grbDetalle.TabIndex = 9;
             this.grbDetalle.TabStop = false;
@@ -568,7 +612,7 @@
             this.tlbPanelTotalPagar.Controls.Add(this.label14, 0, 3);
             this.tlbPanelTotalPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tlbPanelTotalPagar.Location = new System.Drawing.Point(389, 390);
-            this.tlbPanelTotalPagar.Margin = new System.Windows.Forms.Padding(4);
+            this.tlbPanelTotalPagar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tlbPanelTotalPagar.Name = "tlbPanelTotalPagar";
             this.tlbPanelTotalPagar.RowCount = 4;
             this.tlbPanelTotalPagar.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -581,7 +625,7 @@
             // txtDolares
             // 
             this.txtDolares.Location = new System.Drawing.Point(98, 118);
-            this.txtDolares.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDolares.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDolares.Name = "txtDolares";
             this.txtDolares.ReadOnly = true;
             this.txtDolares.Size = new System.Drawing.Size(165, 30);
@@ -628,7 +672,7 @@
             // txtSubtotal
             // 
             this.txtSubtotal.Location = new System.Drawing.Point(98, 4);
-            this.txtSubtotal.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSubtotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.ReadOnly = true;
             this.txtSubtotal.Size = new System.Drawing.Size(169, 30);
@@ -639,7 +683,7 @@
             // txtImpuesto
             // 
             this.txtImpuesto.Location = new System.Drawing.Point(98, 42);
-            this.txtImpuesto.Margin = new System.Windows.Forms.Padding(4);
+            this.txtImpuesto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtImpuesto.Name = "txtImpuesto";
             this.txtImpuesto.ReadOnly = true;
             this.txtImpuesto.Size = new System.Drawing.Size(165, 30);
@@ -650,7 +694,7 @@
             // txtTotal
             // 
             this.txtTotal.Location = new System.Drawing.Point(98, 80);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(165, 30);
@@ -674,8 +718,8 @@
             this.dgvDetalleFactura.AllowUserToAddRows = false;
             this.dgvDetalleFactura.AllowUserToDeleteRows = false;
             this.dgvDetalleFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetalleFactura.Location = new System.Drawing.Point(38, 36);
-            this.dgvDetalleFactura.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvDetalleFactura.Location = new System.Drawing.Point(37, 36);
+            this.dgvDetalleFactura.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvDetalleFactura.Name = "dgvDetalleFactura";
             this.dgvDetalleFactura.ReadOnly = true;
             this.dgvDetalleFactura.RowHeadersWidth = 51;
@@ -687,10 +731,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1400, 739);
+            this.ClientSize = new System.Drawing.Size(1400, 791);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.sttBarraInferior);
             this.Controls.Add(this.tspBarraSuperior);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmFacturacion";
             this.Text = "Facturacion";
             this.tspBarraSuperior.ResumeLayout(false);
@@ -701,6 +746,8 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.pnlFirma.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picFirma)).EndInit();
             this.grbFacturacion.ResumeLayout(false);
             this.tlpProducto.ResumeLayout(false);
             this.tlpProducto.PerformLayout();
@@ -766,5 +813,8 @@
         private System.Windows.Forms.DataGridView dgvDetalleFactura;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.TextBox txtMarca;
+        private System.Windows.Forms.Panel pnlFirma;
+        private System.Windows.Forms.Button btnLimpiarFirma;
+        private System.Windows.Forms.PictureBox picFirma;
     }
 }
