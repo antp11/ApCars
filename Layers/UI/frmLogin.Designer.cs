@@ -181,6 +181,7 @@
             this.Controls.Add(this.pcbLogin);
             this.Controls.Add(this.tlpPanel);
             this.Name = "frmLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.tlpPanel.ResumeLayout(false);
             this.tlpPanel.PerformLayout();

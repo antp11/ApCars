@@ -35,6 +35,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Seguridad
             this.txtNombre.Clear();
             this.txtApellido1.Clear();
             this.txtApellido2.Clear();
+            pbImagen.Image = Properties.Resources.insert_image;
             rdbActivo.Checked = true;
             cmbRol.SelectedIndex = 0;
             txtLogin.Focus();
@@ -119,7 +120,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Seguridad
             ntfMensaje.BalloonTipIcon = ToolTipIcon.Info;
             ntfMensaje.BalloonTipText = "Usuario creado correctamente";
             ntfMensaje.BalloonTipTitle = "Atención";
-            //ntfMensaje.Icon = Properties.Resources.icono;
+            // ntfMensaje.Icon = Properties.Resources.nuevo;
             ntfMensaje.Text = "";
             ntfMensaje.ShowBalloonTip(3000);
             ntfMensaje.Visible = false;
@@ -188,35 +189,6 @@ namespace UTN.WinForms.ApCars.Layers.UI.Seguridad
 
             }
         }
-        private void trvUsuarios_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-            Usuario oUsuario = null;
-            try
-            {
-                if (e.Action == TreeViewAction.ByMouse)
-                {
-                    // no hay nada seleccionado
-                    if (e.Node == null || e.Node.Tag == null)
-                        return;
-                    //Extrae el Objeto que se encuentra en el Tag
-                    oUsuario = e.Node.Tag as Usuario;
-
-                    txtLogin.Text = oUsuario.IdUsuario;
-                    txtNombre.Text = oUsuario.Nombre;
-                    txtPassword.Text = Cryptography.DecrypthAES(oUsuario.Contrasenna);
-                    cmbRol.SelectedIndex = cmbRol.FindString(oUsuario.IdRol.ToString());
-                }
-            }
-            catch (Exception er)
-            {
-                string msg = "";
-                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod()));
-                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-        }
-
-
         private void frmSeguridad_Load(object sender, EventArgs e)
         {
             IBLLRol bllRol;
@@ -284,6 +256,39 @@ namespace UTN.WinForms.ApCars.Layers.UI.Seguridad
                 MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
+        }
+
+        private void trvUsuarios_AfterSelect_1(object sender, TreeViewEventArgs e)
+        {
+            Usuario oUsuario = null;
+            try
+            {
+                if (e.Action == TreeViewAction.ByMouse)
+                {
+                    // no hay nada seleccionado
+                    if (e.Node == null || e.Node.Tag == null)
+                        return;
+                    //Extrae el Objeto que se encuentra en el Tag
+                    oUsuario = e.Node.Tag as Usuario;
+
+                    txtLogin.Text = oUsuario.IdUsuario;
+                    txtNombre.Text = oUsuario.Nombre;
+                    txtApellido1.Text = oUsuario.Apellido1;
+                    txtApellido2.Text = oUsuario.Apellido2;
+                    rdbActivo.Checked = oUsuario.Estado;
+                    pbImagen.Image = new Bitmap(new MemoryStream(oUsuario.Foto));
+                    txtPassword.Text = Cryptography.DecrypthAES(oUsuario.Contrasenna);
+                    cmbRol.SelectedIndex = cmbRol.FindString(oUsuario.IdRol.ToString());
+                }
+            }
+            catch (Exception er)
+            {
+                string msg = "";
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod()));
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
         }
     }
 }

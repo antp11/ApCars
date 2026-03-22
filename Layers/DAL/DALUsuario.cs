@@ -70,7 +70,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                     while (reader.Read())
                     {
                         oUsuario = new Usuario();
-                        oUsuario.IdUsuario = reader["Login"].ToString();
+                        oUsuario.IdUsuario = reader["IdUsuario"].ToString();
                         oUsuario.IdRol = int.Parse(reader["IdRol"].ToString());
                         oUsuario.Nombre = reader["Nombre"].ToString();
                         oUsuario.Apellido1 = reader["Apellido1"].ToString();
@@ -118,7 +118,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                     while (reader.Read())
                     {
                         oUsuario = new Usuario();
-                        oUsuario.IdUsuario = reader["Login"].ToString();
+                        oUsuario.IdUsuario = reader["IdUsuario"].ToString();
                         oUsuario.IdRol = int.Parse(reader["IdRol"].ToString());
                         oUsuario.Nombre = reader["Nombre"].ToString();
                         oUsuario.Apellido1 = reader["Apellido1"].ToString();

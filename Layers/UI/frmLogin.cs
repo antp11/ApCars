@@ -97,7 +97,7 @@ namespace UTN.WinForms.ApCars.Layers.UI
             toolStripPbBarra.Visible = true;
             for (int i = 0; i < 10; i++)
             {
-                await Task.Delay(150);
+                await Task.Delay(10);
                 //Thread.Sleep(100);
                 this.toolStripPbBarra.Value += 10;
                 this.sttBarraInferior.Refresh();
@@ -138,5 +138,7 @@ namespace UTN.WinForms.ApCars.Layers.UI
                 MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+
     }
 }

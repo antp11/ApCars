@@ -273,16 +273,6 @@ namespace UTN.WinForms.ApCars.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap insertar_image {
-            get {
-                object obj = ResourceManager.GetObject("insertar image", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap LogoPrincipal {
             get {
                 object obj = ResourceManager.GetObject("LogoPrincipal", resourceCulture);

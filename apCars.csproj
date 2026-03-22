@@ -56,14 +56,19 @@
   <ItemGroup>
     <Compile Include="Enums\Enumeraciones.cs" />
     <Compile Include="Extensions\ExceptionsExtention.cs" />
+    <Compile Include="Interfaces\IBLLMarca.cs" />
     <Compile Include="Interfaces\IBLLRol.cs" />
     <Compile Include="Interfaces\IBLLUsuario.cs" />
+    <Compile Include="Interfaces\IDALMarca.cs" />
     <Compile Include="Interfaces\IDALRol.cs" />
     <Compile Include="Interfaces\IDALUsuario.cs" />
+    <Compile Include="Layers\BLL\BLLMarca.cs" />
     <Compile Include="Layers\BLL\BLLRol.cs" />
     <Compile Include="Layers\BLL\BLLUsuario.cs" />
+    <Compile Include="Layers\DAL\DALMarca.cs" />
     <Compile Include="Layers\DAL\DALRol.cs" />
     <Compile Include="Layers\DAL\DALUsuario.cs" />
+    <Compile Include="Layers\Entities\Marca.cs" />
     <Compile Include="Layers\Entities\Rol.cs" />
     <Compile Include="Layers\Entities\Usuario.cs" />
     <Compile Include="Layers\UI\frmLogin.cs">
@@ -272,7 +277,6 @@
   <ItemGroup>
     <Content Include="Resources\icono.ico" />
     <None Include="Resources\insert image.png" />
-    <None Include="Resources\insertar image.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

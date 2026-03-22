@@ -141,6 +141,7 @@
             this.trvUsuarios.Name = "trvUsuarios";
             this.trvUsuarios.Size = new System.Drawing.Size(362, 463);
             this.trvUsuarios.TabIndex = 6;
+            this.trvUsuarios.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvUsuarios_AfterSelect_1);
             // 
             // tplPanel
             // 
@@ -414,6 +415,7 @@
             this.Controls.Add(this.tspBarraPrincipal);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmSeguridad";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Seguridad";
             this.Load += new System.EventHandler(this.frmSeguridad_Load);
             this.tspBarraPrincipal.ResumeLayout(false);

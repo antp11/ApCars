@@ -28,28 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMarca));
             this.sttInferior = new System.Windows.Forms.StatusStrip();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblIdMarca = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.txtMarca = new System.Windows.Forms.TextBox();
-            this.mskIdMarca = new System.Windows.Forms.MaskedTextBox();
+            this.epError = new System.Windows.Forms.ErrorProvider(this.components);
             this.tspPrincipal = new System.Windows.Forms.ToolStrip();
             this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnEditar = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnBorrar = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.dgvDatos = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.pbImagen = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.mskIdMarca = new System.Windows.Forms.MaskedTextBox();
+            this.txtMarca = new System.Windows.Forms.TextBox();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.IdMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescripciónMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Logo = new System.Windows.Forms.DataGridViewImageColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
+            this.tspPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tspPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // sttInferior
@@ -62,117 +72,9 @@
             this.sttInferior.TabIndex = 5;
             this.sttInferior.Text = "statusStrip1";
             // 
-            // splitContainer1
+            // epError
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.dataGridView2);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 428);
-            this.splitContainer1.SplitterDistance = 412;
-            this.splitContainer1.TabIndex = 6;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(412, 428);
-            this.dataGridView2.TabIndex = 4;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.58855F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.41145F));
-            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblIdMarca, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtMarca, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.mskIdMarca, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 81);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(367, 122);
-            this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // label9
-            // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(4, 34);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(185, 16);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Marca";
-            // 
-            // lblIdMarca
-            // 
-            this.lblIdMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblIdMarca.AutoSize = true;
-            this.lblIdMarca.Location = new System.Drawing.Point(4, 6);
-            this.lblIdMarca.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblIdMarca.Name = "lblIdMarca";
-            this.lblIdMarca.Size = new System.Drawing.Size(185, 16);
-            this.lblIdMarca.TabIndex = 0;
-            this.lblIdMarca.Text = "Codigo";
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(197, 60);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(123, 51);
-            this.btnCancelar.TabIndex = 6;
-            this.btnCancelar.Text = "&Cancelar";
-            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Location = new System.Drawing.Point(4, 60);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(132, 44);
-            this.btnAceptar.TabIndex = 5;
-            this.btnAceptar.Text = "&Aceptar";
-            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            // 
-            // txtMarca
-            // 
-            this.txtMarca.Location = new System.Drawing.Point(196, 31);
-            this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(132, 22);
-            this.txtMarca.TabIndex = 18;
-            // 
-            // mskIdMarca
-            // 
-            this.mskIdMarca.Location = new System.Drawing.Point(196, 3);
-            this.mskIdMarca.Name = "mskIdMarca";
-            this.mskIdMarca.Size = new System.Drawing.Size(132, 22);
-            this.mskIdMarca.TabIndex = 19;
+            this.epError.ContainerControl = this;
             // 
             // tspPrincipal
             // 
@@ -196,6 +98,7 @@
             this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
             this.toolStripBtnNuevo.Size = new System.Drawing.Size(104, 52);
             this.toolStripBtnNuevo.Text = "&Nuevo";
+            this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
             // 
             // toolStripBtnEditar
             // 
@@ -205,6 +108,7 @@
             this.toolStripBtnEditar.Name = "toolStripBtnEditar";
             this.toolStripBtnEditar.Size = new System.Drawing.Size(100, 52);
             this.toolStripBtnEditar.Text = "&Editar";
+            this.toolStripBtnEditar.Click += new System.EventHandler(this.toolStripBtnEditar_Click);
             // 
             // toolStripBtnBorrar
             // 
@@ -214,6 +118,7 @@
             this.toolStripBtnBorrar.Name = "toolStripBtnBorrar";
             this.toolStripBtnBorrar.Size = new System.Drawing.Size(102, 52);
             this.toolStripBtnBorrar.Text = "&Borrar";
+            this.toolStripBtnBorrar.Click += new System.EventHandler(this.toolStripBtnBorrar_Click);
             // 
             // toolStripBtnSalir
             // 
@@ -223,26 +128,207 @@
             this.toolStripBtnSalir.Name = "toolStripBtnSalir";
             this.toolStripBtnSalir.Size = new System.Drawing.Size(90, 52);
             this.toolStripBtnSalir.Text = "&Salir";
+            this.toolStripBtnSalir.Click += new System.EventHandler(this.toolStripBtnSalir_Click);
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 55);
+            this.splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.dgvDatos);
+            this.splitContainer1.Size = new System.Drawing.Size(800, 373);
+            this.splitContainer1.SplitterDistance = 409;
+            this.splitContainer1.TabIndex = 8;
+            // 
+            // dgvDatos
+            // 
+            this.dgvDatos.AllowUserToAddRows = false;
+            this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdMarca,
+            this.DescripciónMarca,
+            this.Logo});
+            this.dgvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDatos.Location = new System.Drawing.Point(0, 0);
+            this.dgvDatos.Name = "dgvDatos";
+            this.dgvDatos.ReadOnly = true;
+            this.dgvDatos.RowHeadersWidth = 51;
+            this.dgvDatos.RowTemplate.Height = 24;
+            this.dgvDatos.Size = new System.Drawing.Size(409, 373);
+            this.dgvDatos.TabIndex = 1;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.58855F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.41145F));
+            this.tableLayoutPanel2.Controls.Add(this.pbImagen, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label2, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label3, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.btnCancelar, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.btnAceptar, 0, 3);
+            this.tableLayoutPanel2.Controls.Add(this.mskIdMarca, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.txtMarca, 1, 1);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(416, 55);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 4;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(367, 218);
+            this.tableLayoutPanel2.TabIndex = 5;
+            // 
+            // pbImagen
+            // 
+            this.pbImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbImagen.Image = global::UTN.WinForms.ApCars.Properties.Resources.insert_image;
+            this.pbImagen.Location = new System.Drawing.Point(196, 60);
+            this.pbImagen.Margin = new System.Windows.Forms.Padding(4);
+            this.pbImagen.Name = "pbImagen";
+            this.pbImagen.Size = new System.Drawing.Size(167, 76);
+            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbImagen.TabIndex = 22;
+            this.pbImagen.TabStop = false;
+            this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(4, 90);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(184, 16);
+            this.label2.TabIndex = 20;
+            this.label2.Text = "Logo";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(4, 34);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(184, 16);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Marca";
+            // 
+            // label4
+            // 
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(4, 6);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(184, 16);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Codigo";
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(196, 144);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(123, 51);
+            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.Text = "&Cancelar";
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Location = new System.Drawing.Point(4, 144);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(132, 44);
+            this.btnAceptar.TabIndex = 5;
+            this.btnAceptar.Text = "&Aceptar";
+            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // mskIdMarca
+            // 
+            this.mskIdMarca.Location = new System.Drawing.Point(195, 3);
+            this.mskIdMarca.Name = "mskIdMarca";
+            this.mskIdMarca.Size = new System.Drawing.Size(132, 22);
+            this.mskIdMarca.TabIndex = 19;
+            // 
+            // txtMarca
+            // 
+            this.txtMarca.Location = new System.Drawing.Point(195, 31);
+            this.txtMarca.Name = "txtMarca";
+            this.txtMarca.Size = new System.Drawing.Size(132, 22);
+            this.txtMarca.TabIndex = 21;
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
+            // IdMarca
+            // 
+            this.IdMarca.DataPropertyName = "IdMarca";
+            this.IdMarca.HeaderText = "Código";
+            this.IdMarca.MinimumWidth = 6;
+            this.IdMarca.Name = "IdMarca";
+            this.IdMarca.ReadOnly = true;
+            this.IdMarca.Width = 125;
+            // 
+            // DescripciónMarca
+            // 
+            this.DescripciónMarca.DataPropertyName = "DescripcionMarca";
+            this.DescripciónMarca.HeaderText = "Descripción";
+            this.DescripciónMarca.MinimumWidth = 6;
+            this.DescripciónMarca.Name = "DescripciónMarca";
+            this.DescripciónMarca.ReadOnly = true;
+            this.DescripciónMarca.Width = 125;
+            // 
+            // Logo
+            // 
+            this.Logo.DataPropertyName = "Logo";
+            this.Logo.HeaderText = "Logo";
+            this.Logo.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Logo.MinimumWidth = 6;
+            this.Logo.Name = "Logo";
+            this.Logo.ReadOnly = true;
+            this.Logo.Width = 125;
             // 
             // frmMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tspPrincipal);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.tspPrincipal);
             this.Controls.Add(this.sttInferior);
             this.Name = "frmMarca";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Marca";
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
+            this.Load += new System.EventHandler(this.frmMarca_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
             this.tspPrincipal.ResumeLayout(false);
             this.tspPrincipal.PerformLayout();
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,19 +336,26 @@
 
         #endregion
         private System.Windows.Forms.StatusStrip sttInferior;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lblIdMarca;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.TextBox txtMarca;
-        private System.Windows.Forms.MaskedTextBox mskIdMarca;
+        private System.Windows.Forms.ErrorProvider epError;
         private System.Windows.Forms.ToolStrip tspPrincipal;
         private System.Windows.Forms.ToolStripButton toolStripBtnNuevo;
         private System.Windows.Forms.ToolStripButton toolStripBtnEditar;
         private System.Windows.Forms.ToolStripButton toolStripBtnBorrar;
         private System.Windows.Forms.ToolStripButton toolStripBtnSalir;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.DataGridView dgvDatos;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.PictureBox pbImagen;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.MaskedTextBox mskIdMarca;
+        private System.Windows.Forms.TextBox txtMarca;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdMarca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DescripciónMarca;
+        private System.Windows.Forms.DataGridViewImageColumn Logo;
     }
 }
