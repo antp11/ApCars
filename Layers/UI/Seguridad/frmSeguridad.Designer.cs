@@ -31,8 +31,15 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSeguridad));
             this.tspBarraPrincipal = new System.Windows.Forms.ToolStrip();
+            this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnSalvarUsuario = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.trvUsuarios = new System.Windows.Forms.TreeView();
+            this.cmdMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.borrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imgListaTreeView = new System.Windows.Forms.ImageList(this.components);
             this.tplPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -50,26 +57,19 @@
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.lblContrasena = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.pbImagen = new System.Windows.Forms.PictureBox();
             this.sttBarraInferior = new System.Windows.Forms.StatusStrip();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
             this.ntfMensaje = new System.Windows.Forms.NotifyIcon(this.components);
-            this.imgListaTreeView = new System.Windows.Forms.ImageList(this.components);
-            this.cmdMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.borrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pbImagen = new System.Windows.Forms.PictureBox();
-            this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnSalvarUsuario = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.tspBarraPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            this.tplPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
             this.cmdMenu.SuspendLayout();
+            this.tplPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
             this.SuspendLayout();
             // 
             // tspBarraPrincipal
@@ -84,6 +84,36 @@
             this.tspBarraPrincipal.Size = new System.Drawing.Size(811, 55);
             this.tspBarraPrincipal.TabIndex = 2;
             this.tspBarraPrincipal.Text = "toolStrip1";
+            // 
+            // toolStripBtnNuevo
+            // 
+            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_agregar_48;
+            this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
+            this.toolStripBtnNuevo.Size = new System.Drawing.Size(104, 52);
+            this.toolStripBtnNuevo.Text = "&Nuevo";
+            this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
+            // 
+            // toolStripBtnSalvarUsuario
+            // 
+            this.toolStripBtnSalvarUsuario.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_guardar_40;
+            this.toolStripBtnSalvarUsuario.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnSalvarUsuario.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnSalvarUsuario.Name = "toolStripBtnSalvarUsuario";
+            this.toolStripBtnSalvarUsuario.Size = new System.Drawing.Size(93, 52);
+            this.toolStripBtnSalvarUsuario.Text = "&Salvar";
+            this.toolStripBtnSalvarUsuario.Click += new System.EventHandler(this.toolStripBtnSalvarUsuario_Click);
+            // 
+            // toolStripBtnSalir
+            // 
+            this.toolStripBtnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_cerrar_ventana_48;
+            this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnSalir.Name = "toolStripBtnSalir";
+            this.toolStripBtnSalir.Size = new System.Drawing.Size(90, 52);
+            this.toolStripBtnSalir.Text = "Sa&lir";
+            this.toolStripBtnSalir.Click += new System.EventHandler(this.toolStripBtnSalir_Click);
             // 
             // splitContainer1
             // 
@@ -116,6 +146,35 @@
             this.trvUsuarios.Size = new System.Drawing.Size(362, 463);
             this.trvUsuarios.TabIndex = 6;
             this.trvUsuarios.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvUsuarios_AfterSelect_1);
+            // 
+            // cmdMenu
+            // 
+            this.cmdMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmdMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.borrarToolStripMenuItem,
+            this.salirToolStripMenuItem});
+            this.cmdMenu.Name = "cmdMenu";
+            this.cmdMenu.Size = new System.Drawing.Size(211, 80);
+            // 
+            // borrarToolStripMenuItem
+            // 
+            this.borrarToolStripMenuItem.Name = "borrarToolStripMenuItem";
+            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.borrarToolStripMenuItem.Text = "Borrar";
+            this.borrarToolStripMenuItem.Click += new System.EventHandler(this.borrarToolStripMenuItem_Click_1);
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.salirToolStripMenuItem.Text = "Salir";
+            // 
+            // imgListaTreeView
+            // 
+            this.imgListaTreeView.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgListaTreeView.ImageStream")));
+            this.imgListaTreeView.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgListaTreeView.Images.SetKeyName(0, "database.jpg");
+            this.imgListaTreeView.Images.SetKeyName(1, "userdatabase.png");
             // 
             // tplPanel
             // 
@@ -324,48 +383,6 @@
             this.label4.TabIndex = 17;
             this.label4.Text = "Foto";
             // 
-            // sttBarraInferior
-            // 
-            this.sttBarraInferior.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.sttBarraInferior.Location = new System.Drawing.Point(0, 496);
-            this.sttBarraInferior.Name = "sttBarraInferior";
-            this.sttBarraInferior.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.sttBarraInferior.Size = new System.Drawing.Size(811, 22);
-            this.sttBarraInferior.TabIndex = 4;
-            this.sttBarraInferior.Text = "statusStrip1";
-            // 
-            // epError
-            // 
-            this.epError.ContainerControl = this;
-            // 
-            // imgListaTreeView
-            // 
-            this.imgListaTreeView.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgListaTreeView.ImageStream")));
-            this.imgListaTreeView.TransparentColor = System.Drawing.Color.Transparent;
-            this.imgListaTreeView.Images.SetKeyName(0, "database.jpg");
-            this.imgListaTreeView.Images.SetKeyName(1, "userdatabase.png");
-            // 
-            // cmdMenu
-            // 
-            this.cmdMenu.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmdMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.borrarToolStripMenuItem,
-            this.salirToolStripMenuItem});
-            this.cmdMenu.Name = "cmdMenu";
-            this.cmdMenu.Size = new System.Drawing.Size(120, 52);
-            // 
-            // borrarToolStripMenuItem
-            // 
-            this.borrarToolStripMenuItem.Name = "borrarToolStripMenuItem";
-            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(119, 24);
-            this.borrarToolStripMenuItem.Text = "Borrar";
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(119, 24);
-            this.salirToolStripMenuItem.Text = "Salir";
-            // 
             // pbImagen
             // 
             this.pbImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -379,35 +396,19 @@
             this.pbImagen.TabStop = false;
             this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
             // 
-            // toolStripBtnNuevo
+            // sttBarraInferior
             // 
-            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_agregar_48;
-            this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
-            this.toolStripBtnNuevo.Size = new System.Drawing.Size(104, 52);
-            this.toolStripBtnNuevo.Text = "&Nuevo";
-            this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
+            this.sttBarraInferior.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.sttBarraInferior.Location = new System.Drawing.Point(0, 496);
+            this.sttBarraInferior.Name = "sttBarraInferior";
+            this.sttBarraInferior.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.sttBarraInferior.Size = new System.Drawing.Size(811, 22);
+            this.sttBarraInferior.TabIndex = 4;
+            this.sttBarraInferior.Text = "statusStrip1";
             // 
-            // toolStripBtnSalvarUsuario
+            // epError
             // 
-            this.toolStripBtnSalvarUsuario.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_guardar_40;
-            this.toolStripBtnSalvarUsuario.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnSalvarUsuario.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnSalvarUsuario.Name = "toolStripBtnSalvarUsuario";
-            this.toolStripBtnSalvarUsuario.Size = new System.Drawing.Size(93, 52);
-            this.toolStripBtnSalvarUsuario.Text = "&Salvar";
-            this.toolStripBtnSalvarUsuario.Click += new System.EventHandler(this.toolStripBtnSalvarUsuario_Click);
-            // 
-            // toolStripBtnSalir
-            // 
-            this.toolStripBtnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_cerrar_ventana_48;
-            this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnSalir.Name = "toolStripBtnSalir";
-            this.toolStripBtnSalir.Size = new System.Drawing.Size(90, 52);
-            this.toolStripBtnSalir.Text = "Sa&lir";
-            this.toolStripBtnSalir.Click += new System.EventHandler(this.toolStripBtnSalir_Click);
+            this.epError.ContainerControl = this;
             // 
             // frmSeguridad
             // 
@@ -428,11 +429,11 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.cmdMenu.ResumeLayout(false);
             this.tplPanel.ResumeLayout(false);
             this.tplPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
-            this.cmdMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.UI.WebControls;
 
 namespace UTN.WinForms.ApCars.Layers.Entities
 {
@@ -16,6 +17,8 @@ namespace UTN.WinForms.ApCars.Layers.Entities
         public string Contrasenna { set; get; }
         public bool Estado { set; get; }
         public byte[] Foto { set; get; }
+
+        public override string ToString() => $"{IdUsuario.Trim()} - {Nombre.Trim()}";
 
     }
 }

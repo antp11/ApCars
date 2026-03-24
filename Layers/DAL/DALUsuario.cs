@@ -25,7 +25,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
             double row = 0;
             try
             {
-                command.Parameters.AddWithValue("@Login", pLogin);
+                command.Parameters.AddWithValue("@IdUsuario", pLogin);
                 command.CommandText = sql;
                 command.CommandType = CommandType.StoredProcedure;
 

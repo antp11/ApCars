@@ -290,5 +290,38 @@ namespace UTN.WinForms.ApCars.Layers.UI.Seguridad
             }
 
         }
+
+        private void borrarToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            IBLLUsuario bllUsuario = new BLLUsuario();
+            try
+            {
+                TreeNode nodo = trvUsuarios.SelectedNode;
+                // Validar que no borre el nodo raiz
+                if (nodo.Text.Equals("usuarios", StringComparison.CurrentCultureIgnoreCase))
+                    return;
+
+                if (nodo.IsSelected)
+                {
+                    DialogResult result = MessageBox.Show($"Desea borrar el usuario {nodo.Text}", "Atención", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+                    if (result == DialogResult.Yes)
+                    {
+                        if (bllUsuario.Delete((nodo.Tag as Usuario).IdUsuario))
+                        {
+                            nodo.Remove();
+                            toolStripBtnNuevo_Click(null, null);
+                        }
+                    }
+                }
+
+            }
+            catch (Exception er)
+            {
+                string msg = "";
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod()));
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+        }
     }
 }

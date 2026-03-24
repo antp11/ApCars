@@ -49,7 +49,10 @@
             this.administracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItemUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAcercaDe = new System.Windows.Forms.ToolStripMenuItem();
+            this.sttBarraInferior = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLblMensaje = new System.Windows.Forms.ToolStripStatusLabel();
             this.mspMenuPrincipal.SuspendLayout();
+            this.sttBarraInferior.SuspendLayout();
             this.SuspendLayout();
             // 
             // mspMenuPrincipal
@@ -233,6 +236,23 @@
             this.toolStripMenuItemAcercaDe.Name = "toolStripMenuItemAcercaDe";
             this.toolStripMenuItemAcercaDe.Size = new System.Drawing.Size(14, 52);
             // 
+            // sttBarraInferior
+            // 
+            this.sttBarraInferior.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.sttBarraInferior.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLblMensaje});
+            this.sttBarraInferior.Location = new System.Drawing.Point(0, 881);
+            this.sttBarraInferior.Name = "sttBarraInferior";
+            this.sttBarraInferior.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.sttBarraInferior.Size = new System.Drawing.Size(1184, 26);
+            this.sttBarraInferior.TabIndex = 4;
+            // 
+            // toolStripStatusLblMensaje
+            // 
+            this.toolStripStatusLblMensaje.Name = "toolStripStatusLblMensaje";
+            this.toolStripStatusLblMensaje.Size = new System.Drawing.Size(15, 20);
+            this.toolStripStatusLblMensaje.Text = "-";
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -240,6 +260,7 @@
             this.BackgroundImage = global::UTN.WinForms.ApCars.Properties.Resources.logoActualizado_2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 907);
+            this.Controls.Add(this.sttBarraInferior);
             this.Controls.Add(this.mspMenuPrincipal);
             this.DoubleBuffered = true;
             this.IsMdiContainer = true;
@@ -248,8 +269,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Principal";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.mspMenuPrincipal.ResumeLayout(false);
             this.mspMenuPrincipal.PerformLayout();
+            this.sttBarraInferior.ResumeLayout(false);
+            this.sttBarraInferior.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,6 +302,8 @@
         private System.Windows.Forms.ToolStripMenuItem administracionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItemUsuarios;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAcercaDe;
+        private System.Windows.Forms.StatusStrip sttBarraInferior;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLblMensaje;
     }
 }
 
