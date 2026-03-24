@@ -229,7 +229,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Mantenimientos
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            IBLLMarca bllBodega = new BLLMarca();
+            IBLLMarca bllMarca = new BLLMarca();
             epError = new ErrorProvider();
             try
             {
@@ -261,7 +261,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Mantenimientos
                 oMarca.DescripcionMarca = txtMarca.Text.Trim();
                 oMarca.Logo = (byte[])this.pbImagen.Tag;
 
-                oMarca = bllBodega.Save(oMarca);
+                oMarca = bllMarca.Save(oMarca);
 
                 if (oMarca != null)
                     this.LoadData();

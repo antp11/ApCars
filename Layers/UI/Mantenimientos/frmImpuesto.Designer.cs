@@ -28,119 +28,157 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.sttInferior = new System.Windows.Forms.StatusStrip();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblIdMarca = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.txtMarca = new System.Windows.Forms.TextBox();
-            this.mskIdMarca = new System.Windows.Forms.MaskedTextBox();
             this.tspPrincipal = new System.Windows.Forms.ToolStrip();
             this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnEditar = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnBorrar = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.dgvDatos = new System.Windows.Forms.DataGridView();
+            this.IdFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Porcentaje = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.epError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.mskPorcentaje = new System.Windows.Forms.MaskedTextBox();
+            this.lblIdMarca = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
+            this.tspPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            this.tspPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
             // sttInferior
             // 
             this.sttInferior.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.sttInferior.Location = new System.Drawing.Point(0, 298);
+            this.sttInferior.Location = new System.Drawing.Point(0, 435);
             this.sttInferior.Name = "sttInferior";
             this.sttInferior.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.sttInferior.Size = new System.Drawing.Size(513, 22);
+            this.sttInferior.Size = new System.Drawing.Size(785, 22);
             this.sttInferior.TabIndex = 6;
             this.sttInferior.Text = "statusStrip1";
+            // 
+            // tspPrincipal
+            // 
+            this.tspPrincipal.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.tspPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripBtnNuevo,
+            this.toolStripBtnEditar,
+            this.toolStripBtnBorrar,
+            this.toolStripBtnSalir});
+            this.tspPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.tspPrincipal.Name = "tspPrincipal";
+            this.tspPrincipal.Size = new System.Drawing.Size(785, 55);
+            this.tspPrincipal.TabIndex = 8;
+            // 
+            // toolStripBtnNuevo
+            // 
+            this.toolStripBtnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_agregar_48;
+            this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
+            this.toolStripBtnNuevo.Size = new System.Drawing.Size(104, 52);
+            this.toolStripBtnNuevo.Text = "&Nuevo";
+            this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
+            // 
+            // toolStripBtnEditar
+            // 
+            this.toolStripBtnEditar.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_editar_48;
+            this.toolStripBtnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnEditar.Name = "toolStripBtnEditar";
+            this.toolStripBtnEditar.Size = new System.Drawing.Size(100, 52);
+            this.toolStripBtnEditar.Text = "&Editar";
+            this.toolStripBtnEditar.Click += new System.EventHandler(this.toolStripBtnEditar_Click);
+            // 
+            // toolStripBtnBorrar
+            // 
+            this.toolStripBtnBorrar.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_eliminar_48;
+            this.toolStripBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnBorrar.Name = "toolStripBtnBorrar";
+            this.toolStripBtnBorrar.Size = new System.Drawing.Size(102, 52);
+            this.toolStripBtnBorrar.Text = "&Borrar";
+            this.toolStripBtnBorrar.Click += new System.EventHandler(this.toolStripBtnBorrar_Click);
+            // 
+            // toolStripBtnSalir
+            // 
+            this.toolStripBtnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_cerrar_ventana_48;
+            this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnSalir.Name = "toolStripBtnSalir";
+            this.toolStripBtnSalir.Size = new System.Drawing.Size(90, 52);
+            this.toolStripBtnSalir.Text = "&Salir";
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 55);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.dataGridView2);
+            this.splitContainer1.Panel1.Controls.Add(this.dgvDatos);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
-            this.splitContainer1.Size = new System.Drawing.Size(513, 298);
-            this.splitContainer1.SplitterDistance = 233;
-            this.splitContainer1.TabIndex = 7;
+            this.splitContainer1.Size = new System.Drawing.Size(785, 380);
+            this.splitContainer1.SplitterDistance = 313;
+            this.splitContainer1.TabIndex = 9;
             // 
-            // dataGridView2
+            // dgvDatos
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 0);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowHeadersWidth = 51;
-            this.dataGridView2.Size = new System.Drawing.Size(233, 298);
-            this.dataGridView2.TabIndex = 5;
+            this.dgvDatos.AllowUserToAddRows = false;
+            this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdFecha,
+            this.Porcentaje});
+            this.dgvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDatos.Location = new System.Drawing.Point(0, 0);
+            this.dgvDatos.Name = "dgvDatos";
+            this.dgvDatos.ReadOnly = true;
+            this.dgvDatos.RowHeadersWidth = 51;
+            this.dgvDatos.RowTemplate.Height = 24;
+            this.dgvDatos.Size = new System.Drawing.Size(313, 380);
+            this.dgvDatos.TabIndex = 0;
             // 
-            // tableLayoutPanel1
+            // IdFecha
             // 
-            this.tableLayoutPanel1.ColumnCount = 2;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.58855F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.41145F));
-            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblIdMarca, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.txtMarca, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.mskIdMarca, 1, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(4, 66);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(269, 122);
-            this.tableLayoutPanel1.TabIndex = 3;
+            this.IdFecha.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.IdFecha.DataPropertyName = "IdFecha";
+            this.IdFecha.HeaderText = "Fecha registro";
+            this.IdFecha.MinimumWidth = 6;
+            this.IdFecha.Name = "IdFecha";
+            this.IdFecha.ReadOnly = true;
             // 
-            // label9
+            // Porcentaje
             // 
-            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(4, 34);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(133, 16);
-            this.label9.TabIndex = 17;
-            this.label9.Text = "Marca";
+            this.Porcentaje.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Porcentaje.DataPropertyName = "Porcentaje";
+            this.Porcentaje.HeaderText = "Porcentaje";
+            this.Porcentaje.MinimumWidth = 6;
+            this.Porcentaje.Name = "Porcentaje";
+            this.Porcentaje.ReadOnly = true;
             // 
-            // lblIdMarca
+            // epError
             // 
-            this.lblIdMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblIdMarca.AutoSize = true;
-            this.lblIdMarca.Location = new System.Drawing.Point(4, 6);
-            this.lblIdMarca.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblIdMarca.Name = "lblIdMarca";
-            this.lblIdMarca.Size = new System.Drawing.Size(133, 16);
-            this.lblIdMarca.TabIndex = 0;
-            this.lblIdMarca.Text = "Codigo";
+            this.epError.ContainerControl = this;
             // 
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(145, 60);
+            this.btnCancelar.Location = new System.Drawing.Point(170, 60);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(120, 51);
@@ -154,95 +192,95 @@
             this.btnAceptar.Location = new System.Drawing.Point(4, 60);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(132, 44);
+            this.btnAceptar.Size = new System.Drawing.Size(120, 44);
             this.btnAceptar.TabIndex = 5;
             this.btnAceptar.Text = "&Aceptar";
             this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
-            // txtMarca
+            // mskPorcentaje
             // 
-            this.txtMarca.Location = new System.Drawing.Point(144, 31);
-            this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(122, 22);
-            this.txtMarca.TabIndex = 18;
+            this.mskPorcentaje.Location = new System.Drawing.Point(169, 31);
+            this.mskPorcentaje.Name = "mskPorcentaje";
+            this.mskPorcentaje.Size = new System.Drawing.Size(121, 22);
+            this.mskPorcentaje.TabIndex = 20;
             // 
-            // mskIdMarca
+            // lblIdMarca
             // 
-            this.mskIdMarca.Location = new System.Drawing.Point(144, 3);
-            this.mskIdMarca.Name = "mskIdMarca";
-            this.mskIdMarca.Size = new System.Drawing.Size(122, 22);
-            this.mskIdMarca.TabIndex = 19;
+            this.lblIdMarca.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblIdMarca.AutoSize = true;
+            this.lblIdMarca.Location = new System.Drawing.Point(4, 6);
+            this.lblIdMarca.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblIdMarca.Name = "lblIdMarca";
+            this.lblIdMarca.Size = new System.Drawing.Size(158, 16);
+            this.lblIdMarca.TabIndex = 0;
+            this.lblIdMarca.Text = "Codigo";
             // 
-            // tspPrincipal
+            // label9
             // 
-            this.tspPrincipal.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.tspPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripBtnNuevo,
-            this.toolStripBtnEditar,
-            this.toolStripBtnBorrar,
-            this.toolStripBtnSalir});
-            this.tspPrincipal.Location = new System.Drawing.Point(0, 0);
-            this.tspPrincipal.Name = "tspPrincipal";
-            this.tspPrincipal.Size = new System.Drawing.Size(513, 55);
-            this.tspPrincipal.TabIndex = 8;
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(4, 34);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(158, 16);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Porcentaje";
             // 
-            // toolStripBtnNuevo
+            // tableLayoutPanel1
             // 
-            this.toolStripBtnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_agregar_48;
-            this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
-            this.toolStripBtnNuevo.Size = new System.Drawing.Size(104, 52);
-            this.toolStripBtnNuevo.Text = "&Nuevo";
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 53.54839F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 46.45161F));
+            this.tableLayoutPanel1.Controls.Add(this.label9, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblIdMarca, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.mskPorcentaje, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.dtpFecha, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(22, 21);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(310, 122);
+            this.tableLayoutPanel1.TabIndex = 5;
             // 
-            // toolStripBtnEditar
+            // dtpFecha
             // 
-            this.toolStripBtnEditar.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_editar_48;
-            this.toolStripBtnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnEditar.Name = "toolStripBtnEditar";
-            this.toolStripBtnEditar.Size = new System.Drawing.Size(100, 52);
-            this.toolStripBtnEditar.Text = "&Editar";
-            // 
-            // toolStripBtnBorrar
-            // 
-            this.toolStripBtnBorrar.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_eliminar_48;
-            this.toolStripBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnBorrar.Name = "toolStripBtnBorrar";
-            this.toolStripBtnBorrar.Size = new System.Drawing.Size(102, 52);
-            this.toolStripBtnBorrar.Text = "&Borrar";
-            // 
-            // toolStripBtnSalir
-            // 
-            this.toolStripBtnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_cerrar_ventana_48;
-            this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnSalir.Name = "toolStripBtnSalir";
-            this.toolStripBtnSalir.Size = new System.Drawing.Size(90, 52);
-            this.toolStripBtnSalir.Text = "&Salir";
+            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha.Location = new System.Drawing.Point(169, 3);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(121, 22);
+            this.dtpFecha.TabIndex = 21;
             // 
             // frmImpuesto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 320);
-            this.Controls.Add(this.tspPrincipal);
+            this.ClientSize = new System.Drawing.Size(785, 457);
             this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.tspPrincipal);
             this.Controls.Add(this.sttInferior);
             this.Name = "frmImpuesto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Impuesto";
+            this.Load += new System.EventHandler(this.frmImpuesto_Load);
+            this.tspPrincipal.ResumeLayout(false);
+            this.tspPrincipal.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.tspPrincipal.ResumeLayout(false);
-            this.tspPrincipal.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,19 +288,22 @@
 
         #endregion
         private System.Windows.Forms.StatusStrip sttInferior;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lblIdMarca;
-        private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnAceptar;
-        private System.Windows.Forms.TextBox txtMarca;
-        private System.Windows.Forms.MaskedTextBox mskIdMarca;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.ToolStrip tspPrincipal;
         private System.Windows.Forms.ToolStripButton toolStripBtnNuevo;
         private System.Windows.Forms.ToolStripButton toolStripBtnEditar;
         private System.Windows.Forms.ToolStripButton toolStripBtnBorrar;
         private System.Windows.Forms.ToolStripButton toolStripBtnSalir;
+        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.DataGridView dgvDatos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdFecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Porcentaje;
+        private System.Windows.Forms.ErrorProvider epError;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblIdMarca;
+        private System.Windows.Forms.MaskedTextBox mskPorcentaje;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DateTimePicker dtpFecha;
     }
 }
