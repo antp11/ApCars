@@ -106,7 +106,7 @@
             // 
             this.provinciasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.provinciasToolStripMenuItem.Name = "provinciasToolStripMenuItem";
-            this.provinciasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.provinciasToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.provinciasToolStripMenuItem.Text = "Impuesto";
             this.provinciasToolStripMenuItem.Click += new System.EventHandler(this.provinciasToolStripMenuItem_Click);
             // 
@@ -237,7 +237,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::UTN.WinForms.ApCars.Properties.Resources.LogoPrincipal;
+            this.BackgroundImage = global::UTN.WinForms.ApCars.Properties.Resources.logoActualizado_2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1184, 907);
             this.Controls.Add(this.mspMenuPrincipal);

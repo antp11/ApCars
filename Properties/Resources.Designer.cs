@@ -273,6 +273,36 @@ namespace UTN.WinForms.ApCars.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logo_1 {
+            get {
+                object obj = ResourceManager.GetObject("Logo.1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LogoActualizado {
+            get {
+                object obj = ResourceManager.GetObject("LogoActualizado", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logoActualizado_2 {
+            get {
+                object obj = ResourceManager.GetObject("logoActualizado.2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LogoPrincipal {
             get {
                 object obj = ResourceManager.GetObject("LogoPrincipal", resourceCulture);

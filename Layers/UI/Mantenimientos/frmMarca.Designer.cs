@@ -33,14 +33,12 @@
             this.sttInferior = new System.Windows.Forms.StatusStrip();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
             this.tspPrincipal = new System.Windows.Forms.ToolStrip();
-            this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnEditar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnBorrar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
+            this.IdMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescripciónMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Logo = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.pbImagen = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,17 +47,22 @@
             this.mskIdMarca = new System.Windows.Forms.MaskedTextBox();
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
-            this.IdMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescripciónMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Logo = new System.Windows.Forms.DataGridViewImageColumn();
+            this.pbImagen = new System.Windows.Forms.PictureBox();
+            this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnEditar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnBorrar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
             this.tspPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // sttInferior
@@ -89,47 +92,6 @@
             this.tspPrincipal.Size = new System.Drawing.Size(800, 55);
             this.tspPrincipal.TabIndex = 7;
             // 
-            // toolStripBtnNuevo
-            // 
-            this.toolStripBtnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_agregar_48;
-            this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
-            this.toolStripBtnNuevo.Size = new System.Drawing.Size(104, 52);
-            this.toolStripBtnNuevo.Text = "&Nuevo";
-            this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
-            // 
-            // toolStripBtnEditar
-            // 
-            this.toolStripBtnEditar.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_editar_48;
-            this.toolStripBtnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnEditar.Name = "toolStripBtnEditar";
-            this.toolStripBtnEditar.Size = new System.Drawing.Size(100, 52);
-            this.toolStripBtnEditar.Text = "&Editar";
-            this.toolStripBtnEditar.Click += new System.EventHandler(this.toolStripBtnEditar_Click);
-            // 
-            // toolStripBtnBorrar
-            // 
-            this.toolStripBtnBorrar.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_eliminar_48;
-            this.toolStripBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnBorrar.Name = "toolStripBtnBorrar";
-            this.toolStripBtnBorrar.Size = new System.Drawing.Size(102, 52);
-            this.toolStripBtnBorrar.Text = "&Borrar";
-            this.toolStripBtnBorrar.Click += new System.EventHandler(this.toolStripBtnBorrar_Click);
-            // 
-            // toolStripBtnSalir
-            // 
-            this.toolStripBtnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_cerrar_ventana_48;
-            this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnSalir.Name = "toolStripBtnSalir";
-            this.toolStripBtnSalir.Size = new System.Drawing.Size(90, 52);
-            this.toolStripBtnSalir.Text = "&Salir";
-            this.toolStripBtnSalir.Click += new System.EventHandler(this.toolStripBtnSalir_Click);
-            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -139,6 +101,12 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.dgvDatos);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.splitContainer1.Panel2.Controls.Add(this.pictureBox1);
+            this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
             this.splitContainer1.Size = new System.Drawing.Size(800, 373);
             this.splitContainer1.SplitterDistance = 409;
             this.splitContainer1.TabIndex = 8;
@@ -160,20 +128,50 @@
             this.dgvDatos.Size = new System.Drawing.Size(409, 373);
             this.dgvDatos.TabIndex = 1;
             // 
+            // IdMarca
+            // 
+            this.IdMarca.DataPropertyName = "IdMarca";
+            this.IdMarca.HeaderText = "Código";
+            this.IdMarca.MinimumWidth = 6;
+            this.IdMarca.Name = "IdMarca";
+            this.IdMarca.ReadOnly = true;
+            this.IdMarca.Width = 125;
+            // 
+            // DescripciónMarca
+            // 
+            this.DescripciónMarca.DataPropertyName = "DescripcionMarca";
+            this.DescripciónMarca.HeaderText = "Descripción";
+            this.DescripciónMarca.MinimumWidth = 6;
+            this.DescripciónMarca.Name = "DescripciónMarca";
+            this.DescripciónMarca.ReadOnly = true;
+            this.DescripciónMarca.Width = 125;
+            // 
+            // Logo
+            // 
+            this.Logo.DataPropertyName = "Logo";
+            this.Logo.HeaderText = "Logo";
+            this.Logo.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Logo.MinimumWidth = 6;
+            this.Logo.Name = "Logo";
+            this.Logo.ReadOnly = true;
+            this.Logo.Width = 125;
+            // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.tableLayoutPanel2.BackgroundImage = global::UTN.WinForms.ApCars.Properties.Resources.Logo_1;
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.58855F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.41145F));
             this.tableLayoutPanel2.Controls.Add(this.pbImagen, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 2);
             this.tableLayoutPanel2.Controls.Add(this.label3, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnCancelar, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.btnAceptar, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.mskIdMarca, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtMarca, 1, 1);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(416, 55);
+            this.tableLayoutPanel2.Controls.Add(this.label4, 0, 0);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 4);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
@@ -183,19 +181,6 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.Size = new System.Drawing.Size(367, 218);
             this.tableLayoutPanel2.TabIndex = 5;
-            // 
-            // pbImagen
-            // 
-            this.pbImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbImagen.Image = global::UTN.WinForms.ApCars.Properties.Resources.insert_image;
-            this.pbImagen.Location = new System.Drawing.Point(196, 60);
-            this.pbImagen.Margin = new System.Windows.Forms.Padding(4);
-            this.pbImagen.Name = "pbImagen";
-            this.pbImagen.Size = new System.Drawing.Size(167, 76);
-            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbImagen.TabIndex = 22;
-            this.pbImagen.TabStop = false;
-            this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
             // 
             // label2
             // 
@@ -278,40 +263,75 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
-            // IdMarca
+            // pbImagen
             // 
-            this.IdMarca.DataPropertyName = "IdMarca";
-            this.IdMarca.HeaderText = "Código";
-            this.IdMarca.MinimumWidth = 6;
-            this.IdMarca.Name = "IdMarca";
-            this.IdMarca.ReadOnly = true;
-            this.IdMarca.Width = 125;
+            this.pbImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbImagen.Image = global::UTN.WinForms.ApCars.Properties.Resources.insert_image;
+            this.pbImagen.Location = new System.Drawing.Point(196, 60);
+            this.pbImagen.Margin = new System.Windows.Forms.Padding(4);
+            this.pbImagen.Name = "pbImagen";
+            this.pbImagen.Size = new System.Drawing.Size(167, 76);
+            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbImagen.TabIndex = 22;
+            this.pbImagen.TabStop = false;
+            this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
             // 
-            // DescripciónMarca
+            // toolStripBtnNuevo
             // 
-            this.DescripciónMarca.DataPropertyName = "DescripcionMarca";
-            this.DescripciónMarca.HeaderText = "Descripción";
-            this.DescripciónMarca.MinimumWidth = 6;
-            this.DescripciónMarca.Name = "DescripciónMarca";
-            this.DescripciónMarca.ReadOnly = true;
-            this.DescripciónMarca.Width = 125;
+            this.toolStripBtnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_agregar_48;
+            this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
+            this.toolStripBtnNuevo.Size = new System.Drawing.Size(104, 52);
+            this.toolStripBtnNuevo.Text = "&Nuevo";
+            this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
             // 
-            // Logo
+            // toolStripBtnEditar
             // 
-            this.Logo.DataPropertyName = "Logo";
-            this.Logo.HeaderText = "Logo";
-            this.Logo.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Logo.MinimumWidth = 6;
-            this.Logo.Name = "Logo";
-            this.Logo.ReadOnly = true;
-            this.Logo.Width = 125;
+            this.toolStripBtnEditar.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_editar_48;
+            this.toolStripBtnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnEditar.Name = "toolStripBtnEditar";
+            this.toolStripBtnEditar.Size = new System.Drawing.Size(100, 52);
+            this.toolStripBtnEditar.Text = "&Editar";
+            this.toolStripBtnEditar.Click += new System.EventHandler(this.toolStripBtnEditar_Click);
+            // 
+            // toolStripBtnBorrar
+            // 
+            this.toolStripBtnBorrar.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_eliminar_48;
+            this.toolStripBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnBorrar.Name = "toolStripBtnBorrar";
+            this.toolStripBtnBorrar.Size = new System.Drawing.Size(102, 52);
+            this.toolStripBtnBorrar.Text = "&Borrar";
+            this.toolStripBtnBorrar.Click += new System.EventHandler(this.toolStripBtnBorrar_Click);
+            // 
+            // toolStripBtnSalir
+            // 
+            this.toolStripBtnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_cerrar_ventana_48;
+            this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnSalir.Name = "toolStripBtnSalir";
+            this.toolStripBtnSalir.Size = new System.Drawing.Size(90, 52);
+            this.toolStripBtnSalir.Text = "&Salir";
+            this.toolStripBtnSalir.Click += new System.EventHandler(this.toolStripBtnSalir_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::UTN.WinForms.ApCars.Properties.Resources.Logo_1;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 229);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(372, 141);
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
             // 
             // frmMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.tspPrincipal);
             this.Controls.Add(this.sttInferior);
@@ -323,12 +343,14 @@
             this.tspPrincipal.ResumeLayout(false);
             this.tspPrincipal.PerformLayout();
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -357,5 +379,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn IdMarca;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescripciónMarca;
         private System.Windows.Forms.DataGridViewImageColumn Logo;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -281,6 +281,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\icono.ico" />
+    <None Include="Resources\Logo.1.png" />
+    <None Include="Resources\logoActualizado.2.png" />
+    <None Include="Resources\LogoActualizado.png" />
     <None Include="Resources\insert image.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
