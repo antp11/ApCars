@@ -43,7 +43,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Seguridad
 
         private void toolStripBtnSalvarUsuario_Click(object sender, EventArgs e)
         {
-            IBLLUsuario bllUsuario = new BLLUsuario();
+             IBLLUsuario bllUsuario = new BLLUsuario();
             try
             {
                 if (string.IsNullOrEmpty(txtLogin.Text))

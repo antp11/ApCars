@@ -63,21 +63,25 @@
     <Compile Include="Interfaces\IBLLMarca.cs" />
     <Compile Include="Interfaces\IBLLRol.cs" />
     <Compile Include="Interfaces\IBLLUsuario.cs" />
+    <Compile Include="Interfaces\IBLLVehiculo.cs" />
     <Compile Include="Interfaces\IDALEstilo.cs" />
     <Compile Include="Interfaces\IDALImpuesto.cs" />
     <Compile Include="Interfaces\IDALMarca.cs" />
     <Compile Include="Interfaces\IDALRol.cs" />
     <Compile Include="Interfaces\IDALUsuario.cs" />
+    <Compile Include="Interfaces\IDALVehiculo.cs" />
     <Compile Include="Layers\BLL\BLLEstilo.cs" />
     <Compile Include="Layers\BLL\BLLImpuesto.cs" />
     <Compile Include="Layers\BLL\BLLMarca.cs" />
     <Compile Include="Layers\BLL\BLLRol.cs" />
     <Compile Include="Layers\BLL\BLLUsuario.cs" />
+    <Compile Include="Layers\BLL\BLLVehiculo.cs" />
     <Compile Include="Layers\DAL\DALEstilo.cs" />
     <Compile Include="Layers\DAL\DALImpuesto.cs" />
     <Compile Include="Layers\DAL\DALMarca.cs" />
     <Compile Include="Layers\DAL\DALRol.cs" />
     <Compile Include="Layers\DAL\DALUsuario.cs" />
+    <Compile Include="Layers\DAL\DALVehiculo.cs" />
     <Compile Include="Layers\Entities\Estilo.cs" />
     <Compile Include="Layers\Entities\Impuesto.cs" />
     <Compile Include="Layers\Entities\Marca.cs" />
@@ -289,6 +293,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\icono.ico" />
+    <Content Include="Resources\MSWordAcepted.png" />
+    <None Include="Resources\MSWordAcepted1.png" />
     <None Include="Resources\Logo.1.png" />
     <None Include="Resources\logoActualizado.2.png" />
     <None Include="Resources\LogoActualizado.png" />

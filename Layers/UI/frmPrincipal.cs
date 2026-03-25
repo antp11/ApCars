@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UTN.WinForms.ApCars.Extensions;
+using UTN.WinForms.ApCars.Layers.UI;
 using UTN.WinForms.ApCars.Layers.UI.Mantenimientos;
 using UTN.WinForms.ApCars.Layers.UI.Seguridad;
 using UTN.WinForms.ApCars.Properties;
@@ -169,5 +170,21 @@ namespace apCars
             }
         }
 
+        private void productosToolStripMenuItemProductos_Click(object sender, EventArgs e)
+        {
+            frmMantenimientoVehiculos oForm;
+            try
+            {
+                oForm = new frmMantenimientoVehiculos();
+                oForm.MdiParent = this;
+                oForm.Show();
+            }
+            catch (Exception er)
+            {
+                string msg = "";
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod()));
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

@@ -154,19 +154,19 @@
             this.borrarToolStripMenuItem,
             this.salirToolStripMenuItem});
             this.cmdMenu.Name = "cmdMenu";
-            this.cmdMenu.Size = new System.Drawing.Size(211, 80);
+            this.cmdMenu.Size = new System.Drawing.Size(120, 52);
             // 
             // borrarToolStripMenuItem
             // 
             this.borrarToolStripMenuItem.Name = "borrarToolStripMenuItem";
-            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(119, 24);
             this.borrarToolStripMenuItem.Text = "Borrar";
             this.borrarToolStripMenuItem.Click += new System.EventHandler(this.borrarToolStripMenuItem_Click_1);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(119, 24);
             this.salirToolStripMenuItem.Text = "Salir";
             // 
             // imgListaTreeView

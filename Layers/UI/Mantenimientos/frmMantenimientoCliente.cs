@@ -16,5 +16,10 @@ namespace UTN.WinForms.ApCars.Layers.UI
         {
             InitializeComponent();
         }
+
+        private void toolStripBtnBorrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
