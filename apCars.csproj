@@ -55,6 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enums\Enumeraciones.cs" />
+    <Compile Include="Enums\TipoCombustible.cs" />
+    <Compile Include="Enums\TipoTransmision.cs" />
     <Compile Include="Extensions\ExceptionsExtention.cs" />
     <Compile Include="Interfaces\IBLLEstilo.cs" />
     <Compile Include="Interfaces\IBLLImpuesto.cs" />
