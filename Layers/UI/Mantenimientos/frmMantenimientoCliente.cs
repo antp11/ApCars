@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UTN.WinForms.ApCars.Layers.BLL;
 
 namespace UTN.WinForms.ApCars.Layers.UI
 {
@@ -20,6 +21,30 @@ namespace UTN.WinForms.ApCars.Layers.UI
         private void toolStripBtnBorrar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripBtnNuevo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frmMantenimientoCliente_Load(object sender, EventArgs e)
+        {
+            cargarProvincias();
+        }
+
+        private void cargarProvincias()
+        {
+            BLLProvincia bLLProvincia = new BLLProvincia();
+
+            cmbProvincia.DataSource= bLLProvincia.GetAll();
+            cmbProvincia.SelectedIndex=0;
+            cmbProvincia.DisplayMember = "Descripcion";
         }
     }
 }

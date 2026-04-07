@@ -204,5 +204,23 @@ namespace apCars
             }
 
         }
+
+        private void clientesToolStripMenuItemCliente_Click(object sender, EventArgs e)
+        {
+            frmMantenimientoCliente oForm;
+            try
+            {
+                oForm = new frmMantenimientoCliente();
+                oForm.MdiParent = this;
+                oForm.Show();
+            }
+            catch (Exception er)
+            {
+                string msg = "";
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod()));
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
     }
 }

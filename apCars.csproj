@@ -346,6 +346,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\icono.ico" />
+    <None Include="Resources\mapa.png" />
     <Content Include="Resources\MSWordAcepted.png" />
     <None Include="Resources\MSWordAcepted1.png" />
     <None Include="Resources\Logo.1.png" />

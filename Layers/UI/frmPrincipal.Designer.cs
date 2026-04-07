@@ -35,6 +35,7 @@
             this.tarjetasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.impuestoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.marcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.provinciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemProcesos = new System.Windows.Forms.ToolStripMenuItem();
             this.facturarToolStripMenuItemFacturar = new System.Windows.Forms.ToolStripMenuItem();
             this.anularFacturaToolStripMenuItemAnularFactura = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,7 +52,6 @@
             this.toolStripMenuItemAcercaDe = new System.Windows.Forms.ToolStripMenuItem();
             this.sttBarraInferior = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLblMensaje = new System.Windows.Forms.ToolStripStatusLabel();
-            this.provinciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mspMenuPrincipal.SuspendLayout();
             this.sttBarraInferior.SuspendLayout();
             this.SuspendLayout();
@@ -92,6 +92,7 @@
             this.clientesToolStripMenuItemCliente.Name = "clientesToolStripMenuItemCliente";
             this.clientesToolStripMenuItemCliente.Size = new System.Drawing.Size(224, 26);
             this.clientesToolStripMenuItemCliente.Text = "Clientes";
+            this.clientesToolStripMenuItemCliente.Click += new System.EventHandler(this.clientesToolStripMenuItemCliente_Click);
             // 
             // vehiculosToolStripMenuItemProductos
             // 
@@ -123,6 +124,13 @@
             this.marcaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.marcaToolStripMenuItem.Text = "Marca";
             this.marcaToolStripMenuItem.Click += new System.EventHandler(this.marcaToolStripMenuItem_Click);
+            // 
+            // provinciaToolStripMenuItem
+            // 
+            this.provinciaToolStripMenuItem.Name = "provinciaToolStripMenuItem";
+            this.provinciaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.provinciaToolStripMenuItem.Text = "Provincia";
+            this.provinciaToolStripMenuItem.Click += new System.EventHandler(this.provinciaToolStripMenuItem_Click);
             // 
             // toolStripMenuItemProcesos
             // 
@@ -255,13 +263,6 @@
             this.toolStripStatusLblMensaje.Name = "toolStripStatusLblMensaje";
             this.toolStripStatusLblMensaje.Size = new System.Drawing.Size(15, 20);
             this.toolStripStatusLblMensaje.Text = "-";
-            // 
-            // provinciaToolStripMenuItem
-            // 
-            this.provinciaToolStripMenuItem.Name = "provinciaToolStripMenuItem";
-            this.provinciaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.provinciaToolStripMenuItem.Text = "Provincia";
-            this.provinciaToolStripMenuItem.Click += new System.EventHandler(this.provinciaToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
