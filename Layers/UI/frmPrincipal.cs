@@ -47,7 +47,7 @@ namespace apCars
             }
         }
 
-        private void bodegasToolStripMenuItem_Click(object sender, EventArgs e)
+        private void marcaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmMarca oForm;
             try
@@ -65,7 +65,7 @@ namespace apCars
 
         }
 
-        private void provinciasToolStripMenuItem_Click(object sender, EventArgs e)
+        private void impuestoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmImpuesto oForm;
             try
@@ -170,7 +170,7 @@ namespace apCars
             }
         }
 
-        private void productosToolStripMenuItemProductos_Click(object sender, EventArgs e)
+        private void vehiculosToolStripMenuItemProductos_Click(object sender, EventArgs e)
         {
             frmMantenimientoVehiculos oForm;
             try
@@ -185,6 +185,24 @@ namespace apCars
                 _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod()));
                 MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void provinciaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMantenimientoProvincia oForm;
+            try
+            {
+                oForm = new frmMantenimientoProvincia();
+                oForm.MdiParent = this;
+                oForm.Show();
+            }
+            catch (Exception er)
+            {
+                string msg = "";
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod()));
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

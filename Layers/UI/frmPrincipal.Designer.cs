@@ -31,10 +31,10 @@
             this.mspMenuPrincipal = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItemMantenimientos = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItemCliente = new System.Windows.Forms.ToolStripMenuItem();
-            this.productosToolStripMenuItemProductos = new System.Windows.Forms.ToolStripMenuItem();
+            this.vehiculosToolStripMenuItemProductos = new System.Windows.Forms.ToolStripMenuItem();
             this.tarjetasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.provinciasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bodegasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.impuestoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.marcaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemProcesos = new System.Windows.Forms.ToolStripMenuItem();
             this.facturarToolStripMenuItemFacturar = new System.Windows.Forms.ToolStripMenuItem();
             this.anularFacturaToolStripMenuItemAnularFactura = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,6 +51,7 @@
             this.toolStripMenuItemAcercaDe = new System.Windows.Forms.ToolStripMenuItem();
             this.sttBarraInferior = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLblMensaje = new System.Windows.Forms.ToolStripStatusLabel();
+            this.provinciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mspMenuPrincipal.SuspendLayout();
             this.sttBarraInferior.SuspendLayout();
             this.SuspendLayout();
@@ -74,10 +75,11 @@
             // 
             this.toolStripMenuItemMantenimientos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.clientesToolStripMenuItemCliente,
-            this.productosToolStripMenuItemProductos,
+            this.vehiculosToolStripMenuItemProductos,
             this.tarjetasToolStripMenuItem,
-            this.provinciasToolStripMenuItem,
-            this.bodegasToolStripMenuItem});
+            this.impuestoToolStripMenuItem,
+            this.marcaToolStripMenuItem,
+            this.provinciaToolStripMenuItem});
             this.toolStripMenuItemMantenimientos.Image = global::UTN.WinForms.ApCars.Properties.Resources.preferences_system;
             this.toolStripMenuItemMantenimientos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemMantenimientos.Name = "toolStripMenuItemMantenimientos";
@@ -91,13 +93,13 @@
             this.clientesToolStripMenuItemCliente.Size = new System.Drawing.Size(224, 26);
             this.clientesToolStripMenuItemCliente.Text = "Clientes";
             // 
-            // productosToolStripMenuItemProductos
+            // vehiculosToolStripMenuItemProductos
             // 
-            this.productosToolStripMenuItemProductos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.productosToolStripMenuItemProductos.Name = "productosToolStripMenuItemProductos";
-            this.productosToolStripMenuItemProductos.Size = new System.Drawing.Size(224, 26);
-            this.productosToolStripMenuItemProductos.Text = "Vehiculos";
-            this.productosToolStripMenuItemProductos.Click += new System.EventHandler(this.productosToolStripMenuItemProductos_Click);
+            this.vehiculosToolStripMenuItemProductos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.vehiculosToolStripMenuItemProductos.Name = "vehiculosToolStripMenuItemProductos";
+            this.vehiculosToolStripMenuItemProductos.Size = new System.Drawing.Size(224, 26);
+            this.vehiculosToolStripMenuItemProductos.Text = "Vehiculos";
+            this.vehiculosToolStripMenuItemProductos.Click += new System.EventHandler(this.vehiculosToolStripMenuItemProductos_Click);
             // 
             // tarjetasToolStripMenuItem
             // 
@@ -106,21 +108,21 @@
             this.tarjetasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.tarjetasToolStripMenuItem.Text = "Tarjetas";
             // 
-            // provinciasToolStripMenuItem
+            // impuestoToolStripMenuItem
             // 
-            this.provinciasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.provinciasToolStripMenuItem.Name = "provinciasToolStripMenuItem";
-            this.provinciasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.provinciasToolStripMenuItem.Text = "Impuesto";
-            this.provinciasToolStripMenuItem.Click += new System.EventHandler(this.provinciasToolStripMenuItem_Click);
+            this.impuestoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.impuestoToolStripMenuItem.Name = "impuestoToolStripMenuItem";
+            this.impuestoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.impuestoToolStripMenuItem.Text = "Impuesto";
+            this.impuestoToolStripMenuItem.Click += new System.EventHandler(this.impuestoToolStripMenuItem_Click);
             // 
-            // bodegasToolStripMenuItem
+            // marcaToolStripMenuItem
             // 
-            this.bodegasToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.bodegasToolStripMenuItem.Name = "bodegasToolStripMenuItem";
-            this.bodegasToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.bodegasToolStripMenuItem.Text = "Marca";
-            this.bodegasToolStripMenuItem.Click += new System.EventHandler(this.bodegasToolStripMenuItem_Click);
+            this.marcaToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.marcaToolStripMenuItem.Name = "marcaToolStripMenuItem";
+            this.marcaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.marcaToolStripMenuItem.Text = "Marca";
+            this.marcaToolStripMenuItem.Click += new System.EventHandler(this.marcaToolStripMenuItem_Click);
             // 
             // toolStripMenuItemProcesos
             // 
@@ -254,6 +256,13 @@
             this.toolStripStatusLblMensaje.Size = new System.Drawing.Size(15, 20);
             this.toolStripStatusLblMensaje.Text = "-";
             // 
+            // provinciaToolStripMenuItem
+            // 
+            this.provinciaToolStripMenuItem.Name = "provinciaToolStripMenuItem";
+            this.provinciaToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.provinciaToolStripMenuItem.Text = "Provincia";
+            this.provinciaToolStripMenuItem.Click += new System.EventHandler(this.provinciaToolStripMenuItem_Click);
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -285,10 +294,10 @@
         private System.Windows.Forms.MenuStrip mspMenuPrincipal;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemMantenimientos;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItemCliente;
-        private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItemProductos;
+        private System.Windows.Forms.ToolStripMenuItem vehiculosToolStripMenuItemProductos;
         private System.Windows.Forms.ToolStripMenuItem tarjetasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem provinciasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem bodegasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem impuestoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem marcaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemProcesos;
         private System.Windows.Forms.ToolStripMenuItem facturarToolStripMenuItemFacturar;
         private System.Windows.Forms.ToolStripMenuItem anularFacturaToolStripMenuItemAnularFactura;
@@ -305,6 +314,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAcercaDe;
         private System.Windows.Forms.StatusStrip sttBarraInferior;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLblMensaje;
+        private System.Windows.Forms.ToolStripMenuItem provinciaToolStripMenuItem;
     }
 }
 
