@@ -11,5 +11,7 @@ namespace UTN.WinForms.ApCars.Layers.Entities
         public int IdProvincia { set; get; }
         public string Descripcion { set; get; }
 
+        public override string ToString() => IdProvincia + " " + Descripcion;
+
     }
 }

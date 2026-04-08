@@ -18,7 +18,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
     internal class DALCliente : IDALCliente
     {
         private static readonly ILog _myLogControlEventos = LogManager.GetLogger("MyControlEventos");
-        public bool Delete(string IdCliente)
+        public async Task<bool> Delete(string IdCliente)
         {
             SqlCommand command = new SqlCommand();
             string msg = "";
@@ -51,11 +51,11 @@ namespace UTN.WinForms.ApCars.Layers.DAL
             }
         }
 
-        public List<Cliente> GetAll()
+        public async Task<IEnumerable<Cliente>> GetAll()
         {
             string msg = "";
             SqlCommand command = new SqlCommand();
-            IDataReader reader = null;
+            //DataReader reader = null;
             Cliente oCliente = null;
             List<Cliente> lista = new List<Cliente>();
             try
@@ -65,30 +65,31 @@ namespace UTN.WinForms.ApCars.Layers.DAL
 
                 using (IDataBase db = FactoryDatabase.CreateDataBase(FactoryConexion.CreateConnection()))
                 {
-                    reader = db.ExecuteReader(command);
-
-                    while (reader.Read())
+                    using (SqlDataReader reader = await db.ExecuteReaderAsync(command))
                     {
+                        // Iterar en todas las filas 
+                        while (await reader.ReadAsync())
+                        {
 
-                        oCliente.IdCliente = reader["IdCliente"].ToString();
-                        oCliente.IdProvincia = int.Parse(reader["IdProvincia"].ToString());
-                        oCliente.TipoCliente = (TipoCliente)Enum.Parse(typeof(TipoCliente), reader["TipoCliente"].ToString());
-                        oCliente.Nombre = reader["Nombre"].ToString();
-                        oCliente.Apellido1 = reader["Apellido1"].ToString();
-                        oCliente.Apellido2 = reader["Apellido2"].ToString();
-                        oCliente.Sexo = reader["Sexo"].ToString();
-                        oCliente.Correo = reader["Correo"].ToString();
-                        oCliente.Direccion = reader["Direccion"].ToString();
-                        oCliente.Telefono = reader["Telefono"].ToString();
-                        oCliente.Foto = (byte[])reader["Foto"];
+                            oCliente.IdCliente = reader["IdCliente"].ToString();
+                            oCliente.IdProvincia = int.Parse(reader["IdProvincia"].ToString());
+                            oCliente.TipoCliente = (TipoCliente)Enum.Parse(typeof(TipoCliente), reader["TipoCliente"].ToString());
+                            oCliente.Nombre = reader["Nombre"].ToString();
+                            oCliente.Apellido1 = reader["Apellido1"].ToString();
+                            oCliente.Apellido2 = reader["Apellido2"].ToString();
+                            oCliente.Sexo = int.Parse(reader["Sexo"].ToString());
+                            oCliente.Correo = reader["Correo"].ToString();
+                            oCliente.Direccion = reader["Direccion"].ToString();
+                            oCliente.Telefono = reader["Telefono"].ToString();
+                            oCliente.Foto = (byte[])reader["Foto"];
 
-
-
-                        lista.Add(oCliente);
+                            lista.Add(oCliente);
+                        }
                     }
                 }
 
                 return lista;
+
             }
             catch (SqlException er)
             {
@@ -131,7 +132,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                         oCliente.Nombre = reader["Nombre"].ToString();
                         oCliente.Apellido1 = reader["Apellido1"].ToString();
                         oCliente.Apellido2 = reader["Apellido2"].ToString();
-                        oCliente.Sexo = reader["Sexo"].ToString();
+                        oCliente.Sexo = int.Parse(reader["Sexo"].ToString());
                         oCliente.Correo = reader["Correo"].ToString();
                         oCliente.Direccion = reader["Direccion"].ToString();
                         oCliente.Telefono = reader["Telefono"].ToString();
@@ -156,14 +157,14 @@ namespace UTN.WinForms.ApCars.Layers.DAL
 
         }
 
-        public Cliente Save(Cliente pCliente)
+        public async Task<Cliente> Save(Cliente pCliente)
         {
 
             string msg = "";
             SqlCommand command = new SqlCommand();
             Cliente oCliente = null;
             string sql = @"usp_INSERT_Cliente";
-            double row = 0;
+
             try
             {
                 command.Parameters.AddWithValue("@IdCliente", pCliente.IdCliente);
@@ -183,11 +184,11 @@ namespace UTN.WinForms.ApCars.Layers.DAL
 
                 using (IDataBase db = FactoryDatabase.CreateDataBase(FactoryConexion.CreateConnection()))
                 {
-                    row = db.ExecuteNonQuery(command, IsolationLevel.ReadCommitted);
-                }
-                if (row > 0)
-                    oCliente = GetById(oCliente.IdCliente);
+                    var rows = await db.ExecuteNonQueryAsync(command, IsolationLevel.ReadCommitted);
 
+                    if (rows > 0)
+                        oCliente = GetById(oCliente.IdCliente);
+                }
                 return oCliente;
 
             }
@@ -204,14 +205,15 @@ namespace UTN.WinForms.ApCars.Layers.DAL
             }
         }
 
-        public Cliente Update(Cliente pCliente)
+        public async Task<Cliente> Update(Cliente pCliente)
         {
 
             string msg = "";
             SqlCommand command = new SqlCommand();
             Cliente oCliente = null;
+            int rows = 0;
             string sql = @"usp_UPDATE_Cliente";
-            double row = 0;
+
             try
             {
                 command.Parameters.AddWithValue("@IdCliente", pCliente.IdCliente);
@@ -231,9 +233,9 @@ namespace UTN.WinForms.ApCars.Layers.DAL
 
                 using (IDataBase db = FactoryDatabase.CreateDataBase(FactoryConexion.CreateConnection()))
                 {
-                    row = db.ExecuteNonQuery(command, IsolationLevel.ReadCommitted);
+                    rows = await db.ExecuteNonQueryAsync(command, IsolationLevel.ReadCommitted);
                 }
-                if (row > 0)
+                if (rows > 0)
                     oCliente = GetById(oCliente.IdCliente);
 
                 return oCliente;

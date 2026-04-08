@@ -11,16 +11,21 @@ namespace UTN.WinForms.ApCars.Layers.BLL
 {
     internal class BLLCliente : IBLLCliente
     {
-        public bool Delete(string IdCliente)
+        public Task<bool> Delete(string IdCliente)
         {
             IDALCliente dalCliente = new DALCliente();
             return dalCliente.Delete(IdCliente);
         }
 
-        public List<Cliente> GetAll()
+        public Task<IEnumerable<Cliente>> GetAll()
         {
             IDALCliente dalCliente = new DALCliente();
             return dalCliente.GetAll();
+        }
+
+        public List<Cliente> GetByFilter(string pDescripcion)
+        {
+            throw new NotImplementedException();
         }
 
         public Cliente GetById(string IdCliente)
@@ -30,10 +35,10 @@ namespace UTN.WinForms.ApCars.Layers.BLL
         }
 
 
-        public Cliente Save(Cliente pCliente)
+        public Task<Cliente> Save(Cliente pCliente)
         {
             IDALCliente dalCliente = new DALCliente();
-            Cliente oCliente = null;
+            Task<Cliente> oCliente = null;
 
             if (dalCliente.GetById(pCliente.IdCliente) != null)
 
