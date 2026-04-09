@@ -96,6 +96,7 @@
     <Compile Include="Interfaces\IBLLEstilo.cs" />
     <Compile Include="Interfaces\IBLLImpuesto.cs" />
     <Compile Include="Interfaces\IBLLMarca.cs" />
+    <Compile Include="Interfaces\IBLLPadron.cs" />
     <Compile Include="Interfaces\IBLLProvincia.cs" />
     <Compile Include="Interfaces\IBLLRol.cs" />
     <Compile Include="Interfaces\IBLLUsuario.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Layers\BLL\BLLEstilo.cs" />
     <Compile Include="Layers\BLL\BLLImpuesto.cs" />
     <Compile Include="Layers\BLL\BLLMarca.cs" />
+    <Compile Include="Layers\BLL\BLLPadron.cs" />
     <Compile Include="Layers\BLL\BLLProvincia.cs" />
     <Compile Include="Layers\BLL\BLLRol.cs" />
     <Compile Include="Layers\BLL\BLLUsuario.cs" />
@@ -125,6 +127,7 @@
     <Compile Include="Layers\DAL\DALUsuario.cs" />
     <Compile Include="Layers\DAL\DALVehiculo.cs" />
     <Compile Include="Layers\Entities\Cliente.cs" />
+    <Compile Include="Layers\Entities\DTO\PadronDTO.cs" />
     <Compile Include="Layers\Entities\Estilo.cs" />
     <Compile Include="Layers\Entities\Impuesto.cs" />
     <Compile Include="Layers\Entities\Marca.cs" />

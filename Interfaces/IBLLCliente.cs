@@ -9,10 +9,10 @@ namespace UTN.WinForms.ApCars.Interfaces
 {
     internal interface IBLLCliente
     {
-
-        List<Cliente> GetAll();
-        Cliente Save(Cliente pCliente);
+        List<Cliente> GetByFilter(string pDescripcion);
+        Task<IEnumerable<Cliente>> GetAll();
+        Task<Cliente> Save(Cliente pCliente);
         Cliente GetById(string IdCliente);
-        bool Delete(string IdCliente);
+        Task<bool> Delete(string pId);
     }
 }

@@ -33,15 +33,11 @@
             this.sttInferior = new System.Windows.Forms.StatusStrip();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlpPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label11 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -54,8 +50,6 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.txtIdCliente = new System.Windows.Forms.TextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
             this.rdbFemenino = new System.Windows.Forms.RadioButton();
             this.label10 = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
@@ -64,6 +58,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pbImagen = new System.Windows.Forms.PictureBox();
+            this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.tspPrincipal = new System.Windows.Forms.ToolStrip();
@@ -72,6 +67,13 @@
             this.toolStripBtnBorrar = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.erp = new System.Windows.Forms.ErrorProvider(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gpbResidencia = new System.Windows.Forms.GroupBox();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -81,6 +83,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.tspPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.erp)).BeginInit();
+            this.gpbResidencia.SuspendLayout();
             this.SuspendLayout();
             // 
             // sttInferior
@@ -106,6 +109,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
             this.splitContainer1.Panel2.Controls.Add(this.tlpPanel);
             this.splitContainer1.Panel2.Controls.Add(this.btnAceptar);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
@@ -123,52 +127,12 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dgvDatos.Location = new System.Drawing.Point(0, 59);
+            this.dgvDatos.Location = new System.Drawing.Point(4, 89);
             this.dgvDatos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.Size = new System.Drawing.Size(724, 473);
             this.dgvDatos.TabIndex = 1;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "IdCliente";
-            this.Column1.HeaderText = "Id";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Nombre";
-            this.Column2.HeaderText = "Nombre";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 125;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Apellido1";
-            this.Column3.HeaderText = "Apellido1";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 125;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Apellido2";
-            this.Column4.HeaderText = "Apellido2";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 125;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "Email";
-            this.Column5.HeaderText = "Correo";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 125;
             // 
             // tlpPanel
             // 
@@ -176,35 +140,34 @@
             this.tlpPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tlpPanel.Controls.Add(this.gpbResidencia, 1, 0);
             this.tlpPanel.Controls.Add(this.label11, 0, 0);
-            this.tlpPanel.Controls.Add(this.label1, 0, 3);
-            this.tlpPanel.Controls.Add(this.label2, 0, 4);
-            this.tlpPanel.Controls.Add(this.txtNombre, 1, 4);
-            this.tlpPanel.Controls.Add(this.label3, 0, 5);
-            this.tlpPanel.Controls.Add(this.label4, 0, 6);
-            this.tlpPanel.Controls.Add(this.label5, 0, 8);
-            this.tlpPanel.Controls.Add(this.txtApellido1, 1, 5);
-            this.tlpPanel.Controls.Add(this.txtApellido2, 1, 6);
-            this.tlpPanel.Controls.Add(this.rdbMasculino, 1, 10);
-            this.tlpPanel.Controls.Add(this.cmbProvincia, 1, 12);
-            this.tlpPanel.Controls.Add(this.btnBuscarCliente, 2, 3);
-            this.tlpPanel.Controls.Add(this.label8, 0, 7);
-            this.tlpPanel.Controls.Add(this.txtEmail, 1, 7);
-            this.tlpPanel.Controls.Add(this.label9, 0, 9);
-            this.tlpPanel.Controls.Add(this.txtTelefono, 1, 8);
-            this.tlpPanel.Controls.Add(this.rdbFemenino, 1, 9);
-            this.tlpPanel.Controls.Add(this.label10, 0, 13);
-            this.tlpPanel.Controls.Add(this.txtDireccion, 1, 13);
-            this.tlpPanel.Controls.Add(this.rdbNacional, 1, 0);
-            this.tlpPanel.Controls.Add(this.rdbExtranjero, 1, 2);
-            this.tlpPanel.Controls.Add(this.label6, 0, 12);
-            this.tlpPanel.Controls.Add(this.label7, 0, 14);
-            this.tlpPanel.Controls.Add(this.pbImagen, 1, 14);
-            this.tlpPanel.Controls.Add(this.txtIdCliente, 1, 3);
-            this.tlpPanel.Location = new System.Drawing.Point(49, 69);
+            this.tlpPanel.Controls.Add(this.label1, 0, 2);
+            this.tlpPanel.Controls.Add(this.label2, 0, 3);
+            this.tlpPanel.Controls.Add(this.txtNombre, 1, 3);
+            this.tlpPanel.Controls.Add(this.label3, 0, 4);
+            this.tlpPanel.Controls.Add(this.label4, 0, 5);
+            this.tlpPanel.Controls.Add(this.label5, 0, 7);
+            this.tlpPanel.Controls.Add(this.txtApellido1, 1, 4);
+            this.tlpPanel.Controls.Add(this.txtApellido2, 1, 5);
+            this.tlpPanel.Controls.Add(this.rdbMasculino, 1, 9);
+            this.tlpPanel.Controls.Add(this.cmbProvincia, 1, 11);
+            this.tlpPanel.Controls.Add(this.btnBuscarCliente, 2, 2);
+            this.tlpPanel.Controls.Add(this.label8, 0, 6);
+            this.tlpPanel.Controls.Add(this.txtEmail, 1, 6);
+            this.tlpPanel.Controls.Add(this.label9, 0, 8);
+            this.tlpPanel.Controls.Add(this.txtTelefono, 1, 7);
+            this.tlpPanel.Controls.Add(this.label10, 0, 12);
+            this.tlpPanel.Controls.Add(this.txtDireccion, 1, 12);
+            this.tlpPanel.Controls.Add(this.label6, 0, 11);
+            this.tlpPanel.Controls.Add(this.label7, 0, 13);
+            this.tlpPanel.Controls.Add(this.pbImagen, 1, 13);
+            this.tlpPanel.Controls.Add(this.txtIdCliente, 1, 2);
+            this.tlpPanel.Controls.Add(this.rdbFemenino, 1, 8);
+            this.tlpPanel.Location = new System.Drawing.Point(17, 89);
             this.tlpPanel.Margin = new System.Windows.Forms.Padding(4);
             this.tlpPanel.Name = "tlpPanel";
-            this.tlpPanel.RowCount = 15;
+            this.tlpPanel.RowCount = 14;
             this.tlpPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -219,15 +182,15 @@
             this.tlpPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpPanel.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpPanel.Size = new System.Drawing.Size(492, 493);
+            this.tlpPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tlpPanel.Size = new System.Drawing.Size(524, 473);
             this.tlpPanel.TabIndex = 11;
             // 
             // label11
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(4, 6);
+            this.label11.Location = new System.Drawing.Point(4, 20);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(98, 16);
@@ -238,7 +201,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 65);
+            this.label1.Location = new System.Drawing.Point(4, 67);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 16);
@@ -249,18 +212,26 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 99);
+            this.label2.Location = new System.Drawing.Point(4, 101);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 16);
             this.label2.TabIndex = 1;
             this.label2.Text = "Nombre";
             // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(110, 98);
+            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(265, 22);
+            this.txtNombre.TabIndex = 2;
+            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 129);
+            this.label3.Location = new System.Drawing.Point(4, 131);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 16);
@@ -271,7 +242,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 159);
+            this.label4.Location = new System.Drawing.Point(4, 161);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 16);
@@ -282,7 +253,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 219);
+            this.label5.Location = new System.Drawing.Point(4, 221);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 16);
@@ -291,7 +262,7 @@
             // 
             // txtApellido1
             // 
-            this.txtApellido1.Location = new System.Drawing.Point(110, 126);
+            this.txtApellido1.Location = new System.Drawing.Point(110, 128);
             this.txtApellido1.Margin = new System.Windows.Forms.Padding(4);
             this.txtApellido1.Name = "txtApellido1";
             this.txtApellido1.Size = new System.Drawing.Size(265, 22);
@@ -299,7 +270,7 @@
             // 
             // txtApellido2
             // 
-            this.txtApellido2.Location = new System.Drawing.Point(110, 156);
+            this.txtApellido2.Location = new System.Drawing.Point(110, 158);
             this.txtApellido2.Margin = new System.Windows.Forms.Padding(4);
             this.txtApellido2.Name = "txtApellido2";
             this.txtApellido2.Size = new System.Drawing.Size(265, 22);
@@ -308,7 +279,7 @@
             // rdbMasculino
             // 
             this.rdbMasculino.AutoSize = true;
-            this.rdbMasculino.Location = new System.Drawing.Point(110, 274);
+            this.rdbMasculino.Location = new System.Drawing.Point(110, 276);
             this.rdbMasculino.Margin = new System.Windows.Forms.Padding(4);
             this.rdbMasculino.Name = "rdbMasculino";
             this.rdbMasculino.Size = new System.Drawing.Size(89, 20);
@@ -319,7 +290,7 @@
             // cmbProvincia
             // 
             this.cmbProvincia.FormattingEnabled = true;
-            this.cmbProvincia.Location = new System.Drawing.Point(110, 302);
+            this.cmbProvincia.Location = new System.Drawing.Point(110, 304);
             this.cmbProvincia.Margin = new System.Windows.Forms.Padding(4);
             this.cmbProvincia.Name = "cmbProvincia";
             this.cmbProvincia.Size = new System.Drawing.Size(265, 24);
@@ -327,7 +298,7 @@
             // 
             // btnBuscarCliente
             // 
-            this.btnBuscarCliente.Location = new System.Drawing.Point(383, 58);
+            this.btnBuscarCliente.Location = new System.Drawing.Point(383, 60);
             this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarCliente.Name = "btnBuscarCliente";
             this.btnBuscarCliente.Size = new System.Drawing.Size(87, 30);
@@ -340,7 +311,7 @@
             // 
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(4, 189);
+            this.label8.Location = new System.Drawing.Point(4, 191);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(98, 16);
@@ -349,7 +320,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(110, 186);
+            this.txtEmail.Location = new System.Drawing.Point(110, 188);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(265, 22);
@@ -359,7 +330,7 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(4, 248);
+            this.label9.Location = new System.Drawing.Point(4, 250);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(98, 16);
@@ -368,33 +339,17 @@
             // 
             // txtTelefono
             // 
-            this.txtTelefono.Location = new System.Drawing.Point(110, 216);
+            this.txtTelefono.Location = new System.Drawing.Point(110, 218);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(265, 22);
             this.txtTelefono.TabIndex = 17;
             // 
-            // txtIdCliente
-            // 
-            this.txtIdCliente.Location = new System.Drawing.Point(110, 58);
-            this.txtIdCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.txtIdCliente.Name = "txtIdCliente";
-            this.txtIdCliente.Size = new System.Drawing.Size(265, 22);
-            this.txtIdCliente.TabIndex = 1;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Location = new System.Drawing.Point(110, 96);
-            this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(265, 22);
-            this.txtNombre.TabIndex = 2;
-            // 
             // rdbFemenino
             // 
             this.rdbFemenino.AutoSize = true;
             this.rdbFemenino.Checked = true;
-            this.rdbFemenino.Location = new System.Drawing.Point(110, 246);
+            this.rdbFemenino.Location = new System.Drawing.Point(110, 248);
             this.rdbFemenino.Margin = new System.Windows.Forms.Padding(4);
             this.rdbFemenino.Name = "rdbFemenino";
             this.rdbFemenino.Size = new System.Drawing.Size(88, 20);
@@ -407,7 +362,7 @@
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(4, 337);
+            this.label10.Location = new System.Drawing.Point(4, 339);
             this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(98, 16);
@@ -416,7 +371,7 @@
             // 
             // txtDireccion
             // 
-            this.txtDireccion.Location = new System.Drawing.Point(110, 334);
+            this.txtDireccion.Location = new System.Drawing.Point(110, 336);
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(4);
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(265, 22);
@@ -426,7 +381,7 @@
             // 
             this.rdbNacional.AutoSize = true;
             this.rdbNacional.Checked = true;
-            this.rdbNacional.Location = new System.Drawing.Point(110, 4);
+            this.rdbNacional.Location = new System.Drawing.Point(7, 21);
             this.rdbNacional.Margin = new System.Windows.Forms.Padding(4);
             this.rdbNacional.Name = "rdbNacional";
             this.rdbNacional.Size = new System.Drawing.Size(82, 20);
@@ -438,7 +393,7 @@
             // rdbExtranjero
             // 
             this.rdbExtranjero.AutoSize = true;
-            this.rdbExtranjero.Location = new System.Drawing.Point(109, 31);
+            this.rdbExtranjero.Location = new System.Drawing.Point(134, 21);
             this.rdbExtranjero.Name = "rdbExtranjero";
             this.rdbExtranjero.Size = new System.Drawing.Size(88, 20);
             this.rdbExtranjero.TabIndex = 25;
@@ -450,7 +405,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(4, 306);
+            this.label6.Location = new System.Drawing.Point(4, 308);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(98, 16);
@@ -461,7 +416,7 @@
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 418);
+            this.label7.Location = new System.Drawing.Point(4, 411);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(98, 16);
@@ -473,7 +428,7 @@
             this.pbImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbImagen.Image = global::UTN.WinForms.ApCars.Properties.Resources.insert_image;
             this.pbImagen.InitialImage = null;
-            this.pbImagen.Location = new System.Drawing.Point(110, 364);
+            this.pbImagen.Location = new System.Drawing.Point(110, 366);
             this.pbImagen.Margin = new System.Windows.Forms.Padding(4);
             this.pbImagen.Name = "pbImagen";
             this.pbImagen.Size = new System.Drawing.Size(208, 106);
@@ -482,10 +437,18 @@
             this.pbImagen.TabStop = false;
             this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
             // 
+            // txtIdCliente
+            // 
+            this.txtIdCliente.Location = new System.Drawing.Point(110, 60);
+            this.txtIdCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIdCliente.Name = "txtIdCliente";
+            this.txtIdCliente.Size = new System.Drawing.Size(265, 22);
+            this.txtIdCliente.TabIndex = 1;
+            // 
             // btnAceptar
             // 
             this.btnAceptar.Image = ((System.Drawing.Image)(resources.GetObject("btnAceptar.Image")));
-            this.btnAceptar.Location = new System.Drawing.Point(115, 580);
+            this.btnAceptar.Location = new System.Drawing.Point(157, 605);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(116, 69);
@@ -499,7 +462,7 @@
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(326, 552);
+            this.btnCancelar.Location = new System.Drawing.Point(328, 605);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(114, 69);
@@ -566,6 +529,65 @@
             // 
             this.erp.ContainerControl = this;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(258, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 42);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // gpbResidencia
+            // 
+            this.gpbResidencia.Controls.Add(this.rdbExtranjero);
+            this.gpbResidencia.Controls.Add(this.rdbNacional);
+            this.gpbResidencia.Location = new System.Drawing.Point(109, 3);
+            this.gpbResidencia.Name = "gpbResidencia";
+            this.gpbResidencia.Size = new System.Drawing.Size(266, 50);
+            this.gpbResidencia.TabIndex = 2;
+            this.gpbResidencia.TabStop = false;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.DataPropertyName = "IdCliente";
+            this.Column1.HeaderText = "Id";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Nombre";
+            this.Column2.HeaderText = "Nombre";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Apellido1";
+            this.Column3.HeaderText = "Apellido1";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Apellido2";
+            this.Column4.HeaderText = "Apellido2";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Correo";
+            this.Column5.HeaderText = "Correo";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 125;
+            // 
             // frmMantenimientoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -576,6 +598,7 @@
             this.Controls.Add(this.sttInferior);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMantenimientoCliente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cliente";
             this.Load += new System.EventHandler(this.frmMantenimientoCliente_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -589,6 +612,8 @@
             this.tspPrincipal.ResumeLayout(false);
             this.tspPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.erp)).EndInit();
+            this.gpbResidencia.ResumeLayout(false);
+            this.gpbResidencia.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -598,11 +623,6 @@
         private System.Windows.Forms.StatusStrip sttInferior;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView dgvDatos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.TableLayoutPanel tlpPanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -637,5 +657,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.PictureBox pbImagen;
         private System.Windows.Forms.ErrorProvider erp;
+        private System.Windows.Forms.GroupBox gpbResidencia;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }

@@ -112,7 +112,7 @@ namespace UTN.WinForms.ApCars.Layers.UI
                     return;
                 }
 
-               
+
 
                 oCliente.IdCliente = this.txtIdCliente.Text;
                 oCliente.Nombre = this.txtNombre.Text;
@@ -121,7 +121,7 @@ namespace UTN.WinForms.ApCars.Layers.UI
                 oCliente.Correo = this.txtEmail.Text;
                 oCliente.Telefono = this.txtTelefono.Text;
                 oCliente.Direccion = this.txtDireccion.Text;
-                oCliente.Foto= (byte[])this.pbImagen.Tag;
+                oCliente.Foto = (byte[])this.pbImagen.Tag;
                 oCliente.IdProvincia = (cmbProvincia.SelectedItem as Provincia).IdProvincia;
                 oCliente.Sexo = rdbFemenino.Checked ? 2 : 1;
                 oCliente.TipoCliente = rdbNacional.Checked ? TipoCliente.Nacional : TipoCliente.Extranjero;
@@ -179,6 +179,10 @@ namespace UTN.WinForms.ApCars.Layers.UI
             this.txtApellido1.Enabled = false;
             this.txtApellido2.Enabled = false;
             this.txtEmail.Enabled = false;
+            this.gpbResidencia.Enabled = false;
+            this.rdbFemenino.Enabled = false;
+            this.rdbMasculino.Enabled = false;
+            this.pbImagen.Enabled = false;
 
             this.btnAceptar.Enabled = false;
             this.btnCancelar.Enabled = false;
@@ -201,6 +205,10 @@ namespace UTN.WinForms.ApCars.Layers.UI
                     this.btnAceptar.Enabled = true;
                     this.btnCancelar.Enabled = true;
                     this.btnBuscarCliente.Enabled = true;
+                    this.gpbResidencia.Enabled = true;
+                    this.rdbMasculino.Enabled = true;
+                    this.rdbFemenino.Enabled = true;
+                    this.pbImagen.Enabled = true;
                     txtIdCliente.Focus();
                     break;
                 case EstadoMantenimiento.Editar:
@@ -212,6 +220,11 @@ namespace UTN.WinForms.ApCars.Layers.UI
                     this.cmbProvincia.Enabled = true;
                     this.btnAceptar.Enabled = true;
                     this.btnCancelar.Enabled = true;
+                    this.gpbResidencia.Enabled = true;
+                    this.rdbMasculino.Enabled = true;
+                    this.rdbFemenino.Enabled = true;
+                    this.btnBuscarCliente.Enabled = false;
+                    this.pbImagen.Enabled = true;
                     txtNombre.Focus();
                     break;
                 case EstadoMantenimiento.Borrar:

@@ -55,8 +55,6 @@ namespace UTN.WinForms.ApCars.Layers.DAL
         {
             string msg = "";
             SqlCommand command = new SqlCommand();
-            //DataReader reader = null;
-            Cliente oCliente = null;
             List<Cliente> lista = new List<Cliente>();
             try
             {
@@ -70,7 +68,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                         // Iterar en todas las filas 
                         while (await reader.ReadAsync())
                         {
-
+                            Cliente oCliente = new Cliente();
                             oCliente.IdCliente = reader["IdCliente"].ToString();
                             oCliente.IdProvincia = int.Parse(reader["IdProvincia"].ToString());
                             oCliente.TipoCliente = (TipoCliente)Enum.Parse(typeof(TipoCliente), reader["TipoCliente"].ToString());
@@ -186,8 +184,9 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                 {
                     var rows = await db.ExecuteNonQueryAsync(command, IsolationLevel.ReadCommitted);
 
+                    // Si devuelve filas quiere decir que se salvo entonces extraerlo
                     if (rows > 0)
-                        oCliente = GetById(oCliente.IdCliente);
+                        oCliente = this.GetById(pCliente.IdCliente);
                 }
                 return oCliente;
 
