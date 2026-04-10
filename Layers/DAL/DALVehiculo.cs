@@ -11,6 +11,8 @@ using UTN.WinForms.ApCars.Enums;
 using UTN.WinForms.ApCars.Extensions;
 using UTN.WinForms.ApCars.Interfaces;
 using UTN.WinForms.ApCars.Layers.Entities;
+using UTN.WinForms.ApCars.Layers.Entities.DTO;
+using static log4net.Appender.ColoredConsoleAppender;
 
 namespace UTN.WinForms.ApCars.Layers.DAL
 {
@@ -77,9 +79,9 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                         oVehiculo.DescripcionVehiculo = reader["DescripcionVehiculo"].ToString();
                         oVehiculo.Anno = int.Parse(reader["Anno"].ToString());
                         oVehiculo.CantidadPaasajero = int.Parse(reader["CantidadPaasajero"].ToString());
-                        oVehiculo.TipoCombustible = (TipoCombustible)Enum.Parse(typeof(TipoCombustible), reader["TipoCombustible"].ToString());
+                        oVehiculo.TipoCombustible = int.Parse(reader["TipoCombustible"].ToString());
                         oVehiculo.Color = reader["Color"].ToString();
-                        oVehiculo.TipoTransmision = (TipoTransmision)Enum.Parse(typeof(TipoTransmision), reader["TipoTransmision"].ToString());
+                        oVehiculo.TipoTransmision = int.Parse(reader["TipoTransmision"].ToString());
                         oVehiculo.Precio = double.Parse(reader["Precio"].ToString());
                         oVehiculo.Foto = (byte[])reader["Foto"];
                         oVehiculo.Documento = (byte[])reader["Documento"];
@@ -87,6 +89,76 @@ namespace UTN.WinForms.ApCars.Layers.DAL
 
 
                         lista.Add(oVehiculo);
+                    }
+                }
+
+                return lista;
+            }
+            catch (SqlException er)
+            {
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(MethodBase.GetCurrentMethod(), er, command));
+                throw new CustomException(msg.ToSqlServerDetailError(er));
+            }
+            catch (Exception er)
+            {
+                msg = msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod());
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                throw;
+            }
+        }
+
+        public List<VehiculoMarcaEstiloDTO> GetAllDTO()
+        {
+            string msg = "";
+            DataSet ds = null;
+            List<VehiculoMarcaEstiloDTO> lista = new List<VehiculoMarcaEstiloDTO>();
+            SqlCommand command = new SqlCommand();
+
+            string sql = @"SELECT Estilo.*, TipoCombustible.*, Marca.*, TipoTransmision.*, Vehiculo.IdVIN, Vehiculo.DescripcionVehiculo, Vehiculo.Anno, Vehiculo.CantidadPaasajero, Vehiculo.Color, Vehiculo.Precio, Vehiculo.Foto, Vehiculo.Documento, Vehiculo.Extras
+                  FROM     Estilo INNER JOIN
+                  Vehiculo ON Estilo.IdEstilo = Vehiculo.IdEstilo INNER JOIN
+                  Marca ON Vehiculo.IdMarca = Marca.IdMarca INNER JOIN
+                  TipoCombustible ON Vehiculo.TipoCombustible = TipoCombustible.IdTipoCombustible INNER JOIN
+                  TipoTransmision ON Vehiculo.TipoTransmision = TipoTransmision.IdTransmision";
+            try
+            {
+                command.CommandText = sql;
+                command.CommandType = CommandType.Text;
+
+                using (IDataBase db = FactoryDatabase.CreateDataBase(FactoryConexion.CreateConnection()))
+                {
+                    ds = db.ExecuteReader(command, "query");
+                }
+
+                // Si devolvió filas
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+
+                    // Iterar en todas las filas y Mapearlas
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        VehiculoMarcaEstiloDTO oVehiculoMarcaEstiloDTO = new VehiculoMarcaEstiloDTO();
+                        oVehiculoMarcaEstiloDTO.IdVIN = dr["IdVIN"].ToString();
+                        oVehiculoMarcaEstiloDTO.IdMarca = int.Parse(dr["IdMarca"].ToString());
+                        oVehiculoMarcaEstiloDTO.DescripcionMarca = dr["DescripcionMarca"].ToString();
+                        oVehiculoMarcaEstiloDTO.Logo = (byte[])dr["Logo"];
+                        oVehiculoMarcaEstiloDTO.IdEstilo = int.Parse(dr["IdEstilo"].ToString());
+                        oVehiculoMarcaEstiloDTO.Descripcion = dr["Descripcion"].ToString();
+                        oVehiculoMarcaEstiloDTO.DescripcionVehiculo = dr["DescripcionVehiculo"].ToString();
+                        oVehiculoMarcaEstiloDTO.Anno = int.Parse(dr["Anno"].ToString());
+                        oVehiculoMarcaEstiloDTO.CantidadPaasajero = int.Parse(dr["CantidadPaasajero"].ToString());
+                        oVehiculoMarcaEstiloDTO.IdTipoCombustible = int.Parse(dr["IdTipoCombustible"].ToString());
+                        oVehiculoMarcaEstiloDTO.DescripcionTipoCombustible = dr["DescripcionTipoCombustible"].ToString();
+                        oVehiculoMarcaEstiloDTO.Color = dr["Color"].ToString();
+                        oVehiculoMarcaEstiloDTO.IdTransmision = int.Parse(dr["IdTransmision"].ToString());
+                        oVehiculoMarcaEstiloDTO.DescripcionTransmision = dr["DescripcionTransmision"].ToString();
+                        oVehiculoMarcaEstiloDTO.Precio = double.Parse(dr["Precio"].ToString());
+                        oVehiculoMarcaEstiloDTO.Foto = (byte[])dr["Foto"];
+                        oVehiculoMarcaEstiloDTO.Documento = (byte[])dr["Documento"];
+                        oVehiculoMarcaEstiloDTO.Extras = dr["Extras"].ToString();
+
+
+                        lista.Add(oVehiculoMarcaEstiloDTO);
                     }
                 }
 
@@ -131,9 +203,9 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                         oVehiculo.DescripcionVehiculo = reader["DescripcionVehiculo"].ToString();
                         oVehiculo.Anno = int.Parse(reader["Anno"].ToString());
                         oVehiculo.CantidadPaasajero = int.Parse(reader["CantidadPaasajero"].ToString());
-                        oVehiculo.TipoCombustible = (TipoCombustible)Enum.Parse(typeof(TipoCombustible), reader["TipoCombustible"].ToString());
+                        oVehiculo.TipoCombustible = int.Parse(reader["TipoCombustible"].ToString());
                         oVehiculo.Color = reader["Color"].ToString();
-                        oVehiculo.TipoTransmision = (TipoTransmision)Enum.Parse(typeof(TipoTransmision), reader["TipoTransmision"].ToString());
+                        oVehiculo.TipoTransmision = int.Parse(reader["TipoTransmision"].ToString());
                         oVehiculo.Precio = double.Parse(reader["Precio"].ToString());
                         oVehiculo.Foto = (byte[])reader["Foto"];
                         oVehiculo.Documento = (byte[])reader["Documento"];
@@ -172,13 +244,17 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                 command.Parameters.AddWithValue("@DescripcionVehiculo", pVehiculo.DescripcionVehiculo);
                 command.Parameters.AddWithValue("@Anno", pVehiculo.Anno);
                 command.Parameters.AddWithValue("@CantidadPaasajero", pVehiculo.CantidadPaasajero);
-                command.Parameters.AddWithValue("@TipoCombustible", pVehiculo.TipoCombustible);
+                command.Parameters.AddWithValue("@TipoCombustible", pVehiculo.TipoCombustible+1);
                 command.Parameters.AddWithValue("@Color", pVehiculo.Color);
-                command.Parameters.AddWithValue("@TipoTransmision", pVehiculo.TipoTransmision);
+                command.Parameters.AddWithValue("@TipoTransmision", pVehiculo.TipoTransmision+1);
                 command.Parameters.AddWithValue("@Precio", pVehiculo.Precio);
                 command.Parameters.AddWithValue("@Foto", pVehiculo.Foto);
                 command.Parameters.AddWithValue("@Documento", pVehiculo.Documento);
                 command.Parameters.AddWithValue("@Extras", pVehiculo.Extras);
+
+
+               
+
 
                 command.CommandType = CommandType.StoredProcedure;
                 command.CommandText = sql;
@@ -222,9 +298,9 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                 command.Parameters.AddWithValue("@DescripcionVehiculo", pVehiculo.DescripcionVehiculo);
                 command.Parameters.AddWithValue("@Anno", pVehiculo.Anno);
                 command.Parameters.AddWithValue("@CantidadPaasajero", pVehiculo.CantidadPaasajero);
-                command.Parameters.AddWithValue("@TipoCombustible", pVehiculo.TipoCombustible);
+                command.Parameters.AddWithValue("@TipoCombustible", pVehiculo.TipoCombustible );
                 command.Parameters.AddWithValue("@Color", pVehiculo.Color);
-                command.Parameters.AddWithValue("@TipoTransmision", pVehiculo.TipoTransmision);
+                command.Parameters.AddWithValue("@TipoTransmision", pVehiculo.TipoTransmision );
                 command.Parameters.AddWithValue("@Precio", pVehiculo.Precio);
                 command.Parameters.AddWithValue("@Foto", pVehiculo.Foto);
                 command.Parameters.AddWithValue("@Documento", pVehiculo.Documento);

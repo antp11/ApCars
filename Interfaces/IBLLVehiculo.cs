@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UTN.WinForms.ApCars.Layers.Entities;
+using UTN.WinForms.ApCars.Layers.Entities.DTO;
 
 namespace UTN.WinForms.ApCars.Interfaces
 {
@@ -13,5 +14,8 @@ namespace UTN.WinForms.ApCars.Interfaces
         Vehiculo Save(Vehiculo pVehiculo);
         Vehiculo GetById(string pVin);
         bool Delete(string pVin);
+        List<VehiculoMarcaEstiloDTO> GetAllDTO();
+
+
     }
 }

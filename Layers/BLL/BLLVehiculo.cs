@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using UTN.WinForms.ApCars.Interfaces;
 using UTN.WinForms.ApCars.Layers.DAL;
 using UTN.WinForms.ApCars.Layers.Entities;
+using UTN.WinForms.ApCars.Layers.Entities.DTO;
 
 namespace UTN.WinForms.ApCars.Layers.BLL
 {
@@ -22,6 +23,13 @@ namespace UTN.WinForms.ApCars.Layers.BLL
             IDALVehiculo dALVehiculo = new DALVehiculo();
 
             return dALVehiculo.GetAll();
+        }
+
+        public List<VehiculoMarcaEstiloDTO> GetAllDTO()
+        {
+            IDALVehiculo dALVehiculo = new DALVehiculo();
+
+            return dALVehiculo.GetAllDTO();
         }
 
         public Vehiculo GetById(string pVin)

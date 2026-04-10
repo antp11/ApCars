@@ -15,9 +15,9 @@ namespace UTN.WinForms.ApCars.Layers.Entities
         public string DescripcionVehiculo { set; get; }
         public int Anno { set; get; }
         public int CantidadPaasajero { set; get; }
-        public TipoCombustible TipoCombustible { set; get; }
+        public int TipoCombustible { set; get; }
         public string Color { set; get; }
-        public TipoTransmision TipoTransmision { set; get; }
+        public int TipoTransmision { set; get; }
         public double Precio { set; get; }
         public byte[] Foto { set; get; }
         public byte[] Documento { set; get; }

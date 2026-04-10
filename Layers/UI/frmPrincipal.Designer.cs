@@ -80,7 +80,7 @@
             this.impuestoToolStripMenuItem,
             this.marcaToolStripMenuItem,
             this.provinciaToolStripMenuItem});
-            this.toolStripMenuItemMantenimientos.Image = global::UTN.WinForms.ApCars.Properties.Resources.preferences_system;
+            this.toolStripMenuItemMantenimientos.Image = global::UTN.WinForms.ApCars.Properties.Resources.setting;
             this.toolStripMenuItemMantenimientos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripMenuItemMantenimientos.Name = "toolStripMenuItemMantenimientos";
             this.toolStripMenuItemMantenimientos.Size = new System.Drawing.Size(178, 52);
@@ -148,21 +148,21 @@
             // 
             this.facturarToolStripMenuItemFacturar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.facturarToolStripMenuItemFacturar.Name = "facturarToolStripMenuItemFacturar";
-            this.facturarToolStripMenuItemFacturar.Size = new System.Drawing.Size(186, 26);
+            this.facturarToolStripMenuItemFacturar.Size = new System.Drawing.Size(224, 26);
             this.facturarToolStripMenuItemFacturar.Text = "Facturar";
             // 
             // anularFacturaToolStripMenuItemAnularFactura
             // 
             this.anularFacturaToolStripMenuItemAnularFactura.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.anularFacturaToolStripMenuItemAnularFactura.Name = "anularFacturaToolStripMenuItemAnularFactura";
-            this.anularFacturaToolStripMenuItemAnularFactura.Size = new System.Drawing.Size(186, 26);
+            this.anularFacturaToolStripMenuItemAnularFactura.Size = new System.Drawing.Size(224, 26);
             this.anularFacturaToolStripMenuItemAnularFactura.Text = "Anular Factura";
             // 
             // cierreToolStripMenuItemCierre
             // 
             this.cierreToolStripMenuItemCierre.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.cierreToolStripMenuItemCierre.Name = "cierreToolStripMenuItemCierre";
-            this.cierreToolStripMenuItemCierre.Size = new System.Drawing.Size(186, 26);
+            this.cierreToolStripMenuItemCierre.Size = new System.Drawing.Size(224, 26);
             this.cierreToolStripMenuItemCierre.Text = "Cierre";
             // 
             // reportesToolStripMenuItemReportes
