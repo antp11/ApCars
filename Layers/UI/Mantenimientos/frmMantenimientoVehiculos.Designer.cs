@@ -31,10 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMantenimientoVehiculos));
             this.tspPrincipal = new System.Windows.Forms.ToolStrip();
-            this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnEditar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnBorrar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.sttInferior = new System.Windows.Forms.StatusStrip();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
@@ -62,24 +58,28 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.pbDocumentacion = new System.Windows.Forms.PictureBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.nudCantidadPasajeros = new System.Windows.Forms.NumericUpDown();
             this.mskPrecio = new System.Windows.Forms.MaskedTextBox();
-            this.pbImagen = new System.Windows.Forms.PictureBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.IdVIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IdEstilo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Logo = new System.Windows.Forms.DataGridViewImageColumn();
             this.DescripcionVehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Foto = new System.Windows.Forms.DataGridViewImageColumn();
+            this.IdEstilo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Anno = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CantidadPaasajero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoCombustible = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoTransmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Foto = new System.Windows.Forms.DataGridViewImageColumn();
+            this.pbDocumentacion = new System.Windows.Forms.PictureBox();
+            this.pbImagen = new System.Windows.Forms.PictureBox();
+            this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnEditar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnBorrar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.tspPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -87,10 +87,10 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDocumentacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadPasajeros)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDocumentacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // tspPrincipal
@@ -105,47 +105,6 @@
             this.tspPrincipal.Name = "tspPrincipal";
             this.tspPrincipal.Size = new System.Drawing.Size(1626, 55);
             this.tspPrincipal.TabIndex = 3;
-            // 
-            // toolStripBtnNuevo
-            // 
-            this.toolStripBtnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.nuevo;
-            this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
-            this.toolStripBtnNuevo.Size = new System.Drawing.Size(96, 52);
-            this.toolStripBtnNuevo.Text = "&Nuevo";
-            this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
-            // 
-            // toolStripBtnEditar
-            // 
-            this.toolStripBtnEditar.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_editar_48;
-            this.toolStripBtnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnEditar.Name = "toolStripBtnEditar";
-            this.toolStripBtnEditar.Size = new System.Drawing.Size(100, 52);
-            this.toolStripBtnEditar.Text = "&Editar";
-            this.toolStripBtnEditar.Click += new System.EventHandler(this.toolStripBtnEditar_Click);
-            // 
-            // toolStripBtnBorrar
-            // 
-            this.toolStripBtnBorrar.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_eliminar_48;
-            this.toolStripBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnBorrar.Name = "toolStripBtnBorrar";
-            this.toolStripBtnBorrar.Size = new System.Drawing.Size(102, 52);
-            this.toolStripBtnBorrar.Text = "&Borrar";
-            this.toolStripBtnBorrar.Click += new System.EventHandler(this.toolStripBtnBorrar_Click);
-            // 
-            // toolStripBtnSalir
-            // 
-            this.toolStripBtnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_cerrar_ventana_48;
-            this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnSalir.Name = "toolStripBtnSalir";
-            this.toolStripBtnSalir.Size = new System.Drawing.Size(90, 52);
-            this.toolStripBtnSalir.Text = "&Salir";
-            this.toolStripBtnSalir.Click += new System.EventHandler(this.toolStripBtnSalir_Click);
             // 
             // sttInferior
             // 
@@ -181,22 +140,23 @@
             this.dgvDatos.AllowUserToAddRows = false;
             this.dgvDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IdVIN,
-            this.IdMarca,
-            this.IdEstilo,
+            this.Marca,
+            this.Logo,
             this.DescripcionVehiculo,
+            this.Foto,
+            this.IdEstilo,
             this.Anno,
             this.CantidadPaasajero,
             this.TipoCombustible,
             this.TipoTransmision,
-            this.Precio,
-            this.Foto});
-            this.dgvDatos.Location = new System.Drawing.Point(0, 3);
+            this.Precio});
+            this.dgvDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvDatos.Location = new System.Drawing.Point(0, 0);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.ReadOnly = true;
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
-            this.dgvDatos.Size = new System.Drawing.Size(965, 763);
+            this.dgvDatos.Size = new System.Drawing.Size(979, 763);
             this.dgvDatos.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -490,18 +450,7 @@
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // pbDocumentacion
-            // 
-            this.pbDocumentacion.Image = ((System.Drawing.Image)(resources.GetObject("pbDocumentacion.Image")));
-            this.pbDocumentacion.Location = new System.Drawing.Point(371, 454);
-            this.pbDocumentacion.Margin = new System.Windows.Forms.Padding(4);
-            this.pbDocumentacion.Name = "pbDocumentacion";
-            this.pbDocumentacion.Size = new System.Drawing.Size(208, 96);
-            this.pbDocumentacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbDocumentacion.TabIndex = 11;
-            this.pbDocumentacion.TabStop = false;
-            this.pbDocumentacion.Click += new System.EventHandler(this.pbDocumentacion_Click);
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAceptar
             // 
@@ -530,20 +479,6 @@
             this.mskPrecio.Size = new System.Drawing.Size(207, 22);
             this.mskPrecio.TabIndex = 3;
             // 
-            // pbImagen
-            // 
-            this.pbImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbImagen.Image = global::UTN.WinForms.ApCars.Properties.Resources.insert_image;
-            this.pbImagen.InitialImage = null;
-            this.pbImagen.Location = new System.Drawing.Point(371, 340);
-            this.pbImagen.Margin = new System.Windows.Forms.Padding(4);
-            this.pbImagen.Name = "pbImagen";
-            this.pbImagen.Size = new System.Drawing.Size(208, 106);
-            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbImagen.TabIndex = 10;
-            this.pbImagen.TabStop = false;
-            this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
-            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -554,32 +489,24 @@
             // 
             this.epError.ContainerControl = this;
             // 
-            // IdVIN
+            // Marca
             // 
-            this.IdVIN.DataPropertyName = "IdVIN";
-            this.IdVIN.HeaderText = "VIN";
-            this.IdVIN.MinimumWidth = 6;
-            this.IdVIN.Name = "IdVIN";
-            this.IdVIN.ReadOnly = true;
-            this.IdVIN.Width = 125;
+            this.Marca.DataPropertyName = "DescripcionMarca";
+            this.Marca.HeaderText = "Marca";
+            this.Marca.MinimumWidth = 6;
+            this.Marca.Name = "Marca";
+            this.Marca.ReadOnly = true;
+            this.Marca.Width = 6;
             // 
-            // IdMarca
+            // Logo
             // 
-            this.IdMarca.DataPropertyName = "IdMarca";
-            this.IdMarca.HeaderText = "Marca";
-            this.IdMarca.MinimumWidth = 6;
-            this.IdMarca.Name = "IdMarca";
-            this.IdMarca.ReadOnly = true;
-            this.IdMarca.Width = 125;
-            // 
-            // IdEstilo
-            // 
-            this.IdEstilo.DataPropertyName = "IdEstilo";
-            this.IdEstilo.HeaderText = "Estilo";
-            this.IdEstilo.MinimumWidth = 6;
-            this.IdEstilo.Name = "IdEstilo";
-            this.IdEstilo.ReadOnly = true;
-            this.IdEstilo.Width = 125;
+            this.Logo.DataPropertyName = "Logo";
+            this.Logo.HeaderText = "Marca";
+            this.Logo.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Logo.MinimumWidth = 6;
+            this.Logo.Name = "Logo";
+            this.Logo.ReadOnly = true;
+            this.Logo.Width = 125;
             // 
             // DescripcionVehiculo
             // 
@@ -589,6 +516,25 @@
             this.DescripcionVehiculo.Name = "DescripcionVehiculo";
             this.DescripcionVehiculo.ReadOnly = true;
             this.DescripcionVehiculo.Width = 125;
+            // 
+            // Foto
+            // 
+            this.Foto.DataPropertyName = "Foto";
+            this.Foto.HeaderText = "Foto";
+            this.Foto.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Foto.MinimumWidth = 6;
+            this.Foto.Name = "Foto";
+            this.Foto.ReadOnly = true;
+            this.Foto.Width = 125;
+            // 
+            // IdEstilo
+            // 
+            this.IdEstilo.DataPropertyName = "Descripcion";
+            this.IdEstilo.HeaderText = "Estilo";
+            this.IdEstilo.MinimumWidth = 6;
+            this.IdEstilo.Name = "IdEstilo";
+            this.IdEstilo.ReadOnly = true;
+            this.IdEstilo.Width = 125;
             // 
             // Anno
             // 
@@ -610,7 +556,7 @@
             // 
             // TipoCombustible
             // 
-            this.TipoCombustible.DataPropertyName = "TipoCombustible";
+            this.TipoCombustible.DataPropertyName = "DescripcionTipoCombustible";
             this.TipoCombustible.HeaderText = "Combustible ";
             this.TipoCombustible.MinimumWidth = 6;
             this.TipoCombustible.Name = "TipoCombustible";
@@ -619,7 +565,7 @@
             // 
             // TipoTransmision
             // 
-            this.TipoTransmision.DataPropertyName = "TipoTransmision";
+            this.TipoTransmision.DataPropertyName = "DescripcionTransmision";
             this.TipoTransmision.HeaderText = "Transmision ";
             this.TipoTransmision.MinimumWidth = 6;
             this.TipoTransmision.Name = "TipoTransmision";
@@ -635,14 +581,72 @@
             this.Precio.ReadOnly = true;
             this.Precio.Width = 125;
             // 
-            // Foto
+            // pbDocumentacion
             // 
-            this.Foto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Foto.DataPropertyName = "Foto";
-            this.Foto.HeaderText = "Foto";
-            this.Foto.MinimumWidth = 6;
-            this.Foto.Name = "Foto";
-            this.Foto.ReadOnly = true;
+            this.pbDocumentacion.Image = ((System.Drawing.Image)(resources.GetObject("pbDocumentacion.Image")));
+            this.pbDocumentacion.Location = new System.Drawing.Point(371, 454);
+            this.pbDocumentacion.Margin = new System.Windows.Forms.Padding(4);
+            this.pbDocumentacion.Name = "pbDocumentacion";
+            this.pbDocumentacion.Size = new System.Drawing.Size(208, 96);
+            this.pbDocumentacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbDocumentacion.TabIndex = 11;
+            this.pbDocumentacion.TabStop = false;
+            this.pbDocumentacion.Click += new System.EventHandler(this.pbDocumentacion_Click);
+            // 
+            // pbImagen
+            // 
+            this.pbImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbImagen.Image = global::UTN.WinForms.ApCars.Properties.Resources.imageInsert;
+            this.pbImagen.InitialImage = null;
+            this.pbImagen.Location = new System.Drawing.Point(371, 340);
+            this.pbImagen.Margin = new System.Windows.Forms.Padding(4);
+            this.pbImagen.Name = "pbImagen";
+            this.pbImagen.Size = new System.Drawing.Size(208, 106);
+            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbImagen.TabIndex = 10;
+            this.pbImagen.TabStop = false;
+            this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
+            // 
+            // toolStripBtnNuevo
+            // 
+            this.toolStripBtnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.nuevo;
+            this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
+            this.toolStripBtnNuevo.Size = new System.Drawing.Size(96, 52);
+            this.toolStripBtnNuevo.Text = "&Nuevo";
+            this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
+            // 
+            // toolStripBtnEditar
+            // 
+            this.toolStripBtnEditar.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_editar_48;
+            this.toolStripBtnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnEditar.Name = "toolStripBtnEditar";
+            this.toolStripBtnEditar.Size = new System.Drawing.Size(100, 52);
+            this.toolStripBtnEditar.Text = "&Editar";
+            this.toolStripBtnEditar.Click += new System.EventHandler(this.toolStripBtnEditar_Click);
+            // 
+            // toolStripBtnBorrar
+            // 
+            this.toolStripBtnBorrar.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_eliminar_48;
+            this.toolStripBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnBorrar.Name = "toolStripBtnBorrar";
+            this.toolStripBtnBorrar.Size = new System.Drawing.Size(102, 52);
+            this.toolStripBtnBorrar.Text = "&Borrar";
+            this.toolStripBtnBorrar.Click += new System.EventHandler(this.toolStripBtnBorrar_Click);
+            // 
+            // toolStripBtnSalir
+            // 
+            this.toolStripBtnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_cerrar_ventana_48;
+            this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnSalir.Name = "toolStripBtnSalir";
+            this.toolStripBtnSalir.Size = new System.Drawing.Size(90, 52);
+            this.toolStripBtnSalir.Text = "&Salir";
+            this.toolStripBtnSalir.Click += new System.EventHandler(this.toolStripBtnSalir_Click);
             // 
             // frmMantenimientoVehiculos
             // 
@@ -666,10 +670,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDocumentacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadPasajeros)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDocumentacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -717,15 +721,15 @@
         private System.Windows.Forms.ErrorProvider epError;
         private System.Windows.Forms.DataGridView dgvDatos;
         private System.Windows.Forms.MaskedTextBox mskAnno;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdVIN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdMarca;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IdEstilo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
+        private System.Windows.Forms.DataGridViewImageColumn Logo;
         private System.Windows.Forms.DataGridViewTextBoxColumn DescripcionVehiculo;
+        private System.Windows.Forms.DataGridViewImageColumn Foto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdEstilo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Anno;
         private System.Windows.Forms.DataGridViewTextBoxColumn CantidadPaasajero;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoCombustible;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoTransmision;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.DataGridViewImageColumn Foto;
     }
 }

@@ -16,6 +16,7 @@ using UTN.WinForms.ApCars.Extensions;
 using UTN.WinForms.ApCars.Interfaces;
 using UTN.WinForms.ApCars.Layers.BLL;
 using UTN.WinForms.ApCars.Layers.Entities;
+using UTN.WinForms.ApCars.Layers.Entities.DTO;
 
 namespace UTN.WinForms.ApCars.Layers.UI
 {
@@ -32,8 +33,9 @@ namespace UTN.WinForms.ApCars.Layers.UI
         {
             try
             {
-                LoadData();
                 llenarCombos();
+                LoadData();
+
             }
             catch (Exception er)
             {
@@ -42,7 +44,7 @@ namespace UTN.WinForms.ApCars.Layers.UI
                 MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-            llenarCombos();
+
 
         }
 
@@ -51,14 +53,18 @@ namespace UTN.WinForms.ApCars.Layers.UI
 
             IBLLEstilo bllEstilo;
             IBLLMarca bllMarca;
+            IBLLTipoCombustible bllTipoCombustible;
+            IBLLTipoTransmision bllTipoTransmision;
 
-            ;
+
             try
             {
 
 
                 bllEstilo = new BLLEstilo();
                 bllMarca = new BLLMarca();
+                bllTipoCombustible = new BLLTipoCombustible();
+                bllTipoTransmision = new BLLTipoTransmision();
 
                 cmbEstilo.DataSource = bllEstilo.GetAll();
                 cmbEstilo.SelectedIndex = 0;
@@ -70,10 +76,18 @@ namespace UTN.WinForms.ApCars.Layers.UI
                 cmbMarca.DisplayMember = "DescripcionMarca";
                 cmbMarca.ValueMember = "IdMarca";
 
-                cmbCombustible.DataSource = Enum.GetValues(typeof(TipoCombustible));
-                cmbCombustible.SelectedIndex = 0;
 
-                cmbTransmision.DataSource = Enum.GetValues(typeof(TipoTransmision));
+                cmbCombustible.DataSource = bllTipoCombustible.GetAll();
+                cmbCombustible.SelectedIndex = 0;
+                cmbCombustible.DisplayMember = "DescripcionTipoCombustible";
+                cmbCombustible.ValueMember = "IdTipoCombustible";
+
+
+
+                cmbTransmision.DataSource = bllTipoTransmision.GetAll();
+                cmbTransmision.SelectedIndex = 0;
+                cmbTransmision.DisplayMember = "DescripcionTransmision";
+                cmbTransmision.ValueMember = "IdTransmision";
 
 
 
@@ -227,14 +241,14 @@ namespace UTN.WinForms.ApCars.Layers.UI
                 }
 
                 oVehiculo.IdVIN = mskVIN.Text;
-                oVehiculo.IdMarca = Convert.ToInt32(cmbMarca.SelectedValue);
-                oVehiculo.IdEstilo = Convert.ToInt32(cmbEstilo.SelectedValue);
+                oVehiculo.IdMarca = Convert.ToInt16(cmbMarca.SelectedValue);
+                oVehiculo.IdEstilo = Convert.ToInt16(cmbEstilo.SelectedValue);
                 oVehiculo.DescripcionVehiculo = txtDescripcion.Text;
-                oVehiculo.Anno = Convert.ToInt32(mskAnno.Text);
-                oVehiculo.CantidadPaasajero = Convert.ToInt32(nudCantidadPasajeros.Value);
-                oVehiculo.TipoCombustible = (TipoCombustible)cmbCombustible.SelectedItem;
+                oVehiculo.Anno = Convert.ToInt16(mskAnno.Text);
+                oVehiculo.CantidadPaasajero = Convert.ToInt16(nudCantidadPasajeros.Value);
+                oVehiculo.TipoCombustible = Convert.ToInt16(cmbCombustible.SelectedValue);
                 oVehiculo.Color = txtColor.Text;
-                oVehiculo.TipoTransmision = (TipoTransmision)cmbTransmision.SelectedItem;
+                oVehiculo.TipoTransmision = Convert.ToInt16(cmbTransmision.SelectedValue);
                 oVehiculo.Precio = Convert.ToDouble(mskPrecio.Text);
                 oVehiculo.Foto = (byte[])this.pbImagen.Tag;
                 oVehiculo.Documento = (byte[])pbDocumentacion.Tag;
@@ -276,10 +290,10 @@ namespace UTN.WinForms.ApCars.Layers.UI
 
 
                 // Cargar el DataGridView
-                this.dgvDatos.DataSource = bllVehiculo.GetAll();
+                this.dgvDatos.DataSource = bllVehiculo.GetAllDTO();
 
-                this.pbImagen.Image = Properties.Resources.insert_image;
-                this.pbImagen.SizeMode = PictureBoxSizeMode.CenterImage;
+                this.pbImagen.Image = Properties.Resources.imageInsert;
+                this.pbImagen.SizeMode = PictureBoxSizeMode.AutoSize;
 
 
             }
@@ -302,10 +316,10 @@ namespace UTN.WinForms.ApCars.Layers.UI
             this.txtExtras.Clear();
             this.pbImagen.Tag = null;
             this.pbDocumentacion.Tag = null;
-            //this.cmbCombustible.SelectedIndex =0;
-            //this.cmbMarca.SelectedIndex = 0;
-            //this.cmbEstilo.SelectedIndex = 0;
-            //this.cmbTransmision.SelectedIndex = 0;
+            this.cmbCombustible.SelectedIndex = 0;
+            this.cmbMarca.SelectedIndex = 0;
+            this.cmbEstilo.SelectedIndex = 0;
+            this.cmbTransmision.SelectedIndex = 0;
             this.nudCantidadPasajeros.Value = 0;
 
             this.btnAceptar.Enabled = false;
@@ -324,6 +338,10 @@ namespace UTN.WinForms.ApCars.Layers.UI
             this.cmbEstilo.Enabled = false;
             this.cmbTransmision.Enabled = false;
             this.nudCantidadPasajeros.Enabled = false;
+
+            this.pbDocumentacion.Image = ApCars.Properties.Resources.Word;
+            this.pbImagen.Image = ApCars.Properties.Resources.imageInsert;
+            this.pbImagen.SizeMode = PictureBoxSizeMode.CenterImage;
 
 
             this.pbImagen.SizeMode = PictureBoxSizeMode.CenterImage;
@@ -382,27 +400,30 @@ namespace UTN.WinForms.ApCars.Layers.UI
 
         private void toolStripBtnEditar_Click(object sender, EventArgs e)
         {
-            Vehiculo oVehiculo = null;
+            VehiculoMarcaEstiloDTO oVehiculo = null;
             try
             {
                 if (this.dgvDatos.SelectedRows.Count > 0)
                 {
                     // Cambiar de estado
                     this.ChangeState(EstadoMantenimiento.Editar);
-                    oVehiculo = this.dgvDatos.SelectedRows[0].DataBoundItem as Vehiculo;
+                    oVehiculo = this.dgvDatos.SelectedRows[0].DataBoundItem as VehiculoMarcaEstiloDTO;
 
                     this.mskVIN.Text = oVehiculo.IdVIN;
-                    this.mskPrecio.Text = oVehiculo.IdMarca.ToString();
+                    this.mskPrecio.Text = oVehiculo.Precio.ToString();
                     this.mskAnno.Text = oVehiculo.Anno.ToString();
                     this.txtDescripcion.Text = oVehiculo.DescripcionVehiculo;
                     this.txtColor.Text = oVehiculo.Color;
                     this.txtExtras.Text = oVehiculo.Extras;
                     this.pbImagen.Tag = oVehiculo.Foto;
+                    this.pbImagen.Image = new Bitmap(new MemoryStream(oVehiculo.Foto));
+                    this.pbImagen.SizeMode = PictureBoxSizeMode.StretchImage;
+                    this.pbDocumentacion.Image = ApCars.Properties.Resources.wordLoad;
                     this.pbDocumentacion.Tag = oVehiculo.Documento;
-                    this.cmbCombustible.SelectedItem = oVehiculo.CantidadPaasajero;
-                    this.cmbMarca.SelectedIndex = oVehiculo.IdMarca;
-                    this.cmbEstilo.SelectedIndex = oVehiculo.IdEstilo;
-                    this.cmbTransmision.SelectedItem = oVehiculo.TipoTransmision;
+                    this.cmbCombustible.SelectedValue = oVehiculo.IdTipoCombustible;
+                    this.cmbMarca.SelectedValue = oVehiculo.IdMarca;
+                    this.cmbEstilo.SelectedValue = oVehiculo.IdEstilo;
+                    this.cmbTransmision.SelectedValue = oVehiculo.IdTransmision;
                     this.nudCantidadPasajeros.Value = oVehiculo.CantidadPaasajero;
 
 
@@ -431,7 +452,7 @@ namespace UTN.WinForms.ApCars.Layers.UI
                 {
                     this.ChangeState(EstadoMantenimiento.Borrar);
 
-                    Vehiculo oVehiculo = this.dgvDatos.SelectedRows[0].DataBoundItem as Vehiculo;
+                    VehiculoMarcaEstiloDTO oVehiculo = this.dgvDatos.SelectedRows[0].DataBoundItem as VehiculoMarcaEstiloDTO;
                     if (MessageBox.Show($"¿Seguro que desea borrar el registro {oVehiculo.IdVIN} {oVehiculo.DescripcionVehiculo.Trim()}?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
                         bllVehiculo.Delete(oVehiculo.IdVIN);
@@ -458,5 +479,9 @@ namespace UTN.WinForms.ApCars.Layers.UI
             Close();
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.ChangeState(EstadoMantenimiento.Ninguno);
+        }
     }
 }
