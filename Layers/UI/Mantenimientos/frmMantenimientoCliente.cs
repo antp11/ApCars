@@ -123,8 +123,8 @@ namespace UTN.WinForms.ApCars.Layers.UI
                 oCliente.Direccion = this.txtDireccion.Text;
                 oCliente.Foto = (byte[])this.pbImagen.Tag;
                 oCliente.IdProvincia = (cmbProvincia.SelectedItem as Provincia).IdProvincia;
-                oCliente.Sexo = rdbFemenino.Checked ? 2 : 1;
-                oCliente.TipoCliente = rdbNacional.Checked ? TipoCliente.Nacional : TipoCliente.Extranjero;
+                oCliente.Sexo = rdbFemenino.Checked ? "Femenino" : "Masculino";
+                oCliente.TipoCliente = rdbNacional.Checked ? "Nacional" : "Extranjero";
 
                 oCliente = await bllCliente.Save(oCliente);
 
@@ -174,6 +174,8 @@ namespace UTN.WinForms.ApCars.Layers.UI
             this.txtApellido1.Clear();
             this.txtApellido2.Clear();
             this.txtEmail.Clear();
+            this.txtTelefono.Clear();
+            this.txtDireccion.Clear();
             this.txtIdCliente.Enabled = false;
             this.txtNombre.Enabled = false;
             this.txtApellido1.Enabled = false;
@@ -183,11 +185,18 @@ namespace UTN.WinForms.ApCars.Layers.UI
             this.rdbFemenino.Enabled = false;
             this.rdbMasculino.Enabled = false;
             this.pbImagen.Enabled = false;
+            this.rdbNacional.Enabled = false;
+            this.rdbExtranjero.Enabled = false;
 
             this.btnAceptar.Enabled = false;
             this.btnCancelar.Enabled = false;
             this.btnBuscarCliente.Enabled = false;
             this.cmbProvincia.Enabled = false;
+
+            //carga la imagen por defecto
+            this.pbImagen.Image = ApCars.Properties.Resources.imageInsert;
+            this.pbImagen.SizeMode = PictureBoxSizeMode.CenterImage;
+         
 
             // Coloca el primer item por defecto
             if (cmbProvincia.Items.Count > 0)
@@ -208,6 +217,8 @@ namespace UTN.WinForms.ApCars.Layers.UI
                     this.gpbResidencia.Enabled = true;
                     this.rdbMasculino.Enabled = true;
                     this.rdbFemenino.Enabled = true;
+                    this.rdbNacional.Enabled = true;
+                    this.rdbExtranjero.Enabled = true;
                     this.pbImagen.Enabled = true;
                     txtIdCliente.Focus();
                     break;
@@ -223,6 +234,8 @@ namespace UTN.WinForms.ApCars.Layers.UI
                     this.gpbResidencia.Enabled = true;
                     this.rdbMasculino.Enabled = true;
                     this.rdbFemenino.Enabled = true;
+                    this.rdbNacional.Enabled = true;
+                    this.rdbExtranjero.Enabled = true;
                     this.btnBuscarCliente.Enabled = false;
                     this.pbImagen.Enabled = true;
                     txtNombre.Focus();
@@ -330,11 +343,16 @@ namespace UTN.WinForms.ApCars.Layers.UI
                     this.txtNombre.Text = oCliente.Nombre;
                     this.pbImagen.Tag = oCliente.Foto;
                     this.txtTelefono.Text = oCliente.Telefono;
-                    this.rdbNacional.Checked = oCliente.TipoCliente == TipoCliente.Nacional ? true : false;
-                    this.rdbNacional.Checked = oCliente.TipoCliente == TipoCliente.Extranjero ? true : false;
-                    this.rdbFemenino.Checked = oCliente.Sexo == 2 ? true : false;
-                    this.rdbMasculino.Checked = oCliente.Sexo == 1 ? true : false;
+                    this.rdbNacional.Checked = oCliente.TipoCliente == "Nacional" ? true : false;
+                    this.rdbExtranjero.Checked = oCliente.TipoCliente == "Extranjero " ? true : false;
+                    this.rdbFemenino.Checked = oCliente.Sexo == "Femenino" ? true : false;
+                    this.rdbMasculino.Checked = oCliente.Sexo == "Masculino" ? true : false;
                     this.txtDireccion.Text = oCliente.Direccion;
+
+                    //Traer la imagen del objeto y cargar al picturebox
+                    this.pbImagen.Tag = oCliente.Foto;
+                    this.pbImagen.Image = new Bitmap(new MemoryStream(oCliente.Foto));
+                    this.pbImagen.SizeMode = PictureBoxSizeMode.StretchImage;
 
                     cmbProvincia.SelectedIndex = cmbProvincia.FindString(oCliente.IdProvincia.ToString());
 
@@ -440,6 +458,11 @@ namespace UTN.WinForms.ApCars.Layers.UI
         private void toolStripBtnSalir_Click_1(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.ChangeState(EstadoMantenimiento.Ninguno);
         }
     }
 }

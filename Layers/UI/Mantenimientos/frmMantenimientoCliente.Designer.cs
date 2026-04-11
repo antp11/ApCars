@@ -33,7 +33,16 @@
             this.sttInferior = new System.Windows.Forms.StatusStrip();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tlpPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.gpbResidencia = new System.Windows.Forms.GroupBox();
+            this.rdbExtranjero = new System.Windows.Forms.RadioButton();
+            this.rdbNacional = new System.Windows.Forms.RadioButton();
             this.label11 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -50,15 +59,13 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtTelefono = new System.Windows.Forms.TextBox();
-            this.rdbFemenino = new System.Windows.Forms.RadioButton();
             this.label10 = new System.Windows.Forms.Label();
             this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.rdbNacional = new System.Windows.Forms.RadioButton();
-            this.rdbExtranjero = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pbImagen = new System.Windows.Forms.PictureBox();
             this.txtIdCliente = new System.Windows.Forms.TextBox();
+            this.rdbFemenino = new System.Windows.Forms.RadioButton();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.tspPrincipal = new System.Windows.Forms.ToolStrip();
@@ -67,23 +74,16 @@
             this.toolStripBtnBorrar = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.erp = new System.Windows.Forms.ErrorProvider(this.components);
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.gpbResidencia = new System.Windows.Forms.GroupBox();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.tlpPanel.SuspendLayout();
+            this.gpbResidencia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.tspPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.erp)).BeginInit();
-            this.gpbResidencia.SuspendLayout();
             this.SuspendLayout();
             // 
             // sttInferior
@@ -133,6 +133,55 @@
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.Size = new System.Drawing.Size(724, 473);
             this.dgvDatos.TabIndex = 1;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.DataPropertyName = "IdCliente";
+            this.Column1.HeaderText = "Id";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Nombre";
+            this.Column2.HeaderText = "Nombre";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            this.Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "Apellido1";
+            this.Column3.HeaderText = "Apellido1";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            this.Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Apellido2";
+            this.Column4.HeaderText = "Apellido2";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            this.Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Correo";
+            this.Column5.HeaderText = "Correo";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            this.Column5.Width = 125;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(258, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 42);
+            this.groupBox1.TabIndex = 13;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
             // 
             // tlpPanel
             // 
@@ -185,6 +234,40 @@
             this.tlpPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tlpPanel.Size = new System.Drawing.Size(524, 473);
             this.tlpPanel.TabIndex = 11;
+            // 
+            // gpbResidencia
+            // 
+            this.gpbResidencia.Controls.Add(this.rdbExtranjero);
+            this.gpbResidencia.Controls.Add(this.rdbNacional);
+            this.gpbResidencia.Location = new System.Drawing.Point(109, 3);
+            this.gpbResidencia.Name = "gpbResidencia";
+            this.gpbResidencia.Size = new System.Drawing.Size(266, 50);
+            this.gpbResidencia.TabIndex = 2;
+            this.gpbResidencia.TabStop = false;
+            // 
+            // rdbExtranjero
+            // 
+            this.rdbExtranjero.AutoSize = true;
+            this.rdbExtranjero.Location = new System.Drawing.Point(134, 21);
+            this.rdbExtranjero.Name = "rdbExtranjero";
+            this.rdbExtranjero.Size = new System.Drawing.Size(88, 20);
+            this.rdbExtranjero.TabIndex = 25;
+            this.rdbExtranjero.TabStop = true;
+            this.rdbExtranjero.Text = "Extranjero";
+            this.rdbExtranjero.UseVisualStyleBackColor = true;
+            // 
+            // rdbNacional
+            // 
+            this.rdbNacional.AutoSize = true;
+            this.rdbNacional.Checked = true;
+            this.rdbNacional.Location = new System.Drawing.Point(7, 21);
+            this.rdbNacional.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbNacional.Name = "rdbNacional";
+            this.rdbNacional.Size = new System.Drawing.Size(82, 20);
+            this.rdbNacional.TabIndex = 22;
+            this.rdbNacional.TabStop = true;
+            this.rdbNacional.Text = "Nacional";
+            this.rdbNacional.UseVisualStyleBackColor = true;
             // 
             // label11
             // 
@@ -345,19 +428,6 @@
             this.txtTelefono.Size = new System.Drawing.Size(265, 22);
             this.txtTelefono.TabIndex = 17;
             // 
-            // rdbFemenino
-            // 
-            this.rdbFemenino.AutoSize = true;
-            this.rdbFemenino.Checked = true;
-            this.rdbFemenino.Location = new System.Drawing.Point(110, 248);
-            this.rdbFemenino.Margin = new System.Windows.Forms.Padding(4);
-            this.rdbFemenino.Name = "rdbFemenino";
-            this.rdbFemenino.Size = new System.Drawing.Size(88, 20);
-            this.rdbFemenino.TabIndex = 6;
-            this.rdbFemenino.TabStop = true;
-            this.rdbFemenino.Text = "Femenino";
-            this.rdbFemenino.UseVisualStyleBackColor = true;
-            // 
             // label10
             // 
             this.label10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -376,30 +446,6 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.Size = new System.Drawing.Size(265, 22);
             this.txtDireccion.TabIndex = 19;
-            // 
-            // rdbNacional
-            // 
-            this.rdbNacional.AutoSize = true;
-            this.rdbNacional.Checked = true;
-            this.rdbNacional.Location = new System.Drawing.Point(7, 21);
-            this.rdbNacional.Margin = new System.Windows.Forms.Padding(4);
-            this.rdbNacional.Name = "rdbNacional";
-            this.rdbNacional.Size = new System.Drawing.Size(82, 20);
-            this.rdbNacional.TabIndex = 22;
-            this.rdbNacional.TabStop = true;
-            this.rdbNacional.Text = "Nacional";
-            this.rdbNacional.UseVisualStyleBackColor = true;
-            // 
-            // rdbExtranjero
-            // 
-            this.rdbExtranjero.AutoSize = true;
-            this.rdbExtranjero.Location = new System.Drawing.Point(134, 21);
-            this.rdbExtranjero.Name = "rdbExtranjero";
-            this.rdbExtranjero.Size = new System.Drawing.Size(88, 20);
-            this.rdbExtranjero.TabIndex = 25;
-            this.rdbExtranjero.TabStop = true;
-            this.rdbExtranjero.Text = "Extranjero";
-            this.rdbExtranjero.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -445,6 +491,19 @@
             this.txtIdCliente.Size = new System.Drawing.Size(265, 22);
             this.txtIdCliente.TabIndex = 1;
             // 
+            // rdbFemenino
+            // 
+            this.rdbFemenino.AutoSize = true;
+            this.rdbFemenino.Checked = true;
+            this.rdbFemenino.Location = new System.Drawing.Point(110, 248);
+            this.rdbFemenino.Margin = new System.Windows.Forms.Padding(4);
+            this.rdbFemenino.Name = "rdbFemenino";
+            this.rdbFemenino.Size = new System.Drawing.Size(88, 20);
+            this.rdbFemenino.TabIndex = 6;
+            this.rdbFemenino.TabStop = true;
+            this.rdbFemenino.Text = "Femenino";
+            this.rdbFemenino.UseVisualStyleBackColor = true;
+            // 
             // btnAceptar
             // 
             this.btnAceptar.Image = ((System.Drawing.Image)(resources.GetObject("btnAceptar.Image")));
@@ -470,6 +529,7 @@
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // tspPrincipal
             // 
@@ -529,65 +589,6 @@
             // 
             this.erp.ContainerControl = this;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(258, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 42);
-            this.groupBox1.TabIndex = 13;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
-            // gpbResidencia
-            // 
-            this.gpbResidencia.Controls.Add(this.rdbExtranjero);
-            this.gpbResidencia.Controls.Add(this.rdbNacional);
-            this.gpbResidencia.Location = new System.Drawing.Point(109, 3);
-            this.gpbResidencia.Name = "gpbResidencia";
-            this.gpbResidencia.Size = new System.Drawing.Size(266, 50);
-            this.gpbResidencia.TabIndex = 2;
-            this.gpbResidencia.TabStop = false;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.DataPropertyName = "IdCliente";
-            this.Column1.HeaderText = "Id";
-            this.Column1.MinimumWidth = 6;
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Nombre";
-            this.Column2.HeaderText = "Nombre";
-            this.Column2.MinimumWidth = 6;
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 125;
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Apellido1";
-            this.Column3.HeaderText = "Apellido1";
-            this.Column3.MinimumWidth = 6;
-            this.Column3.Name = "Column3";
-            this.Column3.Width = 125;
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Apellido2";
-            this.Column4.HeaderText = "Apellido2";
-            this.Column4.MinimumWidth = 6;
-            this.Column4.Name = "Column4";
-            this.Column4.Width = 125;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "Correo";
-            this.Column5.HeaderText = "Correo";
-            this.Column5.MinimumWidth = 6;
-            this.Column5.Name = "Column5";
-            this.Column5.Width = 125;
-            // 
             // frmMantenimientoCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -608,12 +609,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.tlpPanel.ResumeLayout(false);
             this.tlpPanel.PerformLayout();
+            this.gpbResidencia.ResumeLayout(false);
+            this.gpbResidencia.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.tspPrincipal.ResumeLayout(false);
             this.tspPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.erp)).EndInit();
-            this.gpbResidencia.ResumeLayout(false);
-            this.gpbResidencia.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

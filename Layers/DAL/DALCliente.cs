@@ -71,11 +71,11 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                             Cliente oCliente = new Cliente();
                             oCliente.IdCliente = reader["IdCliente"].ToString();
                             oCliente.IdProvincia = int.Parse(reader["IdProvincia"].ToString());
-                            oCliente.TipoCliente = (TipoCliente)Enum.Parse(typeof(TipoCliente), reader["TipoCliente"].ToString());
+                            oCliente.TipoCliente = reader["TipoCliente"].ToString();
                             oCliente.Nombre = reader["Nombre"].ToString();
                             oCliente.Apellido1 = reader["Apellido1"].ToString();
                             oCliente.Apellido2 = reader["Apellido2"].ToString();
-                            oCliente.Sexo = int.Parse(reader["Sexo"].ToString());
+                            oCliente.Sexo = reader["Sexo"].ToString();
                             oCliente.Correo = reader["Correo"].ToString();
                             oCliente.Direccion = reader["Direccion"].ToString();
                             oCliente.Telefono = reader["Telefono"].ToString();
@@ -126,11 +126,11 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                         oCliente = new Cliente();
                         oCliente.IdCliente = reader["IdCliente"].ToString();
                         oCliente.IdProvincia = int.Parse(reader["IdProvincia"].ToString());
-                        oCliente.TipoCliente = (TipoCliente)Enum.Parse(typeof(TipoCliente), reader["TipoCliente"].ToString());
+                        oCliente.TipoCliente =reader["TipoCliente"].ToString();
                         oCliente.Nombre = reader["Nombre"].ToString();
                         oCliente.Apellido1 = reader["Apellido1"].ToString();
                         oCliente.Apellido2 = reader["Apellido2"].ToString();
-                        oCliente.Sexo = int.Parse(reader["Sexo"].ToString());
+                        oCliente.Sexo = reader["Sexo"].ToString();
                         oCliente.Correo = reader["Correo"].ToString();
                         oCliente.Direccion = reader["Direccion"].ToString();
                         oCliente.Telefono = reader["Telefono"].ToString();
@@ -235,7 +235,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                     rows = await db.ExecuteNonQueryAsync(command, IsolationLevel.ReadCommitted);
                 }
                 if (rows > 0)
-                    oCliente = GetById(oCliente.IdCliente);
+                    oCliente = GetById(pCliente.IdCliente);
 
                 return oCliente;
 
