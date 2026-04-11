@@ -253,6 +253,7 @@ namespace UTN.WinForms.ApCars.Layers.UI
                 oVehiculo.Foto = (byte[])this.pbImagen.Tag;
                 oVehiculo.Documento = (byte[])pbDocumentacion.Tag;
                 oVehiculo.Extras = txtExtras.Text;
+                oVehiculo.Estado = rdbDisponible.Checked ? "Disponible" : "Vendido";
 
 
 
@@ -321,6 +322,9 @@ namespace UTN.WinForms.ApCars.Layers.UI
             this.cmbEstilo.SelectedIndex = 0;
             this.cmbTransmision.SelectedIndex = 0;
             this.nudCantidadPasajeros.Value = 0;
+            this.rdbDisponible.Checked = true;
+            this.rdbVendido.Checked = false;
+
 
             this.btnAceptar.Enabled = false;
             this.btnCancelar.Enabled = false;
@@ -338,6 +342,8 @@ namespace UTN.WinForms.ApCars.Layers.UI
             this.cmbEstilo.Enabled = false;
             this.cmbTransmision.Enabled = false;
             this.nudCantidadPasajeros.Enabled = false;
+            this.rdbDisponible.Enabled = false;
+            this.rdbVendido.Enabled = false;
 
             this.pbDocumentacion.Image = ApCars.Properties.Resources.Word;
             this.pbImagen.Image = ApCars.Properties.Resources.imageInsert;
@@ -364,6 +370,8 @@ namespace UTN.WinForms.ApCars.Layers.UI
                     this.nudCantidadPasajeros.Enabled = true;
                     this.btnAceptar.Enabled = true;
                     this.btnCancelar.Enabled = true;
+                    this.rdbDisponible.Enabled = true;
+                    this.rdbVendido.Enabled = true;
                     mskVIN.Focus();
                     break;
                 case EstadoMantenimiento.Editar:
@@ -384,6 +392,8 @@ namespace UTN.WinForms.ApCars.Layers.UI
                     this.btnCancelar.Enabled = true;
                     this.btnAceptar.Enabled = true;
                     this.btnCancelar.Enabled = true;
+                    this.rdbDisponible.Enabled = true;
+                    this.rdbVendido.Enabled = true;
                     txtDescripcion.Focus();
                     break;
                 case EstadoMantenimiento.Borrar:
@@ -425,6 +435,8 @@ namespace UTN.WinForms.ApCars.Layers.UI
                     this.cmbEstilo.SelectedValue = oVehiculo.IdEstilo;
                     this.cmbTransmision.SelectedValue = oVehiculo.IdTransmision;
                     this.nudCantidadPasajeros.Value = oVehiculo.CantidadPaasajero;
+                    this.rdbDisponible.Checked = oVehiculo.Estado == "Disponible" ? true : false;
+                    this.rdbVendido.Checked = oVehiculo.Estado == "Vendido" ? true : false;
 
 
                 }

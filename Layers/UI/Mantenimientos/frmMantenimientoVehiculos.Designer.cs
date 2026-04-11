@@ -31,9 +31,23 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMantenimientoVehiculos));
             this.tspPrincipal = new System.Windows.Forms.ToolStrip();
+            this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnEditar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnBorrar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.sttInferior = new System.Windows.Forms.StatusStrip();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Logo = new System.Windows.Forms.DataGridViewImageColumn();
+            this.DescripcionVehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Foto = new System.Windows.Forms.DataGridViewImageColumn();
+            this.IdEstilo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Anno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadPaasajero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoCombustible = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TipoTransmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.mskAnno = new System.Windows.Forms.MaskedTextBox();
             this.txtExtras = new System.Windows.Forms.TextBox();
@@ -58,28 +72,17 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.pbDocumentacion = new System.Windows.Forms.PictureBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.nudCantidadPasajeros = new System.Windows.Forms.NumericUpDown();
             this.mskPrecio = new System.Windows.Forms.MaskedTextBox();
+            this.pbImagen = new System.Windows.Forms.PictureBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Logo = new System.Windows.Forms.DataGridViewImageColumn();
-            this.DescripcionVehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Foto = new System.Windows.Forms.DataGridViewImageColumn();
-            this.IdEstilo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Anno = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantidadPaasajero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoCombustible = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TipoTransmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pbDocumentacion = new System.Windows.Forms.PictureBox();
-            this.pbImagen = new System.Windows.Forms.PictureBox();
-            this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnEditar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnBorrar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
+            this.label7 = new System.Windows.Forms.Label();
+            this.rdbDisponible = new System.Windows.Forms.RadioButton();
+            this.rdbVendido = new System.Windows.Forms.RadioButton();
             this.tspPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -87,10 +90,10 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadPasajeros)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDocumentacion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadPasajeros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
             this.SuspendLayout();
             // 
             // tspPrincipal
@@ -105,6 +108,47 @@
             this.tspPrincipal.Name = "tspPrincipal";
             this.tspPrincipal.Size = new System.Drawing.Size(1626, 55);
             this.tspPrincipal.TabIndex = 3;
+            // 
+            // toolStripBtnNuevo
+            // 
+            this.toolStripBtnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.nuevo;
+            this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
+            this.toolStripBtnNuevo.Size = new System.Drawing.Size(96, 52);
+            this.toolStripBtnNuevo.Text = "&Nuevo";
+            this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
+            // 
+            // toolStripBtnEditar
+            // 
+            this.toolStripBtnEditar.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_editar_48;
+            this.toolStripBtnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnEditar.Name = "toolStripBtnEditar";
+            this.toolStripBtnEditar.Size = new System.Drawing.Size(100, 52);
+            this.toolStripBtnEditar.Text = "&Editar";
+            this.toolStripBtnEditar.Click += new System.EventHandler(this.toolStripBtnEditar_Click);
+            // 
+            // toolStripBtnBorrar
+            // 
+            this.toolStripBtnBorrar.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_eliminar_48;
+            this.toolStripBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnBorrar.Name = "toolStripBtnBorrar";
+            this.toolStripBtnBorrar.Size = new System.Drawing.Size(102, 52);
+            this.toolStripBtnBorrar.Text = "&Borrar";
+            this.toolStripBtnBorrar.Click += new System.EventHandler(this.toolStripBtnBorrar_Click);
+            // 
+            // toolStripBtnSalir
+            // 
+            this.toolStripBtnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_cerrar_ventana_48;
+            this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnSalir.Name = "toolStripBtnSalir";
+            this.toolStripBtnSalir.Size = new System.Drawing.Size(90, 52);
+            this.toolStripBtnSalir.Text = "&Salir";
+            this.toolStripBtnSalir.Click += new System.EventHandler(this.toolStripBtnSalir_Click);
             // 
             // sttInferior
             // 
@@ -130,6 +174,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
+            this.splitContainer1.Panel2.Controls.Add(this.btnAceptar);
+            this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Size = new System.Drawing.Size(1626, 763);
             this.splitContainer1.SplitterDistance = 979;
             this.splitContainer1.SplitterWidth = 5;
@@ -159,18 +205,111 @@
             this.dgvDatos.Size = new System.Drawing.Size(979, 763);
             this.dgvDatos.TabIndex = 0;
             // 
+            // Marca
+            // 
+            this.Marca.DataPropertyName = "DescripcionMarca";
+            this.Marca.HeaderText = "Marca";
+            this.Marca.MinimumWidth = 6;
+            this.Marca.Name = "Marca";
+            this.Marca.ReadOnly = true;
+            this.Marca.Width = 6;
+            // 
+            // Logo
+            // 
+            this.Logo.DataPropertyName = "Logo";
+            this.Logo.HeaderText = "Marca";
+            this.Logo.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Logo.MinimumWidth = 6;
+            this.Logo.Name = "Logo";
+            this.Logo.ReadOnly = true;
+            this.Logo.Width = 125;
+            // 
+            // DescripcionVehiculo
+            // 
+            this.DescripcionVehiculo.DataPropertyName = "DescripcionVehiculo";
+            this.DescripcionVehiculo.HeaderText = "Modelo";
+            this.DescripcionVehiculo.MinimumWidth = 6;
+            this.DescripcionVehiculo.Name = "DescripcionVehiculo";
+            this.DescripcionVehiculo.ReadOnly = true;
+            this.DescripcionVehiculo.Width = 125;
+            // 
+            // Foto
+            // 
+            this.Foto.DataPropertyName = "Foto";
+            this.Foto.HeaderText = "Foto";
+            this.Foto.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Foto.MinimumWidth = 6;
+            this.Foto.Name = "Foto";
+            this.Foto.ReadOnly = true;
+            this.Foto.Width = 125;
+            // 
+            // IdEstilo
+            // 
+            this.IdEstilo.DataPropertyName = "Descripcion";
+            this.IdEstilo.HeaderText = "Estilo";
+            this.IdEstilo.MinimumWidth = 6;
+            this.IdEstilo.Name = "IdEstilo";
+            this.IdEstilo.ReadOnly = true;
+            this.IdEstilo.Width = 125;
+            // 
+            // Anno
+            // 
+            this.Anno.DataPropertyName = "Anno";
+            this.Anno.HeaderText = "Año";
+            this.Anno.MinimumWidth = 6;
+            this.Anno.Name = "Anno";
+            this.Anno.ReadOnly = true;
+            this.Anno.Width = 125;
+            // 
+            // CantidadPaasajero
+            // 
+            this.CantidadPaasajero.DataPropertyName = "CantidadPaasajero";
+            this.CantidadPaasajero.HeaderText = "Cantidad Pasajero ";
+            this.CantidadPaasajero.MinimumWidth = 6;
+            this.CantidadPaasajero.Name = "CantidadPaasajero";
+            this.CantidadPaasajero.ReadOnly = true;
+            this.CantidadPaasajero.Width = 125;
+            // 
+            // TipoCombustible
+            // 
+            this.TipoCombustible.DataPropertyName = "DescripcionTipoCombustible";
+            this.TipoCombustible.HeaderText = "Combustible ";
+            this.TipoCombustible.MinimumWidth = 6;
+            this.TipoCombustible.Name = "TipoCombustible";
+            this.TipoCombustible.ReadOnly = true;
+            this.TipoCombustible.Width = 125;
+            // 
+            // TipoTransmision
+            // 
+            this.TipoTransmision.DataPropertyName = "DescripcionTransmision";
+            this.TipoTransmision.HeaderText = "Transmision ";
+            this.TipoTransmision.MinimumWidth = 6;
+            this.TipoTransmision.Name = "TipoTransmision";
+            this.TipoTransmision.ReadOnly = true;
+            this.TipoTransmision.Width = 125;
+            // 
+            // Precio
+            // 
+            this.Precio.DataPropertyName = "Precio";
+            this.Precio.HeaderText = "Precio";
+            this.Precio.MinimumWidth = 6;
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            this.Precio.Width = 125;
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.15678F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.84322F));
+            this.tableLayoutPanel1.Controls.Add(this.label7, 0, 7);
             this.tableLayoutPanel1.Controls.Add(this.mskAnno, 1, 4);
-            this.tableLayoutPanel1.Controls.Add(this.txtExtras, 1, 10);
-            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 9);
-            this.tableLayoutPanel1.Controls.Add(this.cmbTransmision, 1, 8);
-            this.tableLayoutPanel1.Controls.Add(this.lblTransmision, 0, 8);
-            this.tableLayoutPanel1.Controls.Add(this.txtColor, 1, 7);
-            this.tableLayoutPanel1.Controls.Add(this.label11, 0, 7);
+            this.tableLayoutPanel1.Controls.Add(this.txtExtras, 1, 12);
+            this.tableLayoutPanel1.Controls.Add(this.label4, 0, 11);
+            this.tableLayoutPanel1.Controls.Add(this.cmbTransmision, 1, 10);
+            this.tableLayoutPanel1.Controls.Add(this.lblTransmision, 0, 10);
+            this.tableLayoutPanel1.Controls.Add(this.txtColor, 1, 9);
+            this.tableLayoutPanel1.Controls.Add(this.label11, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.cmbCombustible, 1, 6);
             this.tableLayoutPanel1.Controls.Add(this.lblTipoCombustible, 0, 6);
             this.tableLayoutPanel1.Controls.Add(this.label12, 0, 5);
@@ -181,21 +320,21 @@
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label2, 0, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 10);
+            this.tableLayoutPanel1.Controls.Add(this.label3, 0, 12);
             this.tableLayoutPanel1.Controls.Add(this.mskVIN, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.txtDescripcion, 1, 3);
-            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 12);
-            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 13);
-            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 1, 14);
-            this.tableLayoutPanel1.Controls.Add(this.pbDocumentacion, 1, 13);
-            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 0, 14);
+            this.tableLayoutPanel1.Controls.Add(this.label5, 0, 14);
+            this.tableLayoutPanel1.Controls.Add(this.label6, 0, 15);
             this.tableLayoutPanel1.Controls.Add(this.nudCantidadPasajeros, 1, 5);
-            this.tableLayoutPanel1.Controls.Add(this.mskPrecio, 1, 9);
-            this.tableLayoutPanel1.Controls.Add(this.pbImagen, 1, 12);
+            this.tableLayoutPanel1.Controls.Add(this.mskPrecio, 1, 11);
+            this.tableLayoutPanel1.Controls.Add(this.pbImagen, 1, 14);
+            this.tableLayoutPanel1.Controls.Add(this.pbDocumentacion, 1, 15);
+            this.tableLayoutPanel1.Controls.Add(this.rdbDisponible, 1, 7);
+            this.tableLayoutPanel1.Controls.Add(this.rdbVendido, 1, 8);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 15);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 15;
+            this.tableLayoutPanel1.RowCount = 16;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -211,7 +350,8 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(621, 691);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(621, 615);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // mskAnno
@@ -225,7 +365,7 @@
             // txtExtras
             // 
             this.txtExtras.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.txtExtras.Location = new System.Drawing.Point(371, 310);
+            this.txtExtras.Location = new System.Drawing.Point(464, 453);
             this.txtExtras.Margin = new System.Windows.Forms.Padding(4);
             this.txtExtras.Name = "txtExtras";
             this.txtExtras.Size = new System.Drawing.Size(207, 22);
@@ -235,7 +375,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 283);
+            this.label4.Location = new System.Drawing.Point(5, 419);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(359, 16);
@@ -246,7 +386,7 @@
             // 
             this.cmbTransmision.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTransmision.FormattingEnabled = true;
-            this.cmbTransmision.Location = new System.Drawing.Point(371, 248);
+            this.cmbTransmision.Location = new System.Drawing.Point(464, 375);
             this.cmbTransmision.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTransmision.Name = "cmbTransmision";
             this.cmbTransmision.Size = new System.Drawing.Size(207, 24);
@@ -256,7 +396,7 @@
             // 
             this.lblTransmision.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTransmision.AutoSize = true;
-            this.lblTransmision.Location = new System.Drawing.Point(4, 252);
+            this.lblTransmision.Location = new System.Drawing.Point(5, 380);
             this.lblTransmision.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTransmision.Name = "lblTransmision";
             this.lblTransmision.Size = new System.Drawing.Size(359, 16);
@@ -265,7 +405,7 @@
             // 
             // txtColor
             // 
-            this.txtColor.Location = new System.Drawing.Point(371, 218);
+            this.txtColor.Location = new System.Drawing.Point(464, 338);
             this.txtColor.Margin = new System.Windows.Forms.Padding(4);
             this.txtColor.Name = "txtColor";
             this.txtColor.Size = new System.Drawing.Size(207, 22);
@@ -275,7 +415,7 @@
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(4, 221);
+            this.label11.Location = new System.Drawing.Point(5, 341);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(359, 16);
@@ -394,7 +534,7 @@
             this.label3.AccessibleName = "Ext";
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 313);
+            this.label3.Location = new System.Drawing.Point(5, 456);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(359, 16);
@@ -421,7 +561,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(4, 385);
+            this.label5.Location = new System.Drawing.Point(5, 546);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(359, 16);
@@ -432,7 +572,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(4, 494);
+            this.label6.Location = new System.Drawing.Point(5, 688);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(359, 16);
@@ -442,22 +582,34 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(371, 558);
+            this.btnCancelar.Location = new System.Drawing.Point(359, 660);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(221, 105);
+            this.btnCancelar.Size = new System.Drawing.Size(130, 46);
             this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // pbDocumentacion
+            // 
+            this.pbDocumentacion.Image = ((System.Drawing.Image)(resources.GetObject("pbDocumentacion.Image")));
+            this.pbDocumentacion.Location = new System.Drawing.Point(464, 633);
+            this.pbDocumentacion.Margin = new System.Windows.Forms.Padding(4);
+            this.pbDocumentacion.Name = "pbDocumentacion";
+            this.pbDocumentacion.Size = new System.Drawing.Size(208, 96);
+            this.pbDocumentacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbDocumentacion.TabIndex = 11;
+            this.pbDocumentacion.TabStop = false;
+            this.pbDocumentacion.Click += new System.EventHandler(this.pbDocumentacion_Click);
+            // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(4, 558);
+            this.btnAceptar.Location = new System.Drawing.Point(86, 660);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(246, 105);
+            this.btnAceptar.Size = new System.Drawing.Size(142, 48);
             this.btnAceptar.TabIndex = 5;
             this.btnAceptar.Text = "&Aceptar";
             this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -473,11 +625,25 @@
             // 
             // mskPrecio
             // 
-            this.mskPrecio.Location = new System.Drawing.Point(371, 280);
+            this.mskPrecio.Location = new System.Drawing.Point(464, 415);
             this.mskPrecio.Margin = new System.Windows.Forms.Padding(4);
             this.mskPrecio.Name = "mskPrecio";
             this.mskPrecio.Size = new System.Drawing.Size(207, 22);
             this.mskPrecio.TabIndex = 3;
+            // 
+            // pbImagen
+            // 
+            this.pbImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbImagen.Image = global::UTN.WinForms.ApCars.Properties.Resources.imageInsert;
+            this.pbImagen.InitialImage = null;
+            this.pbImagen.Location = new System.Drawing.Point(464, 490);
+            this.pbImagen.Margin = new System.Windows.Forms.Padding(4);
+            this.pbImagen.Name = "pbImagen";
+            this.pbImagen.Size = new System.Drawing.Size(208, 106);
+            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbImagen.TabIndex = 10;
+            this.pbImagen.TabStop = false;
+            this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
             // 
             // imageList1
             // 
@@ -489,164 +655,38 @@
             // 
             this.epError.ContainerControl = this;
             // 
-            // Marca
+            // label7
             // 
-            this.Marca.DataPropertyName = "DescripcionMarca";
-            this.Marca.HeaderText = "Marca";
-            this.Marca.MinimumWidth = 6;
-            this.Marca.Name = "Marca";
-            this.Marca.ReadOnly = true;
-            this.Marca.Width = 6;
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(4, 219);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(359, 16);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "Estado";
             // 
-            // Logo
+            // rdbDisponible
             // 
-            this.Logo.DataPropertyName = "Logo";
-            this.Logo.HeaderText = "Marca";
-            this.Logo.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Logo.MinimumWidth = 6;
-            this.Logo.Name = "Logo";
-            this.Logo.ReadOnly = true;
-            this.Logo.Width = 125;
+            this.rdbDisponible.AutoSize = true;
+            this.rdbDisponible.Checked = true;
+            this.rdbDisponible.Location = new System.Drawing.Point(370, 217);
+            this.rdbDisponible.Name = "rdbDisponible";
+            this.rdbDisponible.Size = new System.Drawing.Size(93, 20);
+            this.rdbDisponible.TabIndex = 36;
+            this.rdbDisponible.TabStop = true;
+            this.rdbDisponible.Text = "Disponible";
+            this.rdbDisponible.UseVisualStyleBackColor = true;
             // 
-            // DescripcionVehiculo
+            // rdbVendido
             // 
-            this.DescripcionVehiculo.DataPropertyName = "DescripcionVehiculo";
-            this.DescripcionVehiculo.HeaderText = "Modelo";
-            this.DescripcionVehiculo.MinimumWidth = 6;
-            this.DescripcionVehiculo.Name = "DescripcionVehiculo";
-            this.DescripcionVehiculo.ReadOnly = true;
-            this.DescripcionVehiculo.Width = 125;
-            // 
-            // Foto
-            // 
-            this.Foto.DataPropertyName = "Foto";
-            this.Foto.HeaderText = "Foto";
-            this.Foto.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Foto.MinimumWidth = 6;
-            this.Foto.Name = "Foto";
-            this.Foto.ReadOnly = true;
-            this.Foto.Width = 125;
-            // 
-            // IdEstilo
-            // 
-            this.IdEstilo.DataPropertyName = "Descripcion";
-            this.IdEstilo.HeaderText = "Estilo";
-            this.IdEstilo.MinimumWidth = 6;
-            this.IdEstilo.Name = "IdEstilo";
-            this.IdEstilo.ReadOnly = true;
-            this.IdEstilo.Width = 125;
-            // 
-            // Anno
-            // 
-            this.Anno.DataPropertyName = "Anno";
-            this.Anno.HeaderText = "Año";
-            this.Anno.MinimumWidth = 6;
-            this.Anno.Name = "Anno";
-            this.Anno.ReadOnly = true;
-            this.Anno.Width = 125;
-            // 
-            // CantidadPaasajero
-            // 
-            this.CantidadPaasajero.DataPropertyName = "CantidadPaasajero";
-            this.CantidadPaasajero.HeaderText = "Cantidad Pasajero ";
-            this.CantidadPaasajero.MinimumWidth = 6;
-            this.CantidadPaasajero.Name = "CantidadPaasajero";
-            this.CantidadPaasajero.ReadOnly = true;
-            this.CantidadPaasajero.Width = 125;
-            // 
-            // TipoCombustible
-            // 
-            this.TipoCombustible.DataPropertyName = "DescripcionTipoCombustible";
-            this.TipoCombustible.HeaderText = "Combustible ";
-            this.TipoCombustible.MinimumWidth = 6;
-            this.TipoCombustible.Name = "TipoCombustible";
-            this.TipoCombustible.ReadOnly = true;
-            this.TipoCombustible.Width = 125;
-            // 
-            // TipoTransmision
-            // 
-            this.TipoTransmision.DataPropertyName = "DescripcionTransmision";
-            this.TipoTransmision.HeaderText = "Transmision ";
-            this.TipoTransmision.MinimumWidth = 6;
-            this.TipoTransmision.Name = "TipoTransmision";
-            this.TipoTransmision.ReadOnly = true;
-            this.TipoTransmision.Width = 125;
-            // 
-            // Precio
-            // 
-            this.Precio.DataPropertyName = "Precio";
-            this.Precio.HeaderText = "Precio";
-            this.Precio.MinimumWidth = 6;
-            this.Precio.Name = "Precio";
-            this.Precio.ReadOnly = true;
-            this.Precio.Width = 125;
-            // 
-            // pbDocumentacion
-            // 
-            this.pbDocumentacion.Image = ((System.Drawing.Image)(resources.GetObject("pbDocumentacion.Image")));
-            this.pbDocumentacion.Location = new System.Drawing.Point(371, 454);
-            this.pbDocumentacion.Margin = new System.Windows.Forms.Padding(4);
-            this.pbDocumentacion.Name = "pbDocumentacion";
-            this.pbDocumentacion.Size = new System.Drawing.Size(208, 96);
-            this.pbDocumentacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbDocumentacion.TabIndex = 11;
-            this.pbDocumentacion.TabStop = false;
-            this.pbDocumentacion.Click += new System.EventHandler(this.pbDocumentacion_Click);
-            // 
-            // pbImagen
-            // 
-            this.pbImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbImagen.Image = global::UTN.WinForms.ApCars.Properties.Resources.imageInsert;
-            this.pbImagen.InitialImage = null;
-            this.pbImagen.Location = new System.Drawing.Point(371, 340);
-            this.pbImagen.Margin = new System.Windows.Forms.Padding(4);
-            this.pbImagen.Name = "pbImagen";
-            this.pbImagen.Size = new System.Drawing.Size(208, 106);
-            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbImagen.TabIndex = 10;
-            this.pbImagen.TabStop = false;
-            this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
-            // 
-            // toolStripBtnNuevo
-            // 
-            this.toolStripBtnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.nuevo;
-            this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
-            this.toolStripBtnNuevo.Size = new System.Drawing.Size(96, 52);
-            this.toolStripBtnNuevo.Text = "&Nuevo";
-            this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
-            // 
-            // toolStripBtnEditar
-            // 
-            this.toolStripBtnEditar.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_editar_48;
-            this.toolStripBtnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnEditar.Name = "toolStripBtnEditar";
-            this.toolStripBtnEditar.Size = new System.Drawing.Size(100, 52);
-            this.toolStripBtnEditar.Text = "&Editar";
-            this.toolStripBtnEditar.Click += new System.EventHandler(this.toolStripBtnEditar_Click);
-            // 
-            // toolStripBtnBorrar
-            // 
-            this.toolStripBtnBorrar.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_eliminar_48;
-            this.toolStripBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnBorrar.Name = "toolStripBtnBorrar";
-            this.toolStripBtnBorrar.Size = new System.Drawing.Size(102, 52);
-            this.toolStripBtnBorrar.Text = "&Borrar";
-            this.toolStripBtnBorrar.Click += new System.EventHandler(this.toolStripBtnBorrar_Click);
-            // 
-            // toolStripBtnSalir
-            // 
-            this.toolStripBtnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_cerrar_ventana_48;
-            this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnSalir.Name = "toolStripBtnSalir";
-            this.toolStripBtnSalir.Size = new System.Drawing.Size(90, 52);
-            this.toolStripBtnSalir.Text = "&Salir";
-            this.toolStripBtnSalir.Click += new System.EventHandler(this.toolStripBtnSalir_Click);
+            this.rdbVendido.AutoSize = true;
+            this.rdbVendido.Location = new System.Drawing.Point(370, 243);
+            this.rdbVendido.Name = "rdbVendido";
+            this.rdbVendido.Size = new System.Drawing.Size(99, 25);
+            this.rdbVendido.TabIndex = 37;
+            this.rdbVendido.Text = "Vendido";
+            this.rdbVendido.UseVisualStyleBackColor = true;
             // 
             // frmMantenimientoVehiculos
             // 
@@ -670,10 +710,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadPasajeros)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbDocumentacion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudCantidadPasajeros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -731,5 +771,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoCombustible;
         private System.Windows.Forms.DataGridViewTextBoxColumn TipoTransmision;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.RadioButton rdbDisponible;
+        private System.Windows.Forms.RadioButton rdbVendido;
     }
 }

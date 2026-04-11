@@ -22,6 +22,6 @@ namespace UTN.WinForms.ApCars.Layers.Entities
         public byte[] Foto { set; get; }
         public byte[] Documento { set; get; }
         public string Extras { set; get; }
-
+        public string Estado { set; get; }
     }
 }

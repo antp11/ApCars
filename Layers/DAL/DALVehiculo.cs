@@ -86,6 +86,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                         oVehiculo.Foto = (byte[])reader["Foto"];
                         oVehiculo.Documento = (byte[])reader["Documento"];
                         oVehiculo.Extras = reader["Extras"].ToString();
+                        oVehiculo.Estado = reader["Estado"].ToString();
 
 
                         lista.Add(oVehiculo);
@@ -114,7 +115,10 @@ namespace UTN.WinForms.ApCars.Layers.DAL
             List<VehiculoMarcaEstiloDTO> lista = new List<VehiculoMarcaEstiloDTO>();
             SqlCommand command = new SqlCommand();
 
-            string sql = @"SELECT Estilo.*, TipoCombustible.*, Marca.*, TipoTransmision.*, Vehiculo.IdVIN, Vehiculo.DescripcionVehiculo, Vehiculo.Anno, Vehiculo.CantidadPaasajero, Vehiculo.Color, Vehiculo.Precio, Vehiculo.Foto, Vehiculo.Documento, Vehiculo.Extras
+            string sql = @"SELECT Estilo.*, TipoCombustible.*, Marca.*, TipoTransmision.*, Vehiculo.IdVIN, Vehiculo.DescripcionVehiculo,
+                  Vehiculo.Anno, Vehiculo.CantidadPaasajero, 
+                  Vehiculo.Color, Vehiculo.Precio, Vehiculo.Foto,
+                  Vehiculo.Documento, Vehiculo.Extras,Vehiculo.Estado
                   FROM     Estilo INNER JOIN
                   Vehiculo ON Estilo.IdEstilo = Vehiculo.IdEstilo INNER JOIN
                   Marca ON Vehiculo.IdMarca = Marca.IdMarca INNER JOIN
@@ -156,6 +160,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                         oVehiculoMarcaEstiloDTO.Foto = (byte[])dr["Foto"];
                         oVehiculoMarcaEstiloDTO.Documento = (byte[])dr["Documento"];
                         oVehiculoMarcaEstiloDTO.Extras = dr["Extras"].ToString();
+                        oVehiculoMarcaEstiloDTO.Estado = dr["Estado"].ToString();
 
 
                         lista.Add(oVehiculoMarcaEstiloDTO);
@@ -210,6 +215,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                         oVehiculo.Foto = (byte[])reader["Foto"];
                         oVehiculo.Documento = (byte[])reader["Documento"];
                         oVehiculo.Extras = reader["Extras"].ToString();
+                        oVehiculo.Estado = reader["Estado"].ToString();
 
                     }
                 }
@@ -251,6 +257,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                 command.Parameters.AddWithValue("@Foto", pVehiculo.Foto);
                 command.Parameters.AddWithValue("@Documento", pVehiculo.Documento);
                 command.Parameters.AddWithValue("@Extras", pVehiculo.Extras);
+                command.Parameters.AddWithValue("@Estado", pVehiculo.Estado);
 
 
                
@@ -305,6 +312,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                 command.Parameters.AddWithValue("@Foto", pVehiculo.Foto);
                 command.Parameters.AddWithValue("@Documento", pVehiculo.Documento);
                 command.Parameters.AddWithValue("@Extras", pVehiculo.Extras);
+                command.Parameters.AddWithValue("@Estado", pVehiculo.Estado);
 
                 command.CommandType = CommandType.StoredProcedure;
                 command.CommandText = sql;
