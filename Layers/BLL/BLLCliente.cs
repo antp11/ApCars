@@ -25,7 +25,8 @@ namespace UTN.WinForms.ApCars.Layers.BLL
 
         public List<Cliente> GetByFilter(string pDescripcion)
         {
-            throw new NotImplementedException();
+            IDALCliente dalCliente = new DALCliente();
+            return dalCliente.GetByFilter(pDescripcion);
         }
 
         public Cliente GetById(string IdCliente)

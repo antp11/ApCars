@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tspBarraSuperior = new System.Windows.Forms.ToolStrip();
             this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnFacturar = new System.Windows.Forms.ToolStripButton();
@@ -80,6 +81,7 @@
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.dgvDetalleFactura = new System.Windows.Forms.DataGridView();
+            this.erpError = new System.Windows.Forms.ErrorProvider(this.components);
             this.tspBarraSuperior.SuspendLayout();
             this.sttBarraInferior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -94,6 +96,7 @@
             this.grbDetalle.SuspendLayout();
             this.tlbPanelTotalPagar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleFactura)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpError)).BeginInit();
             this.SuspendLayout();
             // 
             // tspBarraSuperior
@@ -515,6 +518,7 @@
             this.btnBuscarCliente.Text = "Buscar Cliente";
             this.btnBuscarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscarCliente.UseVisualStyleBackColor = true;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
             // 
             // label1
             // 
@@ -727,6 +731,10 @@
             this.dgvDetalleFactura.TabIndex = 0;
             this.dgvDetalleFactura.TabStop = false;
             // 
+            // erpError
+            // 
+            this.erpError.ContainerControl = this;
+            // 
             // frmFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -737,7 +745,9 @@
             this.Controls.Add(this.tspBarraSuperior);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmFacturacion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facturacion";
+            this.Load += new System.EventHandler(this.frmFacturacion_Load);
             this.tspBarraSuperior.ResumeLayout(false);
             this.tspBarraSuperior.PerformLayout();
             this.sttBarraInferior.ResumeLayout(false);
@@ -757,6 +767,7 @@
             this.tlbPanelTotalPagar.ResumeLayout(false);
             this.tlbPanelTotalPagar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleFactura)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erpError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -816,5 +827,6 @@
         private System.Windows.Forms.Panel pnlFirma;
         private System.Windows.Forms.Button btnLimpiarFirma;
         private System.Windows.Forms.PictureBox picFirma;
+        private System.Windows.Forms.ErrorProvider erpError;
     }
 }

@@ -102,6 +102,65 @@ namespace UTN.WinForms.ApCars.Layers.DAL
             }
         }
 
+        public List<Cliente> GetByFilter(string pDescripcion)
+        {
+            DataSet ds = null;
+            List<Cliente> lista = new List<Cliente>();
+            SqlCommand command = new SqlCommand();
+            string msg = "";
+            try
+            {
+                // Observe que se fuerza a utilizar el indice
+                string sql = @" select  * from cliente 
+                                 with (nolock,index([ApellidoNombre_IDX])) 
+                                Where Nombre+Apellido1+Apellido2 like @filtro ";
+                command.Parameters.AddWithValue("@filtro", pDescripcion);
+                command.CommandText = sql;
+                command.CommandType = CommandType.Text;
+
+                using (IDataBase db = FactoryDatabase.CreateDataBase(FactoryConexion.CreateConnection()))
+                {
+                    ds = db.ExecuteReader(command, "query");
+                }
+
+                // Si devolvió filas
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    // Iterar en todas las filas y Mapearlas
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        Cliente oCliente = new Cliente();
+                        oCliente.IdCliente = dr["IdCliente"].ToString();
+                        oCliente.IdProvincia = int.Parse(dr["IdProvincia"].ToString());
+                        oCliente.TipoCliente = dr["TipoCliente"].ToString();
+                        oCliente.Nombre = dr["Nombre"].ToString();
+                        oCliente.Apellido1 = dr["Apellido1"].ToString();
+                        oCliente.Apellido2 = dr["Apellido2"].ToString();
+                        oCliente.Sexo = dr["Sexo"].ToString();
+                        oCliente.Correo = dr["Correo"].ToString();
+                        oCliente.Direccion = dr["Direccion"].ToString();
+                        oCliente.Telefono = dr["Telefono"].ToString();
+                        oCliente.Foto = (byte[])dr["Foto"];
+
+
+                        lista.Add(oCliente);
+                    }
+                }
+
+                return lista;
+            }
+            catch (SqlException er)
+            {
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(MethodBase.GetCurrentMethod(), er, command));
+                throw new CustomException(msg.ToSqlServerDetailError(er));
+            }
+            catch (Exception er)
+            {
+                msg = msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod());
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                throw;
+            }
+        }
 
         public Cliente GetById(string IdCliente)
         {
@@ -126,7 +185,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                         oCliente = new Cliente();
                         oCliente.IdCliente = reader["IdCliente"].ToString();
                         oCliente.IdProvincia = int.Parse(reader["IdProvincia"].ToString());
-                        oCliente.TipoCliente =reader["TipoCliente"].ToString();
+                        oCliente.TipoCliente = reader["TipoCliente"].ToString();
                         oCliente.Nombre = reader["Nombre"].ToString();
                         oCliente.Apellido1 = reader["Apellido1"].ToString();
                         oCliente.Apellido2 = reader["Apellido2"].ToString();
