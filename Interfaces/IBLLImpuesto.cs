@@ -10,6 +10,7 @@ namespace UTN.WinForms.ApCars.Interfaces
     internal interface IBLLImpuesto
     {
         List<Impuesto> GetAll();
+        Impuesto GetImpuesto();
         Impuesto GetById(DateTime pId);
         Impuesto Save(Impuesto pImpuesto);
         bool Delete(DateTime pId);
