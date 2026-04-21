@@ -28,6 +28,14 @@ namespace UTN.WinForms.ApCars.Layers.BLL
             return dalImpuesto.GetById(pId);
         }
 
+        public Impuesto GetImpuesto()
+        {
+
+            IDALImpuesto dalImpuesto = new DALImpuesto();
+
+            return dalImpuesto.GetImpuesto();
+        }
+
         public Impuesto Save(Impuesto pImpuesto)
         {
             IDALImpuesto dalImpuesto = new DALImpuesto();

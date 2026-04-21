@@ -7,7 +7,7 @@ using UTN.WinForms.ApCars.Enums;
 
 namespace UTN.WinForms.ApCars.Layers.Entities
 {
-    internal class Vehiculo
+    public class Vehiculo
     {
         public string IdVIN { set; get; }
         public int IdMarca { set; get; }

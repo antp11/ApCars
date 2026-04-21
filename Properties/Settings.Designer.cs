@@ -69,5 +69,17 @@ namespace UTN.WinForms.ApCars.Properties {
                 this["RolId"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string IdUsuario {
+            get {
+                return ((string)(this["IdUsuario"]));
+            }
+            set {
+                this["IdUsuario"] = value;
+            }
+        }
     }
 }

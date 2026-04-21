@@ -63,6 +63,16 @@ namespace UTN.WinForms.ApCars.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Buscar {
+            get {
+                object obj = ResourceManager.GetObject("Buscar", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap buscar_vehiculo {
             get {
                 object obj = ResourceManager.GetObject("buscar vehiculo", resourceCulture);
@@ -263,6 +273,16 @@ namespace UTN.WinForms.ApCars.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap imageInsert {
+            get {
+                object obj = ResourceManager.GetObject("imageInsert", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap insert_image {
             get {
                 object obj = ResourceManager.GetObject("insert image", resourceCulture);
@@ -363,6 +383,16 @@ namespace UTN.WinForms.ApCars.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap nuevo2 {
+            get {
+                object obj = ResourceManager.GetObject("nuevo2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap NuevoVehiculo {
             get {
                 object obj = ResourceManager.GetObject("NuevoVehiculo", resourceCulture);
@@ -386,6 +416,26 @@ namespace UTN.WinForms.ApCars.Properties {
         internal static System.Drawing.Bitmap run_build_2 {
             get {
                 object obj = ResourceManager.GetObject("run-build-2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Salir {
+            get {
+                object obj = ResourceManager.GetObject("Salir", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap setting {
+            get {
+                object obj = ResourceManager.GetObject("setting", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -436,6 +486,36 @@ namespace UTN.WinForms.ApCars.Properties {
         internal static System.Drawing.Bitmap window_close_2 {
             get {
                 object obj = ResourceManager.GetObject("window-close-2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Word {
+            get {
+                object obj = ResourceManager.GetObject("Word", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap word_load {
+            get {
+                object obj = ResourceManager.GetObject("word_load", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wordLoad {
+            get {
+                object obj = ResourceManager.GetObject("wordLoad", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

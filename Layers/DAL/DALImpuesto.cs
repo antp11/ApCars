@@ -137,6 +137,46 @@ namespace UTN.WinForms.ApCars.Layers.BLL
             }
         }
 
+        public Impuesto GetImpuesto()
+        {
+            IDataReader reader = null;
+            SqlCommand command = new SqlCommand();
+            Impuesto oImpuesto = new Impuesto();
+            string sql = @" select  * from Impuesto WITH (HOLDLock)";
+            string msg = "";
+            try
+            {
+                command.CommandText = sql;
+                command.CommandType = CommandType.Text;
+
+                using (IDataBase db = FactoryDatabase.CreateDataBase(FactoryConexion.CreateConnection()))
+                {
+                    reader = db.ExecuteReader(command);
+
+                    while (reader.Read())
+                    {
+                        oImpuesto.IdFecha = Convert.ToDateTime(reader["IdFecha"].ToString());
+                        oImpuesto.Porcentaje = Convert.ToDouble(reader["Porcentaje"].ToString());
+
+                    }
+                }
+
+
+                return oImpuesto;
+            }
+            catch (SqlException er)
+            {
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(MethodBase.GetCurrentMethod(), er, command));
+                throw new CustomException(msg.ToSqlServerDetailError(er));
+            }
+            catch (Exception er)
+            {
+                msg = msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod());
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                throw;
+            }
+        }
+
         public Impuesto Save(Impuesto pImpuesto)
         {
             string msg = "";

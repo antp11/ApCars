@@ -182,6 +182,71 @@ namespace UTN.WinForms.ApCars.Layers.DAL
             }
         }
 
+        public List<Vehiculo> GetByFilter(string pDescripcion)
+        {
+            string msg = "";
+
+            SqlCommand command = new SqlCommand();
+            List<Vehiculo> lista = new List<Vehiculo>();
+            string sql = @" select * from  [Vehiculo] with (nolock,index(DescripcionVehiculoIDX))
+                             where [DescripcionVehiculo] like @DescripcionVehiculo";
+
+            try
+            {
+                // Pasar Parámetro
+                command.Parameters.AddWithValue("@DescripcionVehiculo", pDescripcion);
+                command.CommandText = sql;
+                command.CommandType = CommandType.Text;
+
+                // Ejecutar
+                using (IDataBase db = FactoryDatabase.CreateDataBase(FactoryConexion.CreateConnection()))
+                {
+                    using (IDataReader dr = db.ExecuteReader(command))
+                    {
+
+                        while (dr.Read())
+                        {
+                            // Mapear la fila al Objeto
+                            Vehiculo oVehiculo = new Vehiculo();
+
+                            oVehiculo = new Vehiculo();
+                            oVehiculo.IdVIN = dr["IdVIN"].ToString();
+                            oVehiculo.IdMarca = int.Parse(dr["IdMarca"].ToString());
+                            oVehiculo.IdEstilo = int.Parse(dr["IdEstilo"].ToString());
+                            oVehiculo.DescripcionVehiculo = dr["DescripcionVehiculo"].ToString();
+                            oVehiculo.Anno = int.Parse(dr["Anno"].ToString());
+                            oVehiculo.CantidadPaasajero = int.Parse(dr["CantidadPaasajero"].ToString());
+                            oVehiculo.TipoCombustible = int.Parse(dr["TipoCombustible"].ToString());
+                            oVehiculo.Color = dr["Color"].ToString();
+                            oVehiculo.TipoTransmision = int.Parse(dr["TipoTransmision"].ToString());
+                            oVehiculo.Precio = double.Parse(dr["Precio"].ToString());
+                            oVehiculo.Foto = (byte[])dr["Foto"];
+                            oVehiculo.Documento = (byte[])dr["Documento"];
+                            oVehiculo.Extras = dr["Extras"].ToString();
+                            oVehiculo.Estado = dr["Estado"].ToString();
+
+
+                            lista.Add(oVehiculo);
+                        }
+                    }
+
+                }
+
+                return lista;
+            }
+            catch (SqlException er)
+            {
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(MethodBase.GetCurrentMethod(), er, command));
+                throw new CustomException(msg.ToSqlServerDetailError(er));
+            }
+            catch (Exception er)
+            {
+                msg = msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod());
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                throw;
+            }
+        }
+
         public Vehiculo GetById(string pVin)
         {
             SqlCommand command = new SqlCommand();
@@ -250,9 +315,9 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                 command.Parameters.AddWithValue("@DescripcionVehiculo", pVehiculo.DescripcionVehiculo);
                 command.Parameters.AddWithValue("@Anno", pVehiculo.Anno);
                 command.Parameters.AddWithValue("@CantidadPaasajero", pVehiculo.CantidadPaasajero);
-                command.Parameters.AddWithValue("@TipoCombustible", pVehiculo.TipoCombustible+1);
+                command.Parameters.AddWithValue("@TipoCombustible", pVehiculo.TipoCombustible + 1);
                 command.Parameters.AddWithValue("@Color", pVehiculo.Color);
-                command.Parameters.AddWithValue("@TipoTransmision", pVehiculo.TipoTransmision+1);
+                command.Parameters.AddWithValue("@TipoTransmision", pVehiculo.TipoTransmision + 1);
                 command.Parameters.AddWithValue("@Precio", pVehiculo.Precio);
                 command.Parameters.AddWithValue("@Foto", pVehiculo.Foto);
                 command.Parameters.AddWithValue("@Documento", pVehiculo.Documento);
@@ -260,7 +325,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                 command.Parameters.AddWithValue("@Estado", pVehiculo.Estado);
 
 
-               
+
 
 
                 command.CommandType = CommandType.StoredProcedure;
@@ -305,9 +370,9 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                 command.Parameters.AddWithValue("@DescripcionVehiculo", pVehiculo.DescripcionVehiculo);
                 command.Parameters.AddWithValue("@Anno", pVehiculo.Anno);
                 command.Parameters.AddWithValue("@CantidadPaasajero", pVehiculo.CantidadPaasajero);
-                command.Parameters.AddWithValue("@TipoCombustible", pVehiculo.TipoCombustible );
+                command.Parameters.AddWithValue("@TipoCombustible", pVehiculo.TipoCombustible);
                 command.Parameters.AddWithValue("@Color", pVehiculo.Color);
-                command.Parameters.AddWithValue("@TipoTransmision", pVehiculo.TipoTransmision );
+                command.Parameters.AddWithValue("@TipoTransmision", pVehiculo.TipoTransmision);
                 command.Parameters.AddWithValue("@Precio", pVehiculo.Precio);
                 command.Parameters.AddWithValue("@Foto", pVehiculo.Foto);
                 command.Parameters.AddWithValue("@Documento", pVehiculo.Documento);

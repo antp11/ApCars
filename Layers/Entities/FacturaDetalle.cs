@@ -6,6 +6,7 @@
         public string Consecutivo { set; get; }
         public string DescripcionVehiculo { set; get; }
         public string IdVIN { set; get; }
+        public string Marca { set; get; }
         public double PrecioColones { set; get; }
         public double PrecioDolares { set; get; }
         public double ImpuestoColones { set; get; }

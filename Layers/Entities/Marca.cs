@@ -13,5 +13,10 @@ namespace UTN.WinForms.ApCars.Layers.Entities
         public string DescripcionMarca { set; get; }
         public byte[] Logo { set; get; }
 
+        public override string ToString()
+        {
+            return DescripcionMarca;
+        }
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using UTN.WinForms.ApCars.Interfaces;
@@ -12,6 +13,23 @@ namespace UTN.WinForms.ApCars.Layers.BLL
 {
     internal class BLLVehiculo : IBLLVehiculo
     {
+        public Vehiculo AvabilityStock(string pVin)
+        {
+            IDALVehiculo dALVehiculo = new DALVehiculo();
+            Vehiculo oVehiculo = dALVehiculo.GetById(pVin);
+
+            if (oVehiculo == null)
+            {
+                throw new Exception($"El VIN {pVin} no existe!");
+            }
+            if (oVehiculo.Estado == "Vendido")
+            {
+                throw new Exception($"El Vehiculo{oVehiculo.DescripcionVehiculo} ya fue Vendido");
+            }
+            return oVehiculo;
+
+        }
+
         public bool Delete(string pVin)
         {
             IDALVehiculo dALVehiculo = new DALVehiculo();
@@ -30,6 +48,12 @@ namespace UTN.WinForms.ApCars.Layers.BLL
             IDALVehiculo dALVehiculo = new DALVehiculo();
 
             return dALVehiculo.GetAllDTO();
+        }
+
+        public List<Vehiculo> GetByFilter(string pDescripcion)
+        {
+            IDALVehiculo dALVehiculo = new DALVehiculo();
+            return dALVehiculo.GetByFilter(pDescripcion);
         }
 
         public Vehiculo GetById(string pVin)

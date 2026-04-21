@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+/Layers/UI/Filtros/frmFiltroVehiculo.cs
+/Layers/UI/Filtros/frmFiltroVehiculo.Designer.cs
+/Layers/UI/Filtros/frmFiltroVehiculo.resx

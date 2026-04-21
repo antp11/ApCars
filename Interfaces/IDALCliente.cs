@@ -9,6 +9,7 @@ namespace UTN.WinForms.ApCars.Interfaces
 {
     internal interface IDALCliente
     {
+        List<Cliente> GetByFilter(string pDescripcion);
         Task<IEnumerable<Cliente>> GetAll();
         Task<Cliente> Save(Cliente pCliente);
         Task<Cliente> Update(Cliente pCliente);

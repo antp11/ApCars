@@ -15,6 +15,7 @@ namespace UTN.WinForms.ApCars.Interfaces
         Vehiculo Update(Vehiculo pVehiculo);
         Vehiculo GetById(string pVin);
         bool Delete(string pVin);
+        List<Vehiculo> GetByFilter(string pDescripcion);
         List<VehiculoMarcaEstiloDTO> GetAllDTO();
     }
 }

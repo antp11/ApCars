@@ -26,8 +26,8 @@ namespace UTN.WinForms.ApCars.Layers.Entities
 
         public void AddDetalle(FacturaDetalle pFacturaDetalle) => _ListaFacturaDetalle.Add(pFacturaDetalle);
 
-        //public double GetSubTotal() => _ListaFacturaDetalle.Sum(p => p.Cantidad * p.Precio);
+        public double GetSubTotal() => _ListaFacturaDetalle.Sum(p =>  p.PrecioColones);
 
-       // public double GetImpuesto() => _ListaFacturaDetalle.Sum(p => p.Impuesto);
+        public double GetImpuesto() => _ListaFacturaDetalle.Sum(p => p.ImpuestoColones);
     }
 }

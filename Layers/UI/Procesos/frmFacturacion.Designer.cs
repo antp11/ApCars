@@ -41,14 +41,12 @@
             this.picFirma = new System.Windows.Forms.PictureBox();
             this.grbFacturacion = new System.Windows.Forms.GroupBox();
             this.tlpProducto = new System.Windows.Forms.TableLayoutPanel();
+            this.txtVIN = new System.Windows.Forms.TextBox();
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.lblMarca = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.lblCantidad = new System.Windows.Forms.Label();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.btnBuscarVehiculo = new System.Windows.Forms.Button();
-            this.mskCantidad = new System.Windows.Forms.MaskedTextBox();
-            this.mskCodigoVehiculo = new System.Windows.Forms.MaskedTextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblVIN = new System.Windows.Forms.Label();
@@ -82,6 +80,12 @@
             this.label14 = new System.Windows.Forms.Label();
             this.dgvDetalleFactura = new System.Windows.Forms.DataGridView();
             this.erpError = new System.Windows.Forms.ErrorProvider(this.components);
+            this.No = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VIN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescripciónVehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Impuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tspBarraSuperior.SuspendLayout();
             this.sttBarraInferior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -120,6 +124,7 @@
             this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
             this.toolStripBtnNuevo.Size = new System.Drawing.Size(104, 52);
             this.toolStripBtnNuevo.Text = "Nuevo";
+            this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
             // 
             // toolStripBtnFacturar
             // 
@@ -129,6 +134,7 @@
             this.toolStripBtnFacturar.Name = "toolStripBtnFacturar";
             this.toolStripBtnFacturar.Size = new System.Drawing.Size(113, 52);
             this.toolStripBtnFacturar.Text = "Facturar";
+            this.toolStripBtnFacturar.Click += new System.EventHandler(this.toolStripBtnFacturar_Click);
             // 
             // toolStripBtnSalir
             // 
@@ -197,6 +203,7 @@
             this.btnLimpiarFirma.Text = "Limpiar Firma";
             this.btnLimpiarFirma.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnLimpiarFirma.UseVisualStyleBackColor = true;
+            this.btnLimpiarFirma.Click += new System.EventHandler(this.btnLimpiarFirma_Click);
             // 
             // picFirma
             // 
@@ -207,6 +214,9 @@
             this.picFirma.Size = new System.Drawing.Size(351, 90);
             this.picFirma.TabIndex = 67;
             this.picFirma.TabStop = false;
+            this.picFirma.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picFirma_MouseDown);
+            this.picFirma.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picFirma_MouseMove);
+            this.picFirma.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picFirma_MouseUp);
             // 
             // grbFacturacion
             // 
@@ -229,33 +239,40 @@
             this.tlpProducto.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tlpProducto.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tlpProducto.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 181F));
+            this.tlpProducto.Controls.Add(this.txtVIN, 1, 0);
             this.tlpProducto.Controls.Add(this.txtMarca, 1, 1);
             this.tlpProducto.Controls.Add(this.lblMarca, 0, 1);
-            this.tlpProducto.Controls.Add(this.label7, 0, 5);
-            this.tlpProducto.Controls.Add(this.lblCantidad, 0, 4);
-            this.tlpProducto.Controls.Add(this.txtPrecio, 1, 5);
             this.tlpProducto.Controls.Add(this.btnBuscarVehiculo, 2, 0);
-            this.tlpProducto.Controls.Add(this.mskCantidad, 1, 4);
-            this.tlpProducto.Controls.Add(this.mskCodigoVehiculo, 1, 0);
-            this.tlpProducto.Controls.Add(this.btnAgregar, 2, 4);
             this.tlpProducto.Controls.Add(this.lblDescripcion, 0, 2);
             this.tlpProducto.Controls.Add(this.lblVIN, 0, 0);
             this.tlpProducto.Controls.Add(this.txtDescripcionVehiculo, 1, 2);
             this.tlpProducto.Controls.Add(this.label13, 0, 3);
             this.tlpProducto.Controls.Add(this.txtExistencia, 1, 3);
+            this.tlpProducto.Controls.Add(this.txtPrecio, 1, 4);
+            this.tlpProducto.Controls.Add(this.label7, 0, 4);
+            this.tlpProducto.Controls.Add(this.btnAgregar, 2, 4);
             this.tlpProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tlpProducto.Location = new System.Drawing.Point(9, 298);
             this.tlpProducto.Margin = new System.Windows.Forms.Padding(4);
             this.tlpProducto.Name = "tlpProducto";
-            this.tlpProducto.RowCount = 6;
+            this.tlpProducto.RowCount = 5;
             this.tlpProducto.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpProducto.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpProducto.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpProducto.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpProducto.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpProducto.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpProducto.Size = new System.Drawing.Size(644, 219);
+            this.tlpProducto.Size = new System.Drawing.Size(644, 195);
             this.tlpProducto.TabIndex = 7;
+            // 
+            // txtVIN
+            // 
+            this.txtVIN.Location = new System.Drawing.Point(96, 4);
+            this.txtVIN.Margin = new System.Windows.Forms.Padding(4);
+            this.txtVIN.Name = "txtVIN";
+            this.txtVIN.ReadOnly = true;
+            this.txtVIN.Size = new System.Drawing.Size(241, 22);
+            this.txtVIN.TabIndex = 15;
+            this.txtVIN.TabStop = false;
             // 
             // txtMarca
             // 
@@ -280,27 +297,16 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 150);
+            this.label7.Location = new System.Drawing.Point(4, 120);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(46, 16);
             this.label7.TabIndex = 9;
             this.label7.Text = "Precio";
             // 
-            // lblCantidad
-            // 
-            this.lblCantidad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblCantidad.AutoSize = true;
-            this.lblCantidad.Location = new System.Drawing.Point(4, 127);
-            this.lblCantidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(84, 16);
-            this.lblCantidad.TabIndex = 5;
-            this.lblCantidad.Text = "Cantidad";
-            // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(96, 154);
+            this.txtPrecio.Location = new System.Drawing.Point(96, 124);
             this.txtPrecio.Margin = new System.Windows.Forms.Padding(4);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.ReadOnly = true;
@@ -320,24 +326,7 @@
             this.btnBuscarVehiculo.Text = "Buscar Vehiculo";
             this.btnBuscarVehiculo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscarVehiculo.UseVisualStyleBackColor = true;
-            // 
-            // mskCantidad
-            // 
-            this.mskCantidad.Location = new System.Drawing.Point(96, 124);
-            this.mskCantidad.Margin = new System.Windows.Forms.Padding(4);
-            this.mskCantidad.Mask = "999999999999";
-            this.mskCantidad.Name = "mskCantidad";
-            this.mskCantidad.Size = new System.Drawing.Size(241, 22);
-            this.mskCantidad.TabIndex = 7;
-            // 
-            // mskCodigoVehiculo
-            // 
-            this.mskCodigoVehiculo.Location = new System.Drawing.Point(96, 4);
-            this.mskCodigoVehiculo.Margin = new System.Windows.Forms.Padding(4);
-            this.mskCodigoVehiculo.Mask = "99999999999";
-            this.mskCodigoVehiculo.Name = "mskCodigoVehiculo";
-            this.mskCodigoVehiculo.Size = new System.Drawing.Size(241, 22);
-            this.mskCodigoVehiculo.TabIndex = 5;
+            this.btnBuscarVehiculo.Click += new System.EventHandler(this.btnBuscarVehiculo_Click);
             // 
             // btnAgregar
             // 
@@ -345,12 +334,12 @@
             this.btnAgregar.Location = new System.Drawing.Point(467, 124);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
-            this.tlpProducto.SetRowSpan(this.btnAgregar, 2);
             this.btnAgregar.Size = new System.Drawing.Size(159, 70);
             this.btnAgregar.TabIndex = 8;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // lblDescripcion
             // 
@@ -392,7 +381,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(84, 16);
             this.label13.TabIndex = 12;
-            this.label13.Text = "Existencia";
+            this.label13.Text = "Estado";
             // 
             // txtExistencia
             // 
@@ -586,6 +575,7 @@
             this.rdbCredito.TabStop = true;
             this.rdbCredito.Text = "Crédito";
             this.rdbCredito.UseVisualStyleBackColor = true;
+            this.rdbCredito.Click += new System.EventHandler(this.rdbCredito_Click);
             // 
             // grbDetalle
             // 
@@ -722,18 +712,73 @@
             this.dgvDetalleFactura.AllowUserToAddRows = false;
             this.dgvDetalleFactura.AllowUserToDeleteRows = false;
             this.dgvDetalleFactura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetalleFactura.Location = new System.Drawing.Point(37, 36);
+            this.dgvDetalleFactura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.No,
+            this.VIN,
+            this.Marca,
+            this.DescripciónVehiculo,
+            this.Impuesto,
+            this.Precio});
+            this.dgvDetalleFactura.Location = new System.Drawing.Point(8, 36);
             this.dgvDetalleFactura.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDetalleFactura.Name = "dgvDetalleFactura";
             this.dgvDetalleFactura.ReadOnly = true;
             this.dgvDetalleFactura.RowHeadersWidth = 51;
-            this.dgvDetalleFactura.Size = new System.Drawing.Size(651, 341);
+            this.dgvDetalleFactura.Size = new System.Drawing.Size(660, 341);
             this.dgvDetalleFactura.TabIndex = 0;
             this.dgvDetalleFactura.TabStop = false;
             // 
             // erpError
             // 
             this.erpError.ContainerControl = this;
+            // 
+            // No
+            // 
+            this.No.HeaderText = "No";
+            this.No.MinimumWidth = 6;
+            this.No.Name = "No";
+            this.No.ReadOnly = true;
+            this.No.Width = 125;
+            // 
+            // VIN
+            // 
+            this.VIN.HeaderText = "VIN";
+            this.VIN.MinimumWidth = 6;
+            this.VIN.Name = "VIN";
+            this.VIN.ReadOnly = true;
+            this.VIN.Width = 125;
+            // 
+            // Marca
+            // 
+            this.Marca.HeaderText = "Marca";
+            this.Marca.MinimumWidth = 6;
+            this.Marca.Name = "Marca";
+            this.Marca.ReadOnly = true;
+            this.Marca.Width = 125;
+            // 
+            // DescripciónVehiculo
+            // 
+            this.DescripciónVehiculo.HeaderText = "Descripción Vehiculo";
+            this.DescripciónVehiculo.MinimumWidth = 6;
+            this.DescripciónVehiculo.Name = "DescripciónVehiculo";
+            this.DescripciónVehiculo.ReadOnly = true;
+            this.DescripciónVehiculo.Width = 125;
+            // 
+            // Impuesto
+            // 
+            this.Impuesto.HeaderText = "Impuesto";
+            this.Impuesto.MinimumWidth = 6;
+            this.Impuesto.Name = "Impuesto";
+            this.Impuesto.ReadOnly = true;
+            this.Impuesto.Width = 125;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.MinimumWidth = 6;
+            this.Precio.Name = "Precio";
+            this.Precio.ReadOnly = true;
+            this.Precio.Width = 125;
             // 
             // frmFacturacion
             // 
@@ -785,11 +830,8 @@
         private System.Windows.Forms.GroupBox grbFacturacion;
         private System.Windows.Forms.TableLayoutPanel tlpProducto;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Button btnBuscarVehiculo;
-        private System.Windows.Forms.MaskedTextBox mskCantidad;
-        private System.Windows.Forms.MaskedTextBox mskCodigoVehiculo;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label lblVIN;
@@ -828,5 +870,12 @@
         private System.Windows.Forms.Button btnLimpiarFirma;
         private System.Windows.Forms.PictureBox picFirma;
         private System.Windows.Forms.ErrorProvider erpError;
+        private System.Windows.Forms.TextBox txtVIN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn No;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VIN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DescripciónVehiculo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Impuesto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
     }
 }
