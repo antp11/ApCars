@@ -92,7 +92,17 @@ namespace UTN.WinForms.ApCars.Layers.BLL
 
         public FacturaEncabezado Save(FacturaEncabezado pFactura)
         {
-            throw new NotImplementedException();
+            IDALFactura dalFactura = new DALFactura();
+            IBLLVehiculo bllVehiculo = new BLLVehiculo();
+
+            // Vuelve a validar que exista en inventario
+            foreach (FacturaDetalle oFacturaDetalle in pFactura._ListaFacturaDetalle)
+            {
+                bllVehiculo.AvabilityStock(oFacturaDetalle.IdVIN);
+            }
+
+
+            return dalFactura.Save(pFactura);
         }
     }
 }

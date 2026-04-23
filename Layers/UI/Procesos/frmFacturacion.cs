@@ -1,16 +1,23 @@
 ﻿using log4net;
+using QuestPDF.Fluent;
+using QuestPDF.Helpers;
+using QuestPDF.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using UTN.WinForms.ApCars.Extensions;
 using UTN.WinForms.ApCars.Interfaces;
 using UTN.WinForms.ApCars.Layers.BLL;
@@ -25,6 +32,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
     {
         private static readonly ILog _myLogControlEventos = log4net.LogManager.GetLogger("MyControlEventos");
         private Cliente _cliente = null;
+        private Vehiculo _vehiculo = null;
         private FacturaEncabezado _facturaEncabezado = null;
         private double TipoCambio = 0;
 
@@ -82,7 +90,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
 
                 _facturaEncabezado = new FacturaEncabezado();
 
-                _facturaEncabezado.IdTarjeta = Convert.ToInt32(this.cmbTarjeta.Text);
+                _facturaEncabezado.IdTarjeta = (cmbTarjeta.SelectedItem as Tarjeta).IdTarjeta;
                 _facturaEncabezado.IdFactura = Convert.ToInt32(this.txtNumeroFactura.Text);
                 _facturaEncabezado.IdCliente = _cliente.IdCliente;
                 _facturaEncabezado.IdUsuario = Settings.Default.Login;
@@ -143,14 +151,13 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
                 this.cmbTarjeta.Items.Add(oTarjeta);
             }
             cmbTarjeta.SelectedIndex = 0;
-            cmbTarjeta.ValueMember = "IdTarjeta";
+
         }
 
         private void btnBuscarVehiculo_Click(object sender, EventArgs e)
         {
             frmFiltroVehiculo oFrmFiltroVehiculo = new frmFiltroVehiculo();
             IBLLMarca bLLMarca = new BLLMarca();
-            Vehiculo oVehiculo = null;
             Marca oMarca = null;
             try
             {
@@ -158,13 +165,13 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
 
                 if (oFrmFiltroVehiculo.DialogResult == DialogResult.OK)
                 {
-                    oVehiculo = oFrmFiltroVehiculo.Vehiculo;
-                    txtDescripcionVehiculo.Text = oVehiculo.DescripcionVehiculo;
-                    txtVIN.Text = oVehiculo.IdVIN;
-                    oMarca = bLLMarca.GetById(oVehiculo.IdMarca);
+                    _vehiculo = oFrmFiltroVehiculo.Vehiculo;
+                    txtDescripcionVehiculo.Text = _vehiculo.DescripcionVehiculo;
+                    txtVIN.Text = _vehiculo.IdVIN;
+                    oMarca = bLLMarca.GetById(_vehiculo.IdMarca);
                     txtMarca.Text = oMarca.ToString();
-                    txtExistencia.Text = oVehiculo.Estado;
-                    txtPrecio.Text = oVehiculo.Precio.ToString();
+                    txtExistencia.Text = _vehiculo.Estado;
+                    txtPrecio.Text = _vehiculo.Precio.ToString();
                     ;
 
                 }
@@ -209,11 +216,8 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
                 // Valida que exista disponibilidad en el Inventario
                 Vehiculo oVehiculo = bllVehiculo.AvabilityStock(this.txtVIN.Text);
 
-
-
                 // Vuelve a mostrar Existencia.
                 this.txtExistencia.Text = oVehiculo.Estado;
-
 
                 oFacturaDetalle.IdVIN = this.txtVIN.Text;
                 oFacturaDetalle.DescripcionVehiculo = this.txtDescripcionVehiculo.Text;
@@ -315,12 +319,13 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
         private void toolStripBtnFacturar_Click(object sender, EventArgs e)
         {
             IBLLFactura bllFactura = new BLLFactura();
+
             // Pasar la firma a byte[] (imagen del PictureBox)
             byte[] firmaBytes = ImagenToBytes(firmaBitmap);
             try
             {
 
-             
+
                 // Validar que exista firma
                 if (picFirma.Image == null)
                 {
@@ -346,23 +351,21 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
                 }
 
                 // Crear XML y guardar firma
-                _facturaEncabezado.XML= bllFactura.GenerarXML(
-                    _facturaEncabezado,
-                    _facturaEncabezado._ListaFacturaDetalle);
+                _facturaEncabezado.XML = bllFactura.GenerarXML(_facturaEncabezado, _facturaEncabezado._ListaFacturaDetalle);
 
                 _facturaEncabezado.Firma = firmaBytes;
-
                 toolStripBtnFacturar.Enabled = false;
                 _facturaEncabezado = bllFactura.Save(_facturaEncabezado);
 
 
                 // Crear Reporte en PDF
-                // CreateReportPDF(_facturaEncabezado);
+                CreateReportPDF(_facturaEncabezado);
 
                 if (_facturaEncabezado == null)
                     MessageBox.Show("Error al crear factura!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else
                     toolStripBtnNuevo_Click(null, null);
+
 
 
             }
@@ -427,5 +430,256 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
             this.txtNumeroTarjeta.Enabled = true;
             this.txtNumeroTarjeta.Focus();
         }
+
+        private void CreateReportPDF(FacturaEncabezado pFacturaEncabezado)
+        {
+            IBLLCliente bLLCliente = new BLLCliente();
+            IBLLVehiculo bllVehiculo = new BLLVehiculo();
+
+
+            double granTotal = 0d, subTotal = 0, impuestoTotal = 0d, total = 0d;
+
+            // Crear imagen quickresponse
+            System.Drawing.Image qrImage = QuickResponse.QuickResponseGenerador(pFacturaEncabezado.IdFactura.ToString(), 53);
+            // Convert Image into bytes array 
+            MemoryStream ms = new MemoryStream();
+            qrImage.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
+            //qrImage.Save(@"c:\temp\qr.png", System.Drawing.Imaging.ImageFormat.Png);
+            //col1.Item().AlignLeft().Image(ms.ToArray());
+
+
+            // Logo
+            Bitmap logoBitmap = new Bitmap(Properties.Resources.smalllogo, 150, 150);
+            byte[] logoBytes;
+            MemoryStream memory = new MemoryStream();
+            logoBitmap.Save(memory, System.Drawing.Imaging.ImageFormat.Png);
+            logoBytes = memory.ToArray();
+
+
+            // Obligatorio la licencia Community
+            QuestPDF.Settings.License = LicenseType.Community;
+
+            var pdfBytesArray = Document.Create(document =>
+            {
+                document.Page(page =>
+                {
+
+                    page.Size(PageSizes.Letter);
+                    page.Margin(2, Unit.Centimetre);
+                    page.PageColor(Colors.White);
+                    page.Margin(30);
+
+                    // Encabezado de página
+                    page.Header().Row(row =>
+                    {
+                        row.RelativeItem().Column(col =>
+                        {
+
+                            col.Item()
+                               .AlignLeft()
+                               .Text("ApCars")
+                               .Bold()
+                               .FontSize(50)
+                               .FontColor("#34495e");
+
+                            // Logo a la derecha
+                            row.ConstantItem(100)
+                               .AlignRight()
+                               .Height(100)
+                               .Image(logoBytes);
+
+
+                            col.Item()
+                               .AlignLeft()
+                               .Text($"Fecha: {DateTime.Now:dd/MM/yyyy}")
+                               .FontSize(9)
+                               .FontColor("#6c757d");
+
+
+                            col.Item()
+                               .LineHorizontal(1f)
+                               .LineColor("#dee2e6");
+
+
+
+
+                            //col.Item().AlignLeft().Text("ApCars").Bold().FontSize(50).Bold().FontColor("#2058b3");
+                            //row.ConstantItem(100).AlignRight().Height(100).Image(logoBytes);
+                            //col.Item().AlignLeft().Text($"Fecha: {DateTime.Now} ").FontSize(9);
+                            //col.Item().LineHorizontal(1f);
+
+                        });
+                    });
+                    // Página
+                    page.Content().PaddingVertical(10).Column(col1 =>
+                    {
+                        // Titulo del reporte
+                        col1.Item().AlignLeft().Text($"Factura No {pFacturaEncabezado.IdFactura}").FontSize(14).Bold();
+                        col1.Item().AlignLeft().Text($"Fecha: {pFacturaEncabezado.Fecha} ").FontSize(10);
+                        col1.Item().AlignLeft().Text($"Cliente: {pFacturaEncabezado.IdCliente.Trim()} - {_cliente.Nombre.Trim()} {_cliente.Apellido1.Trim()} {_cliente.Apellido2.Trim()}").FontSize(10);
+                        col1.Item().AlignLeft().Text($"No Tarjeta: {pFacturaEncabezado.NoReferencia}").FontSize(10);
+
+
+
+                        col1.Item().LineHorizontal(0.5f);
+                        col1.Item().Text("");
+
+                        col1.Item().Table(tabla =>
+                        {
+                            tabla.ColumnsDefinition(columns =>
+                            {
+                                // Define cuantas columnas 
+                                columns.RelativeColumn(2);
+                                columns.RelativeColumn(2);
+                                columns.RelativeColumn(2);
+                                columns.RelativeColumn(2);
+                                columns.RelativeColumn(2);
+                                columns.RelativeColumn(2);
+                            });
+
+                            // Define encabezado
+                            tabla.Header(header =>
+                            {
+                                header.Cell().Background("#34495e")
+                                .Padding(2).AlignCenter().Text("Nº Linea").FontColor("#fff");
+
+                                header.Cell().Background("#34495e")
+                                .Padding(2).AlignCenter().Text("VIN").FontColor("#fff");
+
+                                header.Cell().Background("#34495e")
+                               .Padding(2).AlignCenter().Text("Marca").FontColor("#fff");
+
+                                header.Cell().Background("#34495e")
+                               .Padding(2).AlignCenter().Text("Descripcion Vehiculo").FontColor("#fff");
+
+                                header.Cell().Background("#34495e")
+                               .Padding(2).AlignCenter().Text("Impuesto").FontColor("#fff");
+
+                                header.Cell().Background("#34495e")
+                               .Padding(2).AlignCenter().Text("Precio").FontColor("#fff");
+                            });
+
+
+                            // recorrer la lista
+                            foreach (var item in pFacturaEncabezado._ListaFacturaDetalle)
+                            {
+                                // Column 1 
+                                tabla.Cell().BorderBottom(0.5f).BorderColor("#D9D9D9")
+                                .Padding(2).AlignCenter().Text(item.Consecutivo.ToString()).FontSize(10);
+
+                                // Column 2
+                                tabla.Cell().BorderBottom(0.5f).BorderColor("#D9D9D9")
+                                .Padding(2).AlignCenter().Text(item.IdVIN.ToString());
+
+                                // Column 3                                        
+                                tabla.Cell().BorderBottom(0.5f).BorderColor("#D9D9D9")
+                                .Padding(2).AlignCenter().Text(item.Marca.ToString()).FontSize(10);
+
+                                // Column 4                                        
+                                tabla.Cell().BorderBottom(0.5f).BorderColor("#D9D9D9")
+                                .Padding(2).AlignCenter().Text(item.DescripcionVehiculo.ToString()).FontSize(10);
+
+                                // Column 5                                        
+                                tabla.Cell().BorderBottom(0.5f).BorderColor("#D9D9D9")
+                                .Padding(2).AlignCenter().Text(item.ImpuestoColones.ToString("##,###,###.00")).FontSize(10);
+
+                                // Column 6                                        
+                                tabla.Cell().BorderBottom(0.5f).BorderColor("#D9D9D9")
+                                .Padding(2).AlignCenter().Text(item.PrecioColones.ToString("##,###,###.00")).FontSize(10);
+
+                                total += item.PrecioColones + item.ImpuestoColones;
+
+                                subTotal += item.PrecioColones;
+                                granTotal += total;
+                                impuestoTotal += item.ImpuestoColones;
+                            }
+
+                        });
+
+                        col1.Item().AlignRight().Text("SubTotal " + subTotal.ToString("###,###.00")).FontSize(10).Bold();
+                        col1.Item().AlignRight().Text("Impuesto " + impuestoTotal.ToString("###,###.00")).FontSize(10).Bold();
+                        col1.Item().AlignRight().Text("Total " + granTotal.ToString("###,###.00")).FontSize(10).Bold();
+
+                        // Mostrar QR
+                        col1.Item().Row(row1 =>
+                        {
+                            row1.ConstantItem(90).Image(ms.ToArray());
+                        });
+
+                    });
+
+
+                    // Pie de página
+                    page.Footer()
+                    .AlignRight()
+                    .Text(txt =>
+                    {
+                        txt.Span("Página ").FontSize(10);
+                        txt.CurrentPageNumber().FontSize(10);
+                        txt.Span(" de ").FontSize(10);
+                        txt.TotalPages().FontSize(10);
+                    });
+                });
+            }).GeneratePdf();
+
+
+
+            // Salvado en disco
+            File.WriteAllBytes(@"c:\temp\pdfFactura.pdf", pdfBytesArray);
+
+            // Rutina para enviar correo
+
+            SendEmailInvoice(_cliente.Correo, pFacturaEncabezado);
+
+            Process.Start(@"c:\temp\pdfFactura.pdf");
+        }
+
+        private void SendEmailInvoice(string email, FacturaEncabezado factura)
+        {
+            //MessageBox.Show("tiene q configurar el correo !!!! ");
+            String cuentaCorreoElectronico = "antpgs11@gmail.com";
+            String contrasenaGeneradaXGmail = "biebdknewfzrrdsc";
+            string correoDestinatario = email;  //;
+
+            MailMessage mensaje = new MailMessage();
+            mensaje.IsBodyHtml = true;
+            mensaje.Subject = "Su factura Electronica ";
+            mensaje.Body = "Adjunto su factura electronica ";
+            mensaje.From = new MailAddress(cuentaCorreoElectronico);
+            mensaje.To.Add(correoDestinatario); //Correo del destinatario
+            SmtpClient smtp = new SmtpClient("smtp.gmail.com");
+            smtp.Port = 587;
+            smtp.Credentials = new NetworkCredential(cuentaCorreoElectronico, contrasenaGeneradaXGmail);
+            smtp.EnableSsl = true;
+            // Adjuntar un archivo
+            string xmlFactura = factura.XML;
+            byte[] xmlByte = Encoding.UTF8.GetBytes(xmlFactura);
+            MemoryStream memoryStream = new MemoryStream(xmlByte);
+            mensaje.Attachments.Add(new Attachment(memoryStream, "Factura.xml", "application/xml"));
+            // Adjuntar un archivo
+            byte[] documento = _vehiculo.Documento;
+
+            MemoryStream ms = new MemoryStream(documento);
+
+            Attachment adjunto = new Attachment(ms, "FichaTecnica.docx",
+                "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+
+            mensaje.Attachments.Add(adjunto);
+
+            Attachment attachment = new Attachment(@"c:\temp\pdfFactura.pdf");
+            mensaje.Attachments.Add(attachment);
+
+            smtp.Send(mensaje);
+
+
+            MessageBox.Show("La factura ha sido enviada al correo", "Atención");
+
+        }
+
+        private void toolStripBtnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
+
 }

@@ -23,7 +23,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
             DataSet ds = null;
             IDbCommand command = new SqlCommand();
             int numeroFactura = 0;
-            string sql = @"SELECT current_value FROM sys.sequences WHERE name = 'SequenceNoFactura'  ";
+            string sql = @"SELECT current_value FROM sys.sequences WHERE name = 'SequenceNoFactura'";
             DataTable dt = null;
             string msg = "";
             try
@@ -134,29 +134,18 @@ namespace UTN.WinForms.ApCars.Layers.DAL
 
 
                 // Detalle de factura
-                sqlDetalle = @" 
-                    INSERT INTO[dbo].[FacturaDetalle]
-                               ([IdFactura]
-                               ,[Secuencia]
-                               ,[IdElectronico]
-                               ,[Cantidad]
-                               ,[Precio]
-                               ,[Impuesto])
-                         VALUES
-                               (@IdFactura
-                               ,@Secuencia
-                               ,@IdElectronico
-                               ,@Cantidad
-                               ,@Precio
-                               ,@Impuesto) ";
+                sqlDetalle = @"usp_INSERT_DetalleFactura";
 
                 // Guardar el detalle de la factura y a la vez rebajar el saldo del producto en Electronico
                 foreach (FacturaDetalle pFacturaDetalle in pFactura._ListaFacturaDetalle)
                 {
                     cmdFacturaDetalle = new SqlCommand();
 
+                    cmdFacturaDetalle.Parameters.AddWithValue("@IdFactura", pFacturaDetalle.IdFactura);
                     cmdFacturaDetalle.Parameters.AddWithValue("@Consecutivo", pFacturaDetalle.Consecutivo);
                     cmdFacturaDetalle.Parameters.AddWithValue("@IdVIN", pFacturaDetalle.IdVIN);
+                    cmdFacturaDetalle.Parameters.AddWithValue("@MarcaVehiculo", pFacturaDetalle.Marca);
+                    cmdFacturaDetalle.Parameters.AddWithValue("@DescripcionVehiculo", pFacturaDetalle.DescripcionVehiculo);
                     cmdFacturaDetalle.Parameters.AddWithValue("@PrecioColones", pFacturaDetalle.PrecioColones);
                     cmdFacturaDetalle.Parameters.AddWithValue("@PrecioDolares", pFacturaDetalle.PrecioDolares);
                     cmdFacturaDetalle.Parameters.AddWithValue("@ImpuestoColones", pFacturaDetalle.ImpuestoColones);
@@ -230,7 +219,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                            EncabezadoFactura.IdTarjeta,EncabezadoFactura.IdCliente, 
 	                       EncabezadoFactura.TipoPago,EncabezadoFactura.NoReferencia, EncabezadoFactura.Estado, 
                            EncabezadoFactura.Fecha, EncabezadoFactura.XML, EncabezadoFactura.Firma, EncabezadoFactura.TipoCambio, 
-	                       DetalleFactura.Consecutivo, DetalleFactura.IdVIN, DetalleFactura.PrecioColones, DetalleFactura.ImpuestoColones, 
+	                       DetalleFactura.Consecutivo, DetalleFactura.IdVIN, DetalleFactura.PrecioColones, DetalleFactura.ImpuestoColones, DetalleFactura.MarcaVehiculo,
                            DetalleFactura.PrecioDolares, DetalleFactura.ImpuestoDolares, Vehiculo.DescripcionVehiculo
                            FROM     DetalleFactura INNER JOIN
                            EncabezadoFactura ON DetalleFactura.IdFactura = EncabezadoFactura.IdFactura INNER JOIN
@@ -280,7 +269,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                         oFacturaDetalle.PrecioDolares = double.Parse(rowDetalle["PrecioDolares"].ToString());
                         oFacturaDetalle.ImpuestoColones = double.Parse(rowDetalle["ImpuestoColones"].ToString());
                         oFacturaDetalle.ImpuestoDolares = double.Parse(rowDetalle["ImpuestoDolares"].ToString());
-
+                        oFacturaDetalle.Marca = rowDetalle["MarcaVehiculo"].ToString();
                         oFacturaDetalle.DescripcionVehiculo = rowDetalle["DescripcionVehiculo"].ToString();
                         // Agregar
                         oFacturaEncabezado.AddDetalle(oFacturaDetalle);
