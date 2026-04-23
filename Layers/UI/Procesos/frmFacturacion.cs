@@ -170,7 +170,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
                     txtVIN.Text = _vehiculo.IdVIN;
                     oMarca = bLLMarca.GetById(_vehiculo.IdMarca);
                     txtMarca.Text = oMarca.ToString();
-                    txtExistencia.Text = _vehiculo.Estado;
+                    txtEstado.Text = _vehiculo.Estado;
                     txtPrecio.Text = _vehiculo.Precio.ToString();
                     ;
 
@@ -217,7 +217,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
                 Vehiculo oVehiculo = bllVehiculo.AvabilityStock(this.txtVIN.Text);
 
                 // Vuelve a mostrar Existencia.
-                this.txtExistencia.Text = oVehiculo.Estado;
+                this.txtEstado.Text = oVehiculo.Estado;
 
                 oFacturaDetalle.IdVIN = this.txtVIN.Text;
                 oFacturaDetalle.DescripcionVehiculo = this.txtDescripcionVehiculo.Text;
@@ -245,7 +245,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
                                          this.txtMarca.Text,
                                          this.txtDescripcionVehiculo.Text,
                                          oFacturaDetalle.ImpuestoColones.ToString("₡ ##,###.00"),
-                                          oFacturaDetalle.PrecioColones.ToString("₡ ##,###.00"),
+                                         oFacturaDetalle.PrecioColones.ToString("₡ ##,###.00"),
                                            };
 
 
@@ -254,18 +254,18 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
                 this.txtSubtotal.Text = _facturaEncabezado.GetSubTotal().ToString("##,###.00");
                 this.txtImpuesto.Text = _facturaEncabezado.GetImpuesto().ToString("##,###.00");
                 this.txtTotal.Text = (_facturaEncabezado.GetSubTotal() + _facturaEncabezado.GetImpuesto()).ToString("##,###.00");
-
+                dolares = Convert.ToDouble(this.txtTotal.Text) / TipoCambio;
 
                 // Formato en dólares
                 txtDolares.Text = dolares.ToString("C", CultureInfo.CreateSpecificCulture("en-US"));
 
 
                 this.txtDescripcionVehiculo.Text = "";
-                this.txtExistencia.Text = "";
+                this.txtEstado.Text = "";
                 this.txtPrecio.Text = "";
-
-
+                this.txtMarca.Text = "";
                 this.txtVIN.Text = "";
+
                 txtVIN.Focus();
             }
             catch (Exception er)
@@ -303,6 +303,12 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
         }
 
         private void btnLimpiarFirma_Click(object sender, EventArgs e)
+        {
+            this.limpiarFirma();
+
+        }
+
+        private void limpiarFirma()
         {
             firmaBitmap = new Bitmap(picFirma.Width, picFirma.Height);
             picFirma.Image = firmaBitmap;
@@ -396,17 +402,22 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
                 this.txtNumeroTarjeta.Text = "";
                 this.txtSubtotal.Text = "";
                 this.txtTotal.Text = "";
+                this.txtDolares.Text = "";
                 this.txtPrecio.Text = "";
+                txtMarca.Text = "";
                 this.cmbTarjeta.SelectedIndex = 0;
                 this.txtVIN.Text = "";
                 this.txtNombreCliente.Text = "-";
-                this.txtExistencia.Text = "";
+                this.txtEstado.Text = "";
                 this.txtDescripcionVehiculo.Text = "";
                 this.rdbCredito_Click(null, null);
                 this.txtNumeroTarjeta.Text = "";
                 txtNumeroTarjeta.Focus();
                 _facturaEncabezado = null;
                 this.dgvDetalleFactura.Rows.Clear();
+
+                this.limpiarFirma();
+
                 // Mostar Numero de factura
                 int numeroFactura = bllFactura.GetCurrentNumeroFactura();
                 this.txtNumeroFactura.Text = numeroFactura.ToString();
@@ -502,12 +513,6 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
 
 
 
-
-                            //col.Item().AlignLeft().Text("ApCars").Bold().FontSize(50).Bold().FontColor("#2058b3");
-                            //row.ConstantItem(100).AlignRight().Height(100).Image(logoBytes);
-                            //col.Item().AlignLeft().Text($"Fecha: {DateTime.Now} ").FontSize(9);
-                            //col.Item().LineHorizontal(1f);
-
                         });
                     });
                     // Página
@@ -600,12 +605,23 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
                         col1.Item().AlignRight().Text("Impuesto " + impuestoTotal.ToString("###,###.00")).FontSize(10).Bold();
                         col1.Item().AlignRight().Text("Total " + granTotal.ToString("###,###.00")).FontSize(10).Bold();
 
-                        // Mostrar QR
-                        col1.Item().Row(row1 =>
+                        // Bloque final con QR y Firma
+                        col1.Item().PaddingTop(20).Column(col =>
                         {
-                            row1.ConstantItem(90).Image(ms.ToArray());
-                        });
+                            // QR a la izq con tamaño fijo
+                            col.Item().AlignLeft().Width(90).Height(90).Image(ms.ToArray());
 
+                            // Espacio entre QR y firma
+                            col.Item().PaddingTop(10);
+
+                            // Firma a la izq con tamaño fijo
+                            col.Item().AlignLeft().Width(120).Height(60).Image(pFacturaEncabezado.Firma.ToArray());
+
+
+
+                            // Texto opcional debajo de la firma
+                            col.Item().AlignLeft().Text("Firma").FontSize(10);
+                        });
                     });
 
 
@@ -656,16 +672,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
             byte[] xmlByte = Encoding.UTF8.GetBytes(xmlFactura);
             MemoryStream memoryStream = new MemoryStream(xmlByte);
             mensaje.Attachments.Add(new Attachment(memoryStream, "Factura.xml", "application/xml"));
-            // Adjuntar un archivo
-            byte[] documento = _vehiculo.Documento;
-
-            MemoryStream ms = new MemoryStream(documento);
-
-            Attachment adjunto = new Attachment(ms, "FichaTecnica.docx",
-                "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
-
-            mensaje.Attachments.Add(adjunto);
-
+        
             Attachment attachment = new Attachment(@"c:\temp\pdfFactura.pdf");
             mensaje.Attachments.Add(attachment);
 

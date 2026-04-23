@@ -49,7 +49,7 @@
             this.lblVIN = new System.Windows.Forms.Label();
             this.txtDescripcionVehiculo = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtExistencia = new System.Windows.Forms.TextBox();
+            this.txtEstado = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -248,7 +248,7 @@
             this.tlpProducto.Controls.Add(this.lblVIN, 0, 0);
             this.tlpProducto.Controls.Add(this.txtDescripcionVehiculo, 1, 2);
             this.tlpProducto.Controls.Add(this.label13, 0, 3);
-            this.tlpProducto.Controls.Add(this.txtExistencia, 1, 3);
+            this.tlpProducto.Controls.Add(this.txtEstado, 1, 3);
             this.tlpProducto.Controls.Add(this.txtPrecio, 1, 4);
             this.tlpProducto.Controls.Add(this.label7, 0, 4);
             this.tlpProducto.Controls.Add(this.btnAgregar, 2, 4);
@@ -351,15 +351,15 @@
             this.label13.TabIndex = 12;
             this.label13.Text = "Estado";
             // 
-            // txtExistencia
+            // txtEstado
             // 
-            this.txtExistencia.Location = new System.Drawing.Point(96, 94);
-            this.txtExistencia.Margin = new System.Windows.Forms.Padding(4);
-            this.txtExistencia.Name = "txtExistencia";
-            this.txtExistencia.ReadOnly = true;
-            this.txtExistencia.Size = new System.Drawing.Size(241, 22);
-            this.txtExistencia.TabIndex = 0;
-            this.txtExistencia.TabStop = false;
+            this.txtEstado.Location = new System.Drawing.Point(96, 94);
+            this.txtEstado.Margin = new System.Windows.Forms.Padding(4);
+            this.txtEstado.Name = "txtEstado";
+            this.txtEstado.ReadOnly = true;
+            this.txtEstado.Size = new System.Drawing.Size(241, 22);
+            this.txtEstado.TabIndex = 0;
+            this.txtEstado.TabStop = false;
             // 
             // txtPrecio
             // 
@@ -838,7 +838,7 @@
         private System.Windows.Forms.Label lblVIN;
         private System.Windows.Forms.TextBox txtDescripcionVehiculo;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox txtExistencia;
+        private System.Windows.Forms.TextBox txtEstado;
         private System.Windows.Forms.TableLayoutPanel tlpAgrupamiento;
         private System.Windows.Forms.Label lblCliente;
         private System.Windows.Forms.Label label2;
