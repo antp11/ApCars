@@ -13,5 +13,7 @@ namespace UTN.WinForms.ApCars.Interfaces
         Marca GetById(int pId);
         Marca Save(Marca pMarca);
         bool Delete(int pId);
+
+
     }
 }

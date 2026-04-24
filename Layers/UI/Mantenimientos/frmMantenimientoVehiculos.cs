@@ -294,7 +294,11 @@ namespace UTN.WinForms.ApCars.Layers.UI
                 this.dgvDatos.DataSource = bllVehiculo.GetAllDTO();
 
                 this.pbImagen.Image = Properties.Resources.imageInsert;
-                this.pbImagen.SizeMode = PictureBoxSizeMode.AutoSize;
+                this.pbImagen.SizeMode = PictureBoxSizeMode.CenterImage;
+
+                this.pbDocumentacion.Image = Properties.Resources.Word;
+                this.pbDocumentacion.SizeMode = PictureBoxSizeMode.CenterImage;
+
 
 
             }
@@ -348,9 +352,7 @@ namespace UTN.WinForms.ApCars.Layers.UI
             this.pbDocumentacion.Image = ApCars.Properties.Resources.Word;
             this.pbImagen.Image = ApCars.Properties.Resources.imageInsert;
             this.pbImagen.SizeMode = PictureBoxSizeMode.CenterImage;
-
-
-            this.pbImagen.SizeMode = PictureBoxSizeMode.CenterImage;
+            this.pbDocumentacion.SizeMode = PictureBoxSizeMode.CenterImage;
 
             switch (estado)
             {
@@ -430,6 +432,7 @@ namespace UTN.WinForms.ApCars.Layers.UI
                     this.pbImagen.SizeMode = PictureBoxSizeMode.StretchImage;
                     this.pbDocumentacion.Image = ApCars.Properties.Resources.wordLoad;
                     this.pbDocumentacion.Tag = oVehiculo.Documento;
+                    this.pbDocumentacion.SizeMode = PictureBoxSizeMode.CenterImage;
                     this.cmbCombustible.SelectedValue = oVehiculo.IdTipoCombustible;
                     this.cmbMarca.SelectedValue = oVehiculo.IdMarca;
                     this.cmbEstilo.SelectedValue = oVehiculo.IdEstilo;

@@ -472,7 +472,7 @@
             // pbImagen
             // 
             this.pbImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbImagen.Image = global::UTN.WinForms.ApCars.Properties.Resources.insert_image;
+            this.pbImagen.Image = global::UTN.WinForms.ApCars.Properties.Resources.imageInsert;
             this.pbImagen.InitialImage = null;
             this.pbImagen.Location = new System.Drawing.Point(110, 366);
             this.pbImagen.Margin = new System.Windows.Forms.Padding(4);
