@@ -231,6 +231,18 @@
     <Compile Include="Layers\UI\Procesos\frmFacturacion.Designer.cs">
       <DependentUpon>frmFacturacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Layers\UI\Reportes\frmReporteCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Reportes\frmReporteCliente.Designer.cs">
+      <DependentUpon>frmReporteCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Layers\UI\Reportes\frmReporteVehiculo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Layers\UI\Reportes\frmReporteVehiculo.Designer.cs">
+      <DependentUpon>frmReporteVehiculo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Layers\UI\Seguridad\frmSeguridad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -273,6 +285,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Layers\UI\Procesos\frmFacturacion.resx">
       <DependentUpon>frmFacturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Reportes\frmReporteCliente.resx">
+      <DependentUpon>frmReporteCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Layers\UI\Reportes\frmReporteVehiculo.resx">
+      <DependentUpon>frmReporteVehiculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Layers\UI\Seguridad\frmSeguridad.resx">
       <DependentUpon>frmSeguridad.cs</DependentUpon>
