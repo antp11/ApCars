@@ -39,15 +39,59 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                     while (reader.Read())
                     {
                         Estilo oEstilo = new Estilo();
-                        oEstilo.IdEstilo= int.Parse(reader["IdEstilo"].ToString());
+                        oEstilo.IdEstilo = int.Parse(reader["IdEstilo"].ToString());
                         oEstilo.Descripcion = reader["Descripcion"].ToString();
-                        
+
                         lista.Add(oEstilo);
                     }
                 }
 
                 return lista;
             }
+            catch (SqlException er)
+            {
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(MethodBase.GetCurrentMethod(), er, command));
+                throw new CustomException(msg.ToSqlServerDetailError(er));
+            }
+            catch (Exception er)
+            {
+                msg = msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod());
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                throw;
+            }
+        }
+        public Estilo GetById(int pId)
+        {
+            string msg = "";
+            IDataReader reader = null;
+            Estilo oEstilo = null;
+            SqlCommand command = new SqlCommand();
+
+            string sql = @"usp_SELECT_Estilo_ByID ";
+
+            try
+            {
+                command.Parameters.AddWithValue("@IdEstilo", pId);
+                command.CommandText = sql;
+                command.CommandType = CommandType.StoredProcedure;
+
+                using (IDataBase db = FactoryDatabase.CreateDataBase(FactoryConexion.CreateConnection()))
+                {
+                    reader = db.ExecuteReader(command);
+
+                    while (reader.Read())
+                    {
+                        oEstilo = new Estilo();
+                        oEstilo.IdEstilo = int.Parse(reader["IdEstilo"].ToString());
+                        oEstilo.Descripcion = reader["Descripcion"].ToString();
+
+
+
+                    }
+                }
+                return oEstilo;
+            }
+
             catch (SqlException er)
             {
                 _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(MethodBase.GetCurrentMethod(), er, command));

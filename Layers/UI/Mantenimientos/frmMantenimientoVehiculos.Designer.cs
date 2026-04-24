@@ -49,6 +49,7 @@
             this.TipoTransmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label7 = new System.Windows.Forms.Label();
             this.mskAnno = new System.Windows.Forms.MaskedTextBox();
             this.txtExtras = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -71,18 +72,17 @@
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.pbDocumentacion = new System.Windows.Forms.PictureBox();
-            this.btnAceptar = new System.Windows.Forms.Button();
             this.nudCantidadPasajeros = new System.Windows.Forms.NumericUpDown();
             this.mskPrecio = new System.Windows.Forms.MaskedTextBox();
             this.pbImagen = new System.Windows.Forms.PictureBox();
+            this.pbDocumentacion = new System.Windows.Forms.PictureBox();
+            this.rdbDisponible = new System.Windows.Forms.RadioButton();
+            this.rdbVendido = new System.Windows.Forms.RadioButton();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label7 = new System.Windows.Forms.Label();
-            this.rdbDisponible = new System.Windows.Forms.RadioButton();
-            this.rdbVendido = new System.Windows.Forms.RadioButton();
             this.tspPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -90,9 +90,9 @@
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDocumentacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadPasajeros)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDocumentacion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
             this.SuspendLayout();
             // 
@@ -354,6 +354,17 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(621, 615);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
+            // label7
+            // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(4, 219);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(359, 16);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "Estado";
+            // 
             // mskAnno
             // 
             this.mskAnno.Location = new System.Drawing.Point(371, 128);
@@ -365,7 +376,7 @@
             // txtExtras
             // 
             this.txtExtras.ImeMode = System.Windows.Forms.ImeMode.Disable;
-            this.txtExtras.Location = new System.Drawing.Point(464, 453);
+            this.txtExtras.Location = new System.Drawing.Point(371, 362);
             this.txtExtras.Margin = new System.Windows.Forms.Padding(4);
             this.txtExtras.Name = "txtExtras";
             this.txtExtras.Size = new System.Drawing.Size(207, 22);
@@ -375,7 +386,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 419);
+            this.label4.Location = new System.Drawing.Point(4, 335);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(359, 16);
@@ -386,7 +397,7 @@
             // 
             this.cmbTransmision.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTransmision.FormattingEnabled = true;
-            this.cmbTransmision.Location = new System.Drawing.Point(464, 375);
+            this.cmbTransmision.Location = new System.Drawing.Point(371, 300);
             this.cmbTransmision.Margin = new System.Windows.Forms.Padding(4);
             this.cmbTransmision.Name = "cmbTransmision";
             this.cmbTransmision.Size = new System.Drawing.Size(207, 24);
@@ -396,7 +407,7 @@
             // 
             this.lblTransmision.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTransmision.AutoSize = true;
-            this.lblTransmision.Location = new System.Drawing.Point(5, 380);
+            this.lblTransmision.Location = new System.Drawing.Point(4, 304);
             this.lblTransmision.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTransmision.Name = "lblTransmision";
             this.lblTransmision.Size = new System.Drawing.Size(359, 16);
@@ -405,7 +416,7 @@
             // 
             // txtColor
             // 
-            this.txtColor.Location = new System.Drawing.Point(464, 338);
+            this.txtColor.Location = new System.Drawing.Point(371, 270);
             this.txtColor.Margin = new System.Windows.Forms.Padding(4);
             this.txtColor.Name = "txtColor";
             this.txtColor.Size = new System.Drawing.Size(207, 22);
@@ -415,7 +426,7 @@
             // 
             this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 341);
+            this.label11.Location = new System.Drawing.Point(4, 273);
             this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(359, 16);
@@ -534,7 +545,7 @@
             this.label3.AccessibleName = "Ext";
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 456);
+            this.label3.Location = new System.Drawing.Point(4, 365);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(359, 16);
@@ -561,7 +572,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 546);
+            this.label5.Location = new System.Drawing.Point(4, 437);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(359, 16);
@@ -572,49 +583,12 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(5, 688);
+            this.label6.Location = new System.Drawing.Point(4, 550);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(359, 16);
             this.label6.TabIndex = 9;
             this.label6.Text = "Documentación";
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(359, 660);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(130, 46);
-            this.btnCancelar.TabIndex = 6;
-            this.btnCancelar.Text = "&Cancelar";
-            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // pbDocumentacion
-            // 
-            this.pbDocumentacion.Image = ((System.Drawing.Image)(resources.GetObject("pbDocumentacion.Image")));
-            this.pbDocumentacion.Location = new System.Drawing.Point(464, 633);
-            this.pbDocumentacion.Margin = new System.Windows.Forms.Padding(4);
-            this.pbDocumentacion.Name = "pbDocumentacion";
-            this.pbDocumentacion.Size = new System.Drawing.Size(208, 96);
-            this.pbDocumentacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbDocumentacion.TabIndex = 11;
-            this.pbDocumentacion.TabStop = false;
-            this.pbDocumentacion.Click += new System.EventHandler(this.pbDocumentacion_Click);
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Location = new System.Drawing.Point(86, 660);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(142, 48);
-            this.btnAceptar.TabIndex = 5;
-            this.btnAceptar.Text = "&Aceptar";
-            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // nudCantidadPasajeros
             // 
@@ -625,7 +599,7 @@
             // 
             // mskPrecio
             // 
-            this.mskPrecio.Location = new System.Drawing.Point(464, 415);
+            this.mskPrecio.Location = new System.Drawing.Point(371, 332);
             this.mskPrecio.Margin = new System.Windows.Forms.Padding(4);
             this.mskPrecio.Name = "mskPrecio";
             this.mskPrecio.Size = new System.Drawing.Size(207, 22);
@@ -636,7 +610,7 @@
             this.pbImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pbImagen.Image = global::UTN.WinForms.ApCars.Properties.Resources.imageInsert;
             this.pbImagen.InitialImage = null;
-            this.pbImagen.Location = new System.Drawing.Point(464, 490);
+            this.pbImagen.Location = new System.Drawing.Point(371, 392);
             this.pbImagen.Margin = new System.Windows.Forms.Padding(4);
             this.pbImagen.Name = "pbImagen";
             this.pbImagen.Size = new System.Drawing.Size(208, 106);
@@ -645,26 +619,18 @@
             this.pbImagen.TabStop = false;
             this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
             // 
-            // imageList1
+            // pbDocumentacion
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "buscar vehiculo.png");
-            // 
-            // epError
-            // 
-            this.epError.ContainerControl = this;
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(4, 219);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(359, 16);
-            this.label7.TabIndex = 35;
-            this.label7.Text = "Estado";
+            this.pbDocumentacion.Image = ((System.Drawing.Image)(resources.GetObject("pbDocumentacion.Image")));
+            this.pbDocumentacion.InitialImage = null;
+            this.pbDocumentacion.Location = new System.Drawing.Point(371, 506);
+            this.pbDocumentacion.Margin = new System.Windows.Forms.Padding(4);
+            this.pbDocumentacion.Name = "pbDocumentacion";
+            this.pbDocumentacion.Size = new System.Drawing.Size(208, 96);
+            this.pbDocumentacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbDocumentacion.TabIndex = 11;
+            this.pbDocumentacion.TabStop = false;
+            this.pbDocumentacion.Click += new System.EventHandler(this.pbDocumentacion_Click);
             // 
             // rdbDisponible
             // 
@@ -683,10 +649,45 @@
             this.rdbVendido.AutoSize = true;
             this.rdbVendido.Location = new System.Drawing.Point(370, 243);
             this.rdbVendido.Name = "rdbVendido";
-            this.rdbVendido.Size = new System.Drawing.Size(99, 25);
+            this.rdbVendido.Size = new System.Drawing.Size(79, 20);
             this.rdbVendido.TabIndex = 37;
             this.rdbVendido.Text = "Vendido";
             this.rdbVendido.UseVisualStyleBackColor = true;
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Location = new System.Drawing.Point(86, 660);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(142, 48);
+            this.btnAceptar.TabIndex = 5;
+            this.btnAceptar.Text = "&Aceptar";
+            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Location = new System.Drawing.Point(359, 660);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(130, 46);
+            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.Text = "&Cancelar";
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "buscar vehiculo.png");
+            // 
+            // epError
+            // 
+            this.epError.ContainerControl = this;
             // 
             // frmMantenimientoVehiculos
             // 
@@ -710,9 +711,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDocumentacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudCantidadPasajeros)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDocumentacion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

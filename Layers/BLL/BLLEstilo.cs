@@ -13,9 +13,15 @@ namespace UTN.WinForms.ApCars.Layers.BLL
     {
         public List<Estilo> GetAll()
         {
-           IDALEstilo dalEstilo = new DALEstilo();
+            IDALEstilo dalEstilo = new DALEstilo();
 
             return dalEstilo.GetAll();
+        }
+
+        public Estilo GetById(int pId)
+        {
+            IDALEstilo dalEstilo = new DALEstilo();
+            return dalEstilo.GetById(pId);
         }
     }
 }

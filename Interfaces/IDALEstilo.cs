@@ -10,5 +10,7 @@ namespace UTN.WinForms.ApCars.Interfaces
     internal interface IDALEstilo
     {
         List<Estilo> GetAll();
+
+        Estilo GetById(int pId);
     }
 }
