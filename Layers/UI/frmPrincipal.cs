@@ -15,6 +15,7 @@ using UTN.WinForms.ApCars.Extensions;
 using UTN.WinForms.ApCars.Layers.UI;
 using UTN.WinForms.ApCars.Layers.UI.Mantenimientos;
 using UTN.WinForms.ApCars.Layers.UI.Procesos;
+using UTN.WinForms.ApCars.Layers.UI.Reportes;
 using UTN.WinForms.ApCars.Layers.UI.Seguridad;
 using UTN.WinForms.ApCars.Properties;
 
@@ -230,6 +231,41 @@ namespace apCars
             try
             {
                 oForm = new frmFacturacion();
+                oForm.MdiParent = this;
+                oForm.Show();
+            }
+            catch (Exception er)
+            {
+                string msg = "";
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod()));
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void VehiculoToolStripMenuItemElectronico_Click(object sender, EventArgs e)
+        {
+            frmReporteVehiculo oForm;
+            try
+            {
+                oForm = new frmReporteVehiculo();
+                oForm.MdiParent = this;
+                oForm.Show();
+            }
+            catch (Exception er)
+            {
+                string msg = "";
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod()));
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void clientesToolStripMenuItemClientes_Click(object sender, EventArgs e)
+        {
+            frmReporteCliente oForm;
+
+            try
+            {
+                oForm = new frmReporteCliente();
                 oForm.MdiParent = this;
                 oForm.Show();
             }

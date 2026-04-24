@@ -652,7 +652,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
 
         private void SendEmailInvoice(string email, FacturaEncabezado factura)
         {
-            //MessageBox.Show("tiene q configurar el correo !!!! ");
+            
             String cuentaCorreoElectronico = "antpgs11@gmail.com";
             String contrasenaGeneradaXGmail = "biebdknewfzrrdsc";
             string correoDestinatario = email;  //;

@@ -35,7 +35,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Seguridad
             this.txtNombre.Clear();
             this.txtApellido1.Clear();
             this.txtApellido2.Clear();
-            pbImagen.Image = Properties.Resources.insert_image;
+            pbImagen.Image = Properties.Resources.imageInsert;
             rdbActivo.Checked = true;
             cmbRol.SelectedIndex = 0;
             txtLogin.Focus();
@@ -43,7 +43,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Seguridad
 
         private void toolStripBtnSalvarUsuario_Click(object sender, EventArgs e)
         {
-             IBLLUsuario bllUsuario = new BLLUsuario();
+            IBLLUsuario bllUsuario = new BLLUsuario();
             try
             {
                 if (string.IsNullOrEmpty(txtLogin.Text))
@@ -62,7 +62,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Seguridad
                 }
 
                 Usuario oUsuario = new Usuario();
-                oUsuario.IdUsuario = txtLogin.Text;
+                oUsuario.IdUsuario = txtLogin.Text.Trim();
                 oUsuario.Nombre = txtNombre.Text;
                 oUsuario.Apellido1 = txtApellido1.Text;
                 oUsuario.Apellido2 = txtApellido2.Text;
@@ -85,8 +85,13 @@ namespace UTN.WinForms.ApCars.Layers.UI.Seguridad
                 this.txtPassword.Clear();
                 this.txtLogin.Clear();
                 this.txtNombre.Clear();
+                this.txtApellido1.Clear();
+                this.txtApellido2.Clear();
+                pbImagen.Image = Properties.Resources.imageInsert;
+                rdbActivo.Checked = true;
                 cmbRol.SelectedIndex = 0;
                 txtLogin.Focus();
+                
 
             }
             catch (Exception er)
@@ -276,9 +281,13 @@ namespace UTN.WinForms.ApCars.Layers.UI.Seguridad
                     txtApellido1.Text = oUsuario.Apellido1;
                     txtApellido2.Text = oUsuario.Apellido2;
                     rdbActivo.Checked = oUsuario.Estado;
-                    pbImagen.Image = new Bitmap(new MemoryStream(oUsuario.Foto));
+
                     txtPassword.Text = Cryptography.DecrypthAES(oUsuario.Contrasenna);
                     cmbRol.SelectedIndex = cmbRol.FindString(oUsuario.IdRol.ToString());
+
+                    this.pbImagen.Tag = oUsuario.Foto;
+                    this.pbImagen.Image = new Bitmap(new MemoryStream(oUsuario.Foto));
+                    this.pbImagen.SizeMode = PictureBoxSizeMode.StretchImage;
                 }
             }
             catch (Exception er)
