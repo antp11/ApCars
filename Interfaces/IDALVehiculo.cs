@@ -17,5 +17,9 @@ namespace UTN.WinForms.ApCars.Interfaces
         bool Delete(string pVin);
         List<Vehiculo> GetByFilter(string pDescripcion);
         List<VehiculoMarcaEstiloDTO> GetAllDTO();
+        List<VehiculoMarcaEstiloDTO> GetByMarca(string pMarca);
+        List<VehiculoMarcaEstiloDTO> GetByEstilo(string pEstilo);
+        List<VehiculoMarcaEstiloDTO> GetByDescripcion(string pDescripcion);
+
     }
 }

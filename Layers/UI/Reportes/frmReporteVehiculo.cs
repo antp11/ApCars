@@ -8,6 +8,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -18,6 +19,7 @@ using UTN.WinForms.ApCars.Extensions;
 using UTN.WinForms.ApCars.Interfaces;
 using UTN.WinForms.ApCars.Layers.BLL;
 using UTN.WinForms.ApCars.Layers.Entities;
+using UTN.WinForms.ApCars.Layers.Entities.DTO;
 
 namespace UTN.WinForms.ApCars.Layers.UI.Reportes
 {
@@ -33,18 +35,29 @@ namespace UTN.WinForms.ApCars.Layers.UI.Reportes
         {
             string filtro = "";
             IBLLVehiculo bLLVehiculo = new BLLVehiculo();
-            IBLLMarca bLLMarca = new BLLMarca();
-            IBLLEstilo bllEstilo = new BLLEstilo();
+            IBLLDolar bLLDolar = new BLLDolar();
 
-            double totalProducto = 0d;
+            CultureInfo dolar = new CultureInfo("en-US");
+            CultureInfo colon = new CultureInfo("es-CR");
 
-            List<Vehiculo> lista = null;
+
+
+            double TipoCambio = bLLDolar.GetVentaDolar();
+
+            
+            List<VehiculoMarcaEstiloDTO> lista = null;
             try
             {
-
                 filtro = "%" + this.txtFiltro.Text + "%";
 
-                lista = bLLVehiculo.GetByFilter(filtro);
+
+                if(rdbDescripcion.Checked )
+                    lista = bLLVehiculo.GetByDescripcion(filtro);
+                if(rdbEstilo.Checked)
+                    lista = bLLVehiculo.GetByEstilo(filtro);
+                if(rdbMarca.Checked)
+                    lista= bLLVehiculo.GetByMarca(filtro);
+
 
                 // Retorno elementos?
                 if (!lista.Any())
@@ -137,8 +150,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Reportes
                                     header.Cell().Background("#4666FF")
                                    .Padding(2).AlignCenter().Text("Precio").FontColor("#fff");
 
-                                    // header.Cell().Background("#4666FF")
-                                    //.Padding(2).AlignCenter().Text("Total").FontColor("#fff");
+                                  
                                 });
 
 
@@ -148,39 +160,38 @@ namespace UTN.WinForms.ApCars.Layers.UI.Reportes
 
                                     // Column 1 
                                     tabla.Cell().BorderBottom(0.5f).BorderColor("#D9D9D9")
-                                    .Padding(2).Text(item.IdVIN.ToString()).FontSize(10);
+                                    .Padding(2).AlignCenter().Text(item.IdVIN.ToString()).FontSize(10);
 
                                     // Column 2
                                     tabla.Cell().BorderBottom(0.5f).BorderColor("#D9D9D9")
-                                    .Padding(2).AlignLeft().Image(item.Foto);
+                                    .Padding(2).AlignCenter().Image(item.Foto);
 
                                     // Column 3
                                     tabla.Cell().BorderBottom(0.5f).BorderColor("#D9D9D9")
-                                   .Padding(2).Text(bLLMarca.GetById(item.IdMarca).DescripcionMarca);
+                                   .Padding(2).AlignCenter().Text(item.DescripcionMarca);
 
                                     // Column 4                                        
                                     tabla.Cell().BorderBottom(0.5f).BorderColor("#D9D9D9")
-                                    .Padding(2).AlignRight().Text(item.DescripcionVehiculo.ToString()).FontSize(10);
+                                    .Padding(2).AlignCenter().Text(item.DescripcionVehiculo.ToString()).FontSize(10);
 
                                     // Column 5                                        
                                     tabla.Cell().BorderBottom(0.5f).BorderColor("#D9D9D9")
-                                    .Padding(2).AlignRight().Text(bllEstilo.GetById(item.IdEstilo).Descripcion).FontSize(10);
+                                    .Padding(2).AlignCenter().Text(item.Descripcion).FontSize(10);
 
                                     // Column 6                                        
                                     tabla.Cell().BorderBottom(0.5f).BorderColor("#D9D9D9")
-                                    .Padding(2).AlignRight().Text(item.Precio.ToString("##,###,###.00")).FontSize(10);
+                                    .Padding(2).AlignCenter().Text(item.Precio.ToString("##,###,###.00")).FontSize(10);
 
-                                    //totalProducto = item.Cantidad * item.Precio;
-                                    //// Column 6
-                                    //tabla.Cell().BorderBottom(0.5f).BorderColor("#D9D9D9")
-                                    //.Padding(2).AlignRight().Text(totalProducto.ToString("##,###,###.00")).FontSize(10);
+                                    
 
                                 }
 
                             });
 
 
-                            col1.Item().AlignRight().Text("Total " + lista.Sum(f => f.Precio).ToString("###,###.00")).FontSize(12).Bold();
+                            col1.Item().AlignRight().Text("Total Dólares:  " + lista.Sum(f => f.Precio).ToString("C2",dolar)).FontSize(12).Bold();
+
+                            col1.Item().AlignRight().Text("Total Colones:  " + lista.Sum(f => f.Precio*TipoCambio).ToString("C0",colon)).FontSize(12).Bold();
                         });
 
                         // Pie de página

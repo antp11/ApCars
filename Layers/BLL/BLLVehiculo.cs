@@ -50,6 +50,18 @@ namespace UTN.WinForms.ApCars.Layers.BLL
             return dALVehiculo.GetAllDTO();
         }
 
+        public List<VehiculoMarcaEstiloDTO> GetByDescripcion(string pDescripcion)
+        {
+            IDALVehiculo dALVehiculo = new DALVehiculo();
+            return dALVehiculo.GetByDescripcion(pDescripcion);
+        }
+
+        public List<VehiculoMarcaEstiloDTO> GetByEstilo(string pEstilo)
+        {
+            IDALVehiculo dALVehiculo = new DALVehiculo();
+            return dALVehiculo.GetByEstilo(pEstilo);
+        }
+
         public List<Vehiculo> GetByFilter(string pDescripcion)
         {
             IDALVehiculo dALVehiculo = new DALVehiculo();
@@ -60,6 +72,12 @@ namespace UTN.WinForms.ApCars.Layers.BLL
         {
             IDALVehiculo dALVehiculo = new DALVehiculo();
             return dALVehiculo.GetById(pVin);
+        }
+
+        public List<VehiculoMarcaEstiloDTO> GetByMarca(string pMarca)
+        {
+            IDALVehiculo dALVehiculo = new DALVehiculo();
+            return dALVehiculo.GetByMarca(pMarca);
         }
 
         public Vehiculo Save(Vehiculo pVehiculo)

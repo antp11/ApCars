@@ -12,7 +12,7 @@ namespace UTN.WinForms.ApCars.Layers.Entities.DTO
         public string IdVIN { set; get; }
         public int IdMarca { set; get; }
         public string DescripcionMarca { set; get; }
-        public byte[] Logo { set; get; }
+        public byte[] Logo { set; get; }    
         public int IdEstilo { set; get; }
         public string Descripcion { set; get; }
         public string DescripcionVehiculo { set; get; }

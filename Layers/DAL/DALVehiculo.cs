@@ -181,6 +181,237 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                 throw;
             }
         }
+        public List<VehiculoMarcaEstiloDTO> GetByMarca(string pMarca)
+        {
+            string msg = "";
+            DataSet ds = null;
+            List<VehiculoMarcaEstiloDTO> lista = new List<VehiculoMarcaEstiloDTO>();
+            SqlCommand command = new SqlCommand();
+            try
+            {
+
+                string sql = @"SELECT Estilo.*, TipoCombustible.*, Marca.*, TipoTransmision.*, Vehiculo.IdVIN, Vehiculo.DescripcionVehiculo,
+                  Vehiculo.Anno, Vehiculo.CantidadPaasajero, 
+                  Vehiculo.Color, Vehiculo.Precio, Vehiculo.Foto,
+                  Vehiculo.Documento, Vehiculo.Extras,Vehiculo.Estado
+                  FROM     Estilo INNER JOIN
+                  Vehiculo ON Estilo.IdEstilo = Vehiculo.IdEstilo INNER JOIN
+                  Marca ON Vehiculo.IdMarca = Marca.IdMarca INNER JOIN
+                  TipoCombustible ON Vehiculo.TipoCombustible = TipoCombustible.IdTipoCombustible INNER JOIN
+                  TipoTransmision ON Vehiculo.TipoTransmision = TipoTransmision.IdTransmision
+				  WHERE Marca.DescripcionMarca like @pMarca";
+
+                // Pasar Parámetro
+                command.Parameters.AddWithValue("@pMarca", pMarca);
+                command.CommandText = sql;
+                command.CommandType = CommandType.Text;
+
+                using (IDataBase db = FactoryDatabase.CreateDataBase(FactoryConexion.CreateConnection()))
+                {
+                    ds = db.ExecuteReader(command, "query");
+                }
+
+                // Si devolvió filas
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+
+                    // Iterar en todas las filas y Mapearlas
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        VehiculoMarcaEstiloDTO oVehiculoMarcaEstiloDTO = new VehiculoMarcaEstiloDTO();
+                        oVehiculoMarcaEstiloDTO.IdVIN = dr["IdVIN"].ToString();
+                        oVehiculoMarcaEstiloDTO.IdMarca = int.Parse(dr["IdMarca"].ToString());
+                        oVehiculoMarcaEstiloDTO.DescripcionMarca = dr["DescripcionMarca"].ToString();
+                        oVehiculoMarcaEstiloDTO.Logo = (byte[])dr["Logo"];
+                        oVehiculoMarcaEstiloDTO.IdEstilo = int.Parse(dr["IdEstilo"].ToString());
+                        oVehiculoMarcaEstiloDTO.Descripcion = dr["Descripcion"].ToString();
+                        oVehiculoMarcaEstiloDTO.DescripcionVehiculo = dr["DescripcionVehiculo"].ToString();
+                        oVehiculoMarcaEstiloDTO.Anno = int.Parse(dr["Anno"].ToString());
+                        oVehiculoMarcaEstiloDTO.CantidadPaasajero = int.Parse(dr["CantidadPaasajero"].ToString());
+                        oVehiculoMarcaEstiloDTO.IdTipoCombustible = int.Parse(dr["IdTipoCombustible"].ToString());
+                        oVehiculoMarcaEstiloDTO.DescripcionTipoCombustible = dr["DescripcionTipoCombustible"].ToString();
+                        oVehiculoMarcaEstiloDTO.Color = dr["Color"].ToString();
+                        oVehiculoMarcaEstiloDTO.IdTransmision = int.Parse(dr["IdTransmision"].ToString());
+                        oVehiculoMarcaEstiloDTO.DescripcionTransmision = dr["DescripcionTransmision"].ToString();
+                        oVehiculoMarcaEstiloDTO.Precio = double.Parse(dr["Precio"].ToString());
+                        oVehiculoMarcaEstiloDTO.Foto = (byte[])dr["Foto"];
+                        oVehiculoMarcaEstiloDTO.Documento = (byte[])dr["Documento"];
+                        oVehiculoMarcaEstiloDTO.Extras = dr["Extras"].ToString();
+                        oVehiculoMarcaEstiloDTO.Estado = dr["Estado"].ToString();
+
+
+                        lista.Add(oVehiculoMarcaEstiloDTO);
+                    }
+                }
+
+                return lista;
+            }
+            catch (SqlException er)
+            {
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(MethodBase.GetCurrentMethod(), er, command));
+                throw new CustomException(msg.ToSqlServerDetailError(er));
+            }
+            catch (Exception er)
+            {
+                msg = msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod());
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                throw;
+            }
+        }
+        public List<VehiculoMarcaEstiloDTO> GetByEstilo(string pEstilo)
+        {
+            string msg = "";
+            DataSet ds = null;
+            List<VehiculoMarcaEstiloDTO> lista = new List<VehiculoMarcaEstiloDTO>();
+            SqlCommand command = new SqlCommand();
+            try
+            {
+
+                string sql = @"SELECT Estilo.*, TipoCombustible.*, Marca.*, TipoTransmision.*, Vehiculo.IdVIN, Vehiculo.DescripcionVehiculo,
+                  Vehiculo.Anno, Vehiculo.CantidadPaasajero, 
+                  Vehiculo.Color, Vehiculo.Precio, Vehiculo.Foto,
+                  Vehiculo.Documento, Vehiculo.Extras,Vehiculo.Estado
+                  FROM     Estilo INNER JOIN
+                  Vehiculo ON Estilo.IdEstilo = Vehiculo.IdEstilo INNER JOIN
+                  Marca ON Vehiculo.IdMarca = Marca.IdMarca INNER JOIN
+                  TipoCombustible ON Vehiculo.TipoCombustible = TipoCombustible.IdTipoCombustible INNER JOIN
+                  TipoTransmision ON Vehiculo.TipoTransmision = TipoTransmision.IdTransmision
+				  WHERE Estilo.Descripcion like @pEstilo";
+
+                // Pasar Parámetro
+                command.Parameters.AddWithValue("@pEstilo", pEstilo);
+                command.CommandText = sql;
+                command.CommandType = CommandType.Text;
+
+                using (IDataBase db = FactoryDatabase.CreateDataBase(FactoryConexion.CreateConnection()))
+                {
+                    ds = db.ExecuteReader(command, "query");
+                }
+
+                // Si devolvió filas
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+
+                    // Iterar en todas las filas y Mapearlas
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        VehiculoMarcaEstiloDTO oVehiculoMarcaEstiloDTO = new VehiculoMarcaEstiloDTO();
+                        oVehiculoMarcaEstiloDTO.IdVIN = dr["IdVIN"].ToString();
+                        oVehiculoMarcaEstiloDTO.IdMarca = int.Parse(dr["IdMarca"].ToString());
+                        oVehiculoMarcaEstiloDTO.DescripcionMarca = dr["DescripcionMarca"].ToString();
+                        oVehiculoMarcaEstiloDTO.Logo = (byte[])dr["Logo"];
+                        oVehiculoMarcaEstiloDTO.IdEstilo = int.Parse(dr["IdEstilo"].ToString());
+                        oVehiculoMarcaEstiloDTO.Descripcion = dr["Descripcion"].ToString();
+                        oVehiculoMarcaEstiloDTO.DescripcionVehiculo = dr["DescripcionVehiculo"].ToString();
+                        oVehiculoMarcaEstiloDTO.Anno = int.Parse(dr["Anno"].ToString());
+                        oVehiculoMarcaEstiloDTO.CantidadPaasajero = int.Parse(dr["CantidadPaasajero"].ToString());
+                        oVehiculoMarcaEstiloDTO.IdTipoCombustible = int.Parse(dr["IdTipoCombustible"].ToString());
+                        oVehiculoMarcaEstiloDTO.DescripcionTipoCombustible = dr["DescripcionTipoCombustible"].ToString();
+                        oVehiculoMarcaEstiloDTO.Color = dr["Color"].ToString();
+                        oVehiculoMarcaEstiloDTO.IdTransmision = int.Parse(dr["IdTransmision"].ToString());
+                        oVehiculoMarcaEstiloDTO.DescripcionTransmision = dr["DescripcionTransmision"].ToString();
+                        oVehiculoMarcaEstiloDTO.Precio = double.Parse(dr["Precio"].ToString());
+                        oVehiculoMarcaEstiloDTO.Foto = (byte[])dr["Foto"];
+                        oVehiculoMarcaEstiloDTO.Documento = (byte[])dr["Documento"];
+                        oVehiculoMarcaEstiloDTO.Extras = dr["Extras"].ToString();
+                        oVehiculoMarcaEstiloDTO.Estado = dr["Estado"].ToString();
+
+
+                        lista.Add(oVehiculoMarcaEstiloDTO);
+                    }
+                }
+
+                return lista;
+            }
+            catch (SqlException er)
+            {
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(MethodBase.GetCurrentMethod(), er, command));
+                throw new CustomException(msg.ToSqlServerDetailError(er));
+            }
+            catch (Exception er)
+            {
+                msg = msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod());
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                throw;
+            }
+        }
+        public List<VehiculoMarcaEstiloDTO> GetByDescripcion(string pDescripcion)
+        {
+            string msg = "";
+            DataSet ds = null;
+            List<VehiculoMarcaEstiloDTO> lista = new List<VehiculoMarcaEstiloDTO>();
+            SqlCommand command = new SqlCommand();
+            try
+            {
+
+                string sql = @"SELECT Estilo.*, TipoCombustible.*, Marca.*, TipoTransmision.*, Vehiculo.IdVIN, Vehiculo.DescripcionVehiculo,
+                  Vehiculo.Anno, Vehiculo.CantidadPaasajero, 
+                  Vehiculo.Color, Vehiculo.Precio, Vehiculo.Foto,
+                  Vehiculo.Documento, Vehiculo.Extras,Vehiculo.Estado
+                  FROM     Estilo INNER JOIN
+                  Vehiculo ON Estilo.IdEstilo = Vehiculo.IdEstilo INNER JOIN
+                  Marca ON Vehiculo.IdMarca = Marca.IdMarca INNER JOIN
+                  TipoCombustible ON Vehiculo.TipoCombustible = TipoCombustible.IdTipoCombustible INNER JOIN
+                  TipoTransmision ON Vehiculo.TipoTransmision = TipoTransmision.IdTransmision
+				  WHERE Vehiculo.DescripcionVehiculo like @pDescripcion";
+
+                // Pasar Parámetro
+                command.Parameters.AddWithValue("@pDescripcion", pDescripcion);
+                command.CommandText = sql;
+                command.CommandType = CommandType.Text;
+
+                using (IDataBase db = FactoryDatabase.CreateDataBase(FactoryConexion.CreateConnection()))
+                {
+                    ds = db.ExecuteReader(command, "query");
+                }
+
+                // Si devolvió filas
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+
+                    // Iterar en todas las filas y Mapearlas
+                    foreach (DataRow dr in ds.Tables[0].Rows)
+                    {
+                        VehiculoMarcaEstiloDTO oVehiculoMarcaEstiloDTO = new VehiculoMarcaEstiloDTO();
+                        oVehiculoMarcaEstiloDTO.IdVIN = dr["IdVIN"].ToString();
+                        oVehiculoMarcaEstiloDTO.IdMarca = int.Parse(dr["IdMarca"].ToString());
+                        oVehiculoMarcaEstiloDTO.DescripcionMarca = dr["DescripcionMarca"].ToString();
+                        oVehiculoMarcaEstiloDTO.Logo = (byte[])dr["Logo"];
+                        oVehiculoMarcaEstiloDTO.IdEstilo = int.Parse(dr["IdEstilo"].ToString());
+                        oVehiculoMarcaEstiloDTO.Descripcion = dr["Descripcion"].ToString();
+                        oVehiculoMarcaEstiloDTO.DescripcionVehiculo = dr["DescripcionVehiculo"].ToString();
+                        oVehiculoMarcaEstiloDTO.Anno = int.Parse(dr["Anno"].ToString());
+                        oVehiculoMarcaEstiloDTO.CantidadPaasajero = int.Parse(dr["CantidadPaasajero"].ToString());
+                        oVehiculoMarcaEstiloDTO.IdTipoCombustible = int.Parse(dr["IdTipoCombustible"].ToString());
+                        oVehiculoMarcaEstiloDTO.DescripcionTipoCombustible = dr["DescripcionTipoCombustible"].ToString();
+                        oVehiculoMarcaEstiloDTO.Color = dr["Color"].ToString();
+                        oVehiculoMarcaEstiloDTO.IdTransmision = int.Parse(dr["IdTransmision"].ToString());
+                        oVehiculoMarcaEstiloDTO.DescripcionTransmision = dr["DescripcionTransmision"].ToString();
+                        oVehiculoMarcaEstiloDTO.Precio = double.Parse(dr["Precio"].ToString());
+                        oVehiculoMarcaEstiloDTO.Foto = (byte[])dr["Foto"];
+                        oVehiculoMarcaEstiloDTO.Documento = (byte[])dr["Documento"];
+                        oVehiculoMarcaEstiloDTO.Extras = dr["Extras"].ToString();
+                        oVehiculoMarcaEstiloDTO.Estado = dr["Estado"].ToString();
+
+
+                        lista.Add(oVehiculoMarcaEstiloDTO);
+                    }
+                }
+
+                return lista;
+            }
+            catch (SqlException er)
+            {
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(MethodBase.GetCurrentMethod(), er, command));
+                throw new CustomException(msg.ToSqlServerDetailError(er));
+            }
+            catch (Exception er)
+            {
+                msg = msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod());
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                throw;
+            }
+        }
 
         public List<Vehiculo> GetByFilter(string pDescripcion)
         {
