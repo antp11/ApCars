@@ -62,7 +62,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Reportes
                 // Retorno elementos?
                 if (!lista.Any())
                 {
-                    MessageBox.Show("No existe productos con la descripción", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("No existe Vehiculos con la descripción", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     txtFiltro.Focus();
                     return;
                 }
