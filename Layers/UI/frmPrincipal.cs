@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UTN.WinForms.ApCars.Extensions;
 using UTN.WinForms.ApCars.Layers.UI;
+using UTN.WinForms.ApCars.Layers.UI.Filtros;
 using UTN.WinForms.ApCars.Layers.UI.Mantenimientos;
 using UTN.WinForms.ApCars.Layers.UI.Procesos;
 using UTN.WinForms.ApCars.Layers.UI.Reportes;
@@ -266,6 +267,42 @@ namespace apCars
             try
             {
                 oForm = new frmReporteCliente();
+                oForm.MdiParent = this;
+                oForm.Show();
+            }
+            catch (Exception er)
+            {
+                string msg = "";
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod()));
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void facturaciónToolStripMenuItemfacturacion_Click(object sender, EventArgs e)
+        {
+            frmReporteFactura oForm;
+
+            try
+            {
+                oForm = new frmReporteFactura();
+                oForm.MdiParent = this;
+                oForm.Show();
+            }
+            catch (Exception er)
+            {
+                string msg = "";
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod()));
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ventaVehiculosToolStripMenuItemVentaElectronico_Click(object sender, EventArgs e)
+        {
+            frmGraficoVentas oForm;
+
+            try
+            {
+                oForm = new frmGraficoVentas();
                 oForm.MdiParent = this;
                 oForm.Show();
             }

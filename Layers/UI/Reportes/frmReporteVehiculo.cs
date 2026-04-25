@@ -71,7 +71,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Reportes
                 lista = lista.OrderBy(x => x.IdMarca).ToList();
 
                 // Logo
-                Bitmap logoBitmap = new Bitmap(Properties.Resources.smalllogo, 200, 200);
+                Bitmap logoBitmap = new Bitmap(Properties.Resources.smalllogo, 150, 150);
                 byte[] logoBytes;
                 MemoryStream memory = new MemoryStream();
                 logoBitmap.Save(memory, System.Drawing.Imaging.ImageFormat.Png);
@@ -97,7 +97,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Reportes
                         {
                             row.RelativeItem().Column(col =>
                             {
-                                col.Item().AlignLeft().Text("ApCars").Bold().FontSize(50).Bold().FontColor("#2058b3");
+                                col.Item().AlignLeft().Text("ApCars").Bold().FontSize(50).Bold().FontColor("#34495e");
                                 row.ConstantItem(100).AlignRight().Height(100).Image(logoBytes);
                                 col.Item().AlignLeft().Text($"Fecha: {DateTime.Now} ").FontSize(9);
                                 col.Item().LineHorizontal(1f);
@@ -132,22 +132,22 @@ namespace UTN.WinForms.ApCars.Layers.UI.Reportes
                                 // Define encabezado
                                 tabla.Header(header =>
                                 {
-                                    header.Cell().Background("#4666FF")
+                                    header.Cell().Background("#34495e")
                                     .Padding(2).AlignCenter().Text("VIN").FontColor("#fff");
 
-                                    header.Cell().Background("#4666FF")
+                                    header.Cell().Background("#34495e")
                                    .Padding(2).AlignCenter().Text("Foto").FontColor("#fff");
 
-                                    header.Cell().Background("#4666FF")
+                                    header.Cell().Background("#34495e")
                                     .Padding(2).AlignCenter().Text("Marca").FontColor("#fff");
 
-                                    header.Cell().Background("#4666FF")
+                                    header.Cell().Background("#34495e")
                                     .Padding(2).AlignCenter().Text("Descripción Vehiculo").FontColor("#fff");
 
-                                    header.Cell().Background("#4666FF")
+                                    header.Cell().Background("#34495e")
                                    .Padding(2).AlignCenter().Text("Estilo").FontColor("#fff");
 
-                                    header.Cell().Background("#4666FF")
+                                    header.Cell().Background("#34495e")
                                    .Padding(2).AlignCenter().Text("Precio").FontColor("#fff");
 
                                   
@@ -208,7 +208,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Reportes
                 }).GeneratePdf();
 
                 // Salvarlo en disco
-                string file = @"c:\temp\rptElectronico.pdf";
+                string file = @"c:\temp\rptVehiculo.pdf";
                 File.WriteAllBytes(file, pdfFileBytes);
 
                 Process.Start(file);

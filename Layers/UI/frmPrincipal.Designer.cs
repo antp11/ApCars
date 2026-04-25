@@ -45,7 +45,7 @@
             this.clientesToolStripMenuItemClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.facturaciónToolStripMenuItemfacturacion = new System.Windows.Forms.ToolStripMenuItem();
             this.gráficoToolStripMenuItemGraficos = new System.Windows.Forms.ToolStripMenuItem();
-            this.ventaElectronicoToolStripMenuItemVentaElectronico = new System.Windows.Forms.ToolStripMenuItem();
+            this.ventaVehiculosToolStripMenuItemVentaElectronico = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.administracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItemUsuarios = new System.Windows.Forms.ToolStripMenuItem();
@@ -148,7 +148,7 @@
             // 
             this.facturarToolStripMenuItemFacturar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.facturarToolStripMenuItemFacturar.Name = "facturarToolStripMenuItemFacturar";
-            this.facturarToolStripMenuItemFacturar.Size = new System.Drawing.Size(186, 26);
+            this.facturarToolStripMenuItemFacturar.Size = new System.Drawing.Size(224, 26);
             this.facturarToolStripMenuItemFacturar.Text = "Facturar";
             this.facturarToolStripMenuItemFacturar.Click += new System.EventHandler(this.facturarToolStripMenuItemFacturar_Click);
             // 
@@ -156,14 +156,14 @@
             // 
             this.anularFacturaToolStripMenuItemAnularFactura.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.anularFacturaToolStripMenuItemAnularFactura.Name = "anularFacturaToolStripMenuItemAnularFactura";
-            this.anularFacturaToolStripMenuItemAnularFactura.Size = new System.Drawing.Size(186, 26);
+            this.anularFacturaToolStripMenuItemAnularFactura.Size = new System.Drawing.Size(224, 26);
             this.anularFacturaToolStripMenuItemAnularFactura.Text = "Anular Factura";
             // 
             // cierreToolStripMenuItemCierre
             // 
             this.cierreToolStripMenuItemCierre.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.cierreToolStripMenuItemCierre.Name = "cierreToolStripMenuItemCierre";
-            this.cierreToolStripMenuItemCierre.Size = new System.Drawing.Size(186, 26);
+            this.cierreToolStripMenuItemCierre.Size = new System.Drawing.Size(224, 26);
             this.cierreToolStripMenuItemCierre.Text = "Cierre";
             // 
             // reportesToolStripMenuItemReportes
@@ -201,29 +201,31 @@
             this.facturaciónToolStripMenuItemfacturacion.Name = "facturaciónToolStripMenuItemfacturacion";
             this.facturaciónToolStripMenuItemfacturacion.Size = new System.Drawing.Size(224, 26);
             this.facturaciónToolStripMenuItemfacturacion.Text = "Facturación";
+            this.facturaciónToolStripMenuItemfacturacion.Click += new System.EventHandler(this.facturaciónToolStripMenuItemfacturacion_Click);
             // 
             // gráficoToolStripMenuItemGraficos
             // 
             this.gráficoToolStripMenuItemGraficos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ventaElectronicoToolStripMenuItemVentaElectronico,
+            this.ventaVehiculosToolStripMenuItemVentaElectronico,
             this.productosToolStripMenuItem});
             this.gráficoToolStripMenuItemGraficos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.gráficoToolStripMenuItemGraficos.Name = "gráficoToolStripMenuItemGraficos";
             this.gráficoToolStripMenuItemGraficos.Size = new System.Drawing.Size(224, 26);
             this.gráficoToolStripMenuItemGraficos.Text = "Gráfico";
             // 
-            // ventaElectronicoToolStripMenuItemVentaElectronico
+            // ventaVehiculosToolStripMenuItemVentaElectronico
             // 
-            this.ventaElectronicoToolStripMenuItemVentaElectronico.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.ventaElectronicoToolStripMenuItemVentaElectronico.Name = "ventaElectronicoToolStripMenuItemVentaElectronico";
-            this.ventaElectronicoToolStripMenuItemVentaElectronico.Size = new System.Drawing.Size(207, 26);
-            this.ventaElectronicoToolStripMenuItemVentaElectronico.Text = "Venta Electronico";
+            this.ventaVehiculosToolStripMenuItemVentaElectronico.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.ventaVehiculosToolStripMenuItemVentaElectronico.Name = "ventaVehiculosToolStripMenuItemVentaElectronico";
+            this.ventaVehiculosToolStripMenuItemVentaElectronico.Size = new System.Drawing.Size(224, 26);
+            this.ventaVehiculosToolStripMenuItemVentaElectronico.Text = "Venta Vehiculo";
+            this.ventaVehiculosToolStripMenuItemVentaElectronico.Click += new System.EventHandler(this.ventaVehiculosToolStripMenuItemVentaElectronico_Click);
             // 
             // productosToolStripMenuItem
             // 
             this.productosToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            this.productosToolStripMenuItem.Size = new System.Drawing.Size(207, 26);
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.productosToolStripMenuItem.Text = "Productos";
             // 
             // administracionToolStripMenuItem
@@ -240,7 +242,7 @@
             // 
             this.usuariosToolStripMenuItemUsuarios.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.usuariosToolStripMenuItemUsuarios.Name = "usuariosToolStripMenuItemUsuarios";
-            this.usuariosToolStripMenuItemUsuarios.Size = new System.Drawing.Size(148, 26);
+            this.usuariosToolStripMenuItemUsuarios.Size = new System.Drawing.Size(224, 26);
             this.usuariosToolStripMenuItemUsuarios.Text = "Usuarios";
             this.usuariosToolStripMenuItemUsuarios.Click += new System.EventHandler(this.usuariosToolStripMenuItemUsuarios_Click);
             // 
@@ -311,7 +313,7 @@
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItemClientes;
         private System.Windows.Forms.ToolStripMenuItem facturaciónToolStripMenuItemfacturacion;
         private System.Windows.Forms.ToolStripMenuItem gráficoToolStripMenuItemGraficos;
-        private System.Windows.Forms.ToolStripMenuItem ventaElectronicoToolStripMenuItemVentaElectronico;
+        private System.Windows.Forms.ToolStripMenuItem ventaVehiculosToolStripMenuItemVentaElectronico;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem administracionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItemUsuarios;

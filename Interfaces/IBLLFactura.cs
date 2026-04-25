@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UTN.WinForms.ApCars.Layers.Entities;
+using UTN.WinForms.ApCars.Layers.Entities.DTO;
 
 namespace UTN.WinForms.ApCars.Interfaces
 {
@@ -19,6 +20,6 @@ namespace UTN.WinForms.ApCars.Interfaces
 
         string GenerarXML(FacturaEncabezado facturaEncabezado, List<FacturaDetalle> detalles);
 
-        // Task<IEnumerable<VentasDTO>> GetTotalVentasXFecha(DateTime pFechaInicial, DateTime pFechaFinal);
+        Task<IEnumerable<VentasDTO>> GetTotalVentasXFecha(DateTime pFechaInicial, DateTime pFechaFinal);
     }
 }

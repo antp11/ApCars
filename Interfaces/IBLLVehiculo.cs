@@ -21,5 +21,7 @@ namespace UTN.WinForms.ApCars.Interfaces
         List<VehiculoMarcaEstiloDTO> GetByEstilo(string pEstilo);
         List<VehiculoMarcaEstiloDTO> GetByDescripcion(string pDescripcion);
 
+       // Task<IEnumerable<VehiculoMarcaEstiloDTO>> GetTotalCantidadInventario();
+
     }
 }

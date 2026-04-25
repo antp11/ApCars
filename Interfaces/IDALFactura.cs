@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UTN.WinForms.ApCars.Layers.Entities;
+using UTN.WinForms.ApCars.Layers.Entities.DTO;
 
 namespace UTN.WinForms.ApCars.Interfaces
 {
@@ -14,7 +15,7 @@ namespace UTN.WinForms.ApCars.Interfaces
 
         int GetCurrentNumeroFactura();
 
-        //Task<IEnumerable<VentasDTO>> GetTotalVentasXFecha(DateTime pFechaInicial, DateTime pFechaFinal);
+        Task<IEnumerable<VentasDTO>> GetTotalVentasXFecha(DateTime pFechaInicial, DateTime pFechaFinal);
 
     }
 }

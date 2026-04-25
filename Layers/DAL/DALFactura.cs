@@ -5,11 +5,13 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using UTN.WinForms.ApCars.Extensions;
 using UTN.WinForms.ApCars.Interfaces;
 using UTN.WinForms.ApCars.Layers.Entities;
+using UTN.WinForms.ApCars.Layers.Entities.DTO;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UTN.WinForms.ApCars.Layers.DAL
@@ -292,5 +294,60 @@ namespace UTN.WinForms.ApCars.Layers.DAL
             }
         }
 
+        public async Task<IEnumerable<VentasDTO>> GetTotalVentasXFecha(DateTime pFechaInicial, DateTime pFechaFinal)
+        {
+
+            SqlCommand command = new SqlCommand();
+            List<VentasDTO> lista = new List<VentasDTO>();
+            string msg = "";
+            try
+            {
+
+                string sql = @"SELECT year(EncabezadoFactura.Fecha) as Anno ,
+                               sum((DetalleFactura.PrecioColones)+ DetalleFactura.ImpuestoColones) as TotalVentaColones,
+						       sum((DetalleFactura.PrecioDolares)+ DetalleFactura.ImpuestoDolares) as TotalVentaDolares
+                               FROM    DetalleFactura INNER JOIN
+                                     EncabezadoFactura ON DetalleFactura.IdFactura = EncabezadoFactura.IdFactura 
+                               WHERE EncabezadoFactura.Fecha between   @pFechaInicial  and @pFechaFinal
+                               GROUP  BY  Year(EncabezadoFactura.Fecha)";
+
+
+                command.CommandText = sql;
+                command.CommandType = CommandType.Text;
+                command.Parameters.AddWithValue("@pFechaInicial", pFechaInicial);
+                command.Parameters.AddWithValue("@pFechaFinal", new DateTime(pFechaFinal.Year, pFechaFinal.Month, pFechaFinal.Day, 23, 59, 59));
+
+                using (IDataBase db = FactoryDatabase.CreateDataBase(FactoryConexion.CreateConnection()))
+                {
+
+                    DataTable dt = await db.ExecuteReaderAsync(command, "T");
+
+                    // Iterar en todas las filas 
+                    foreach (DataRow reader in dt.Rows)
+                    {
+                        // Mapearlas
+                        VentasDTO oVentasDTO = new VentasDTO();
+                        oVentasDTO.Anno = int.Parse(reader["Anno"].ToString());
+                        oVentasDTO.TotalVentaColones = Convert.ToDouble(reader["TotalVentaColones"]);
+                        oVentasDTO.TotalVentaDolares = Convert.ToDouble(reader["TotalVentaDolares"]);
+
+                        lista.Add(oVentasDTO);
+                    }
+
+                    return lista;
+                }
+            }
+            catch (SqlException er)
+            {
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(MethodBase.GetCurrentMethod(), er, command));
+                throw new CustomException(msg.ToSqlServerDetailError(er));
+            }
+            catch (Exception er)
+            {
+                msg = msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod());
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToString());
+                throw;
+            }
+        }
     }
 }

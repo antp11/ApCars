@@ -455,12 +455,10 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
             // Convert Image into bytes array 
             MemoryStream ms = new MemoryStream();
             qrImage.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-            //qrImage.Save(@"c:\temp\qr.png", System.Drawing.Imaging.ImageFormat.Png);
-            //col1.Item().AlignLeft().Image(ms.ToArray());
-
+           
 
             // Logo
-            Bitmap logoBitmap = new Bitmap(Properties.Resources.smalllogo, 150, 150);
+            Bitmap logoBitmap = new Bitmap(Properties.Resources.smalllogo, 200, 200);
             byte[] logoBytes;
             MemoryStream memory = new MemoryStream();
             logoBitmap.Save(memory, System.Drawing.Imaging.ImageFormat.Png);

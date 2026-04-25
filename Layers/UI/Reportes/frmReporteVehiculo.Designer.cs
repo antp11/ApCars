@@ -60,6 +60,7 @@
             // 
             // btnSalir
             // 
+            this.btnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.Salir1;
             this.btnSalir.Location = new System.Drawing.Point(388, 94);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
@@ -72,6 +73,7 @@
             // 
             // btnReporte
             // 
+            this.btnReporte.Image = global::UTN.WinForms.ApCars.Properties.Resources.pdf;
             this.btnReporte.Location = new System.Drawing.Point(248, 94);
             this.btnReporte.Margin = new System.Windows.Forms.Padding(4);
             this.btnReporte.Name = "btnReporte";

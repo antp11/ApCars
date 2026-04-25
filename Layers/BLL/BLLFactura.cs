@@ -8,6 +8,7 @@ using System.Xml;
 using UTN.WinForms.ApCars.Interfaces;
 using UTN.WinForms.ApCars.Layers.DAL;
 using UTN.WinForms.ApCars.Layers.Entities;
+using UTN.WinForms.ApCars.Layers.Entities.DTO;
 
 namespace UTN.WinForms.ApCars.Layers.BLL
 {
@@ -88,6 +89,12 @@ namespace UTN.WinForms.ApCars.Layers.BLL
         {
             IDALFactura dalFactura = new DALFactura();
             return dalFactura.GetNextNumeroFactura();
+        }
+
+        public async Task<IEnumerable<VentasDTO>> GetTotalVentasXFecha(DateTime pFechaInicial, DateTime pFechaFinal)
+        {
+            DALFactura dalFactura = new DALFactura();
+            return await dalFactura.GetTotalVentasXFecha(pFechaInicial, pFechaFinal);
         }
 
         public FacturaEncabezado Save(FacturaEncabezado pFactura)

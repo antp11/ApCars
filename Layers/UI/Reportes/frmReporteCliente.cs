@@ -87,7 +87,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Reportes
                         {
                             row.RelativeItem().Column(col =>
                             {
-                                col.Item().AlignLeft().Text("ApCars").Bold().FontSize(50).Bold().FontColor("#2058b3");
+                                col.Item().AlignLeft().Text("ApCars").Bold().FontSize(50).Bold().FontColor("#34495e");
                                 row.ConstantItem(100).AlignRight().Height(100).Image(logoBytes);
                                 col.Item().AlignLeft().Text($"Fecha: {DateTime.Now} ").FontSize(9);
                                 col.Item().LineHorizontal(1f);
@@ -120,22 +120,22 @@ namespace UTN.WinForms.ApCars.Layers.UI.Reportes
                                 // Define encabezado
                                 tabla.Header(header =>
                                 {
-                                    header.Cell().Background("#4666FF")
+                                    header.Cell().Background("#34495e")
                                     .Padding(2).AlignCenter().Text("Identificación").FontColor("#fff");
 
-                                    header.Cell().Background("#4666FF")
+                                    header.Cell().Background("#34495e")
                                     .Padding(2).AlignCenter().Text("Imagen").FontColor("#fff");
 
-                                    header.Cell().Background("#4666FF")
+                                    header.Cell().Background("#34495e")
                                    .Padding(2).AlignCenter().Text("Nombre").FontColor("#fff");
 
-                                    header.Cell().Background("#4666FF")
+                                    header.Cell().Background("#34495e")
                                    .Padding(2).AlignCenter().Text("Provincia").FontColor("#fff");
 
-                                    header.Cell().Background("#4666FF")
+                                    header.Cell().Background("#34495e")
                                    .Padding(2).AlignCenter().Text("Dirección").FontColor("#fff");
 
-                                    header.Cell().Background("#4666FF")
+                                    header.Cell().Background("#34495e")
                                    .Padding(2).AlignCenter().Text("Teléfono ").FontColor("#fff");
                                 });
 
@@ -209,6 +209,36 @@ namespace UTN.WinForms.ApCars.Layers.UI.Reportes
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void lblFiltro_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdbOrdenadoCedula_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rdbOrdenadoNombre_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void grbOrdenamiento_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sttBarraInferior_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void txtFiltro_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
