@@ -90,6 +90,7 @@ namespace apCars
         {
             try
             {
+                lblCerrarSesion.Location = new Point(this.ClientSize.Width - lblCerrarSesion.Width - 10, 10);
 
                 Utils.CultureInfo();
                 this.Text = ConfigurationManager.AppSettings["NombreEmpresa"] + " " + Application.ProductName + " Versión:  " + Application.ProductVersion;
@@ -305,6 +306,40 @@ namespace apCars
                 oForm = new frmGraficoVentas();
                 oForm.MdiParent = this;
                 oForm.Show();
+            }
+            catch (Exception er)
+            {
+                string msg = "";
+                _myLogControlEventos.ErrorFormat("Error {0}", msg.ToExceptionDetail(er, MethodBase.GetCurrentMethod()));
+                MessageBox.Show("Se ha producido el siguiente error: " + er.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void lblCerrarSesion_MouseEnter(object sender, EventArgs e)
+        {
+            this.lblCerrarSesion.Font = new Font(lblCerrarSesion.Font, FontStyle.Bold);
+            lblCerrarSesion.ForeColor = Color.Black;
+
+        }
+
+        private void lblCerrarSesion_MouseLeave(object sender, EventArgs e)
+        {
+            this.lblCerrarSesion.Font = new Font(lblCerrarSesion.Font, FontStyle.Regular);
+            lblCerrarSesion.ForeColor = Color.Black;
+        }
+
+        private void lblCerrarSesion_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.Hide();  
+                using (frmLogin oForm = new frmLogin())
+                {
+                    oForm.ShowDialog(); // abre login en modal
+                }
+
+         
+
             }
             catch (Exception er)
             {
