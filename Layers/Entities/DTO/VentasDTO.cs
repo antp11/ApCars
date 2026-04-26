@@ -8,7 +8,7 @@ namespace UTN.WinForms.ApCars.Layers.Entities.DTO
 {
     public class VentasDTO
     {
-        public int Anno { get; set; }
+        public int Dia { get; set; }
         public double TotalVentaColones { get; set; }
         public double TotalVentaDolares { get; set; }
     }

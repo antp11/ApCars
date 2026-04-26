@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -25,56 +26,129 @@ namespace UTN.WinForms.ApCars.Layers.UI.Reportes
         {
             InitializeComponent();
         }
-        
+        private void FormatearEtiquetas(Chart chart)
+        {
+            var cultureCR = new System.Globalization.CultureInfo("es-CR");
+            var cultureUS = new System.Globalization.CultureInfo("en-US");
+
+            if (chart.Series.IndexOf("Colones") >= 0)
+            {
+                foreach (var pt in chart.Series["Colones"].Points)
+                {
+                    pt.Label = pt.YValues[0].ToString("C2", cultureCR);
+                }
+            }
+
+            if (chart.Series.IndexOf("Dolares") >= 0)
+            {
+                foreach (var pt in chart.Series["Dolares"].Points)
+                {
+                    pt.Label = pt.YValues[0].ToString("C2", cultureUS);
+                }
+            }
+        }
+
 
         private async void btnGrafico_Click(object sender, EventArgs e)
         {
             IBLLFactura bllFactura = new BLLFactura();
+
+
             try
             {
+
 
                 IEnumerable<VentasDTO> lista = await bllFactura.GetTotalVentasXFecha(dtpFechaInicial.Value, dtpFechaFinal.Value);
 
 
                 // Se asigna la lista al DataSource del Chart
                 chartVentas.DataSource = lista;
+                //Limpia el Grafico para que cuando se elija otro tipo de moneda no se duplique 
+                chartVentas.Series.Clear();
+                chartVentas.ChartAreas[0].AxisY.LabelStyle.Format = "N0";
 
-                // Anno y TotalVenta son properties de la clase  VentasDTO de esta forma se mapea 
-                // en el Chart
-                chartVentas.Series["Series1"].XValueMember = "Anno";
-                chartVentas.Series["Series1"].YValueMembers = "TotalVentaColones";
-                chartVentas.Series["Series1"].YValueMembers = "TotalVentaDolares";
+             
+                    if (rdbColones.Checked)
+                {
 
+                    chartVentas.Series.Add("Colones");
+                    chartVentas.Series["Colones"].XValueMember = "Dia";
+                    chartVentas.Series["Colones"].YValueMembers = "TotalVentaColones";
+      
+
+
+                    //Mostrar Labels
+                    chartVentas.Series["Colones"].IsValueShownAsLabel = true;
+                    //color de barra, lineas etc
+                    chartVentas.Series["Colones"].Color = Color.FromArgb(230, 35, 70, 94);
+                    chartVentas.Series["Colones"]["PointWidth"] = "0.6"; // ancho de la barra
+                    chartVentas.Series["Colones"]["DrawingStyle"] = "Cylinder"; // efecto cilíndrico
+
+
+                    // Se escoge el tipo de Gráfico 
+                    if (cmbTipoGrafico.SelectedIndex == 0)
+                        chartVentas.Series["Colones"].ChartType = SeriesChartType.Column;
+
+                    if (cmbTipoGrafico.SelectedIndex == 1)
+                        chartVentas.Series["Colones"].ChartType = SeriesChartType.Line;
+                    if (cmbTipoGrafico.SelectedIndex == 2)
+                        chartVentas.Series["Colones"].ChartType = SeriesChartType.Bar;
+                    if (cmbTipoGrafico.SelectedIndex == 3)
+                        chartVentas.Series["Colones"].ChartType = SeriesChartType.Pie;
+                    if (cmbTipoGrafico.SelectedIndex == 4)
+                        chartVentas.Series["Colones"].ChartType = SeriesChartType.Doughnut;
+                    if (cmbTipoGrafico.SelectedIndex == 5)
+                        chartVentas.Series["Colones"].ChartType = SeriesChartType.Area;
+                    if (cmbTipoGrafico.SelectedIndex == 6)
+                        chartVentas.Series["Colones"].ChartType = SeriesChartType.Spline;
+                }
+
+
+                if (rdbDolaraes.Checked)
+                {
+
+                    chartVentas.Series.Add("Dolares");
+                    chartVentas.Series["Dolares"].XValueMember = "Dia";
+                    chartVentas.Series["Dolares"].YValueMembers = "TotalVentaDolares";
+           
+
+
+                    //Mostrar Labels
+                    chartVentas.Series["Dolares"].IsValueShownAsLabel = true;
+                    //color de barra, lineas etc
+                    chartVentas.Series["Dolares"].Color = Color.FromArgb(230, 35, 70, 94);
+                    chartVentas.Series["Dolares"]["PointWidth"] = "0.6"; // ancho de la barra
+                    chartVentas.Series["Dolares"]["DrawingStyle"] = "Cylinder"; // efecto cilíndrico
+
+                    // Se escoge el tipo de Gráfico
+                    if (cmbTipoGrafico.SelectedIndex == 0)
+                        chartVentas.Series["Dolares"].ChartType = SeriesChartType.Column;
+
+                    if (cmbTipoGrafico.SelectedIndex == 1)
+                        chartVentas.Series["Dolares"].ChartType = SeriesChartType.Line;
+                    if (cmbTipoGrafico.SelectedIndex == 2)
+                        chartVentas.Series["Dolares"].ChartType = SeriesChartType.Bar;
+                    if (cmbTipoGrafico.SelectedIndex == 3)
+                        chartVentas.Series["Dolares"].ChartType = SeriesChartType.Pie;
+                    if (cmbTipoGrafico.SelectedIndex == 4)
+                        chartVentas.Series["Dolares"].ChartType = SeriesChartType.Doughnut;
+                    if (cmbTipoGrafico.SelectedIndex == 5)
+                        chartVentas.Series["Dolares"].ChartType = SeriesChartType.Area;
+                    if (cmbTipoGrafico.SelectedIndex == 6)
+                        chartVentas.Series["Dolares"].ChartType = SeriesChartType.Spline;
+
+                }
                 // Colocar el Titulo
                 chartVentas.Titles.Clear();
                 chartVentas.Titles.Add("Total Ventas");
-                chartVentas.Titles[0].Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point, ((byte)(0)));
-
-                //Mostrar Labels
-                chartVentas.Series["Series1"].IsValueShownAsLabel = true;
-                // Formato CultureInfo en los valores numéricos
-                chartVentas.Series["Series1"].LabelFormat = "C2";
-
-                // Se escoge el tipo de Gráfico
-                if (cmbTipoGrafico.SelectedIndex == 0)
-                    chartVentas.Series["Series1"].ChartType = SeriesChartType.Column;
-
-                if (cmbTipoGrafico.SelectedIndex == 1)
-                    chartVentas.Series["Series1"].ChartType = SeriesChartType.Line;
-                if (cmbTipoGrafico.SelectedIndex == 2)
-                    chartVentas.Series["Series1"].ChartType = SeriesChartType.Bar;
-                if (cmbTipoGrafico.SelectedIndex == 3)
-                    chartVentas.Series["Series1"].ChartType = SeriesChartType.Pie;
-                if (cmbTipoGrafico.SelectedIndex == 4)
-                    chartVentas.Series["Series1"].ChartType = SeriesChartType.Doughnut;
-                if (cmbTipoGrafico.SelectedIndex == 5)
-                    chartVentas.Series["Series1"].ChartType = SeriesChartType.Area;
-                if (cmbTipoGrafico.SelectedIndex == 6)
-                    chartVentas.Series["Series1"].ChartType = SeriesChartType.Spline;
+                chartVentas.Titles[0].Font = new Font("Segoe UI", 15F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
 
 
 
+                //Formatea las etiquetas para el tipo de moneda
+                this.FormatearEtiquetas(chartVentas);
             }
+
             catch (Exception er)
             {
                 string msg = "";
@@ -118,6 +192,29 @@ namespace UTN.WinForms.ApCars.Layers.UI.Reportes
             this.cmbTipoGrafico.Items.Add("Area");
             this.cmbTipoGrafico.Items.Add("Spline");
             this.cmbTipoGrafico.SelectedIndex = 0;
+        }
+
+        private void chartVentas_PostPaint(object sender, ChartPaintEventArgs e)
+        {
+            var chart = sender as Chart;
+            var cultureCR = new System.Globalization.CultureInfo("es-CR");
+            var cultureUS = new System.Globalization.CultureInfo("en-US");
+
+            if (chart.Series.IndexOf("Colones") >= 0)
+            {
+                foreach (var pt in chart.Series["Colones"].Points)
+                {
+                    pt.Label = pt.YValues[0].ToString("C2", cultureCR);
+                }
+            }
+
+            if (chart.Series.IndexOf("Dolares") >= 0)
+            {
+                foreach (var pt in chart.Series["Dolares"].Points)
+                {
+                    pt.Label = pt.YValues[0].ToString("C2", cultureUS);
+                }
+            }
         }
     }
 }

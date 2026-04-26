@@ -57,7 +57,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Filtros
 
 
 
-                lista = lista.OrderBy(x => x.Anno).ToList();
+                lista = lista.OrderBy(x => x.Dia).ToList();
 
 
 
@@ -121,7 +121,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Filtros
                                 tabla.Header(header =>
                                 {
                                     header.Cell().Background("#34495e")
-                                    .Padding(2).AlignCenter().Text("Año").FontColor("#fff");
+                                    .Padding(2).AlignCenter().Text("Día").FontColor("#fff");
 
                                     header.Cell().Background("#34495e")
                                     .Padding(2).AlignCenter().Text("Colones").FontColor("#fff");
@@ -139,7 +139,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Filtros
 
                                     // Column 1 
                                     tabla.Cell().BorderBottom(0.5f).BorderColor("#D9D9D9")
-                                    .Padding(2).Text(item.Anno.ToString()).FontSize(10);
+                                    .Padding(2).AlignCenter().Text(item.Dia.ToString()).FontSize(10);
 
                                     // Column 2
                                     tabla.Cell().BorderBottom(0.5f).BorderColor("#D9D9D9")

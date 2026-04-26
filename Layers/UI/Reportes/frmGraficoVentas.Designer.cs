@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpFechaFinal = new System.Windows.Forms.DateTimePicker();
@@ -42,7 +42,11 @@
             this.btnGrafico = new System.Windows.Forms.Button();
             this.chartVentas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label3 = new System.Windows.Forms.Label();
+            this.rdbColones = new System.Windows.Forms.RadioButton();
+            this.rdbDolaraes = new System.Windows.Forms.RadioButton();
+            this.gpbTipoMoneda = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.chartVentas)).BeginInit();
+            this.gpbTipoMoneda.SuspendLayout();
             this.SuspendLayout();
             // 
             // label2
@@ -58,7 +62,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 599);
+            this.label1.Location = new System.Drawing.Point(15, 572);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 16);
@@ -76,7 +80,7 @@
             // 
             // dtpFechaInicial
             // 
-            this.dtpFechaInicial.Location = new System.Drawing.Point(116, 595);
+            this.dtpFechaInicial.Location = new System.Drawing.Point(116, 572);
             this.dtpFechaInicial.Margin = new System.Windows.Forms.Padding(4);
             this.dtpFechaInicial.Name = "dtpFechaInicial";
             this.dtpFechaInicial.Size = new System.Drawing.Size(265, 22);
@@ -140,19 +144,21 @@
             // 
             // chartVentas
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chartVentas.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chartVentas.Legends.Add(legend4);
-            this.chartVentas.Location = new System.Drawing.Point(27, 44);
+            this.chartVentas.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            this.chartVentas.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartVentas.Legends.Add(legend1);
+            this.chartVentas.Location = new System.Drawing.Point(12, 71);
             this.chartVentas.Name = "chartVentas";
-            series4.ChartArea = "ChartArea1";
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            this.chartVentas.Series.Add(series4);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartVentas.Series.Add(series1);
             this.chartVentas.Size = new System.Drawing.Size(1061, 461);
             this.chartVentas.TabIndex = 21;
             this.chartVentas.Text = "chart1";
+            this.chartVentas.PostPaint += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.ChartPaintEventArgs>(this.chartVentas_PostPaint);
             // 
             // label3
             // 
@@ -164,11 +170,45 @@
             this.label3.TabIndex = 22;
             this.label3.Text = "Tipo Grafico";
             // 
+            // rdbColones
+            // 
+            this.rdbColones.AutoSize = true;
+            this.rdbColones.Checked = true;
+            this.rdbColones.Location = new System.Drawing.Point(50, 21);
+            this.rdbColones.Name = "rdbColones";
+            this.rdbColones.Size = new System.Drawing.Size(78, 20);
+            this.rdbColones.TabIndex = 23;
+            this.rdbColones.TabStop = true;
+            this.rdbColones.Text = "Colónes";
+            this.rdbColones.UseVisualStyleBackColor = true;
+            // 
+            // rdbDolaraes
+            // 
+            this.rdbDolaraes.AutoSize = true;
+            this.rdbDolaraes.Location = new System.Drawing.Point(50, 47);
+            this.rdbDolaraes.Name = "rdbDolaraes";
+            this.rdbDolaraes.Size = new System.Drawing.Size(76, 20);
+            this.rdbDolaraes.TabIndex = 24;
+            this.rdbDolaraes.Text = "Dólares";
+            this.rdbDolaraes.UseVisualStyleBackColor = true;
+            // 
+            // gpbTipoMoneda
+            // 
+            this.gpbTipoMoneda.Controls.Add(this.rdbColones);
+            this.gpbTipoMoneda.Controls.Add(this.rdbDolaraes);
+            this.gpbTipoMoneda.Location = new System.Drawing.Point(416, 572);
+            this.gpbTipoMoneda.Name = "gpbTipoMoneda";
+            this.gpbTipoMoneda.Size = new System.Drawing.Size(200, 85);
+            this.gpbTipoMoneda.TabIndex = 25;
+            this.gpbTipoMoneda.TabStop = false;
+            this.gpbTipoMoneda.Text = "Moneda";
+            // 
             // frmGraficoVentas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1119, 704);
+            this.Controls.Add(this.gpbTipoMoneda);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.chartVentas);
             this.Controls.Add(this.label2);
@@ -185,6 +225,8 @@
             this.Text = "Grafico Ventas";
             this.Load += new System.EventHandler(this.frmGraficoVentas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chartVentas)).EndInit();
+            this.gpbTipoMoneda.ResumeLayout(false);
+            this.gpbTipoMoneda.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,5 +245,8 @@
         private System.Windows.Forms.Button btnGrafico;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartVentas;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton rdbColones;
+        private System.Windows.Forms.RadioButton rdbDolaraes;
+        private System.Windows.Forms.GroupBox gpbTipoMoneda;
     }
 }

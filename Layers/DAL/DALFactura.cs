@@ -303,13 +303,13 @@ namespace UTN.WinForms.ApCars.Layers.DAL
             try
             {
 
-                string sql = @"SELECT year(EncabezadoFactura.Fecha) as Anno ,
+                string sql = @"SELECT Day(EncabezadoFactura.Fecha) as Dia ,
                                sum((DetalleFactura.PrecioColones)+ DetalleFactura.ImpuestoColones) as TotalVentaColones,
 						       sum((DetalleFactura.PrecioDolares)+ DetalleFactura.ImpuestoDolares) as TotalVentaDolares
                                FROM    DetalleFactura INNER JOIN
                                      EncabezadoFactura ON DetalleFactura.IdFactura = EncabezadoFactura.IdFactura 
                                WHERE EncabezadoFactura.Fecha between   @pFechaInicial  and @pFechaFinal
-                               GROUP  BY  Year(EncabezadoFactura.Fecha)";
+                               GROUP  BY  Day(EncabezadoFactura.Fecha)";
 
 
                 command.CommandText = sql;
@@ -327,7 +327,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                     {
                         // Mapearlas
                         VentasDTO oVentasDTO = new VentasDTO();
-                        oVentasDTO.Anno = int.Parse(reader["Anno"].ToString());
+                        oVentasDTO.Dia = int.Parse(reader["Dia"].ToString());
                         oVentasDTO.TotalVentaColones = Convert.ToDouble(reader["TotalVentaColones"]);
                         oVentasDTO.TotalVentaDolares = Convert.ToDouble(reader["TotalVentaDolares"]);
 

@@ -252,12 +252,12 @@
             this.IdEstilo.ReadOnly = true;
             this.IdEstilo.Width = 125;
             // 
-            // Anno
+            // Dia
             // 
-            this.Anno.DataPropertyName = "Anno";
+            this.Anno.DataPropertyName = "Dia";
             this.Anno.HeaderText = "Año";
             this.Anno.MinimumWidth = 6;
-            this.Anno.Name = "Anno";
+            this.Anno.Name = "Dia";
             this.Anno.ReadOnly = true;
             this.Anno.Width = 125;
             // 
