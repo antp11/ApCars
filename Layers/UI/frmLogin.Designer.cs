@@ -34,16 +34,16 @@
             this.lblContrasenna = new System.Windows.Forms.Label();
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.pcbLogin = new System.Windows.Forms.PictureBox();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
             this.sttBarraInferior = new System.Windows.Forms.StatusStrip();
             this.toolStripPbBarra = new System.Windows.Forms.ToolStripProgressBar();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.pcbLogin = new System.Windows.Forms.PictureBox();
             this.tlpPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
             this.sttBarraInferior.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // tlpPanel
@@ -110,44 +110,6 @@
             this.txtPassword.TabIndex = 3;
             this.txtPassword.Text = "1234567";
             // 
-            // btnSalir
-            // 
-            this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Location = new System.Drawing.Point(363, 342);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(176, 65);
-            this.btnSalir.TabIndex = 7;
-            this.btnSalir.Text = "&Salir";
-            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Location = new System.Drawing.Point(106, 342);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(184, 65);
-            this.btnAceptar.TabIndex = 6;
-            this.btnAceptar.Text = "&Aceptar";
-            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
-            // 
-            // pcbLogin
-            // 
-            this.pcbLogin.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_registrarse_100;
-            this.pcbLogin.Location = new System.Drawing.Point(236, 25);
-            this.pcbLogin.Margin = new System.Windows.Forms.Padding(4);
-            this.pcbLogin.Name = "pcbLogin";
-            this.pcbLogin.Size = new System.Drawing.Size(150, 148);
-            this.pcbLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pcbLogin.TabIndex = 5;
-            this.pcbLogin.TabStop = false;
-            // 
             // epError
             // 
             this.epError.ContainerControl = this;
@@ -170,25 +132,68 @@
             this.toolStripPbBarra.Size = new System.Drawing.Size(133, 17);
             this.toolStripPbBarra.Visible = false;
             // 
+            // btnSalir
+            // 
+            this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.Cancelar;
+            this.btnSalir.Location = new System.Drawing.Point(363, 342);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(176, 65);
+            this.btnSalir.TabIndex = 7;
+            this.btnSalir.Text = "&Salir";
+            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAceptar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Aceptar;
+            this.btnAceptar.Location = new System.Drawing.Point(106, 342);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(184, 65);
+            this.btnAceptar.TabIndex = 6;
+            this.btnAceptar.Text = "&Aceptar";
+            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // pcbLogin
+            // 
+            this.pcbLogin.Image = global::UTN.WinForms.ApCars.Properties.Resources.Registrarse;
+            this.pcbLogin.Location = new System.Drawing.Point(236, 25);
+            this.pcbLogin.Margin = new System.Windows.Forms.Padding(4);
+            this.pcbLogin.Name = "pcbLogin";
+            this.pcbLogin.Size = new System.Drawing.Size(150, 148);
+            this.pcbLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pcbLogin.TabIndex = 5;
+            this.pcbLogin.TabStop = false;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(617, 450);
             this.Controls.Add(this.sttBarraInferior);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.pcbLogin);
             this.Controls.Add(this.tlpPanel);
+            this.DoubleBuffered = true;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.tlpPanel.ResumeLayout(false);
             this.tlpPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbLogin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
             this.sttBarraInferior.ResumeLayout(false);
             this.sttBarraInferior.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

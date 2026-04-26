@@ -438,6 +438,17 @@
     <None Include="Resources\icons8-guardar-40.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\seguridad.png" />
+    <None Include="Resources\Proceso1.png" />
+    <None Include="Resources\Proceso %282%29.png" />
+    <None Include="Resources\provincia.png" />
+    <None Include="Resources\prov1.png" />
+    <None Include="Resources\prov.png" />
+    <None Include="Resources\Pelfusion-Long-Shadow-Media-Settings.ico" />
+    <None Include="Resources\reports.png" />
+    <None Include="Resources\reportes.png" />
+    <None Include="Resources\Proceso.png" />
+    <None Include="Resources\Registrarse.png" />
     <None Include="Resources\Salir1.png" />
     <None Include="Resources\salir %282%29.png" />
     <None Include="Resources\pdf1.png" />
@@ -451,8 +462,21 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Resources\Buscar.png" />
+    <None Include="Resources\Aceptar.png" />
+    <None Include="Resources\Cancelar.png" />
+    <None Include="Resources\analitica.png" />
+    <None Include="Resources\Administracion.png" />
+    <None Include="Resources\configuracion.png" />
+    <None Include="Resources\Clientes.png" />
+    <None Include="Resources\Cars.png" />
+    <None Include="Resources\Facturas.png" />
+    <None Include="Resources\Grafico.png" />
     <Content Include="Resources\icono.ico" />
     <None Include="Resources\mapa.png" />
+    <None Include="Resources\Mantenimientos.png" />
+    <None Include="Resources\Imp.png" />
+    <None Include="Resources\Marca.png" />
+    <None Include="Resources\money.png" />
     <Content Include="Resources\MSWordAcepted.png" />
     <None Include="Resources\MSWordAcepted1.png" />
     <None Include="Resources\Logo.1.png" />
