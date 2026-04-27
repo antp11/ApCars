@@ -50,7 +50,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Mantenimientos
                 // Cargar el DataGridView
                 this.dgvDatos.DataSource = bllMarca.GetAll();
 
-                this.pbImagen.Image = Properties.Resources.insert_image;
+                this.pbImagen.Image = Properties.Resources.imageInsert;
                 this.pbImagen.SizeMode = PictureBoxSizeMode.CenterImage;
 
 

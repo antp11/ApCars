@@ -35,16 +35,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dtpFechaFinal = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaInicial = new System.Windows.Forms.DateTimePicker();
-            this.btnSalvar = new System.Windows.Forms.Button();
             this.lblTipoGrafico = new System.Windows.Forms.Label();
             this.cmbTipoGrafico = new System.Windows.Forms.ComboBox();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnGrafico = new System.Windows.Forms.Button();
             this.chartVentas = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.label3 = new System.Windows.Forms.Label();
             this.rdbColones = new System.Windows.Forms.RadioButton();
             this.rdbDolaraes = new System.Windows.Forms.RadioButton();
             this.gpbTipoMoneda = new System.Windows.Forms.GroupBox();
+            this.btnSalvar = new System.Windows.Forms.Button();
+            this.btnGrafico = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chartVentas)).BeginInit();
             this.gpbTipoMoneda.SuspendLayout();
             this.SuspendLayout();
@@ -87,18 +87,6 @@
             this.dtpFechaInicial.TabIndex = 17;
             this.dtpFechaInicial.Value = new System.DateTime(2000, 6, 23, 11, 31, 0, 0);
             // 
-            // btnSalvar
-            // 
-            this.btnSalvar.Location = new System.Drawing.Point(792, 572);
-            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnSalvar.Name = "btnSalvar";
-            this.btnSalvar.Size = new System.Drawing.Size(128, 85);
-            this.btnSalvar.TabIndex = 16;
-            this.btnSalvar.Text = "Exportar";
-            this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnSalvar.UseVisualStyleBackColor = true;
-            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click_1);
-            // 
             // lblTipoGrafico
             // 
             this.lblTipoGrafico.AutoSize = true;
@@ -120,6 +108,7 @@
             // 
             // btnSalir
             // 
+            this.btnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.Cancelar1;
             this.btnSalir.Location = new System.Drawing.Point(928, 572);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
@@ -129,18 +118,6 @@
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
-            // 
-            // btnGrafico
-            // 
-            this.btnGrafico.Location = new System.Drawing.Point(656, 572);
-            this.btnGrafico.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGrafico.Name = "btnGrafico";
-            this.btnGrafico.Size = new System.Drawing.Size(128, 85);
-            this.btnGrafico.TabIndex = 12;
-            this.btnGrafico.Text = "Grafico";
-            this.btnGrafico.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnGrafico.UseVisualStyleBackColor = true;
-            this.btnGrafico.Click += new System.EventHandler(this.btnGrafico_Click);
             // 
             // chartVentas
             // 
@@ -202,6 +179,32 @@
             this.gpbTipoMoneda.TabIndex = 25;
             this.gpbTipoMoneda.TabStop = false;
             this.gpbTipoMoneda.Text = "Moneda";
+            // 
+            // btnSalvar
+            // 
+            this.btnSalvar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Export;
+            this.btnSalvar.Location = new System.Drawing.Point(792, 572);
+            this.btnSalvar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalvar.Name = "btnSalvar";
+            this.btnSalvar.Size = new System.Drawing.Size(128, 85);
+            this.btnSalvar.TabIndex = 16;
+            this.btnSalvar.Text = "Exportar";
+            this.btnSalvar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnSalvar.UseVisualStyleBackColor = true;
+            this.btnSalvar.Click += new System.EventHandler(this.btnSalvar_Click_1);
+            // 
+            // btnGrafico
+            // 
+            this.btnGrafico.Image = global::UTN.WinForms.ApCars.Properties.Resources.Graf;
+            this.btnGrafico.Location = new System.Drawing.Point(656, 572);
+            this.btnGrafico.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGrafico.Name = "btnGrafico";
+            this.btnGrafico.Size = new System.Drawing.Size(128, 85);
+            this.btnGrafico.TabIndex = 12;
+            this.btnGrafico.Text = "Grafico";
+            this.btnGrafico.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnGrafico.UseVisualStyleBackColor = true;
+            this.btnGrafico.Click += new System.EventHandler(this.btnGrafico_Click);
             // 
             // frmGraficoVentas
             // 

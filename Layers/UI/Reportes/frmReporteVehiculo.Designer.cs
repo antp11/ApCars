@@ -60,7 +60,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.Salir1;
+            this.btnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.Cancelar1;
             this.btnSalir.Location = new System.Drawing.Point(388, 94);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
@@ -73,7 +73,7 @@
             // 
             // btnReporte
             // 
-            this.btnReporte.Image = global::UTN.WinForms.ApCars.Properties.Resources.pdf;
+            this.btnReporte.Image = global::UTN.WinForms.ApCars.Properties.Resources.reporte;
             this.btnReporte.Location = new System.Drawing.Point(248, 94);
             this.btnReporte.Margin = new System.Windows.Forms.Padding(4);
             this.btnReporte.Name = "btnReporte";
@@ -87,10 +87,10 @@
             // sttBarraInferior
             // 
             this.sttBarraInferior.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.sttBarraInferior.Location = new System.Drawing.Point(0, 340);
+            this.sttBarraInferior.Location = new System.Drawing.Point(0, 228);
             this.sttBarraInferior.Name = "sttBarraInferior";
             this.sttBarraInferior.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.sttBarraInferior.Size = new System.Drawing.Size(786, 22);
+            this.sttBarraInferior.Size = new System.Drawing.Size(589, 22);
             this.sttBarraInferior.TabIndex = 5;
             // 
             // rdbDescripcion
@@ -141,7 +141,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 362);
+            this.ClientSize = new System.Drawing.Size(589, 250);
             this.Controls.Add(this.gpbTipoBusqueda);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.label1);

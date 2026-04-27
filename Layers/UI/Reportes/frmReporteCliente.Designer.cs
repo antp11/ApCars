@@ -106,7 +106,7 @@
             // 
             // btnSalir
             // 
-            this.btnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.Salir1;
+            this.btnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.Cancelar1;
             this.btnSalir.Location = new System.Drawing.Point(468, 95);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
@@ -119,7 +119,7 @@
             // 
             // btnReporte
             // 
-            this.btnReporte.Image = global::UTN.WinForms.ApCars.Properties.Resources.pdf1;
+            this.btnReporte.Image = global::UTN.WinForms.ApCars.Properties.Resources.reporte;
             this.btnReporte.Location = new System.Drawing.Point(304, 95);
             this.btnReporte.Margin = new System.Windows.Forms.Padding(4);
             this.btnReporte.Name = "btnReporte";

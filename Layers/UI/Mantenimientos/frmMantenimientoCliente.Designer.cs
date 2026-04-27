@@ -63,17 +63,17 @@
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.pbImagen = new System.Windows.Forms.PictureBox();
             this.txtIdCliente = new System.Windows.Forms.TextBox();
             this.rdbFemenino = new System.Windows.Forms.RadioButton();
-            this.btnAceptar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.tspPrincipal = new System.Windows.Forms.ToolStrip();
+            this.erp = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnEditar = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnBorrar = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
-            this.erp = new System.Windows.Forms.ErrorProvider(this.components);
+            this.pbImagen = new System.Windows.Forms.PictureBox();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -81,9 +81,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.tlpPanel.SuspendLayout();
             this.gpbResidencia.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.tspPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.erp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // sttInferior
@@ -469,20 +469,6 @@
             this.label7.TabIndex = 26;
             this.label7.Text = "Foto";
             // 
-            // pbImagen
-            // 
-            this.pbImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pbImagen.Image = global::UTN.WinForms.ApCars.Properties.Resources.imageInsert;
-            this.pbImagen.InitialImage = null;
-            this.pbImagen.Location = new System.Drawing.Point(110, 366);
-            this.pbImagen.Margin = new System.Windows.Forms.Padding(4);
-            this.pbImagen.Name = "pbImagen";
-            this.pbImagen.Size = new System.Drawing.Size(208, 106);
-            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbImagen.TabIndex = 27;
-            this.pbImagen.TabStop = false;
-            this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
-            // 
             // txtIdCliente
             // 
             this.txtIdCliente.Location = new System.Drawing.Point(110, 60);
@@ -504,33 +490,6 @@
             this.rdbFemenino.Text = "Femenino";
             this.rdbFemenino.UseVisualStyleBackColor = true;
             // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Image = ((System.Drawing.Image)(resources.GetObject("btnAceptar.Image")));
-            this.btnAceptar.Location = new System.Drawing.Point(157, 605);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(116, 69);
-            this.btnAceptar.TabIndex = 10;
-            this.btnAceptar.Text = "&Aceptar";
-            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.Location = new System.Drawing.Point(328, 605);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(114, 69);
-            this.btnCancelar.TabIndex = 12;
-            this.btnCancelar.Text = "&Cancelar";
-            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
             // tspPrincipal
             // 
             this.tspPrincipal.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -541,37 +500,41 @@
             this.toolStripBtnSalir});
             this.tspPrincipal.Location = new System.Drawing.Point(0, 0);
             this.tspPrincipal.Name = "tspPrincipal";
-            this.tspPrincipal.Size = new System.Drawing.Size(1307, 55);
+            this.tspPrincipal.Size = new System.Drawing.Size(1307, 71);
             this.tspPrincipal.TabIndex = 5;
+            // 
+            // erp
+            // 
+            this.erp.ContainerControl = this;
             // 
             // toolStripBtnNuevo
             // 
             this.toolStripBtnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.toolStripBtnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnNuevo.Image")));
+            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.nuevo;
             this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
-            this.toolStripBtnNuevo.Size = new System.Drawing.Size(104, 52);
+            this.toolStripBtnNuevo.Size = new System.Drawing.Size(120, 68);
             this.toolStripBtnNuevo.Text = "&Nuevo";
             this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
             // 
             // toolStripBtnEditar
             // 
-            this.toolStripBtnEditar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnEditar.Image")));
+            this.toolStripBtnEditar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Editar;
             this.toolStripBtnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnEditar.Name = "toolStripBtnEditar";
-            this.toolStripBtnEditar.Size = new System.Drawing.Size(100, 52);
+            this.toolStripBtnEditar.Size = new System.Drawing.Size(116, 68);
             this.toolStripBtnEditar.Text = "&Editar";
             this.toolStripBtnEditar.Click += new System.EventHandler(this.toolStripBtnEditar_Click);
             // 
             // toolStripBtnBorrar
             // 
-            this.toolStripBtnBorrar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnBorrar.Image")));
+            this.toolStripBtnBorrar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Eliminar;
             this.toolStripBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnBorrar.Name = "toolStripBtnBorrar";
-            this.toolStripBtnBorrar.Size = new System.Drawing.Size(102, 52);
+            this.toolStripBtnBorrar.Size = new System.Drawing.Size(118, 68);
             this.toolStripBtnBorrar.Text = "&Borrar";
             this.toolStripBtnBorrar.Click += new System.EventHandler(this.toolStripBtnBorrar_Click);
             // 
@@ -581,13 +544,50 @@
             this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnSalir.Name = "toolStripBtnSalir";
-            this.toolStripBtnSalir.Size = new System.Drawing.Size(90, 52);
+            this.toolStripBtnSalir.Size = new System.Drawing.Size(106, 68);
             this.toolStripBtnSalir.Text = "&Salir";
             this.toolStripBtnSalir.Click += new System.EventHandler(this.toolStripBtnSalir_Click_1);
             // 
-            // erp
+            // pbImagen
             // 
-            this.erp.ContainerControl = this;
+            this.pbImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbImagen.Image = global::UTN.WinForms.ApCars.Properties.Resources.imageInsert;
+            this.pbImagen.InitialImage = null;
+            this.pbImagen.Location = new System.Drawing.Point(110, 366);
+            this.pbImagen.Margin = new System.Windows.Forms.Padding(4);
+            this.pbImagen.Name = "pbImagen";
+            this.pbImagen.Size = new System.Drawing.Size(208, 106);
+            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbImagen.TabIndex = 27;
+            this.pbImagen.TabStop = false;
+            this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Aceptar1;
+            this.btnAceptar.Location = new System.Drawing.Point(157, 605);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(116, 81);
+            this.btnAceptar.TabIndex = 10;
+            this.btnAceptar.Text = "&Aceptar";
+            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Cancelar1;
+            this.btnCancelar.Location = new System.Drawing.Point(328, 605);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(114, 81);
+            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.Text = "&Cancelar";
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // frmMantenimientoCliente
             // 
@@ -611,10 +611,10 @@
             this.tlpPanel.PerformLayout();
             this.gpbResidencia.ResumeLayout(false);
             this.gpbResidencia.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.tspPrincipal.ResumeLayout(false);
             this.tspPrincipal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.erp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

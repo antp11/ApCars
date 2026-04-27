@@ -31,8 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSeguridad));
             this.tspBarraPrincipal = new System.Windows.Forms.ToolStrip();
-            this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnSalvarUsuario = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.trvUsuarios = new System.Windows.Forms.TreeView();
@@ -57,10 +55,12 @@
             this.txtLogin = new System.Windows.Forms.TextBox();
             this.lblContrasena = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.pbImagen = new System.Windows.Forms.PictureBox();
             this.sttBarraInferior = new System.Windows.Forms.StatusStrip();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
             this.ntfMensaje = new System.Windows.Forms.NotifyIcon(this.components);
+            this.pbImagen = new System.Windows.Forms.PictureBox();
+            this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnSalvarUsuario = new System.Windows.Forms.ToolStripButton();
             this.tspBarraPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -68,8 +68,8 @@
             this.splitContainer1.SuspendLayout();
             this.cmdMenu.SuspendLayout();
             this.tplPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).BeginInit();
             this.SuspendLayout();
             // 
             // tspBarraPrincipal
@@ -81,44 +81,24 @@
             this.toolStripBtnSalir});
             this.tspBarraPrincipal.Location = new System.Drawing.Point(0, 0);
             this.tspBarraPrincipal.Name = "tspBarraPrincipal";
-            this.tspBarraPrincipal.Size = new System.Drawing.Size(811, 55);
+            this.tspBarraPrincipal.Size = new System.Drawing.Size(811, 71);
             this.tspBarraPrincipal.TabIndex = 2;
             this.tspBarraPrincipal.Text = "toolStrip1";
             // 
-            // toolStripBtnNuevo
-            // 
-            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_agregar_48;
-            this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
-            this.toolStripBtnNuevo.Size = new System.Drawing.Size(104, 52);
-            this.toolStripBtnNuevo.Text = "&Nuevo";
-            this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
-            // 
-            // toolStripBtnSalvarUsuario
-            // 
-            this.toolStripBtnSalvarUsuario.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_guardar_40;
-            this.toolStripBtnSalvarUsuario.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnSalvarUsuario.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnSalvarUsuario.Name = "toolStripBtnSalvarUsuario";
-            this.toolStripBtnSalvarUsuario.Size = new System.Drawing.Size(93, 52);
-            this.toolStripBtnSalvarUsuario.Text = "&Salvar";
-            this.toolStripBtnSalvarUsuario.Click += new System.EventHandler(this.toolStripBtnSalvarUsuario_Click);
-            // 
             // toolStripBtnSalir
             // 
-            this.toolStripBtnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_cerrar_ventana_48;
+            this.toolStripBtnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.Salir2;
             this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnSalir.Name = "toolStripBtnSalir";
-            this.toolStripBtnSalir.Size = new System.Drawing.Size(90, 52);
+            this.toolStripBtnSalir.Size = new System.Drawing.Size(106, 68);
             this.toolStripBtnSalir.Text = "Sa&lir";
             this.toolStripBtnSalir.Click += new System.EventHandler(this.toolStripBtnSalir_Click);
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 55);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 71);
             this.splitContainer1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -129,7 +109,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tplPanel);
-            this.splitContainer1.Size = new System.Drawing.Size(811, 463);
+            this.splitContainer1.Size = new System.Drawing.Size(811, 447);
             this.splitContainer1.SplitterDistance = 362;
             this.splitContainer1.TabIndex = 3;
             // 
@@ -143,7 +123,7 @@
             this.trvUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.trvUsuarios.Name = "trvUsuarios";
             this.trvUsuarios.SelectedImageIndex = 0;
-            this.trvUsuarios.Size = new System.Drawing.Size(362, 463);
+            this.trvUsuarios.Size = new System.Drawing.Size(362, 447);
             this.trvUsuarios.TabIndex = 6;
             this.trvUsuarios.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.trvUsuarios_AfterSelect_1);
             // 
@@ -383,19 +363,6 @@
             this.label4.TabIndex = 17;
             this.label4.Text = "Foto";
             // 
-            // pbImagen
-            // 
-            this.pbImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pbImagen.Image = global::UTN.WinForms.ApCars.Properties.Resources.imageInsert;
-            this.pbImagen.Location = new System.Drawing.Point(166, 242);
-            this.pbImagen.Margin = new System.Windows.Forms.Padding(4);
-            this.pbImagen.Name = "pbImagen";
-            this.pbImagen.Size = new System.Drawing.Size(203, 105);
-            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pbImagen.TabIndex = 16;
-            this.pbImagen.TabStop = false;
-            this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
-            // 
             // sttBarraInferior
             // 
             this.sttBarraInferior.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -409,6 +376,39 @@
             // epError
             // 
             this.epError.ContainerControl = this;
+            // 
+            // pbImagen
+            // 
+            this.pbImagen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.pbImagen.Image = global::UTN.WinForms.ApCars.Properties.Resources.imageInsert;
+            this.pbImagen.Location = new System.Drawing.Point(166, 242);
+            this.pbImagen.Margin = new System.Windows.Forms.Padding(4);
+            this.pbImagen.Name = "pbImagen";
+            this.pbImagen.Size = new System.Drawing.Size(203, 105);
+            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbImagen.TabIndex = 16;
+            this.pbImagen.TabStop = false;
+            this.pbImagen.Click += new System.EventHandler(this.pbImagen_Click);
+            // 
+            // toolStripBtnNuevo
+            // 
+            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.nuevo;
+            this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
+            this.toolStripBtnNuevo.Size = new System.Drawing.Size(120, 68);
+            this.toolStripBtnNuevo.Text = "&Nuevo";
+            this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
+            // 
+            // toolStripBtnSalvarUsuario
+            // 
+            this.toolStripBtnSalvarUsuario.Image = global::UTN.WinForms.ApCars.Properties.Resources.Salvar;
+            this.toolStripBtnSalvarUsuario.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnSalvarUsuario.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnSalvarUsuario.Name = "toolStripBtnSalvarUsuario";
+            this.toolStripBtnSalvarUsuario.Size = new System.Drawing.Size(117, 68);
+            this.toolStripBtnSalvarUsuario.Text = "&Salvar";
+            this.toolStripBtnSalvarUsuario.Click += new System.EventHandler(this.toolStripBtnSalvarUsuario_Click);
             // 
             // frmSeguridad
             // 
@@ -432,8 +432,8 @@
             this.cmdMenu.ResumeLayout(false);
             this.tplPanel.ResumeLayout(false);
             this.tplPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImagen)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

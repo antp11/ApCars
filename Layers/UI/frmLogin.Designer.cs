@@ -119,7 +119,7 @@
             this.sttBarraInferior.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.sttBarraInferior.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripPbBarra});
-            this.sttBarraInferior.Location = new System.Drawing.Point(0, 428);
+            this.sttBarraInferior.Location = new System.Drawing.Point(0, 445);
             this.sttBarraInferior.Name = "sttBarraInferior";
             this.sttBarraInferior.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
             this.sttBarraInferior.Size = new System.Drawing.Size(617, 22);
@@ -136,11 +136,11 @@
             // 
             this.btnSalir.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnSalir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.Cancelar;
+            this.btnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.Cancelar1;
             this.btnSalir.Location = new System.Drawing.Point(363, 342);
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(176, 65);
+            this.btnSalir.Size = new System.Drawing.Size(176, 82);
             this.btnSalir.TabIndex = 7;
             this.btnSalir.Text = "&Salir";
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -150,11 +150,11 @@
             // btnAceptar
             // 
             this.btnAceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAceptar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Aceptar;
+            this.btnAceptar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Aceptar1;
             this.btnAceptar.Location = new System.Drawing.Point(106, 342);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(184, 65);
+            this.btnAceptar.Size = new System.Drawing.Size(184, 82);
             this.btnAceptar.TabIndex = 6;
             this.btnAceptar.Text = "&Aceptar";
             this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -178,7 +178,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(617, 450);
+            this.ClientSize = new System.Drawing.Size(617, 467);
             this.Controls.Add(this.sttBarraInferior);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAceptar);

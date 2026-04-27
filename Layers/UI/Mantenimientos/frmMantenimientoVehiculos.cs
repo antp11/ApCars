@@ -154,7 +154,7 @@ namespace UTN.WinForms.ApCars.Layers.UI
                     // Leer todo el archivo de bytes
                     byte[] cadenaBytes = File.ReadAllBytes(opt.FileName);
                     this.pbDocumentacion.Tag = cadenaBytes;
-                    this.pbDocumentacion.Image = Properties.Resources.MSWordAcepted;
+                    this.pbDocumentacion.Image = Properties.Resources.wordLoad;
 
                 }
 

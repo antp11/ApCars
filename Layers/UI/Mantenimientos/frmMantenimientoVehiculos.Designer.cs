@@ -43,7 +43,7 @@
             this.DescripcionVehiculo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Foto = new System.Windows.Forms.DataGridViewImageColumn();
             this.IdEstilo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Anno = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CantidadPaasajero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoCombustible = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TipoTransmision = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -106,7 +106,7 @@
             this.toolStripBtnSalir});
             this.tspPrincipal.Location = new System.Drawing.Point(0, 0);
             this.tspPrincipal.Name = "tspPrincipal";
-            this.tspPrincipal.Size = new System.Drawing.Size(1626, 55);
+            this.tspPrincipal.Size = new System.Drawing.Size(1626, 71);
             this.tspPrincipal.TabIndex = 3;
             // 
             // toolStripBtnNuevo
@@ -116,37 +116,37 @@
             this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
-            this.toolStripBtnNuevo.Size = new System.Drawing.Size(96, 52);
+            this.toolStripBtnNuevo.Size = new System.Drawing.Size(120, 68);
             this.toolStripBtnNuevo.Text = "&Nuevo";
             this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
             // 
             // toolStripBtnEditar
             // 
-            this.toolStripBtnEditar.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_editar_48;
+            this.toolStripBtnEditar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Editar;
             this.toolStripBtnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnEditar.Name = "toolStripBtnEditar";
-            this.toolStripBtnEditar.Size = new System.Drawing.Size(100, 52);
+            this.toolStripBtnEditar.Size = new System.Drawing.Size(116, 68);
             this.toolStripBtnEditar.Text = "&Editar";
             this.toolStripBtnEditar.Click += new System.EventHandler(this.toolStripBtnEditar_Click);
             // 
             // toolStripBtnBorrar
             // 
-            this.toolStripBtnBorrar.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_eliminar_48;
+            this.toolStripBtnBorrar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Eliminar;
             this.toolStripBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnBorrar.Name = "toolStripBtnBorrar";
-            this.toolStripBtnBorrar.Size = new System.Drawing.Size(102, 52);
+            this.toolStripBtnBorrar.Size = new System.Drawing.Size(118, 68);
             this.toolStripBtnBorrar.Text = "&Borrar";
             this.toolStripBtnBorrar.Click += new System.EventHandler(this.toolStripBtnBorrar_Click);
             // 
             // toolStripBtnSalir
             // 
-            this.toolStripBtnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.icons8_cerrar_ventana_48;
+            this.toolStripBtnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.Salir2;
             this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnSalir.Name = "toolStripBtnSalir";
-            this.toolStripBtnSalir.Size = new System.Drawing.Size(90, 52);
+            this.toolStripBtnSalir.Size = new System.Drawing.Size(106, 68);
             this.toolStripBtnSalir.Text = "&Salir";
             this.toolStripBtnSalir.Click += new System.EventHandler(this.toolStripBtnSalir_Click);
             // 
@@ -163,7 +163,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 55);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 71);
             this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -176,7 +176,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
             this.splitContainer1.Panel2.Controls.Add(this.btnAceptar);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
-            this.splitContainer1.Size = new System.Drawing.Size(1626, 763);
+            this.splitContainer1.Size = new System.Drawing.Size(1626, 747);
             this.splitContainer1.SplitterDistance = 979;
             this.splitContainer1.SplitterWidth = 5;
             this.splitContainer1.TabIndex = 5;
@@ -191,7 +191,7 @@
             this.DescripcionVehiculo,
             this.Foto,
             this.IdEstilo,
-            this.Anno,
+            this.Dia,
             this.CantidadPaasajero,
             this.TipoCombustible,
             this.TipoTransmision,
@@ -202,7 +202,7 @@
             this.dgvDatos.ReadOnly = true;
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
-            this.dgvDatos.Size = new System.Drawing.Size(979, 763);
+            this.dgvDatos.Size = new System.Drawing.Size(979, 747);
             this.dgvDatos.TabIndex = 0;
             // 
             // Marca
@@ -254,12 +254,12 @@
             // 
             // Dia
             // 
-            this.Anno.DataPropertyName = "Dia";
-            this.Anno.HeaderText = "Año";
-            this.Anno.MinimumWidth = 6;
-            this.Anno.Name = "Dia";
-            this.Anno.ReadOnly = true;
-            this.Anno.Width = 125;
+            this.Dia.DataPropertyName = "Dia";
+            this.Dia.HeaderText = "Año";
+            this.Dia.MinimumWidth = 6;
+            this.Dia.Name = "Dia";
+            this.Dia.ReadOnly = true;
+            this.Dia.Width = 125;
             // 
             // CantidadPaasajero
             // 
@@ -656,10 +656,11 @@
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(86, 660);
+            this.btnAceptar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Aceptar1;
+            this.btnAceptar.Location = new System.Drawing.Point(152, 642);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(142, 48);
+            this.btnAceptar.Size = new System.Drawing.Size(142, 83);
             this.btnAceptar.TabIndex = 5;
             this.btnAceptar.Text = "&Aceptar";
             this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -669,10 +670,11 @@
             // btnCancelar
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Location = new System.Drawing.Point(359, 660);
+            this.btnCancelar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Cancelar1;
+            this.btnCancelar.Location = new System.Drawing.Point(359, 642);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(130, 46);
+            this.btnCancelar.Size = new System.Drawing.Size(130, 83);
             this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -775,5 +777,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.RadioButton rdbDisponible;
         private System.Windows.Forms.RadioButton rdbVendido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dia;
     }
 }

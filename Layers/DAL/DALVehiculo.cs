@@ -77,7 +77,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                         oVehiculo.IdMarca = int.Parse(reader["IdMarca"].ToString());
                         oVehiculo.IdEstilo = int.Parse(reader["IdEstilo"].ToString());
                         oVehiculo.DescripcionVehiculo = reader["DescripcionVehiculo"].ToString();
-                        oVehiculo.Anno = int.Parse(reader["Dia"].ToString());
+                        oVehiculo.Anno = int.Parse(reader["Anno"].ToString());
                         oVehiculo.CantidadPaasajero = int.Parse(reader["CantidadPaasajero"].ToString());
                         oVehiculo.TipoCombustible = int.Parse(reader["TipoCombustible"].ToString());
                         oVehiculo.Color = reader["Color"].ToString();
@@ -116,7 +116,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
             SqlCommand command = new SqlCommand();
 
             string sql = @"SELECT Estilo.*, TipoCombustible.*, Marca.*, TipoTransmision.*, Vehiculo.IdVIN, Vehiculo.DescripcionVehiculo,
-                  Vehiculo.Dia, Vehiculo.CantidadPaasajero, 
+                  Vehiculo.Anno, Vehiculo.CantidadPaasajero, 
                   Vehiculo.Color, Vehiculo.Precio, Vehiculo.Foto,
                   Vehiculo.Documento, Vehiculo.Extras,Vehiculo.Estado
                   FROM     Estilo INNER JOIN
@@ -149,7 +149,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                         oVehiculoMarcaEstiloDTO.IdEstilo = int.Parse(dr["IdEstilo"].ToString());
                         oVehiculoMarcaEstiloDTO.Descripcion = dr["Descripcion"].ToString();
                         oVehiculoMarcaEstiloDTO.DescripcionVehiculo = dr["DescripcionVehiculo"].ToString();
-                        oVehiculoMarcaEstiloDTO.Anno = int.Parse(dr["Dia"].ToString());
+                        oVehiculoMarcaEstiloDTO.Anno = int.Parse(dr["Anno"].ToString());
                         oVehiculoMarcaEstiloDTO.CantidadPaasajero = int.Parse(dr["CantidadPaasajero"].ToString());
                         oVehiculoMarcaEstiloDTO.IdTipoCombustible = int.Parse(dr["IdTipoCombustible"].ToString());
                         oVehiculoMarcaEstiloDTO.DescripcionTipoCombustible = dr["DescripcionTipoCombustible"].ToString();
@@ -191,7 +191,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
             {
 
                 string sql = @"SELECT Estilo.*, TipoCombustible.*, Marca.*, TipoTransmision.*, Vehiculo.IdVIN, Vehiculo.DescripcionVehiculo,
-                  Vehiculo.Dia, Vehiculo.CantidadPaasajero, 
+                  Vehiculo.Anno, Vehiculo.CantidadPaasajero, 
                   Vehiculo.Color, Vehiculo.Precio, Vehiculo.Foto,
                   Vehiculo.Documento, Vehiculo.Extras,Vehiculo.Estado
                   FROM     Estilo INNER JOIN
@@ -226,7 +226,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                         oVehiculoMarcaEstiloDTO.IdEstilo = int.Parse(dr["IdEstilo"].ToString());
                         oVehiculoMarcaEstiloDTO.Descripcion = dr["Descripcion"].ToString();
                         oVehiculoMarcaEstiloDTO.DescripcionVehiculo = dr["DescripcionVehiculo"].ToString();
-                        oVehiculoMarcaEstiloDTO.Anno = int.Parse(dr["Dia"].ToString());
+                        oVehiculoMarcaEstiloDTO.Anno = int.Parse(dr["Anno"].ToString());
                         oVehiculoMarcaEstiloDTO.CantidadPaasajero = int.Parse(dr["CantidadPaasajero"].ToString());
                         oVehiculoMarcaEstiloDTO.IdTipoCombustible = int.Parse(dr["IdTipoCombustible"].ToString());
                         oVehiculoMarcaEstiloDTO.DescripcionTipoCombustible = dr["DescripcionTipoCombustible"].ToString();
@@ -268,7 +268,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
             {
 
                 string sql = @"SELECT Estilo.*, TipoCombustible.*, Marca.*, TipoTransmision.*, Vehiculo.IdVIN, Vehiculo.DescripcionVehiculo,
-                  Vehiculo.Dia, Vehiculo.CantidadPaasajero, 
+                  Vehiculo.Anno, Vehiculo.CantidadPaasajero, 
                   Vehiculo.Color, Vehiculo.Precio, Vehiculo.Foto,
                   Vehiculo.Documento, Vehiculo.Extras,Vehiculo.Estado
                   FROM     Estilo INNER JOIN
@@ -303,7 +303,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                         oVehiculoMarcaEstiloDTO.IdEstilo = int.Parse(dr["IdEstilo"].ToString());
                         oVehiculoMarcaEstiloDTO.Descripcion = dr["Descripcion"].ToString();
                         oVehiculoMarcaEstiloDTO.DescripcionVehiculo = dr["DescripcionVehiculo"].ToString();
-                        oVehiculoMarcaEstiloDTO.Anno = int.Parse(dr["Dia"].ToString());
+                        oVehiculoMarcaEstiloDTO.Anno = int.Parse(dr["Anno"].ToString());
                         oVehiculoMarcaEstiloDTO.CantidadPaasajero = int.Parse(dr["CantidadPaasajero"].ToString());
                         oVehiculoMarcaEstiloDTO.IdTipoCombustible = int.Parse(dr["IdTipoCombustible"].ToString());
                         oVehiculoMarcaEstiloDTO.DescripcionTipoCombustible = dr["DescripcionTipoCombustible"].ToString();
@@ -345,7 +345,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
             {
 
                 string sql = @"SELECT Estilo.*, TipoCombustible.*, Marca.*, TipoTransmision.*, Vehiculo.IdVIN, Vehiculo.DescripcionVehiculo,
-                  Vehiculo.Dia, Vehiculo.CantidadPaasajero, 
+                  Vehiculo.Anno, Vehiculo.CantidadPaasajero, 
                   Vehiculo.Color, Vehiculo.Precio, Vehiculo.Foto,
                   Vehiculo.Documento, Vehiculo.Extras,Vehiculo.Estado
                   FROM     Estilo INNER JOIN
@@ -380,7 +380,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                         oVehiculoMarcaEstiloDTO.IdEstilo = int.Parse(dr["IdEstilo"].ToString());
                         oVehiculoMarcaEstiloDTO.Descripcion = dr["Descripcion"].ToString();
                         oVehiculoMarcaEstiloDTO.DescripcionVehiculo = dr["DescripcionVehiculo"].ToString();
-                        oVehiculoMarcaEstiloDTO.Anno = int.Parse(dr["Dia"].ToString());
+                        oVehiculoMarcaEstiloDTO.Anno = int.Parse(dr["Anno"].ToString());
                         oVehiculoMarcaEstiloDTO.CantidadPaasajero = int.Parse(dr["CantidadPaasajero"].ToString());
                         oVehiculoMarcaEstiloDTO.IdTipoCombustible = int.Parse(dr["IdTipoCombustible"].ToString());
                         oVehiculoMarcaEstiloDTO.DescripcionTipoCombustible = dr["DescripcionTipoCombustible"].ToString();
@@ -445,7 +445,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                             oVehiculo.IdMarca = int.Parse(dr["IdMarca"].ToString());
                             oVehiculo.IdEstilo = int.Parse(dr["IdEstilo"].ToString());
                             oVehiculo.DescripcionVehiculo = dr["DescripcionVehiculo"].ToString();
-                            oVehiculo.Anno = int.Parse(dr["Dia"].ToString());
+                            oVehiculo.Anno = int.Parse(dr["Anno"].ToString());
                             oVehiculo.CantidadPaasajero = int.Parse(dr["CantidadPaasajero"].ToString());
                             oVehiculo.TipoCombustible = int.Parse(dr["TipoCombustible"].ToString());
                             oVehiculo.Color = dr["Color"].ToString();
@@ -502,7 +502,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                         oVehiculo.IdMarca = int.Parse(reader["IdMarca"].ToString());
                         oVehiculo.IdEstilo = int.Parse(reader["IdEstilo"].ToString());
                         oVehiculo.DescripcionVehiculo = reader["DescripcionVehiculo"].ToString();
-                        oVehiculo.Anno = int.Parse(reader["Dia"].ToString());
+                        oVehiculo.Anno = int.Parse(reader["Anno"].ToString());
                         oVehiculo.CantidadPaasajero = int.Parse(reader["CantidadPaasajero"].ToString());
                         oVehiculo.TipoCombustible = int.Parse(reader["TipoCombustible"].ToString());
                         oVehiculo.Color = reader["Color"].ToString();
@@ -544,7 +544,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                 command.Parameters.AddWithValue("@IdMarca", pVehiculo.IdMarca);
                 command.Parameters.AddWithValue("@IdEstilo", pVehiculo.IdEstilo);
                 command.Parameters.AddWithValue("@DescripcionVehiculo", pVehiculo.DescripcionVehiculo);
-                command.Parameters.AddWithValue("@Dia", pVehiculo.Anno);
+                command.Parameters.AddWithValue("@Anno", pVehiculo.Anno);
                 command.Parameters.AddWithValue("@CantidadPaasajero", pVehiculo.CantidadPaasajero);
                 command.Parameters.AddWithValue("@TipoCombustible", pVehiculo.TipoCombustible + 1);
                 command.Parameters.AddWithValue("@Color", pVehiculo.Color);
@@ -599,7 +599,7 @@ namespace UTN.WinForms.ApCars.Layers.DAL
                 command.Parameters.AddWithValue("@IdMarca", pVehiculo.IdMarca);
                 command.Parameters.AddWithValue("@IdEstilo", pVehiculo.IdEstilo);
                 command.Parameters.AddWithValue("@DescripcionVehiculo", pVehiculo.DescripcionVehiculo);
-                command.Parameters.AddWithValue("@Dia", pVehiculo.Anno);
+                command.Parameters.AddWithValue("@Anno", pVehiculo.Anno);
                 command.Parameters.AddWithValue("@CantidadPaasajero", pVehiculo.CantidadPaasajero);
                 command.Parameters.AddWithValue("@TipoCombustible", pVehiculo.TipoCombustible);
                 command.Parameters.AddWithValue("@Color", pVehiculo.Color);

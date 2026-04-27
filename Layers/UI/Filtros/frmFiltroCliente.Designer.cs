@@ -31,14 +31,14 @@
             this.sttBarraInferior = new System.Windows.Forms.StatusStrip();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.tspBarraSuperior = new System.Windows.Forms.ToolStrip();
-            this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnBuscar = new System.Windows.Forms.ToolStripButton();
             this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Apellidoss1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
+            this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnBuscar = new System.Windows.Forms.ToolStripButton();
             this.tspBarraSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).BeginInit();
             this.SuspendLayout();
@@ -70,37 +70,17 @@
             this.toolStripBtnSalir});
             this.tspBarraSuperior.Location = new System.Drawing.Point(0, 0);
             this.tspBarraSuperior.Name = "tspBarraSuperior";
-            this.tspBarraSuperior.Size = new System.Drawing.Size(800, 55);
+            this.tspBarraSuperior.Size = new System.Drawing.Size(800, 71);
             this.tspBarraSuperior.TabIndex = 5;
             this.tspBarraSuperior.Text = "toolStrip1";
             // 
-            // toolStripBtnNuevo
-            // 
-            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.nuevo2;
-            this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
-            this.toolStripBtnNuevo.Size = new System.Drawing.Size(104, 52);
-            this.toolStripBtnNuevo.Text = "Nuevo";
-            this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
-            // 
-            // toolStripBtnBuscar
-            // 
-            this.toolStripBtnBuscar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Buscar;
-            this.toolStripBtnBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnBuscar.Name = "toolStripBtnBuscar";
-            this.toolStripBtnBuscar.Size = new System.Drawing.Size(104, 52);
-            this.toolStripBtnBuscar.Text = "Buscar";
-            this.toolStripBtnBuscar.Click += new System.EventHandler(this.toolStripBtnBuscar_Click_1);
-            // 
             // toolStripBtnSalir
             // 
-            this.toolStripBtnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.Salir;
+            this.toolStripBtnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.Salir2;
             this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripBtnSalir.Name = "toolStripBtnSalir";
-            this.toolStripBtnSalir.Size = new System.Drawing.Size(90, 52);
+            this.toolStripBtnSalir.Size = new System.Drawing.Size(106, 68);
             this.toolStripBtnSalir.Text = "Salir";
             this.toolStripBtnSalir.Click += new System.EventHandler(this.toolStripBtnSalir_Click);
             // 
@@ -152,6 +132,26 @@
             this.dgvDatos.Size = new System.Drawing.Size(739, 233);
             this.dgvDatos.TabIndex = 7;
             this.dgvDatos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellClick);
+            // 
+            // toolStripBtnNuevo
+            // 
+            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.nuevo;
+            this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
+            this.toolStripBtnNuevo.Size = new System.Drawing.Size(120, 68);
+            this.toolStripBtnNuevo.Text = "Nuevo";
+            this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
+            // 
+            // toolStripBtnBuscar
+            // 
+            this.toolStripBtnBuscar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Buscar_Grande;
+            this.toolStripBtnBuscar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnBuscar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnBuscar.Name = "toolStripBtnBuscar";
+            this.toolStripBtnBuscar.Size = new System.Drawing.Size(120, 68);
+            this.toolStripBtnBuscar.Text = "Buscar";
+            this.toolStripBtnBuscar.Click += new System.EventHandler(this.toolStripBtnBuscar_Click_1);
             // 
             // frmFiltroCliente
             // 
