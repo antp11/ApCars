@@ -39,19 +39,19 @@
             this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
-            this.IdMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DescripciónMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Logo = new System.Windows.Forms.DataGridViewImageColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.pbImagen = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnAceptar = new System.Windows.Forms.Button();
             this.mskIdMarca = new System.Windows.Forms.MaskedTextBox();
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.IdMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DescripciónMarca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Logo = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.epError)).BeginInit();
             this.tspPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -66,10 +66,10 @@
             // sttInferior
             // 
             this.sttInferior.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.sttInferior.Location = new System.Drawing.Point(0, 428);
+            this.sttInferior.Location = new System.Drawing.Point(0, 579);
             this.sttInferior.Name = "sttInferior";
             this.sttInferior.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.sttInferior.Size = new System.Drawing.Size(800, 22);
+            this.sttInferior.Size = new System.Drawing.Size(982, 22);
             this.sttInferior.TabIndex = 5;
             this.sttInferior.Text = "statusStrip1";
             // 
@@ -87,7 +87,7 @@
             this.toolStripBtnSalir});
             this.tspPrincipal.Location = new System.Drawing.Point(0, 0);
             this.tspPrincipal.Name = "tspPrincipal";
-            this.tspPrincipal.Size = new System.Drawing.Size(800, 71);
+            this.tspPrincipal.Size = new System.Drawing.Size(982, 71);
             this.tspPrincipal.TabIndex = 7;
             // 
             // toolStripBtnNuevo
@@ -147,8 +147,8 @@
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel2);
             this.splitContainer1.Panel2.Controls.Add(this.btnAceptar);
             this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 357);
-            this.splitContainer1.SplitterDistance = 409;
+            this.splitContainer1.Size = new System.Drawing.Size(982, 508);
+            this.splitContainer1.SplitterDistance = 502;
             this.splitContainer1.TabIndex = 8;
             // 
             // dgvDatos
@@ -165,36 +165,8 @@
             this.dgvDatos.ReadOnly = true;
             this.dgvDatos.RowHeadersWidth = 51;
             this.dgvDatos.RowTemplate.Height = 24;
-            this.dgvDatos.Size = new System.Drawing.Size(409, 357);
+            this.dgvDatos.Size = new System.Drawing.Size(502, 508);
             this.dgvDatos.TabIndex = 1;
-            // 
-            // IdMarca
-            // 
-            this.IdMarca.DataPropertyName = "IdMarca";
-            this.IdMarca.HeaderText = "Código";
-            this.IdMarca.MinimumWidth = 6;
-            this.IdMarca.Name = "IdMarca";
-            this.IdMarca.ReadOnly = true;
-            this.IdMarca.Width = 125;
-            // 
-            // DescripciónMarca
-            // 
-            this.DescripciónMarca.DataPropertyName = "DescripcionMarca";
-            this.DescripciónMarca.HeaderText = "Descripción";
-            this.DescripciónMarca.MinimumWidth = 6;
-            this.DescripciónMarca.Name = "DescripciónMarca";
-            this.DescripciónMarca.ReadOnly = true;
-            this.DescripciónMarca.Width = 125;
-            // 
-            // Logo
-            // 
-            this.Logo.DataPropertyName = "Logo";
-            this.Logo.HeaderText = "Logo";
-            this.Logo.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.Logo.MinimumWidth = 6;
-            this.Logo.Name = "Logo";
-            this.Logo.ReadOnly = true;
-            this.Logo.Width = 125;
             // 
             // tableLayoutPanel2
             // 
@@ -209,7 +181,7 @@
             this.tableLayoutPanel2.Controls.Add(this.mskIdMarca, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.txtMarca, 1, 1);
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(7, 36);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(60, 49);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
@@ -255,32 +227,6 @@
             this.label3.TabIndex = 17;
             this.label3.Text = "Marca";
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Cancelar1;
-            this.btnCancelar.Location = new System.Drawing.Point(215, 232);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(116, 84);
-            this.btnCancelar.TabIndex = 6;
-            this.btnCancelar.Text = "&Cancelar";
-            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnAceptar
-            // 
-            this.btnAceptar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Aceptar1;
-            this.btnAceptar.Location = new System.Drawing.Point(60, 232);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(116, 84);
-            this.btnAceptar.TabIndex = 5;
-            this.btnAceptar.Text = "&Aceptar";
-            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnAceptar.UseVisualStyleBackColor = true;
-            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
-            // 
             // mskIdMarca
             // 
             this.mskIdMarca.Location = new System.Drawing.Point(195, 3);
@@ -306,6 +252,32 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Codigo";
             // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Aceptar1;
+            this.btnAceptar.Location = new System.Drawing.Point(123, 304);
+            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(116, 96);
+            this.btnAceptar.TabIndex = 5;
+            this.btnAceptar.Text = "&Aceptar";
+            this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Cancelar1;
+            this.btnCancelar.Location = new System.Drawing.Point(281, 304);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(116, 96);
+            this.btnCancelar.TabIndex = 6;
+            this.btnCancelar.Text = "&Cancelar";
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
             // printPreviewDialog1
             // 
             this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
@@ -316,11 +288,39 @@
             this.printPreviewDialog1.Name = "printPreviewDialog1";
             this.printPreviewDialog1.Visible = false;
             // 
+            // IdMarca
+            // 
+            this.IdMarca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.IdMarca.DataPropertyName = "IdMarca";
+            this.IdMarca.HeaderText = "Código";
+            this.IdMarca.MinimumWidth = 6;
+            this.IdMarca.Name = "IdMarca";
+            this.IdMarca.ReadOnly = true;
+            // 
+            // DescripciónMarca
+            // 
+            this.DescripciónMarca.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DescripciónMarca.DataPropertyName = "DescripcionMarca";
+            this.DescripciónMarca.HeaderText = "Descripción";
+            this.DescripciónMarca.MinimumWidth = 6;
+            this.DescripciónMarca.Name = "DescripciónMarca";
+            this.DescripciónMarca.ReadOnly = true;
+            // 
+            // Logo
+            // 
+            this.Logo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Logo.DataPropertyName = "Logo";
+            this.Logo.HeaderText = "Logo";
+            this.Logo.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.Logo.MinimumWidth = 6;
+            this.Logo.Name = "Logo";
+            this.Logo.ReadOnly = true;
+            // 
             // frmMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(982, 601);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.tspPrincipal);
             this.Controls.Add(this.sttInferior);

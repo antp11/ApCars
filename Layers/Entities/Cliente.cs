@@ -23,5 +23,7 @@ namespace UTN.WinForms.ApCars.Layers.Entities
 
         public override string ToString() => $"{Nombre} {Apellido1} {Apellido2}";
 
+
+
     }
 }

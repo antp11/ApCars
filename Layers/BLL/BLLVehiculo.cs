@@ -82,6 +82,20 @@ namespace UTN.WinForms.ApCars.Layers.BLL
 
         public Vehiculo Save(Vehiculo pVehiculo)
         {
+            if (pVehiculo.IdVIN.Length < 16)
+            {
+                throw new Exception($"El VIN {pVehiculo.IdVIN} debe ser de  16 digstos");
+            }
+
+            for (int i = 0; i < pVehiculo.IdVIN.Length; i++)
+            {
+                if (!char.IsLetterOrDigit(pVehiculo.IdVIN[i]))
+                {
+                    throw new Exception($"El VIN debe tener solo caracteres alfanumericos");
+                }
+
+            }
+
             IDALVehiculo dALVehiculo = new DALVehiculo();
             Vehiculo oVehiculo = null;
 

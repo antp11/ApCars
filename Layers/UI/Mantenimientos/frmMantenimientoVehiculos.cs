@@ -183,6 +183,12 @@ namespace UTN.WinForms.ApCars.Layers.UI
                     mskVIN.Focus();
                     return;
                 }
+                if (mskVIN.SelectionLength > 17)
+                {
+                    epError.SetError(mskVIN, "Dato Requerido");
+                    mskVIN.Focus();
+                    return;
+                }
 
                 //Validación de descripción
                 if (string.IsNullOrEmpty(txtDescripcion.Text))
@@ -240,7 +246,7 @@ namespace UTN.WinForms.ApCars.Layers.UI
                     return;
                 }
 
-                oVehiculo.IdVIN = mskVIN.Text;
+                oVehiculo.IdVIN = mskVIN.Text.ToUpper();
                 oVehiculo.IdMarca = Convert.ToInt16(cmbMarca.SelectedValue);
                 oVehiculo.IdEstilo = Convert.ToInt16(cmbEstilo.SelectedValue);
                 oVehiculo.DescripcionVehiculo = txtDescripcion.Text;

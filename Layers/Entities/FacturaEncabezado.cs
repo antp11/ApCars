@@ -29,5 +29,28 @@ namespace UTN.WinForms.ApCars.Layers.Entities
         public double GetSubTotal() => _ListaFacturaDetalle.Sum(p =>  p.PrecioColones);
 
         public double GetImpuesto() => _ListaFacturaDetalle.Sum(p => p.ImpuestoColones);
+
+    //    public string EnmascararTarjeta()
+    //    {
+
+    //        string numModificado = "";
+
+
+
+    //        for (int i = 0; i < NoReferencia.Length; i++)
+    //        {
+    //            if (i < 15)
+    //            {
+    //                numModificado += "*";
+    //            }
+    //            else
+    //            {
+    //                numModificado += NoReferencia[i];
+    //            }
+    //        }
+
+    //        return numModificado;
+    //    }
+
     }
 }

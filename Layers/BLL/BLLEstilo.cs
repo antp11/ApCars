@@ -17,7 +17,11 @@ namespace UTN.WinForms.ApCars.Layers.BLL
 
             return dalEstilo.GetAll();
         }
-
+        /// <summary>
+        /// Metodo que busca el estilo de carro por el id
+        /// </summary>
+        /// <param name="pId"></param>
+        /// <returns></returns>
         public Estilo GetById(int pId)
         {
             IDALEstilo dalEstilo = new DALEstilo();

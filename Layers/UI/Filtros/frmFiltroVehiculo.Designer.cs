@@ -149,7 +149,7 @@
             // 
             // Apellidoss1
             // 
-            this.Apellidoss1.DataPropertyName = "Dia";
+            this.Apellidoss1.DataPropertyName = "Anno";
             this.Apellidoss1.HeaderText = "Año";
             this.Apellidoss1.MinimumWidth = 6;
             this.Apellidoss1.Name = "Apellidoss1";

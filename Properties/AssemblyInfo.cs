@@ -5,13 +5,13 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("apCars")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("ApCars")]
+[assembly: AssemblyDescription("Sistema de Ventas de Autos(Fines Educativos)")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("apCars")]
+[assembly: AssemblyCompany("Universidad Tecnica Nacional - UTN")]
+[assembly: AssemblyProduct("ApCars")]
 [assembly: AssemblyCopyright("Copyright ©  2026")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("UTN")]
 [assembly: AssemblyCulture("")]
 [assembly: log4net.Config.XmlConfigurator(Watch = true)]
 

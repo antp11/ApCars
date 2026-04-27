@@ -30,15 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tspBarraSuperior = new System.Windows.Forms.ToolStrip();
+            this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnFacturar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.sttBarraInferior = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLblDolar = new System.Windows.Forms.ToolStripStatusLabel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.pnlFirma = new System.Windows.Forms.Panel();
+            this.btnLimpiarFirma = new System.Windows.Forms.Button();
+            this.picFirma = new System.Windows.Forms.PictureBox();
             this.grbFacturacion = new System.Windows.Forms.GroupBox();
             this.tlpProducto = new System.Windows.Forms.TableLayoutPanel();
             this.txtVIN = new System.Windows.Forms.TextBox();
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.lblMarca = new System.Windows.Forms.Label();
+            this.btnBuscarVehiculo = new System.Windows.Forms.Button();
             this.lblDescripcion = new System.Windows.Forms.Label();
             this.lblVIN = new System.Windows.Forms.Label();
             this.txtDescripcionVehiculo = new System.Windows.Forms.TextBox();
@@ -46,6 +52,7 @@
             this.txtEstado = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.tlpAgrupamiento = new System.Windows.Forms.TableLayoutPanel();
             this.lblCliente = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -54,6 +61,7 @@
             this.txtClienteId = new System.Windows.Forms.TextBox();
             this.rdbTransferencia = new System.Windows.Forms.RadioButton();
             this.cmbTarjeta = new System.Windows.Forms.ComboBox();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtNumeroFactura = new System.Windows.Forms.TextBox();
@@ -78,14 +86,6 @@
             this.Impuesto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.erpError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btnLimpiarFirma = new System.Windows.Forms.Button();
-            this.picFirma = new System.Windows.Forms.PictureBox();
-            this.btnBuscarVehiculo = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnBuscarCliente = new System.Windows.Forms.Button();
-            this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnFacturar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.tspBarraSuperior.SuspendLayout();
             this.sttBarraInferior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -93,6 +93,7 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.pnlFirma.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picFirma)).BeginInit();
             this.grbFacturacion.SuspendLayout();
             this.tlpProducto.SuspendLayout();
             this.tlpAgrupamiento.SuspendLayout();
@@ -100,7 +101,6 @@
             this.tlbPanelTotalPagar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleFactura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpError)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picFirma)).BeginInit();
             this.SuspendLayout();
             // 
             // tspBarraSuperior
@@ -115,6 +115,36 @@
             this.tspBarraSuperior.Size = new System.Drawing.Size(1400, 71);
             this.tspBarraSuperior.TabIndex = 2;
             this.tspBarraSuperior.Text = "toolStrip1";
+            // 
+            // toolStripBtnNuevo
+            // 
+            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.nuevo;
+            this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
+            this.toolStripBtnNuevo.Size = new System.Drawing.Size(120, 68);
+            this.toolStripBtnNuevo.Text = "Nuevo";
+            this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
+            // 
+            // toolStripBtnFacturar
+            // 
+            this.toolStripBtnFacturar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Fact;
+            this.toolStripBtnFacturar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnFacturar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnFacturar.Name = "toolStripBtnFacturar";
+            this.toolStripBtnFacturar.Size = new System.Drawing.Size(129, 68);
+            this.toolStripBtnFacturar.Text = "Facturar";
+            this.toolStripBtnFacturar.Click += new System.EventHandler(this.toolStripBtnFacturar_Click);
+            // 
+            // toolStripBtnSalir
+            // 
+            this.toolStripBtnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.Salir2;
+            this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnSalir.Name = "toolStripBtnSalir";
+            this.toolStripBtnSalir.Size = new System.Drawing.Size(106, 68);
+            this.toolStripBtnSalir.Text = "Salir";
+            this.toolStripBtnSalir.Click += new System.EventHandler(this.toolStripBtnSalir_Click);
             // 
             // sttBarraInferior
             // 
@@ -164,6 +194,32 @@
             this.pnlFirma.Size = new System.Drawing.Size(644, 117);
             this.pnlFirma.TabIndex = 8;
             // 
+            // btnLimpiarFirma
+            // 
+            this.btnLimpiarFirma.Image = global::UTN.WinForms.ApCars.Properties.Resources.Limpiar;
+            this.btnLimpiarFirma.Location = new System.Drawing.Point(52, 31);
+            this.btnLimpiarFirma.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLimpiarFirma.Name = "btnLimpiarFirma";
+            this.btnLimpiarFirma.Size = new System.Drawing.Size(128, 74);
+            this.btnLimpiarFirma.TabIndex = 66;
+            this.btnLimpiarFirma.Text = "Limpiar Firma";
+            this.btnLimpiarFirma.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnLimpiarFirma.UseVisualStyleBackColor = true;
+            this.btnLimpiarFirma.Click += new System.EventHandler(this.btnLimpiarFirma_Click);
+            // 
+            // picFirma
+            // 
+            this.picFirma.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.picFirma.Location = new System.Drawing.Point(251, 15);
+            this.picFirma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.picFirma.Name = "picFirma";
+            this.picFirma.Size = new System.Drawing.Size(351, 90);
+            this.picFirma.TabIndex = 67;
+            this.picFirma.TabStop = false;
+            this.picFirma.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picFirma_MouseDown);
+            this.picFirma.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picFirma_MouseMove);
+            this.picFirma.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picFirma_MouseUp);
+            // 
             // grbFacturacion
             // 
             this.grbFacturacion.Controls.Add(this.tlpProducto);
@@ -207,7 +263,7 @@
             this.tlpProducto.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpProducto.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tlpProducto.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpProducto.Size = new System.Drawing.Size(644, 195);
+            this.tlpProducto.Size = new System.Drawing.Size(644, 224);
             this.tlpProducto.TabIndex = 7;
             // 
             // txtVIN
@@ -239,6 +295,20 @@
             this.lblMarca.Size = new System.Drawing.Size(45, 16);
             this.lblMarca.TabIndex = 13;
             this.lblMarca.Text = "Marca";
+            // 
+            // btnBuscarVehiculo
+            // 
+            this.btnBuscarVehiculo.Image = global::UTN.WinForms.ApCars.Properties.Resources.buscar1;
+            this.btnBuscarVehiculo.Location = new System.Drawing.Point(467, 4);
+            this.btnBuscarVehiculo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarVehiculo.Name = "btnBuscarVehiculo";
+            this.tlpProducto.SetRowSpan(this.btnBuscarVehiculo, 3);
+            this.btnBuscarVehiculo.Size = new System.Drawing.Size(145, 82);
+            this.btnBuscarVehiculo.TabIndex = 6;
+            this.btnBuscarVehiculo.Text = "Buscar Vehiculo";
+            this.btnBuscarVehiculo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscarVehiculo.UseVisualStyleBackColor = true;
+            this.btnBuscarVehiculo.Click += new System.EventHandler(this.btnBuscarVehiculo_Click);
             // 
             // lblDescripcion
             // 
@@ -312,6 +382,19 @@
             this.label7.TabIndex = 9;
             this.label7.Text = "Precio";
             // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Image = global::UTN.WinForms.ApCars.Properties.Resources.ADD;
+            this.btnAgregar.Location = new System.Drawing.Point(467, 124);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(145, 78);
+            this.btnAgregar.TabIndex = 8;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
             // tlpAgrupamiento
             // 
             this.tlpAgrupamiento.BackColor = System.Drawing.SystemColors.Control;
@@ -382,6 +465,7 @@
             // 
             this.txtNumeroTarjeta.Location = new System.Drawing.Point(176, 94);
             this.txtNumeroTarjeta.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumeroTarjeta.MaxLength = 16;
             this.txtNumeroTarjeta.Name = "txtNumeroTarjeta";
             this.txtNumeroTarjeta.Size = new System.Drawing.Size(239, 22);
             this.txtNumeroTarjeta.TabIndex = 2;
@@ -413,6 +497,20 @@
             this.cmbTarjeta.Name = "cmbTarjeta";
             this.cmbTarjeta.Size = new System.Drawing.Size(239, 24);
             this.cmbTarjeta.TabIndex = 1;
+            // 
+            // btnBuscarCliente
+            // 
+            this.btnBuscarCliente.Image = global::UTN.WinForms.ApCars.Properties.Resources.buscar1;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(453, 94);
+            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.tlpAgrupamiento.SetRowSpan(this.btnBuscarCliente, 2);
+            this.btnBuscarCliente.Size = new System.Drawing.Size(147, 78);
+            this.btnBuscarCliente.TabIndex = 4;
+            this.btnBuscarCliente.Text = "Buscar Cliente";
+            this.btnBuscarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscarCliente.UseVisualStyleBackColor = true;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
             // 
             // label1
             // 
@@ -449,7 +547,7 @@
             // txtNombreCliente
             // 
             this.tlpAgrupamiento.SetColumnSpan(this.txtNombreCliente, 2);
-            this.txtNombreCliente.Location = new System.Drawing.Point(176, 166);
+            this.txtNombreCliente.Location = new System.Drawing.Point(176, 180);
             this.txtNombreCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombreCliente.Name = "txtNombreCliente";
             this.txtNombreCliente.ReadOnly = true;
@@ -460,7 +558,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(4, 162);
+            this.label12.Location = new System.Drawing.Point(4, 176);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(100, 16);
@@ -685,103 +783,6 @@
             // 
             this.erpError.ContainerControl = this;
             // 
-            // btnLimpiarFirma
-            // 
-            this.btnLimpiarFirma.Image = global::UTN.WinForms.ApCars.Properties.Resources.Limpiar;
-            this.btnLimpiarFirma.Location = new System.Drawing.Point(52, 31);
-            this.btnLimpiarFirma.Margin = new System.Windows.Forms.Padding(4);
-            this.btnLimpiarFirma.Name = "btnLimpiarFirma";
-            this.btnLimpiarFirma.Size = new System.Drawing.Size(128, 58);
-            this.btnLimpiarFirma.TabIndex = 66;
-            this.btnLimpiarFirma.Text = "Limpiar Firma";
-            this.btnLimpiarFirma.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnLimpiarFirma.UseVisualStyleBackColor = true;
-            this.btnLimpiarFirma.Click += new System.EventHandler(this.btnLimpiarFirma_Click);
-            // 
-            // picFirma
-            // 
-            this.picFirma.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.picFirma.Location = new System.Drawing.Point(251, 15);
-            this.picFirma.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.picFirma.Name = "picFirma";
-            this.picFirma.Size = new System.Drawing.Size(351, 90);
-            this.picFirma.TabIndex = 67;
-            this.picFirma.TabStop = false;
-            this.picFirma.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picFirma_MouseDown);
-            this.picFirma.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picFirma_MouseMove);
-            this.picFirma.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picFirma_MouseUp);
-            // 
-            // btnBuscarVehiculo
-            // 
-            this.btnBuscarVehiculo.Image = global::UTN.WinForms.ApCars.Properties.Resources.buscar1;
-            this.btnBuscarVehiculo.Location = new System.Drawing.Point(467, 4);
-            this.btnBuscarVehiculo.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscarVehiculo.Name = "btnBuscarVehiculo";
-            this.tlpProducto.SetRowSpan(this.btnBuscarVehiculo, 3);
-            this.btnBuscarVehiculo.Size = new System.Drawing.Size(145, 64);
-            this.btnBuscarVehiculo.TabIndex = 6;
-            this.btnBuscarVehiculo.Text = "Buscar Vehiculo";
-            this.btnBuscarVehiculo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBuscarVehiculo.UseVisualStyleBackColor = true;
-            this.btnBuscarVehiculo.Click += new System.EventHandler(this.btnBuscarVehiculo_Click);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Image = global::UTN.WinForms.ApCars.Properties.Resources.ADD;
-            this.btnAgregar.Location = new System.Drawing.Point(467, 124);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(159, 70);
-            this.btnAgregar.TabIndex = 8;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // btnBuscarCliente
-            // 
-            this.btnBuscarCliente.Image = global::UTN.WinForms.ApCars.Properties.Resources.buscar1;
-            this.btnBuscarCliente.Location = new System.Drawing.Point(453, 94);
-            this.btnBuscarCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.tlpAgrupamiento.SetRowSpan(this.btnBuscarCliente, 2);
-            this.btnBuscarCliente.Size = new System.Drawing.Size(147, 64);
-            this.btnBuscarCliente.TabIndex = 4;
-            this.btnBuscarCliente.Text = "Buscar Cliente";
-            this.btnBuscarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBuscarCliente.UseVisualStyleBackColor = true;
-            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
-            // 
-            // toolStripBtnNuevo
-            // 
-            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.nuevo;
-            this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
-            this.toolStripBtnNuevo.Size = new System.Drawing.Size(120, 68);
-            this.toolStripBtnNuevo.Text = "Nuevo";
-            this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
-            // 
-            // toolStripBtnFacturar
-            // 
-            this.toolStripBtnFacturar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Fact;
-            this.toolStripBtnFacturar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnFacturar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnFacturar.Name = "toolStripBtnFacturar";
-            this.toolStripBtnFacturar.Size = new System.Drawing.Size(129, 68);
-            this.toolStripBtnFacturar.Text = "Facturar";
-            this.toolStripBtnFacturar.Click += new System.EventHandler(this.toolStripBtnFacturar_Click);
-            // 
-            // toolStripBtnSalir
-            // 
-            this.toolStripBtnSalir.Image = global::UTN.WinForms.ApCars.Properties.Resources.Salir2;
-            this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnSalir.Name = "toolStripBtnSalir";
-            this.toolStripBtnSalir.Size = new System.Drawing.Size(106, 68);
-            this.toolStripBtnSalir.Text = "Salir";
-            this.toolStripBtnSalir.Click += new System.EventHandler(this.toolStripBtnSalir_Click);
-            // 
             // frmFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -804,6 +805,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.pnlFirma.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picFirma)).EndInit();
             this.grbFacturacion.ResumeLayout(false);
             this.tlpProducto.ResumeLayout(false);
             this.tlpProducto.PerformLayout();
@@ -814,7 +816,6 @@
             this.tlbPanelTotalPagar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleFactura)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erpError)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picFirma)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

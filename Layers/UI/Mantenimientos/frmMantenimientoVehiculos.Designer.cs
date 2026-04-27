@@ -369,6 +369,7 @@
             // 
             this.mskAnno.Location = new System.Drawing.Point(371, 128);
             this.mskAnno.Margin = new System.Windows.Forms.Padding(4);
+            this.mskAnno.Mask = "9999";
             this.mskAnno.Name = "mskAnno";
             this.mskAnno.Size = new System.Drawing.Size(207, 22);
             this.mskAnno.TabIndex = 34;
@@ -556,6 +557,7 @@
             // 
             this.mskVIN.Location = new System.Drawing.Point(371, 4);
             this.mskVIN.Margin = new System.Windows.Forms.Padding(4);
+            this.mskVIN.Mask = "AAAAAAAAAAAAAAAAA";
             this.mskVIN.Name = "mskVIN";
             this.mskVIN.Size = new System.Drawing.Size(207, 22);
             this.mskVIN.TabIndex = 1;
@@ -601,9 +603,11 @@
             // 
             this.mskPrecio.Location = new System.Drawing.Point(371, 332);
             this.mskPrecio.Margin = new System.Windows.Forms.Padding(4);
+            this.mskPrecio.Mask = "999999999999999";
             this.mskPrecio.Name = "mskPrecio";
             this.mskPrecio.Size = new System.Drawing.Size(207, 22);
             this.mskPrecio.TabIndex = 3;
+            this.mskPrecio.ValidatingType = typeof(int);
             // 
             // pbImagen
             // 

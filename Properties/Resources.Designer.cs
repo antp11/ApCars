@@ -83,6 +83,16 @@ namespace UTN.WinForms.ApCars.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap acerca_de {
+            get {
+                object obj = ResourceManager.GetObject("acerca de", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ADD {
             get {
                 object obj = ResourceManager.GetObject("ADD", resourceCulture);
@@ -266,6 +276,16 @@ namespace UTN.WinForms.ApCars.Properties {
         internal static System.Drawing.Bitmap Imp {
             get {
                 object obj = ResourceManager.GetObject("Imp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap INFO {
+            get {
+                object obj = ResourceManager.GetObject("INFO", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

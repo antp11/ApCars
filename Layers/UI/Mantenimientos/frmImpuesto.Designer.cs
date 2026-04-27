@@ -32,6 +32,10 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmImpuesto));
             this.sttInferior = new System.Windows.Forms.StatusStrip();
             this.tspPrincipal = new System.Windows.Forms.ToolStrip();
+            this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnEditar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnBorrar = new System.Windows.Forms.ToolStripButton();
+            this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
             this.IdFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,14 +44,10 @@
             this.label9 = new System.Windows.Forms.Label();
             this.lblIdMarca = new System.Windows.Forms.Label();
             this.mskPorcentaje = new System.Windows.Forms.MaskedTextBox();
+            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.epError = new System.Windows.Forms.ErrorProvider(this.components);
-            this.toolStripBtnNuevo = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnEditar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnBorrar = new System.Windows.Forms.ToolStripButton();
-            this.toolStripBtnSalir = new System.Windows.Forms.ToolStripButton();
             this.tspPrincipal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -81,6 +81,47 @@
             this.tspPrincipal.Size = new System.Drawing.Size(785, 71);
             this.tspPrincipal.TabIndex = 8;
             // 
+            // toolStripBtnNuevo
+            // 
+            this.toolStripBtnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.nuevo;
+            this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
+            this.toolStripBtnNuevo.Size = new System.Drawing.Size(120, 68);
+            this.toolStripBtnNuevo.Text = "&Nuevo";
+            this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
+            // 
+            // toolStripBtnEditar
+            // 
+            this.toolStripBtnEditar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Editar;
+            this.toolStripBtnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnEditar.Name = "toolStripBtnEditar";
+            this.toolStripBtnEditar.Size = new System.Drawing.Size(116, 68);
+            this.toolStripBtnEditar.Text = "&Editar";
+            this.toolStripBtnEditar.Click += new System.EventHandler(this.toolStripBtnEditar_Click);
+            // 
+            // toolStripBtnBorrar
+            // 
+            this.toolStripBtnBorrar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Eliminar;
+            this.toolStripBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnBorrar.Name = "toolStripBtnBorrar";
+            this.toolStripBtnBorrar.Size = new System.Drawing.Size(118, 68);
+            this.toolStripBtnBorrar.Text = "&Borrar";
+            this.toolStripBtnBorrar.Click += new System.EventHandler(this.toolStripBtnBorrar_Click);
+            // 
+            // toolStripBtnSalir
+            // 
+            this.toolStripBtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnSalir.Image")));
+            this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripBtnSalir.Name = "toolStripBtnSalir";
+            this.toolStripBtnSalir.Size = new System.Drawing.Size(106, 68);
+            this.toolStripBtnSalir.Text = "&Salir";
+            this.toolStripBtnSalir.Click += new System.EventHandler(this.toolStripBtnSalir_Click);
+            // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -94,6 +135,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.tableLayoutPanel1);
+            this.splitContainer1.Panel2.Controls.Add(this.btnAceptar);
+            this.splitContainer1.Panel2.Controls.Add(this.btnCancelar);
             this.splitContainer1.Size = new System.Drawing.Size(785, 364);
             this.splitContainer1.SplitterDistance = 313;
             this.splitContainer1.TabIndex = 9;
@@ -140,8 +183,6 @@
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.lblIdMarca, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.mskPorcentaje, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.btnAceptar, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.btnCancelar, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.dtpFecha, 1, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(22, 21);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
@@ -184,13 +225,21 @@
             this.mskPorcentaje.Size = new System.Drawing.Size(121, 22);
             this.mskPorcentaje.TabIndex = 20;
             // 
+            // dtpFecha
+            // 
+            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha.Location = new System.Drawing.Point(169, 3);
+            this.dtpFecha.Name = "dtpFecha";
+            this.dtpFecha.Size = new System.Drawing.Size(121, 22);
+            this.dtpFecha.TabIndex = 21;
+            // 
             // btnAceptar
             // 
             this.btnAceptar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Aceptar1;
-            this.btnAceptar.Location = new System.Drawing.Point(4, 60);
+            this.btnAceptar.Location = new System.Drawing.Point(48, 200);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(136, 56);
+            this.btnAceptar.Size = new System.Drawing.Size(136, 83);
             this.btnAceptar.TabIndex = 5;
             this.btnAceptar.Text = "&Aceptar";
             this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -201,66 +250,18 @@
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Cancelar1;
-            this.btnCancelar.Location = new System.Drawing.Point(170, 60);
+            this.btnCancelar.Location = new System.Drawing.Point(212, 200);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(120, 56);
+            this.btnCancelar.Size = new System.Drawing.Size(120, 83);
             this.btnCancelar.TabIndex = 6;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
-            // dtpFecha
-            // 
-            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFecha.Location = new System.Drawing.Point(169, 3);
-            this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(121, 22);
-            this.dtpFecha.TabIndex = 21;
-            // 
             // epError
             // 
             this.epError.ContainerControl = this;
-            // 
-            // toolStripBtnNuevo
-            // 
-            this.toolStripBtnNuevo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.toolStripBtnNuevo.Image = global::UTN.WinForms.ApCars.Properties.Resources.nuevo;
-            this.toolStripBtnNuevo.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnNuevo.Name = "toolStripBtnNuevo";
-            this.toolStripBtnNuevo.Size = new System.Drawing.Size(120, 68);
-            this.toolStripBtnNuevo.Text = "&Nuevo";
-            this.toolStripBtnNuevo.Click += new System.EventHandler(this.toolStripBtnNuevo_Click);
-            // 
-            // toolStripBtnEditar
-            // 
-            this.toolStripBtnEditar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Editar;
-            this.toolStripBtnEditar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnEditar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnEditar.Name = "toolStripBtnEditar";
-            this.toolStripBtnEditar.Size = new System.Drawing.Size(116, 68);
-            this.toolStripBtnEditar.Text = "&Editar";
-            this.toolStripBtnEditar.Click += new System.EventHandler(this.toolStripBtnEditar_Click);
-            // 
-            // toolStripBtnBorrar
-            // 
-            this.toolStripBtnBorrar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Eliminar;
-            this.toolStripBtnBorrar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnBorrar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnBorrar.Name = "toolStripBtnBorrar";
-            this.toolStripBtnBorrar.Size = new System.Drawing.Size(118, 68);
-            this.toolStripBtnBorrar.Text = "&Borrar";
-            this.toolStripBtnBorrar.Click += new System.EventHandler(this.toolStripBtnBorrar_Click);
-            // 
-            // toolStripBtnSalir
-            // 
-            this.toolStripBtnSalir.Image = ((System.Drawing.Image)(resources.GetObject("toolStripBtnSalir.Image")));
-            this.toolStripBtnSalir.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolStripBtnSalir.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripBtnSalir.Name = "toolStripBtnSalir";
-            this.toolStripBtnSalir.Size = new System.Drawing.Size(106, 68);
-            this.toolStripBtnSalir.Text = "&Salir";
             // 
             // frmImpuesto
             // 

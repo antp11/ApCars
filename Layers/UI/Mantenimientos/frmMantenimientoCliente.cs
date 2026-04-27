@@ -63,12 +63,48 @@ namespace UTN.WinForms.ApCars.Layers.UI
         {
             IBLLCliente bllCliente = new BLLCliente();
             erp = new ErrorProvider();
+            int letra = 0;
+            int numero = 0;
             try
             {
                 erp.Clear();
                 Cliente oCliente = new Cliente();
+                if (rdbNacional.Checked)
+                {
+                    if (txtIdCliente.Text.Length < 9)
+                    {
 
+                        MessageBox.Show("Identificación Invalida", "Atención");
+                        txtIdCliente.Focus();
+                        return;
 
+                    }
+                }
+
+                if (rdbExtranjero.Checked)
+                {
+                    foreach (char c in txtIdCliente.Text)
+                    {
+                        if (char.IsLetter(c))
+                            letra++;
+                        if (char.IsNumber(c))
+                            numero++;
+
+                    }
+                    if (letra == 0)
+                    {
+                        MessageBox.Show("Pasaporte Invalido!", "Atención");
+                        txtIdCliente.Focus();
+                        return;
+
+                    }
+                    if (numero < 6)
+                    {
+                        MessageBox.Show("Pasaporte Invalido debe contener un letra y 6 digitos!", "Atención");
+                        txtIdCliente.Focus();
+                        return;
+                    }
+                }
                 if (this.pbImagen.Tag == null)
                 {
                     MessageBox.Show("La Imagen  es un dato requerido !", "Atención");
@@ -99,10 +135,10 @@ namespace UTN.WinForms.ApCars.Layers.UI
                     txtEmail.Focus();
                     return;
                 }
-                if (string.IsNullOrEmpty(txtTelefono.Text))
+                if (string.IsNullOrEmpty(mskTelefono.Text))
                 {
-                    erp.SetError(txtTelefono, "Dato Requerido");
-                    txtTelefono.Focus();
+                    erp.SetError(mskTelefono, "Dato Requerido");
+                    mskTelefono.Focus();
                     return;
                 }
                 if (string.IsNullOrEmpty(txtDireccion.Text))
@@ -119,7 +155,7 @@ namespace UTN.WinForms.ApCars.Layers.UI
                 oCliente.Apellido1 = this.txtApellido1.Text;
                 oCliente.Apellido2 = this.txtApellido2.Text;
                 oCliente.Correo = this.txtEmail.Text;
-                oCliente.Telefono = this.txtTelefono.Text;
+                oCliente.Telefono = this.mskTelefono.Text;
                 oCliente.Direccion = this.txtDireccion.Text;
                 oCliente.Foto = (byte[])this.pbImagen.Tag;
                 oCliente.IdProvincia = (cmbProvincia.SelectedItem as Provincia).IdProvincia;
@@ -174,7 +210,7 @@ namespace UTN.WinForms.ApCars.Layers.UI
             this.txtApellido1.Clear();
             this.txtApellido2.Clear();
             this.txtEmail.Clear();
-            this.txtTelefono.Clear();
+            this.mskTelefono.Clear();
             this.txtDireccion.Clear();
             this.txtIdCliente.Enabled = false;
             this.txtNombre.Enabled = false;
@@ -187,6 +223,8 @@ namespace UTN.WinForms.ApCars.Layers.UI
             this.pbImagen.Enabled = false;
             this.rdbNacional.Enabled = false;
             this.rdbExtranjero.Enabled = false;
+            this.mskTelefono.Enabled = false;
+            this.rdbNacional.Checked = true;
 
             this.btnAceptar.Enabled = false;
             this.btnCancelar.Enabled = false;
@@ -196,7 +234,7 @@ namespace UTN.WinForms.ApCars.Layers.UI
             //carga la imagen por defecto
             this.pbImagen.Image = ApCars.Properties.Resources.imageInsert;
             this.pbImagen.SizeMode = PictureBoxSizeMode.CenterImage;
-         
+
 
             // Coloca el primer item por defecto
             if (cmbProvincia.Items.Count > 0)
@@ -220,6 +258,7 @@ namespace UTN.WinForms.ApCars.Layers.UI
                     this.rdbNacional.Enabled = true;
                     this.rdbExtranjero.Enabled = true;
                     this.pbImagen.Enabled = true;
+                    this.mskTelefono.Enabled = true;
                     txtIdCliente.Focus();
                     break;
                 case EstadoMantenimiento.Editar:
@@ -238,6 +277,7 @@ namespace UTN.WinForms.ApCars.Layers.UI
                     this.rdbExtranjero.Enabled = true;
                     this.btnBuscarCliente.Enabled = false;
                     this.pbImagen.Enabled = true;
+                    this.mskTelefono.Enabled = true;
                     txtNombre.Focus();
                     break;
                 case EstadoMantenimiento.Borrar:
@@ -256,6 +296,7 @@ namespace UTN.WinForms.ApCars.Layers.UI
             List<Provincia> lista = null;
             try
             {
+
 
                 // Cambiar el estado
                 this.ChangeState(EstadoMantenimiento.Ninguno);
@@ -342,7 +383,7 @@ namespace UTN.WinForms.ApCars.Layers.UI
                     this.txtEmail.Text = oCliente.Correo;
                     this.txtNombre.Text = oCliente.Nombre;
                     this.pbImagen.Tag = oCliente.Foto;
-                    this.txtTelefono.Text = oCliente.Telefono;
+                    this.mskTelefono.Text = oCliente.Telefono;
                     this.rdbNacional.Checked = oCliente.TipoCliente == "Nacional" ? true : false;
                     this.rdbExtranjero.Checked = oCliente.TipoCliente == "Extranjero " ? true : false;
                     this.rdbFemenino.Checked = oCliente.Sexo == "Femenino" ? true : false;
@@ -463,6 +504,16 @@ namespace UTN.WinForms.ApCars.Layers.UI
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.ChangeState(EstadoMantenimiento.Ninguno);
+        }
+
+        private void rdbExtranjero_CheckedChanged(object sender, EventArgs e)
+        {
+            btnBuscarCliente.Enabled = false;
+        }
+
+        private void rdbNacional_CheckedChanged(object sender, EventArgs e)
+        {
+            btnBuscarCliente.Enabled = true;
         }
     }
 }

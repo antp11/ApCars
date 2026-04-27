@@ -15,13 +15,23 @@ namespace UTN.WinForms.ApCars.Layers.BLL
     internal class BLLFactura : IBLLFactura
     {
         private static readonly ILog _myLogControlEventos = log4net.LogManager.GetLogger("MyControlEventos");
+    /// <summary>
+    /// Metodo que Calcuala el impuesto
+    /// </summary>
+    /// <param name="precio"></param>
+    /// <returns></returns>
         public double CalculateTax(double precio)
         {
             IBLLImpuesto bllImpuesto = new BLLImpuesto();
             double porcentaje = bllImpuesto.GetImpuesto().Porcentaje;
             return precio * (porcentaje / 100d);
         }
-
+        /// <summary>
+        /// Metodo que genera el XML de la factura
+        /// </summary>
+        /// <param name="facturaEncabezado"></param>
+        /// <param name="detalles"></param>
+        /// <returns></returns>
         public string GenerarXML(FacturaEncabezado facturaEncabezado, List<FacturaDetalle> detalles)
         {
             try
@@ -77,20 +87,31 @@ namespace UTN.WinForms.ApCars.Layers.BLL
                 throw;
             }
         }
-
+        /// <summary>
+        /// Metodo que tiene el numero actual de la factura
+        /// </summary>
+        /// <returns></returns>
         public int GetCurrentNumeroFactura()
         {
 
             IDALFactura dalFactura = new DALFactura();
             return dalFactura.GetCurrentNumeroFactura();
         }
-
+        /// <summary>
+        /// Metodo que trae el siguiente numero de factura 
+        /// </summary>
+        /// <returns></returns>
         public int GetNextNumeroFactura()
         {
             IDALFactura dalFactura = new DALFactura();
             return dalFactura.GetNextNumeroFactura();
         }
-
+        /// <summary>
+        /// Metodo que tare las ventas por fecha 
+        /// </summary>
+        /// <param name="pFechaInicial"></param>
+        /// <param name="pFechaFinal"></param>
+        /// <returns></returns>
         public async Task<IEnumerable<VentasDTO>> GetTotalVentasXFecha(DateTime pFechaInicial, DateTime pFechaFinal)
         {
             DALFactura dalFactura = new DALFactura();
@@ -99,6 +120,8 @@ namespace UTN.WinForms.ApCars.Layers.BLL
 
         public FacturaEncabezado Save(FacturaEncabezado pFactura)
         {
+            
+
             IDALFactura dalFactura = new DALFactura();
             IBLLVehiculo bllVehiculo = new BLLVehiculo();
 

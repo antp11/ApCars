@@ -68,7 +68,7 @@
             this.toolStripBtnSalir});
             this.tspPrincipal.Location = new System.Drawing.Point(0, 0);
             this.tspPrincipal.Name = "tspPrincipal";
-            this.tspPrincipal.Size = new System.Drawing.Size(800, 71);
+            this.tspPrincipal.Size = new System.Drawing.Size(1042, 71);
             this.tspPrincipal.TabIndex = 6;
             // 
             // toolStripBtnNuevo
@@ -114,10 +114,10 @@
             // sttInferior
             // 
             this.sttInferior.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.sttInferior.Location = new System.Drawing.Point(0, 428);
+            this.sttInferior.Location = new System.Drawing.Point(0, 614);
             this.sttInferior.Name = "sttInferior";
             this.sttInferior.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.sttInferior.Size = new System.Drawing.Size(800, 22);
+            this.sttInferior.Size = new System.Drawing.Size(1042, 22);
             this.sttInferior.TabIndex = 7;
             this.sttInferior.Text = "statusStrip1";
             // 
@@ -131,24 +131,24 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.btnAceptar);
-            this.splitContainer1.Panel1.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel1.Controls.Add(this.btnBuscar);
+            this.splitContainer1.Panel1.Controls.Add(this.btnCancelar);
             this.splitContainer1.Panel1.Controls.Add(this.tlpPanel);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dgvDatos);
-            this.splitContainer1.Size = new System.Drawing.Size(800, 357);
-            this.splitContainer1.SplitterDistance = 82;
+            this.splitContainer1.Size = new System.Drawing.Size(1042, 543);
+            this.splitContainer1.SplitterDistance = 124;
             this.splitContainer1.TabIndex = 8;
             // 
             // btnAceptar
             // 
             this.btnAceptar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Aceptar1;
-            this.btnAceptar.Location = new System.Drawing.Point(496, 4);
+            this.btnAceptar.Location = new System.Drawing.Point(626, 15);
             this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(111, 76);
+            this.btnAceptar.Size = new System.Drawing.Size(113, 87);
             this.btnAceptar.TabIndex = 13;
             this.btnAceptar.Text = "&Aceptar";
             this.btnAceptar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -159,10 +159,10 @@
             // 
             this.btnCancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancelar.Image = global::UTN.WinForms.ApCars.Properties.Resources.Cancelar1;
-            this.btnCancelar.Location = new System.Drawing.Point(647, 4);
+            this.btnCancelar.Location = new System.Drawing.Point(831, 15);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(113, 76);
+            this.btnCancelar.Size = new System.Drawing.Size(113, 85);
             this.btnCancelar.TabIndex = 14;
             this.btnCancelar.Text = "&Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -172,12 +172,12 @@
             // btnBuscar
             // 
             this.btnBuscar.Image = global::UTN.WinForms.ApCars.Properties.Resources.buscar;
-            this.btnBuscar.Location = new System.Drawing.Point(328, 14);
+            this.btnBuscar.Location = new System.Drawing.Point(416, 15);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(144, 60);
+            this.btnBuscar.Size = new System.Drawing.Size(113, 85);
             this.btnBuscar.TabIndex = 12;
             this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -191,7 +191,7 @@
             this.tlpPanel.Controls.Add(this.label2, 0, 1);
             this.tlpPanel.Controls.Add(this.mskIdProvincia, 2, 0);
             this.tlpPanel.Controls.Add(this.txtDescripcion, 2, 1);
-            this.tlpPanel.Location = new System.Drawing.Point(13, 14);
+            this.tlpPanel.Location = new System.Drawing.Point(46, 27);
             this.tlpPanel.Margin = new System.Windows.Forms.Padding(4);
             this.tlpPanel.Name = "tlpPanel";
             this.tlpPanel.RowCount = 2;
@@ -249,11 +249,11 @@
             this.dgvDatos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            this.dgvDatos.Location = new System.Drawing.Point(0, 1);
+            this.dgvDatos.Location = new System.Drawing.Point(4, 17);
             this.dgvDatos.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDatos.Name = "dgvDatos";
             this.dgvDatos.RowHeadersWidth = 51;
-            this.dgvDatos.Size = new System.Drawing.Size(796, 304);
+            this.dgvDatos.Size = new System.Drawing.Size(1038, 407);
             this.dgvDatos.TabIndex = 1;
             this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellContentClick);
             // 
@@ -281,7 +281,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1042, 636);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.sttInferior);
             this.Controls.Add(this.tspPrincipal);

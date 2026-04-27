@@ -39,12 +39,13 @@
             this.facturarToolStripMenuItemFacturar = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItemReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.VehiculoToolStripMenuItemElectronico = new System.Windows.Forms.ToolStripMenuItem();
-            this.gráficoToolStripMenuItemGraficos = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItemClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.facturaciónToolStripMenuItemfacturacion = new System.Windows.Forms.ToolStripMenuItem();
+            this.gráficoToolStripMenuItemGraficos = new System.Windows.Forms.ToolStripMenuItem();
             this.administracionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItemUsuarios = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAcercaDe = new System.Windows.Forms.ToolStripMenuItem();
+            this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sttBarraInferior = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLblMensaje = new System.Windows.Forms.ToolStripStatusLabel();
             this.lblCerrarSesion = new System.Windows.Forms.Label();
@@ -60,10 +61,11 @@
             this.toolStripMenuItemProcesos,
             this.reportesToolStripMenuItemReportes,
             this.administracionToolStripMenuItem,
-            this.toolStripMenuItemAcercaDe});
+            this.toolStripMenuItemAcercaDe,
+            this.acercaDeToolStripMenuItem});
             this.mspMenuPrincipal.Location = new System.Drawing.Point(0, 0);
             this.mspMenuPrincipal.Name = "mspMenuPrincipal";
-            this.mspMenuPrincipal.Size = new System.Drawing.Size(1184, 72);
+            this.mspMenuPrincipal.Size = new System.Drawing.Size(947, 72);
             this.mspMenuPrincipal.TabIndex = 2;
             this.mspMenuPrincipal.Text = "menuStrip1";
             // 
@@ -164,25 +166,16 @@
             this.VehiculoToolStripMenuItemElectronico.Image = global::UTN.WinForms.ApCars.Properties.Resources.Cars;
             this.VehiculoToolStripMenuItemElectronico.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.VehiculoToolStripMenuItemElectronico.Name = "VehiculoToolStripMenuItemElectronico";
-            this.VehiculoToolStripMenuItemElectronico.Size = new System.Drawing.Size(252, 54);
+            this.VehiculoToolStripMenuItemElectronico.Size = new System.Drawing.Size(195, 54);
             this.VehiculoToolStripMenuItemElectronico.Text = "Vehiculo";
             this.VehiculoToolStripMenuItemElectronico.Click += new System.EventHandler(this.VehiculoToolStripMenuItemElectronico_Click);
-            // 
-            // gráficoToolStripMenuItemGraficos
-            // 
-            this.gráficoToolStripMenuItemGraficos.Image = global::UTN.WinForms.ApCars.Properties.Resources.Grafico;
-            this.gráficoToolStripMenuItemGraficos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.gráficoToolStripMenuItemGraficos.Name = "gráficoToolStripMenuItemGraficos";
-            this.gráficoToolStripMenuItemGraficos.Size = new System.Drawing.Size(252, 54);
-            this.gráficoToolStripMenuItemGraficos.Text = "Gráfico";
-            this.gráficoToolStripMenuItemGraficos.Click += new System.EventHandler(this.gráficoToolStripMenuItemGraficos_Click);
             // 
             // clientesToolStripMenuItemClientes
             // 
             this.clientesToolStripMenuItemClientes.Image = global::UTN.WinForms.ApCars.Properties.Resources.Clientes;
             this.clientesToolStripMenuItemClientes.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.clientesToolStripMenuItemClientes.Name = "clientesToolStripMenuItemClientes";
-            this.clientesToolStripMenuItemClientes.Size = new System.Drawing.Size(252, 54);
+            this.clientesToolStripMenuItemClientes.Size = new System.Drawing.Size(195, 54);
             this.clientesToolStripMenuItemClientes.Text = "Clientes";
             this.clientesToolStripMenuItemClientes.Click += new System.EventHandler(this.clientesToolStripMenuItemClientes_Click);
             // 
@@ -191,9 +184,18 @@
             this.facturaciónToolStripMenuItemfacturacion.Image = global::UTN.WinForms.ApCars.Properties.Resources.money;
             this.facturaciónToolStripMenuItemfacturacion.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.facturaciónToolStripMenuItemfacturacion.Name = "facturaciónToolStripMenuItemfacturacion";
-            this.facturaciónToolStripMenuItemfacturacion.Size = new System.Drawing.Size(252, 54);
+            this.facturaciónToolStripMenuItemfacturacion.Size = new System.Drawing.Size(195, 54);
             this.facturaciónToolStripMenuItemfacturacion.Text = "Facturación";
             this.facturaciónToolStripMenuItemfacturacion.Click += new System.EventHandler(this.facturaciónToolStripMenuItemfacturacion_Click);
+            // 
+            // gráficoToolStripMenuItemGraficos
+            // 
+            this.gráficoToolStripMenuItemGraficos.Image = global::UTN.WinForms.ApCars.Properties.Resources.Grafico;
+            this.gráficoToolStripMenuItemGraficos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.gráficoToolStripMenuItemGraficos.Name = "gráficoToolStripMenuItemGraficos";
+            this.gráficoToolStripMenuItemGraficos.Size = new System.Drawing.Size(195, 54);
+            this.gráficoToolStripMenuItemGraficos.Text = "Gráfico";
+            this.gráficoToolStripMenuItemGraficos.Click += new System.EventHandler(this.gráficoToolStripMenuItemGraficos_Click);
             // 
             // administracionToolStripMenuItem
             // 
@@ -220,15 +222,24 @@
             this.toolStripMenuItemAcercaDe.Name = "toolStripMenuItemAcercaDe";
             this.toolStripMenuItemAcercaDe.Size = new System.Drawing.Size(14, 68);
             // 
+            // acercaDeToolStripMenuItem
+            // 
+            this.acercaDeToolStripMenuItem.Image = global::UTN.WinForms.ApCars.Properties.Resources.acerca_de;
+            this.acercaDeToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(153, 68);
+            this.acercaDeToolStripMenuItem.Text = "Acerca de";
+            this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
+            // 
             // sttBarraInferior
             // 
             this.sttBarraInferior.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.sttBarraInferior.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLblMensaje});
-            this.sttBarraInferior.Location = new System.Drawing.Point(0, 881);
+            this.sttBarraInferior.Location = new System.Drawing.Point(0, 699);
             this.sttBarraInferior.Name = "sttBarraInferior";
             this.sttBarraInferior.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.sttBarraInferior.Size = new System.Drawing.Size(1184, 26);
+            this.sttBarraInferior.Size = new System.Drawing.Size(947, 26);
             this.sttBarraInferior.TabIndex = 4;
             // 
             // toolStripStatusLblMensaje
@@ -255,7 +266,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::UTN.WinForms.ApCars.Properties.Resources.logoActualizado_2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1184, 907);
+            this.ClientSize = new System.Drawing.Size(947, 725);
             this.Controls.Add(this.lblCerrarSesion);
             this.Controls.Add(this.sttBarraInferior);
             this.Controls.Add(this.mspMenuPrincipal);
@@ -298,6 +309,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLblMensaje;
         private System.Windows.Forms.ToolStripMenuItem provinciaToolStripMenuItem;
         private System.Windows.Forms.Label lblCerrarSesion;
+        private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
     }
 }
 

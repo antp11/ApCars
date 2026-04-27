@@ -150,7 +150,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
             {
                 this.cmbTarjeta.Items.Add(oTarjeta);
             }
-            cmbTarjeta.SelectedIndex = 0;
+            this.cmbTarjeta.SelectedIndex = 0;
 
         }
 
@@ -172,7 +172,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
                     txtMarca.Text = oMarca.ToString();
                     txtEstado.Text = _vehiculo.Estado;
                     txtPrecio.Text = _vehiculo.Precio.ToString();
-                    ;
+                    
 
                 }
             }
@@ -326,6 +326,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
         {
             IBLLFactura bllFactura = new BLLFactura();
 
+
             // Pasar la firma a byte[] (imagen del PictureBox)
             byte[] firmaBytes = ImagenToBytes(firmaBitmap);
             try
@@ -447,6 +448,9 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
             IBLLCliente bLLCliente = new BLLCliente();
             IBLLVehiculo bllVehiculo = new BLLVehiculo();
 
+            CultureInfo dolar = new CultureInfo("en-US");
+            CultureInfo colon = new CultureInfo("es-CR");
+
 
             double granTotal = 0d, subTotal = 0, impuestoTotal = 0d, total = 0d;
 
@@ -455,7 +459,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
             // Convert Image into bytes array 
             MemoryStream ms = new MemoryStream();
             qrImage.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-           
+
 
             // Logo
             Bitmap logoBitmap = new Bitmap(Properties.Resources.smalllogo, 200, 200);
@@ -520,7 +524,8 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
                         col1.Item().AlignLeft().Text($"Factura No {pFacturaEncabezado.IdFactura}").FontSize(14).Bold();
                         col1.Item().AlignLeft().Text($"Fecha: {pFacturaEncabezado.Fecha} ").FontSize(10);
                         col1.Item().AlignLeft().Text($"Cliente: {pFacturaEncabezado.IdCliente.Trim()} - {_cliente.Nombre.Trim()} {_cliente.Apellido1.Trim()} {_cliente.Apellido2.Trim()}").FontSize(10);
-                        col1.Item().AlignLeft().Text($"No Tarjeta: {pFacturaEncabezado.NoReferencia}").FontSize(10);
+                        col1.Item().AlignLeft().Text($"Agente: {Settings.Default.Login + " - " + Settings.Default.Nombre}").FontSize(10);
+                        col1.Item().AlignLeft().Text($"No Referencia: {pFacturaEncabezado.NoReferencia}").FontSize(10);
 
 
 
@@ -599,9 +604,9 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
 
                         });
 
-                        col1.Item().AlignRight().Text("SubTotal " + subTotal.ToString("###,###.00")).FontSize(10).Bold();
-                        col1.Item().AlignRight().Text("Impuesto " + impuestoTotal.ToString("###,###.00")).FontSize(10).Bold();
-                        col1.Item().AlignRight().Text("Total " + granTotal.ToString("###,###.00")).FontSize(10).Bold();
+                        col1.Item().AlignRight().Text("SubTotal " + subTotal.ToString("C0", colon)).FontSize(10).Bold();
+                        col1.Item().AlignRight().Text("Impuesto " + impuestoTotal.ToString("C0", colon)).FontSize(10).Bold();
+                        col1.Item().AlignRight().Text("Total " + granTotal.ToString("C0", colon)).FontSize(10).Bold();
 
                         // Bloque final con QR y Firma
                         col1.Item().PaddingTop(20).Column(col =>
@@ -650,7 +655,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
 
         private void SendEmailInvoice(string email, FacturaEncabezado factura)
         {
-            
+
             String cuentaCorreoElectronico = "antpgs11@gmail.com";
             String contrasenaGeneradaXGmail = "biebdknewfzrrdsc";
             string correoDestinatario = email;  //;
@@ -670,7 +675,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Procesos
             byte[] xmlByte = Encoding.UTF8.GetBytes(xmlFactura);
             MemoryStream memoryStream = new MemoryStream(xmlByte);
             mensaje.Attachments.Add(new Attachment(memoryStream, "Factura.xml", "application/xml"));
-        
+
             Attachment attachment = new Attachment(@"c:\temp\pdfFactura.pdf");
             mensaje.Attachments.Add(attachment);
 

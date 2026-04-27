@@ -44,19 +44,19 @@ namespace UTN.WinForms.ApCars.Layers.UI.Reportes
 
             double TipoCambio = bLLDolar.GetVentaDolar();
 
-            
+
             List<VehiculoMarcaEstiloDTO> lista = null;
             try
             {
                 filtro = "%" + this.txtFiltro.Text + "%";
 
 
-                if(rdbDescripcion.Checked )
+                if (rdbDescripcion.Checked)
                     lista = bLLVehiculo.GetByDescripcion(filtro);
-                if(rdbEstilo.Checked)
+                if (rdbEstilo.Checked)
                     lista = bLLVehiculo.GetByEstilo(filtro);
-                if(rdbMarca.Checked)
-                    lista= bLLVehiculo.GetByMarca(filtro);
+                if (rdbMarca.Checked)
+                    lista = bLLVehiculo.GetByMarca(filtro);
 
 
                 // Retorno elementos?
@@ -125,7 +125,7 @@ namespace UTN.WinForms.ApCars.Layers.UI.Reportes
                                     columns.RelativeColumn(2);
                                     columns.RelativeColumn(2);
                                     columns.RelativeColumn(2);
-                                  //  columns.RelativeColumn(2);
+                                    columns.RelativeColumn(2);
 
                                 });
 
@@ -147,10 +147,14 @@ namespace UTN.WinForms.ApCars.Layers.UI.Reportes
                                     header.Cell().Background("#34495e")
                                    .Padding(2).AlignCenter().Text("Estilo").FontColor("#fff");
 
+
                                     header.Cell().Background("#34495e")
                                    .Padding(2).AlignCenter().Text("Precio").FontColor("#fff");
 
-                                  
+                                    header.Cell().Background("#34495e")
+                                   .Padding(2).AlignCenter().Text("Estado").FontColor("#fff");
+
+
                                 });
 
 
@@ -181,17 +185,20 @@ namespace UTN.WinForms.ApCars.Layers.UI.Reportes
                                     // Column 6                                        
                                     tabla.Cell().BorderBottom(0.5f).BorderColor("#D9D9D9")
                                     .Padding(2).AlignCenter().Text(item.Precio.ToString("##,###,###.00")).FontSize(10);
+                                    // Column 7                                       
+                                    tabla.Cell().BorderBottom(0.5f).BorderColor("#D9D9D9")
+                                    .Padding(2).AlignCenter().Text(item.Estado).FontSize(10);
 
-                                    
+
 
                                 }
 
                             });
 
 
-                            col1.Item().AlignRight().Text("Total Dólares:  " + lista.Sum(f => f.Precio).ToString("C2",dolar)).FontSize(12).Bold();
+                            col1.Item().AlignRight().Text("Total Dólares:  " + lista.Sum(f => f.Precio).ToString("C2", dolar)).FontSize(12).Bold();
 
-                            col1.Item().AlignRight().Text("Total Colones:  " + lista.Sum(f => f.Precio*TipoCambio).ToString("C0",colon)).FontSize(12).Bold();
+                            col1.Item().AlignRight().Text("Total Colones:  " + lista.Sum(f => f.Precio * TipoCambio).ToString("C0", colon)).FontSize(12).Bold();
                         });
 
                         // Pie de página

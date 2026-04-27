@@ -101,6 +101,12 @@
     <Compile Include="Enums\Enumeraciones.cs" />
     <Compile Include="Enums\TipoCliente.cs" />
     <Compile Include="Extensions\ExceptionsExtention.cs" />
+    <Compile Include="frmAcercade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAcercade.Designer.cs">
+      <DependentUpon>frmAcercade.cs</DependentUpon>
+    </Compile>
     <Compile Include="Interfaces\IBLLCliente.cs" />
     <Compile Include="Interfaces\IBLLDolar.cs" />
     <Compile Include="Interfaces\IBLLEstilo.cs" />
@@ -275,6 +281,9 @@
     <Compile Include="Util\QuickResponse.cs" />
     <Compile Include="Util\UtilError.cs" />
     <Compile Include="Util\Utils.cs" />
+    <EmbeddedResource Include="frmAcercade.resx">
+      <DependentUpon>frmAcercade.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Layers\UI\Filtros\frmFiltroCliente.resx">
       <DependentUpon>frmFiltroCliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -489,6 +498,7 @@
     <None Include="Resources\ADD.png" />
     <None Include="Resources\Graf.png" />
     <None Include="Resources\Export.png" />
+    <None Include="Resources\acerca de.png" />
     <Content Include="Resources\icono.ico" />
     <None Include="Resources\mapa.png" />
     <None Include="Resources\Mantenimientos.png" />
@@ -496,6 +506,7 @@
     <None Include="Resources\Marca.png" />
     <None Include="Resources\money.png" />
     <None Include="Resources\Limpiar.png" />
+    <None Include="Resources\INFO.png" />
     <Content Include="Resources\MSWordAcepted.png" />
     <None Include="Resources\MSWordAcepted1.png" />
     <None Include="Resources\Logo.1.png" />

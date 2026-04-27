@@ -13,6 +13,10 @@ namespace UTN.WinForms.ApCars.Layers.BLL
 {
     public class BLLDolar : IBLLDolar
     {
+        /// <summary>
+        /// Metodo Que devuelve el tipo de cambio del dolar 
+        /// </summary>
+        /// <returns></returns>
         public double GetVentaDolar()
         {
             string correoRegistrado = "antperez1101@gmail.com";

@@ -219,5 +219,10 @@ namespace UTN.WinForms.ApCars.Layers.UI.Mantenimientos
 
             }
         }
+
+        private void toolStripBtnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }
